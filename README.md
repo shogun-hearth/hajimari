@@ -72,6 +72,7 @@ Card
 
 If this component is an `Atom` or `Molecule`, it should be written using syntax that follows the [`styled()` API](https://mui.com/system/styled/#api), as this is the MUI recommended approach for "lower level" components. For larger / more complex components, we can use a combination of the `styled()` API and the `sx prop`.
 <br />
+<br />
 
 
 **Q: What should a new story look like?**
@@ -91,13 +92,13 @@ title: 'Atoms/Button/Outlined Button'
    1. For Storybook, there are a good amount of libraries installed for our purposes, but we can add them pretty freely. 
    2. For the actual component library, we want to avoid importing too many external libraries--so only add one if we really, _really_ need to.
 
-  > IMPORTANT: In **both** cases, libraries should be installed as `devDependencies` in order to avoid dependency issues later.
+> IMPORTANT: In **both** cases, libraries should be installed as `devDependencies` in order to avoid dependency issues later.
 
-    ```bash
-    npm i --save-dev <package name>
-    ```
+```bash
+npm i --save-dev <package name>
+```
 
-<br />
+---
 
 ## Design Tokens 101
 
