@@ -62,6 +62,7 @@ Card
   |__Card.stories.tsx
   |__Card.stories.mdx
 ```
+<br />
 
 **Q: What should a new component look like?**  
 **A**: Beyond exporting the actual component, we also want to export the `Props` that relate to it. Some prop requirements:
@@ -71,6 +72,7 @@ Card
 
 If this component is an `Atom` or `Molecule`, it should be written using syntax that follows the [`styled()` API](https://mui.com/system/styled/#api), as this is the MUI recommended approach for "lower level" components. For larger / more complex components, we can use a combination of the `styled()` API and the `sx prop`.
 <br />
+
 
 **Q: What should a new story look like?**
 
