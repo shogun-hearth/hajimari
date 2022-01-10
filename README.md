@@ -52,8 +52,8 @@ Use existing component folder structures when creating new components and use th
 
 <br />
 
-1. **Where do new components and stories go?**  
-Every new component should live within its _own folder_, where it is the default export from that folder. The story file lives within the same folder as `ComponentName.stories.mdx`. In the case of more complex documentation, we can write component stories within `ComponentName.stories.tsx`, and then use those within MDX documentation. For example, the `Card` component looks like:
+**Q: Where do new components and stories go?**  
+**A**: Every new component should live within its _own folder_, where it is the default export from that folder. The story file lives within the same folder as `ComponentName.stories.mdx`. In the case of more complex documentation, we can write component stories within `ComponentName.stories.tsx`, and then use those within MDX documentation. For example, the `Card` component looks like:
 
 ```
 Card
