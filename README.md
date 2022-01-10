@@ -63,8 +63,8 @@ Card
   |__Card.stories.mdx
 ```
 
-1. **What should a new component look like?**
-Beyond exporting the actual component, we also want to export the `Props` that relate to it. Some prop requirements:
+**Q: What should a new component look like?**  
+**A**: Beyond exporting the actual component, we also want to export the `Props` that relate to it. Some prop requirements:
    - Reasonable names, so we someone might be able to tell what it's for right away
    - A comment above each prop describing its purpose and any other useful notes
    - When appropriate, ensure you are **extending** the existing props of a MUI component you use, so that we can forward props from MUI as well
@@ -72,9 +72,9 @@ Beyond exporting the actual component, we also want to export the `Props` that r
 If this component is an `Atom` or `Molecule`, it should be written using syntax that follows the [`styled()` API](https://mui.com/system/styled/#api), as this is the MUI recommended approach for "lower level" components. For larger / more complex components, we can use a combination of the `styled()` API and the `sx prop`.
 <br />
 
-2. **What should a new story look like?**
+**Q: What should a new story look like?**
 
-Use the provided `Template.stories.mdx` file to create new stories. What's listed is what a story should include at a minimum; more interactivity (or information) is great too!
+**A**: Use the provided `Template.stories.mdx` file to create new stories. What's listed is what a story should include at a minimum; more interactivity (or information) is great too!
 
 The `title` prop determines where in the folder hierarchy a story appears: it should follow a naming convention of `Component level > Component Name > Variant`. For example:
 
@@ -83,8 +83,8 @@ title: 'Atoms/Button/Outlined Button'
 ```
 <br />
 
-3. **I need to install a new package!**  
-There are two kinds of packages we could use here, which are either for using within Storybook _or_ for a component. 
+**Q: I need to install a new package!**  
+**A**: There are two kinds of packages we could use here, which are either for using within Storybook _or_ for a component. 
 
    1. For Storybook, there are a good amount of libraries installed for our purposes, but we can add them pretty freely. 
    2. For the actual component library, we want to avoid importing too many external libraries--so only add one if we really, _really_ need to.
