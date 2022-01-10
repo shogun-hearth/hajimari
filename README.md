@@ -6,7 +6,7 @@
 
 ###  **hajimari (始まり)**  _/.n/_ -- beginnings
 
-> Made with ❤️ with `npm` and `react typescript`, leveraging `MUI` for building and styling components. We use [`rollup`](https://rollupjs.org/guide/en/) to bundle our JS modules.
+> Made with ❤️ with `npm` and `react typescript`, leveraging `MUI` for building and styling components. We use [`rollup`](https://rollupjs.org/guide/en/) to bundle our JS modules. (Configured with the help of this handy-dandy [article](https://dev.to/alexeagleson/how-to-create-and-publish-a-react-component-library-2oe) about publishing react component libraries)
 
 > This repository maintains the component library for Hearth's web (and eventually mobile) app and overall style guide. Hajimari follows atomic design system guidelines.
 
