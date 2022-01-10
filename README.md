@@ -70,9 +70,9 @@ Beyond exporting the actual component, we also want to export the `Props` that r
    - When appropriate, ensure you are **extending** the existing props of a MUI component you use, so that we can forward props from MUI as well
 
 If this component is an `Atom` or `Molecule`, it should be written using syntax that follows the [`styled()` API](https://mui.com/system/styled/#api), as this is the MUI recommended approach for "lower level" components. For larger / more complex components, we can use a combination of the `styled()` API and the `sx prop`.
+<br />
 
-
-1. **What should a new story look like?**
+2. **What should a new story look like?**
 
 Use the provided `Template.stories.mdx` file to create new stories. What's listed is what a story should include at a minimum; more interactivity (or information) is great too!
 
@@ -81,10 +81,9 @@ The `title` prop determines where in the folder hierarchy a story appears: it sh
 ```bash
 title: 'Atoms/Button/Outlined Button'
 ```
+<br />
 
-
-
-4. **I need to install a new package!**  
+3. **I need to install a new package!**  
 There are two kinds of packages we could use here, which are either for using within Storybook _or_ for a component. 
 
    1. For Storybook, there are a good amount of libraries installed for our purposes, but we can add them pretty freely. 
