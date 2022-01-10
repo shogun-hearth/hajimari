@@ -1,0 +1,27 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+
+import { Card } from "./Card";
+import { card, argTypes } from "./Card.stories.tsx";
+
+<Meta
+  title="Atoms/Card"
+  component={Card}
+  argTypes={argTypes}
+  parameters={{
+    backgrounds: {
+      default: "light blue",
+      values: [{ name: "light blue", value: "#F4F6F9" }],
+    },
+  }}
+/>
+
+# Card
+
+A card is a basic component to be used across the product.
+It can be composed of `CardHeader` and `CardContent`.
+
+<Canvas>
+  <Story story={card} name="Playground" height="150px" />
+</Canvas>
+
+<ArgsTable of={Card} story="Playground" />

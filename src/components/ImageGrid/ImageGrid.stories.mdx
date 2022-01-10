@@ -1,0 +1,68 @@
+import { Props, Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+
+import ImageGrid, { ImageGridProps } from './ImageGrid';
+import ImageGridItem, { ImageItem } from '../ImageGridItem';
+
+export const argTypes = {
+  cols: {
+    control: {
+      type: 'number',
+    },
+    defaultValue: 2,
+  },
+};
+
+<Meta
+  title="Molecules/ImageGrid"
+  component={ImageGrid}
+  subcomponents={{ ImageGridItem: ImageGridItem }}
+  argTypes={argTypes}
+/>
+
+export const ImageGridTemplate = (args) => <ImageGrid {...args} />;
+
+export const images = [
+  {
+    src: 'https://hearth.imgix.net/offerspage/addition.jpg',
+    alt: 'addition',
+  },
+  {
+    src: 'https://hearth.imgix.net/offerspage/basement.jpg',
+    alt: 'basement',
+  },
+  {
+    src: 'https://hearth.imgix.net/offerspage/kitchen.jpg',
+    alt: 'kitchen',
+  },
+  {
+    src: 'https://hearth.imgix.net/offerspage/solar.jpg',
+    alt: 'solar',
+  },
+];
+
+# ImageGrid
+
+An `ImageGrid` component accepts `children`, which should be an object array of `ReactNode`,
+usually an `ImageGridItem`.
+
+<Canvas>
+  <Story
+    name="Even total cards"
+    args={{
+      variant: 'quilted',
+      rowHeight: 140,
+      children: images.map((image, index) => (
+        <ImageGridItem
+          src={image.src}
+          alt={image.alt}
+          cols={index === images.length - 1 && index % 2 === 0 ? 2 : 1}
+          rows={1}
+        />
+      )),
+    }}
+  >
+    {ImageGridTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Even total cards" />

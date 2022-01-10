@@ -1,0 +1,28 @@
+{
+  // "exclude": ["src/stories/**"],
+  "compilerOptions": {
+    // Default
+    "target": "es6", 
+    "esModuleInterop": true, 
+    "forceConsistentCasingInFileNames": true,
+    "strict": true, 
+    "skipLibCheck": true,
+    "lib": ["es5", "es6", "dom"],
+    // Added
+    "jsx": "preserve", 
+    "module": "esnext",  
+    "declaration": true,
+    "declarationDir": "types",
+    "sourceMap": true,
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDeclarationOnly": true,
+
+    "baseUrl": "./src",
+    "paths": {
+      "/*": ["./src/*"]
+    },
+    "types": ["node"]
+  }
+}

@@ -1,0 +1,57 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs";
+import { Box } from "@mui/material";
+
+import colors from "./colors";
+
+<Meta title="Tokens/Colors" />
+
+export const primaryColors = Object.entries(colors).filter((color) =>
+  color[0].includes("primary")
+);
+
+export const basicColors = Object.entries(colors).filter((color) =>
+  color[0].includes("basic")
+);
+
+export const successColors = Object.entries(colors).filter((color) =>
+  color[0].includes("success")
+);
+
+export const warningColors = Object.entries(colors).filter((color) =>
+  color[0].includes("warning")
+);
+
+export const dangerColors = Object.entries(colors).filter((color) =>
+  color[0].includes("danger")
+);
+
+# Color Palette
+
+<Box my={3} />
+<ColorPalette>
+  <ColorItem
+    title="Greyscale"
+    subtitle="Basic 100 - 900"
+    colors={Object.fromEntries(basicColors)}
+  />
+  <ColorItem
+    title="Blue"
+    subtitle="Primary 100 - 900"
+    colors={Object.fromEntries(primaryColors)}
+  />
+  <ColorItem
+    title="Green"
+    subtitle="Success 100 - 900"
+    colors={Object.fromEntries(successColors)}
+  />
+  <ColorItem
+    title="Yellow"
+    subtitle="Warning 100 - 900"
+    colors={Object.fromEntries(warningColors)}
+  />
+  <ColorItem
+    title="Red"
+    subtitle="Danger 100 - 900"
+    colors={Object.fromEntries(dangerColors)}
+  />
+</ColorPalette>
