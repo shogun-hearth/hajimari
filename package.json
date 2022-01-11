@@ -7,8 +7,11 @@
   "scripts": {
     "test": "npm test",
     "rollup": "rollup -c",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "transform-tokens": "node --experimental-json-modules ./transformTokens.js"
   },
   "author": "Sondhayni",
   "license": "ISC",
