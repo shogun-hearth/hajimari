@@ -6,9 +6,9 @@
 
 ###  **hajimari (始まり)**  _/.n/_ -- beginnings
 
-> Made with ❤️ with `npm` and `react typescript`, leveraging `MUI` for building and styling components. We use [`rollup`](https://rollupjs.org/guide/en/) to bundle our JS modules. (Configured with the help of this handy-dandy [article](https://dev.to/alexeagleson/how-to-create-and-publish-a-react-component-library-2oe) about publishing react component libraries)
+> This repository maintains the component library for Hearth's web (and eventually mobile) app and overall style guide. Hajimari is built following atomic design system guidelines.
 
-> This repository maintains the component library for Hearth's web (and eventually mobile) app and overall style guide. Hajimari follows atomic design system guidelines.
+Made with ❤️ with `npm` and `react typescript`, leveraging `MUI` for creating and styling components. We use [`rollup`](https://rollupjs.org/guide/en/) to bundle our JS modules. (Configured with the help of this handy-dandy [article](https://dev.to/alexeagleson/how-to-create-and-publish-a-react-component-library-2oe) about publishing react component libraries)
 
 ---
 
@@ -77,7 +77,7 @@ If this component is an `Atom` or `Molecule`, it should be written using syntax 
 
 **Q: What should a new story look like?**
 
-**A**: Use the provided `Template.stories.mdx` file to create new stories. What's listed is what a story should include at a minimum; more interactivity (or information) is great too!
+**A**: Use the provided [`Template.stories.mdx`](https://github.com/shogun-hearth/hajimari/blob/main/src/Template.stories.mdx) to create new stories. What's listed in this file is what a story should include at a minimum; more interactivity (or information) is great too!
 
 The `title` prop determines where in the folder hierarchy a story appears: it should follow a naming convention of `Component level > Component Name > Variant`. For example:
 

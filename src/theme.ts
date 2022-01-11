@@ -1,6 +1,6 @@
 import { ThemeOptions, createTheme } from '@mui/material/styles';
 
-import colors from './colors';
+import colors from './tokens/colors';
 
 declare module '@mui/material/styles' {
   interface TypographyVariants {

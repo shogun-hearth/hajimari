@@ -1,0 +1,72 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  Props,
+  ArgsTable,
+  Typeset,
+  DataTable,
+} from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
+import { Box } from "@mui/material";
+
+import Typography, { TypographyProps, fontWeights } from "./Typography";
+import { typographyPlayground, argTypes } from "./Typography.stories.tsx";
+
+<Meta
+  title="Tokens/Typography"
+  component={Typography}
+  argTypes={{
+    variant: {
+      control: { type: "select" },
+      options: ["h1", "h2", "p1", "p2", "p3"],
+      defaultValue: "h1",
+      type: { required: true },
+      table: {
+        type: {
+          summary: '"h1" | "h2" | "p1" | "p2" | "p3"',
+        },
+      },
+    },
+    ...argTypes,
+  }}
+/>
+
+# Typography
+
+To maintain clean typography, we've opted to have a set number of allowed font-sizes and font-weights,
+which can be used together in any permutation.
+
+There are _two_ heading font-sizes and _three_ body font-sizes.
+The available font-weights are _regular_, _medium_, and _semibold_, which map to _400_, _500_, and _600_ respectively.
+
+#### Font family: Poppins
+
+#### Font weights:
+
+(examples below use `variant: p1`)
+
+| Name     | Value | Example                                                                    |
+| -------- | ----- | -------------------------------------------------------------------------- |
+| regular  | 400   | <Typography variant="p1" weight="regular">Welcome to Hearth!</Typography>  |
+| medium   | 500   | <Typography variant="p1" weight="medium">Welcome to Hearth!</Typography>   |
+| semibold | 600   | <Typography variant="p1" weight="semibold">Welcome to Hearth!</Typography> |
+
+#### Font sizes:
+
+<Typeset
+  fontFamily="Poppins"
+  fontSizes={["12px", "14px", "16px", "20px", "24px"]}
+  fontWeight={400}
+  sampleText="Welcome to Hearth!"
+/>
+
+---
+
+### Playground
+
+<Canvas>
+  <Story story={typographyPlayground} name="Playground" />
+</Canvas>
+
+<ArgsTable of={Typography} story="Playground" />

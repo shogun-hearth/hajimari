@@ -1,0 +1,47 @@
+{
+  "source": ["tokens/**/*.json"],
+  "platforms": {
+    "hearth-web": {
+      "transformGroup": "js",
+      "transforms": ["name/ti/camel", "attribute/cti"],
+      "files": [
+        {
+          "format": "javascript/es6",
+          "destination": "tokens/colors.ts",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
+          }
+        },
+        {
+          "format": "typescript/es6-declarations",
+          "destination": "tokens/colors.d.ts",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
+          }
+        },
+        {
+          "format": "javascript/es6",
+          "destination": "tokens/spacing.ts",
+          "filter": {
+            "attributes": {
+              "category": "spacing"
+            }
+          }
+        },
+        {
+          "format": "typescript/es6-declarations",
+          "destination": "tokens/spacing.d.ts",
+          "filter": {
+            "attributes": {
+              "category": "spacing"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

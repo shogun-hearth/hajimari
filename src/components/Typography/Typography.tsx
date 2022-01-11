@@ -1,7 +1,7 @@
 import React from 'react';
 import MuiTypography, { TypographyProps as MuiTypographyProps } from '@mui/material/Typography';
 
-import colors from '../../colors';
+import colors from '../../tokens/colors';
 
 export type FontWeightVariant = 'regular' | 'medium' | 'semibold';
 export type FontWeightValue = 400 | 500 | 600;
