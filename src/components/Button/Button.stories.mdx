@@ -1,0 +1,20 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+
+import { Button } from "./Button";
+import { button } from "./Button.stories.tsx";
+
+<Meta
+  title="Atoms/Button"
+  component={Button}
+  // argTypes={...}
+  // parameters={{}}
+/>
+
+# Button
+
+A button is a key component of the UI.
+
+
+<Canvas>
+  <Story story={button} name="Button" />
+</Canvas>
