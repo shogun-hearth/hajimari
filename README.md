@@ -1,6 +1,6 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/97b786c8-8342-4962-bd67-c95cd0ae7d9c/deploy-status)](https://app.netlify.com/sites/hearth-kokoro/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/97b786c8-8342-4962-bd67-c95cd0ae7d9c/deploy-status)](https://app.netlify.com/sites/hajimari/deploys)
 
-# Hajimari | Hearth Design System
+# Hajimari | Hearth Design System [🔗](https://hajimari.netlify.app/)
 
 [Figma](https://www.figma.com/file/M7Z0RpYEQszVSWhAFs2yAe/Design-System?node-id=38%3A2) | [Notion](https://www.notion.so/gethearth/Kokoro-Hearth-s-Design-System-f925086806a24898897786379cbc17dc) |
 

@@ -25,19 +25,37 @@
         },
         {
           "format": "javascript/es6",
-          "destination": "tokens/spacing.ts",
+          "destination": "tokens/typography.ts",
           "filter": {
             "attributes": {
-              "category": "spacing"
+              "category": "typography"
             }
           }
         },
         {
           "format": "typescript/es6-declarations",
-          "destination": "tokens/spacing.d.ts",
+          "destination": "tokens/typography.d.ts",
           "filter": {
             "attributes": {
-              "category": "spacing"
+              "category": "typography"
+            }
+          }
+        },
+        {
+          "format": "javascript/es6",
+          "destination": "tokens/font.ts",
+          "filter": {
+            "attributes": {
+              "category": "font"
+            }
+          }
+        },
+        {
+          "format": "typescript/es6-declarations",
+          "destination": "tokens/font.d.ts",
+          "filter": {
+            "attributes": {
+              "category": "font"
             }
           }
         }
