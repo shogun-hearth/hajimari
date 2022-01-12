@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Jan 2022 03:36:33 GMT
+ * Generated on Wed, 12 Jan 2022 03:43:05 GMT
  */
 
 export const h1RegularFontSize : number;
@@ -58,6 +58,17 @@ export const h2SemiboldLineHeight : number;
 export const h2SemiboldParagraphIndent : number;
 export const h2SemiboldParagraphSpacing : number;
 export const h2SemiboldTextCase : string;
+export const h2RegularFontSize : number;
+export const h2RegularTextDecoration : string;
+export const h2RegularFontFamily : string;
+export const h2RegularFontWeight : number;
+export const h2RegularFontStyle : string;
+export const h2RegularFontStretch : string;
+export const h2RegularLetterSpacing : number;
+export const h2RegularLineHeight : number;
+export const h2RegularParagraphIndent : number;
+export const h2RegularParagraphSpacing : number;
+export const h2RegularTextCase : string;
 export const p1RegularFontSize : number;
 export const p1RegularTextDecoration : string;
 export const p1RegularFontFamily : string;

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Jan 2022 03:36:33 GMT
+ * Generated on Wed, 12 Jan 2022 03:43:05 GMT
  */
 
 export const h1Regular : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
@@ -8,6 +8,7 @@ export const h1Medium : { fontSize: number, textDecoration: string, fontFamily: 
 export const h1Semibold : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
 export const h2Medium : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
 export const h2Semibold : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
+export const h2Regular : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
 export const p1Regular : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
 export const p1Medium : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
 export const p1Semibold : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };

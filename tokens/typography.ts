@@ -1,16 +1,16 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Jan 2022 03:36:33 GMT
+ * Generated on Wed, 12 Jan 2022 03:43:05 GMT
  */
 
-export const h1RegularFontSize = 20;
+export const h1RegularFontSize = 24;
 export const h1RegularTextDecoration = "none";
 export const h1RegularFontFamily = "Poppins";
 export const h1RegularFontWeight = 400;
 export const h1RegularFontStyle = "normal";
 export const h1RegularFontStretch = "normal";
 export const h1RegularLetterSpacing = 0;
-export const h1RegularLineHeight = 28;
+export const h1RegularLineHeight = 36;
 export const h1RegularParagraphIndent = 0;
 export const h1RegularParagraphSpacing = 0;
 export const h1RegularTextCase = "none";
@@ -58,6 +58,17 @@ export const h2SemiboldLineHeight = 28;
 export const h2SemiboldParagraphIndent = 0;
 export const h2SemiboldParagraphSpacing = 0;
 export const h2SemiboldTextCase = "none";
+export const h2RegularFontSize = 20;
+export const h2RegularTextDecoration = "none";
+export const h2RegularFontFamily = "Poppins";
+export const h2RegularFontWeight = 400;
+export const h2RegularFontStyle = "normal";
+export const h2RegularFontStretch = "normal";
+export const h2RegularLetterSpacing = 0;
+export const h2RegularLineHeight = 28;
+export const h2RegularParagraphIndent = 0;
+export const h2RegularParagraphSpacing = 0;
+export const h2RegularTextCase = "none";
 export const p1RegularFontSize = 16;
 export const p1RegularTextDecoration = "none";
 export const p1RegularFontFamily = "Poppins";
