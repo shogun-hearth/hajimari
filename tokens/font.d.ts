@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Jan 2022 03:43:05 GMT
+ * Generated on Wed, 12 Jan 2022 03:46:15 GMT
  */
 
 export const h1Regular : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
@@ -18,16 +18,3 @@ export const p2Semibold : { fontSize: number, textDecoration: string, fontFamily
 export const p3Regular : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
 export const p3Medium : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
 export const p3Semibold : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
-export const fontWeightRegular : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
-export const fontWeightMedium : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
-export const fontWeightSemibold : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
-export const fontLineheightH1 : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
-export const fontLineheightH2 : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
-export const fontLineheightP1 : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
-export const fontLineheightP2 : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
-export const fontLineheightP3 : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
-export const fontSizeH1 : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
-export const fontSizeH2 : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
-export const fontSizeP1 : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
-export const fontSizeP2 : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
-export const fontSizeP3 : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };

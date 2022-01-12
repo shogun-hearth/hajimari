@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Jan 2022 03:43:05 GMT
+ * Generated on Wed, 12 Jan 2022 03:46:15 GMT
  */
 
 export const h1Regular = {"fontSize":24,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":36,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
@@ -18,16 +18,3 @@ export const p2Semibold = {"fontSize":14,"textDecoration":"none","fontFamily":"P
 export const p3Regular = {"fontSize":12,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":16,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
 export const p3Medium = {"fontSize":12,"textDecoration":"none","fontFamily":"Poppins","fontWeight":500,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":16,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
 export const p3Semibold = {"fontSize":12,"textDecoration":"none","fontFamily":"Poppins","fontWeight":600,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":16,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
-export const fontWeightRegular = {"fontSize":24,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":36,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
-export const fontWeightMedium = {"fontSize":24,"textDecoration":"none","fontFamily":"Poppins","fontWeight":500,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":36,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
-export const fontWeightSemibold = {"fontSize":24,"textDecoration":"none","fontFamily":"Poppins","fontWeight":600,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":36,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
-export const fontLineheightH1 = {"fontSize":24,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":36,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
-export const fontLineheightH2 = {"fontSize":20,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":28,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
-export const fontLineheightP1 = {"fontSize":16,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":24,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
-export const fontLineheightP2 = {"fontSize":14,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":20,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
-export const fontLineheightP3 = {"fontSize":12,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":16,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
-export const fontSizeH1 = {"fontSize":24,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":36,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
-export const fontSizeH2 = {"fontSize":20,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":28,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
-export const fontSizeP1 = {"fontSize":16,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":24,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
-export const fontSizeP2 = {"fontSize":14,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":20,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
-export const fontSizeP3 = {"fontSize":12,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":16,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};
