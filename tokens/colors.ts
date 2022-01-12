@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Jan 2022 02:40:37 GMT
+ * Generated on Wed, 12 Jan 2022 02:50:51 GMT
  */
 
 export const blue100 = "#e6eef6ff";
