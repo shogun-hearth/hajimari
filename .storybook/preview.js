@@ -3,9 +3,13 @@ import { StylesProvider } from '@mui/styles';
 import { ThemeProvider } from 'emotion-theming';
 
 import theme from '../src/theme';
+import storybookTheme from './storybookTheme';
 
 // https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
 export const parameters = {
+  docs: {
+    theme: storybookTheme,
+  },
   actions: { argTypesRegex: '^on[A-Z].*' },
   layout: 'centered',
   argTypes: {
