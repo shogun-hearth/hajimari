@@ -7,54 +7,43 @@ import Button, { ButtonProps } from './Button';
 import theme from '../../theme';
 
 export const argTypes = {
-  border: {
-    name: 'border color',
-    control: { type: 'select' },
-    defaultValue: 'basic500',
-    options: Object.keys({ ...theme.palette.common }),
-    table: {
-      category: 'Card',
-      type: {
-        summary: 'Any color',
-      }
+  content: {
+    defaultValue: 'Button content',
+    control: {
+      type: 'text',
     },
   },
-  bg: {
-    name: 'fill',
-    value: 'basic1100',
+  size: {
+    value: 'medium',
     control: 'select',
-    options: Object.keys({ ...theme.palette.common }),
-    table: {
-      type: {
-        summary: 'a color'
-      },
-      category: 'Card',
-    },
+    options: ['small', 'medium', 'large'],
   },
+  rounded: {
+    control: { type: 'boolean' },
+    defaultValue: false,
+  }
 };
 
-// type TemplateArgs = {
-//   header?: ArgType;
-//   content?: ArgType;
-//   bottomDivider: ArgType;
-// } & CardProps;
+type TemplateArgs = {
+  content?: ArgType;
+} & ButtonProps;
 
 export default {
   title: 'Atoms/Button',
   decorators: [withDesign],
-  // includeStories: [],
   component: Button,
+  // includeStories: [],
   // parameters: {
-  //   actions: { disabled: true },
-  //   layout: 'centered',
+    // actions: { disabled: true },
+    // layout: 'centered',
   // },
-  // argTypes: argTypes,
+  argTypes: argTypes,
 } as unknown as ComponentMeta<typeof Button>;
 
-const ButtonTemplate = ({ href }: ButtonProps): JSX.Element => {
+const ButtonTemplate = ({ content, ...args }: TemplateArgs): JSX.Element => {
   return (
-    <Button>
-      Button content
+    <Button {...args}>
+      {content}
     </Button>
   )
 };
