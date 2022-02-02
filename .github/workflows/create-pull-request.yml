@@ -1,4 +1,4 @@
-createPullRequest:
+name: Create Pull Request
 on:
   repository_dispatch:
     types: [create-pull-request]
