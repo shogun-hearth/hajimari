@@ -11,7 +11,7 @@
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "transform-tokens": "node --input-type=module --experimental-json-modules ./transformTokens.js"
+    "transform-tokens": "node --experimental-json-modules ./transformTokens.mjs"
   },
   "author": "Sondhayni",
   "license": "ISC",
