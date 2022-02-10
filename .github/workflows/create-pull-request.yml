@@ -18,7 +18,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.SHOGUNBOT_PAT }}
           commit-message: Update figma tokens
           title: Update Figma tokens
           body: |
