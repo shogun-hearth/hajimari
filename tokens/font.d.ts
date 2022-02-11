@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Jan 2022 03:46:15 GMT
+ * Generated on Fri, 11 Feb 2022 01:57:51 GMT
  */
 
 export const h1Regular : { fontSize: number, textDecoration: string, fontFamily: string, fontWeight: number, fontStyle: string, fontStretch: string, letterSpacing: number, lineHeight: number, paragraphIndent: number, paragraphSpacing: number, textCase: string };
