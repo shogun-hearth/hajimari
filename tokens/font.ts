@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Jan 2022 03:46:15 GMT
+ * Generated on Fri, 11 Feb 2022 01:39:11 GMT
  */
 
 export const h1Regular = {"fontSize":24,"textDecoration":"none","fontFamily":"Poppins","fontWeight":400,"fontStyle":"normal","fontStretch":"normal","letterSpacing":0,"lineHeight":36,"paragraphIndent":0,"paragraphSpacing":0,"textCase":"none"};

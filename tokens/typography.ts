@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Jan 2022 03:46:15 GMT
+ * Generated on Fri, 11 Feb 2022 01:39:11 GMT
  */
 
 export const h1RegularFontSize = 24;

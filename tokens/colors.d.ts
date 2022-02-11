@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Jan 2022 03:46:15 GMT
+ * Generated on Fri, 11 Feb 2022 01:39:11 GMT
  */
 
 export const blue100 : string;
@@ -29,3 +29,7 @@ export const greyscale500 : string;
 export const greyscale700 : string;
 export const greyscale900 : string;
 export const greyscale1100 : string;
+export const purple300 : string;
+export const purple500 : string;
+export const purple700 : string;
+export const purple900 : string;
