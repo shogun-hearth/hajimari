@@ -41,7 +41,8 @@ jobs:
         run: "npm i && npm run transform-tokens"
       # run command to create PR based off main (for now)
       - name: Add design tokens json changes to git
-        run: "git add tokens"
+        run: |
+          git add tokens
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
