@@ -26,7 +26,7 @@
       "500": {
         "description": "",
         "type": "color",
-        "value": "#ff54a4ff",
+        "value": "#0154a4ff",
         "extensions": {
           "org.lukasoppermann.figmaDesignTokens": {
             "styleId": "S:f8b2f5a5378b6ddac85d5521c44cf03ac91ddc43,",
@@ -151,7 +151,7 @@
       "700": {
         "description": "",
         "type": "color",
-        "value": "#e5a7ffff",
+        "value": "#e5a701ff",
         "extensions": {
           "org.lukasoppermann.figmaDesignTokens": {
             "styleId": "S:896ce04709987e01ac282b2968f27aa1edc1e95c,",
@@ -162,7 +162,7 @@
       "900": {
         "description": "",
         "type": "color",
-        "value": "#926bffff",
+        "value": "#926b01ff",
         "extensions": {
           "org.lukasoppermann.figmaDesignTokens": {
             "styleId": "S:892cac0c66f87611ff91806935ba57c0b028edcf,",
@@ -276,7 +276,7 @@
       "900": {
         "description": "",
         "type": "color",
-        "value": "#86909aff",
+        "value": "#6a788aff",
         "extensions": {
           "org.lukasoppermann.figmaDesignTokens": {
             "styleId": "S:11b2071ed886b8229b81360aedd8010d68332f10,",
@@ -291,6 +291,52 @@
         "extensions": {
           "org.lukasoppermann.figmaDesignTokens": {
             "styleId": "S:4a9cae905b2b7d6270f312c7ad02751483dd2b6a,",
+            "exportKey": "color"
+          }
+        }
+      }
+    },
+    "purple": {
+      "300": {
+        "description": "",
+        "type": "color",
+        "value": "#ede4fcff",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:90837c4704ac263948a34dbde75305eb4d0307d0,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "500": {
+        "description": "",
+        "type": "color",
+        "value": "#632580ff",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:e534b9656f39909a1d9fa5665255a89fcfcf3668,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "700": {
+        "description": "",
+        "type": "color",
+        "value": "#380192ff",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:fcd6e3f4a353debc5c5653a705745aa561c9b14a,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "900": {
+        "description": "",
+        "type": "color",
+        "value": "#280f33ff",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:479fed32df539c15bb7cc38d4ac79c2552376105,",
             "exportKey": "color"
           }
         }
