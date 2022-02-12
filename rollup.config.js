@@ -8,11 +8,12 @@ import { terser } from 'rollup-plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 const packageJson = require('./package.json');
+// import packageJson from './package.json';
 
 export default [
   {
     input: 'src/index.ts',
-    external: ['react'],
+    external: ['react', 'react-dom', 'styled-components'],
     output: [
       {
         file: packageJson.main,
@@ -35,13 +36,8 @@ export default [
       }),
       resolve(),
       commonjs(),
-      terser(),
       typescript({ tsconfig: './tsconfig.json' }),
+      terser(),
     ],
-  },
-  {
-    input: 'dist/esm/types/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
-    plugins: [dts()],
   },
 ];
