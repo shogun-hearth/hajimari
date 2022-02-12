@@ -36,10 +36,9 @@ jobs:
         with:
           # we use version 14.x of node
           node-version: 14.x
-      # We now run the "transfrom" script that is defined in the package.json; don't run npm i
+      # We now run the "transfrom" script that is defined in the package.json
       - name: Transform design tokens
-        # run: "npm i && npm run transform-tokens"
-        run: "npm run transform-tokens"
+        run: "npm i && npm run transform-tokens"
       # run command to create PR based off main (for now)
       - name: Add design tokens json changes to git
         run: |
