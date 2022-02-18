@@ -8,7 +8,6 @@ import { terser } from 'rollup-plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 const packageJson = require('./package.json');
-// import packageJson from './package.json';
 
 export default [
   {
@@ -41,8 +40,8 @@ export default [
       }),
       resolve(),
       commonjs({
-        exclude: "node_modules",
-        ignoreGlobal: true,
+        esmExternals: true,
+        requireReturnsDefault: 'namespace',
       }),
       typescript({ tsconfig: './tsconfig.json' }),
       // terser(),
