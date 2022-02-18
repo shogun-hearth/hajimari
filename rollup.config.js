@@ -13,7 +13,12 @@ const packageJson = require('./package.json');
 export default [
   {
     input: 'src/index.ts',
-    external: ['react', 'react-dom', 'styled-components'],
+    external: [
+      // ...Object.keys(packageJson.devDependencies || {}),
+      ...Object.keys(packageJson.dependencies || {}),
+      ...Object.keys(packageJson.peerDependencies || {}),
+    ],
+    // external: ['react', 'react-dom', 'styled-components'],
     output: [
       {
         file: packageJson.main,
@@ -35,9 +40,13 @@ export default [
         extensions: [".js", ".jsx", ".ts", ".tsx"],
       }),
       resolve(),
-      commonjs(),
+      commonjs({
+        exclude: "node_modules",
+        ignoreGlobal: true,
+      }),
       typescript({ tsconfig: './tsconfig.json' }),
-      terser(),
+      dts(),
+      // terser(),
     ],
   },
 ];
