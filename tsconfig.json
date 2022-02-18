@@ -22,7 +22,6 @@
     "baseUrl": "./src",
     "paths": {
       "/*": ["./src/*"]
-    },
-    "types": ["node"]
+    }
   }
 }
