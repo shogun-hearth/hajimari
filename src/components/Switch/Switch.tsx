@@ -6,6 +6,6 @@ import React from 'react';
 //     selected: Boolean,
 // };
 
-const Switch = <div>Switch</div>;
+const Switch = ({}) => <div>Switch</div>;
 
 export default Switch;
