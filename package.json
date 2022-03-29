@@ -52,13 +52,16 @@
     "rollup-plugin-terser": "^7.0.2",
     "storybook-addon-designs": "^6.2.1",
     "style-dictionary": "^3.1.1",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "@emotion/styled": "^11.3.0",
+    "notistack": "^2.0.3"
   },
   "peerDependencies": {
     "@emotion/react": "^11.x",
     "@mui/material": "^5.x",
     "react": "^17.x",
-    "react-dom": "^17.x"
+    "react-dom": "^17.x",
+    "notistack": "^2.0.3"
   },
   "files": [
     "dist"
