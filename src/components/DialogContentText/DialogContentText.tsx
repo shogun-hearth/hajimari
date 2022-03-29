@@ -12,10 +12,12 @@ const DialogContent = ({
 }: DialogContentProps): JSX.Element => (
   <>
     <MuiDialogContent
-      // TODO(design_system): move this out into a composable module
       sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        overflowX: 'hidden',
         '&.MuiDialogContent-root': {
-          padding: `24px 24px`,
+          padding: `50px 24px`,
           backgroundColor: 'inherit',
         },
         ...sx,

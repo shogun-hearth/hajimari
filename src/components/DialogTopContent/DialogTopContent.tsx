@@ -7,42 +7,41 @@ import Button from '../Button';
 import { IconButton } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CloseIcon from '@mui/icons-material/Close';
-
 export interface DialogTopContentProps extends MuiDialogTopContentProps {
-    closeButtonVisible?: boolean;
-    backlinkVisible?: boolean;
-    link?: string;
+    showCloseButton: boolean;
+    backlink?: string;
  }
 
 const DialogTopContent = ({
   children,
-  backlinkVisible,
-  closeButtonVisible,
-  link,
+  showCloseButton,
+  backlink,
   ...props
 }: DialogTopContentProps): JSX.Element => (
   <MuiDialogTopContent
     sx={{
       backgroundColor: 'inherit',
       display: 'flex',
+      justifyContent: 'space-between',
     }}
     {...props}
   >
-    {
-    backlinkVisible &&
+    { backlink &&
         <Button
-          variant="secondary"
-          sx={{ border: 'none' }}
+          variant="text"
+          sx={{
+            maxWidth: '10%',
+          }}
         >
             <ArrowBackIcon />
-            {link}
-
+            {backlink}
         </Button>
     }
-    <IconButton>
-        {/* close */}
-        <CloseIcon />
-    </IconButton>
+    { showCloseButton &&
+      <IconButton>
+            <CloseIcon />
+        </IconButton>
+    }
 
   </MuiDialogTopContent>
 );

@@ -11,7 +11,8 @@ const DialogHeader = ({
 }: DialogHeaderProps): JSX.Element => (
   <MuiDialogHeader
     sx={{
-      backgroundColor: 'inherit'
+      backgroundColor: 'inherit',
+      overflowX: 'hidden',
     }}
     {...props}
   >

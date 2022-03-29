@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
 
-import DialogContent, { DialogContentProps } from './DialogContent';
+import DialogContent, { DialogContentProps } from './DialogContentText';
 
 export const argTypes = {
   children: {

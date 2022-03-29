@@ -4,18 +4,55 @@ import { withDesign } from 'storybook-addon-designs';
 import { ArgType } from '@storybook/components';
 
 import Dialog, { DialogProps } from './Dialog'
-import DialogContent from '../DialogContent'
+import DialogContent from '../DialogContentText'
 import DialogHeader from '../DialogHeader'
 import DialogTopContent from '../DialogTopContent';
 
 export const argTypes = {
+  open: {
+    defaultValue: true,
+    control: {
+        type: 'boolean',
+    },
+    table: {
+        category: 'Dialog',
+    },
+  },
+  maxWidth: {
+    options: ['xs', 'sm', 'md', 'lg', 'xl'],
+    defaultValue: "lg",
+    control: {
+        type: 'select',
+    },
+    table: {
+        category: 'Dialog',
+    },
+  },
+  fullWidth: {
+    defaultValue: false,
+    control: {
+        type: 'boolean',
+    },
+    table: {
+        category: 'Dialog',
+    },
+  },
   backlink: {
     defaultValue: '',
     control: {
       type: 'text',
     },
     table: {
-      category: 'DialogBacklink',
+      category: 'DialogTopContent',
+    },
+  },
+  showCloseButton:{
+    defaultValue: 'true',
+    control: {
+      type: 'boolean',
+    },
+    table: {
+      category: 'DialogTopContent',
     },
   },
   header: {
@@ -36,25 +73,6 @@ export const argTypes = {
       category: 'DialogContent',
     },
   },
-  open: {
-    defaultValue: false,
-    control: {
-        type: 'boolean',
-    },
-    table: {
-        category: 'DialogOpen',
-    },
-  },
-  maxWidth: {
-    options: ['xs', 'sm', 'md', 'lg', 'xl'],
-    defaultValue: "lg",
-    control: {
-        type: 'select',
-    },
-    table: {
-        category: 'DialogWidth',
-    },
-  }
 }
 
 type TemplateArgs = {
@@ -62,6 +80,7 @@ type TemplateArgs = {
   header?: ArgType;
   content?: ArgType;
   maxWidth?: ArgType;
+  showCloseButton?: ArgType;
 } & DialogProps;
 
 export default {
@@ -76,14 +95,26 @@ export default {
   argTypes: argTypes,
 } as unknown as ComponentMeta<typeof Dialog>;
 
-const DialogTemplate = ({ header, content, backlink, open, maxWidth, ...args }: TemplateArgs): JSX.Element => {
+const DialogTemplate = ({
+  header,
+  content,
+  backlink,
+  open,
+  maxWidth,
+  showCloseButton,
+  ...args
+}: TemplateArgs): JSX.Element => {
   const dialogArgs = Object.entries(args).reduce((val, currArg) => {
     return { ...val, [currArg[0]]: currArg[1] };
   }, {});
 
   return (
     <Dialog open={open} maxWidth={maxWidth} {...dialogArgs}>
-      <DialogTopContent link={backlink || ''} backlinkVisible={Boolean(backlink)}/>
+      <DialogTopContent
+        backlink={backlink}
+        showCloseButton={Boolean(showCloseButton)}
+        // TODO(AoA): reconcile the types
+      />
       {
         header &&
           <DialogHeader>
