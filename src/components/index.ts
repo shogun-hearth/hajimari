@@ -8,3 +8,4 @@ export { default as InformationCard } from './InformationCard';
 export { default as ImageGridItem } from './ImageGridItem';
 export { default as ImageGrid } from './ImageGrid';
 export { default as TextField } from './TextField';
+export { default as DatePicker } from './Field/DatePicker';
