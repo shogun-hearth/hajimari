@@ -1,4 +1,14 @@
-declare type ColorValue = 100 | 300 | 500 | 700 | 900;
+declare type Shade = 100 | 300 | 500 | 700 | 900;
+
+declare type ColorOption =
+  'greyscale' |
+  'basic' |
+  'primary' |
+  'green' |
+  'success' |
+  'yellow' |
+  'warning' |
+  'danger';
 
 declare type Color =
   'inherit' |

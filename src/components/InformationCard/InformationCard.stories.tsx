@@ -26,7 +26,7 @@ export default {
     },
     children: {
       name: 'content',
-      defaultValue: 'Thank you for the oppurtunity to work together! ' +
+      defaultValue: 'Thank you for the opportunity to work together! ' +
         'Take a look at what the project would entail and please ' +
         'reach out if you have any questions of concerns.',
       control: {

@@ -1,0 +1,81 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+
+import Button from "./Button";
+import { colorButton, argTypes } from "./Button.stories.tsx";
+import { iconPlacementProps } from "./storyUtils";
+
+<Meta title="Button/Secondary" component={Button} argTypes={argTypes} />
+
+export const StoryTemplate = (args) => <Button variant="secondary" {...args} />;
+
+# Secondary Button
+
+Secondary buttons are medium-emphasis buttons. They contain actions that are important,
+but aren’t the primary action. They pair well with primary buttons to indicate an
+alternative, secondary action.
+
+### States
+
+<Canvas>
+  <Story name="Default" args={{ children: "Default" }}>
+    {StoryTemplate.bind()}
+  </Story>
+  <Story name="Disabled" args={{ children: "Disabled", disabled: true }}>
+    {StoryTemplate.bind()}
+  </Story>
+</Canvas>
+
+<br />
+
+### Colors
+
+<Canvas>
+  <Story name="Primary" args={{ children: "Primary", color: "primary" }}>
+    {StoryTemplate.bind()}
+  </Story>
+  <Story name="Greyscale" args={{ children: "Greyscale", color: "greyscale" }}>
+    {StoryTemplate.bind()}
+  </Story>
+</Canvas>
+
+### With Icons
+
+<Canvas>
+  <Story
+    name="Start Icon"
+    args={{ ...iconPlacementProps("secondary").start.args }}
+    parameters={{ ...iconPlacementProps("secondary").start.parameters }}
+  >
+    {StoryTemplate.bind()}
+  </Story>
+  <Story
+    name="End Icon"
+    args={{ ...iconPlacementProps("secondary").end.args }}
+    parameters={{ ...iconPlacementProps("secondary").end.parameters }}
+  >
+    {StoryTemplate.bind()}
+  </Story>
+  <Story
+    name="Double Icons"
+    args={{ ...iconPlacementProps("secondary").double.args }}
+    parameters={{ ...iconPlacementProps("secondary").double.parameters }}
+  >
+    {StoryTemplate.bind()}
+  </Story>
+</Canvas>
+
+<br />
+<br />
+<br />
+
+## Sandbox
+
+<Canvas>
+  <Story name="Sandbox" args={{ children: "Secondary", color: "primary" }}>
+    {StoryTemplate.bind()}
+  </Story>
+</Canvas>
+
+<ArgsTable of={colorButton} story="Sandbox" />
+
+<hr />

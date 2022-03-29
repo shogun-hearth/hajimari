@@ -1,0 +1,207 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+import AddIcon from "@mui/icons-material/Add";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+
+import Box from "../Box";
+import Button from "./Button";
+import { button, argTypes } from "./Button.stories.tsx";
+
+<Meta
+  title="Button/Overview"
+  component={Button}
+  argTypes={argTypes}
+  decorators={[
+    (story) => (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {story()}
+      </div>
+    ),
+  ]}
+  parameters={{
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+    backgrounds: {
+      default: "light blue",
+      values: [{ name: "light blue", value: "#F4F6F9" }],
+    },
+  }}
+/>
+
+export const ButtonTemplate = (args) => (
+  <Button {...args}>{args.variant}</Button>
+);
+
+# Buttons
+
+Buttons help people take action. Choose the type of button based on the importance of the action.
+The more important the action is, the more emphasis its button should have.
+Button labels use **title case**.
+
+<br />
+
+## Variants
+
+Available variants include: `primary`, `secondary`, `filled`, `textLight`, and `textDark`.
+
+<br />
+
+<Story name="Variants">
+  <Button color="primary" variant="primary">
+    Primary
+  </Button>
+  <div style={{ marginRight: 16 }} />
+  <Button color="primary" variant="secondary">
+    Secondary
+  </Button>
+  <div style={{ marginRight: 16 }} />
+  <Button color="primary" variant="filled">
+    Filled
+  </Button>
+  <div style={{ marginRight: 16 }} />
+  <Button color="primary" variant="textLight">
+    TextLight
+  </Button>
+  <div style={{ marginRight: 16 }} />
+  <Button color="primary" variant="textDark">
+    TextDark
+  </Button>
+</Story>
+
+<br />
+
+## States
+
+Buttons have a _default_, _hover_, or _disabled_ state. The hover state is generally a darkened
+hue of the `color` of the button.
+
+<br />
+
+## Colors
+
+A button accepts a `color` prop which is one of `primary`, `greyscale`,
+`green`, `yellow`, and `error`. The examples below show the available colors
+across different variants.
+
+<br />
+
+<Story name="Colors">
+  <Button color="basic" variant="primary">
+    Basic
+  </Button>
+  <div style={{ marginRight: 16 }} />
+  <Button color="primary" variant="secondary">
+    Primary
+  </Button>
+  <div style={{ marginRight: 16 }} />
+  <Button color="success" variant="filled">
+    Success
+  </Button>
+  <div style={{ marginRight: 16 }} />
+  <Button color="warning" variant="primary">
+    Warning
+  </Button>
+  <div style={{ marginRight: 16 }} />
+  <Button color="error" variant="primary">
+    Error
+  </Button>
+</Story>
+
+<br />
+
+## With Icons
+
+A button can have optional icons--at either the start, end, or on both ends.
+We can pass in any of the [Material Icons](https://mui.com/components/material-icons/) to
+the `startIcon` or `endIcon` prop, or both.
+
+Leading icons (`startIcon`) visually clarify the button’s action and help draw attention.
+They should be placed on the left side of the button, before the label text.
+
+Trailing icons (`endIcon`) can provide affordances to access additional functionality
+(such as dropdown with options for more actions).
+
+Both icons can be used when appropriate.
+
+<br />
+
+<Story name="With Icons">
+  <Button variant="primary" startIcon={<AddIcon />}>
+    Start Icon
+  </Button>
+  <div style={{ marginRight: 16 }} />
+  <Button variant="secondary" size="small" endIcon={<ArrowForwardIcon />}>
+    End Icon
+  </Button>
+  <div style={{ marginRight: 16 }} />
+  <Button
+    variant="filled"
+    startIcon={<AccountCircleOutlinedIcon />}
+    endIcon={<ArrowDropDownIcon />}
+  >
+    Double Icons
+  </Button>
+</Story>
+
+# Sandbox
+
+<br />
+
+<Canvas>
+  <Story
+    story={button}
+    name="Sandbox"
+    args={{ variant: "primary" }}
+    parameters={{ layout: "centered" }}
+  />
+</Canvas>
+
+<ArgsTable of={Button} story="Sandbox" />
+
+# Additional Notes
+
+## Button Labels
+
+To set a realistic expectation for the next step, use a descriptive action verb
+that is specific to the task. Use **Title Case** to help buttons stand out from the
+rest of the page content.
+Don’t wrap text. For maximum legibility, a text label should remain on a single line.
+
+<br />
+
+## Alignment
+
+The icon and text label within a button remain centered and anchored to each
+other as the button width scales.
+
+The exception is the text button. The text button is left-aligned.
+
+<br />
+
+## Button Width
+
+In most cases, a button container’s width is dynamically set to fit its content
+(label text and icon). A few exceptions when the button width can be modified:
+
+- If the default button width is less than 148px, the button width should be set
+  to at least 148px wide.
+- The width and placement of buttons can change as parent containers, such as cards,
+  adapt for different screen sizes.
+- Buttons placed side by side such as Back and should be the same width.
+- On small screens, buttons that are placed side by side on larger screens can be stacked.
+
+## Accessibility
+
+Disabled buttons are not requierd to meet 4:5 contrast ratio. To compensate the
+lower contrast cartio, consider using the primary button with a lock as a leading icon
+in forms where the primary button appears disabled by default until the user meets the
+requirements to unlock the primary action.

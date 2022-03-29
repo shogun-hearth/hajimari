@@ -1,0 +1,95 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+import AddIcon from "@mui/icons-material/Add";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+
+import Button from "./Button";
+import { colorButton, argTypes } from "./Button.stories.tsx";
+import { iconPlacementProps } from "./storyUtils";
+
+<Meta title="Button/Primary" component={Button} argTypes={argTypes} />
+
+export const StoryTemplate = (args) => <Button variant="primary" {...args} />;
+
+## Primary Button
+
+Primary buttons have high emphasis and should be used for the primary, most important, or most common action on a screen.
+
+<br />
+
+### States
+
+<Canvas>
+  <Story name="Default" args={{ children: "Default" }}>
+    {StoryTemplate.bind()}
+  </Story>
+  <Story name="Disabled" args={{ children: "Disabled", disabled: true }}>
+    {StoryTemplate.bind()}
+  </Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="Primary" args={{ children: "Primary", color: "primary" }}>
+    {StoryTemplate.bind()}
+  </Story>
+  <Story name="Greyscale" args={{ children: "Greyscale", color: "greyscale" }}>
+    {StoryTemplate.bind()}
+  </Story>
+  <Story name="Green" args={{ children: "Green", color: "green" }}>
+    {StoryTemplate.bind()}
+  </Story>
+  <Story name="Yellow" args={{ children: "Yellow", color: "yellow" }}>
+    {StoryTemplate.bind()}
+  </Story>
+  <Story name="Error" args={{ children: "Error", color: "error" }}>
+    {StoryTemplate.bind()}
+  </Story>
+</Canvas>
+
+### With Icons
+
+<Canvas>
+  <Story
+    name="Start Icon"
+    args={{ ...iconPlacementProps("primary").start.args }}
+    parameters={{ ...iconPlacementProps("primary").start.parameters }}
+  >
+    {StoryTemplate.bind()}
+  </Story>
+  <Story
+    name="End Icon"
+    args={{ ...iconPlacementProps("primary").end.args }}
+    parameters={{ ...iconPlacementProps("primary").end.parameters }}
+  >
+    {StoryTemplate.bind()}
+  </Story>
+  <Story
+    name="Double Icons"
+    args={{ ...iconPlacementProps("primary").double.args }}
+    parameters={{ ...iconPlacementProps("primary").double.parameters }}
+  >
+    {StoryTemplate.bind()}
+  </Story>
+</Canvas>
+
+<br />
+<br />
+<br />
+
+## Sandbox
+
+<Canvas>
+  <Story
+    name="Sandbox"
+    args={{ children: "Primary", color: "primary", variant: "primary" }}
+  >
+    {StoryTemplate.bind()}
+  </Story>
+</Canvas>
+
+<ArgsTable of={colorButton} story="Sandbox" />
+
+<hr />
