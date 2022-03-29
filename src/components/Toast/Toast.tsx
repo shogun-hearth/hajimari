@@ -1,9 +1,12 @@
-import { useCallback } from 'react';
+import { ReactNode, useCallback } from 'react';
 import { useSnackbar, OptionsObject } from 'notistack';
-import { IconButton, Theme } from '@mui/material';
+import { Alert, AlertTitle, Box, IconButton, Theme } from '@mui/material';
 import Typography from '../Typography';
 import makeStyles from '@mui/styles/makeStyles';
 import { Error as ErrorIcon } from '@mui/icons-material';
+import CloseIcon from '@mui/icons-material/Close';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 
 // const useStyles = makeStyles((theme: Theme) => ({
 //   success: {
@@ -17,14 +20,19 @@ import { Error as ErrorIcon } from '@mui/icons-material';
 // }));
 
 type Options = {
+  description?: string,
+  hideIcon?: boolean,
   close: (key: string | number | undefined) => void;
-  icon: React.ReactNode;
+} & OptionsObject;
+
+type SnackOptions = {
+  description?: string,
+  hideIcon?: boolean,
 } & OptionsObject;
 
 const snackOptions = ({
   variant,
   close,
-  icon,
   ...otherOptions
 }: Options): OptionsObject => ({
   variant,
@@ -40,58 +48,93 @@ const snackOptions = ({
       onClick={() => close(key)}
       size="large"
     >
-      {icon}
+      <CloseIcon />
     </IconButton>
   ),
   autoHideDuration: 5000,
   ...otherOptions,
 });
 
-const createMessage = (message: string): React.ReactNode =>
-  <Typography>{message}</Typography>;
+const createMessage = (title: string, message?: string, icon?: ReactNode): React.ReactNode => {
+  return (
+    <Alert variant='filled' icon={icon ? icon : false}>
+      <AlertTitle><Typography variant="p1" weight="semibold">{title}</Typography></AlertTitle>
+      {!!message &&
+        <Typography variant="p3" weight="regular">{message}</Typography>
+      }
+    </Alert>
+  )
+};
 
 export type UseSnackActions = {
-  successSnack: (message?: string, options?: OptionsObject) => string | number | null | undefined;
-  errorSnack: (message?: string, options?: OptionsObject) => string | number | null | undefined;
+  successSnack: (message?: string, options?: SnackOptions) => string | number | null | undefined;
+  errorSnack: (message?: string, options?: SnackOptions) => string | number | null | undefined;
+  infoSnack: (message?: string, options?: SnackOptions) => string | number | null | undefined;
+  warnSnack: (message?: string, options?: SnackOptions) => string | number | null | undefined;
 };
 
 // eslint-disable-next-line import/prefer-default-export
 export function useSnack(
   successMessage = 'Success!',
   errorMessage = 'An error occurred. Please try again or contact support.',
-  icon: React.ReactNode = <ErrorIcon />,
 ): UseSnackActions {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   return {
     successSnack: useCallback(
-      (message?: string, options?: OptionsObject): string | number | null | undefined =>
-        enqueueSnackbar(
-          createMessage(message || successMessage),
+      (message?: string, options?: SnackOptions): string | number | null | undefined => {
+        const icon = options?.hideIcon ? null : <CheckCircleOutlinedIcon />;
+        return enqueueSnackbar(
+          createMessage(message || errorMessage, options?.description, icon),
           snackOptions({
             variant: 'success',
             close: closeSnackbar,
-            icon,
             ...options,
           }),
-        ),
-      // TODO: icon is causing rerender for some reasons
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+        )
+      },
       [enqueueSnackbar, closeSnackbar, successMessage],
     ),
     errorSnack: useCallback(
-      (message?: string, options?: OptionsObject): string | number | null | undefined =>
-        enqueueSnackbar(
-          createMessage(message || errorMessage),
+      (message?: string, options?: SnackOptions): string | number | null | undefined => {
+        const icon = options?.hideIcon ? null : <InfoOutlinedIcon />;
+        return enqueueSnackbar(
+          createMessage(message || errorMessage, options?.description, icon),
           snackOptions({
             variant: 'error',
             close: closeSnackbar,
-            icon,
             ...options,
           }),
-        ),
-      // TODO: icon is causing rerender for some reasons
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+        )
+      },
+      [enqueueSnackbar, closeSnackbar, errorMessage],
+    ),
+    infoSnack: useCallback(
+      (message?: string, options?: SnackOptions): string | number | null | undefined => {
+        const icon = options?.hideIcon ? null : <InfoOutlinedIcon />;
+        return enqueueSnackbar(
+          createMessage(message || errorMessage, options?.description, icon),
+          snackOptions({
+            variant: 'info',
+            close: closeSnackbar,
+            ...options,
+          }),
+        )
+      },
+      [enqueueSnackbar, closeSnackbar, errorMessage],
+    ),
+    warnSnack: useCallback(
+      (message?: string, options?: SnackOptions): string | number | null | undefined => {
+        const icon = options?.hideIcon ? null : <InfoOutlinedIcon />;
+        return enqueueSnackbar(
+          createMessage(message || errorMessage, options?.description, icon),
+          snackOptions({
+            variant: 'warning',
+            close: closeSnackbar,
+            ...options,
+          }),
+        )
+      },
       [enqueueSnackbar, closeSnackbar, errorMessage],
     ),
   };

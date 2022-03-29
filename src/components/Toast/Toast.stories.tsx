@@ -46,7 +46,7 @@ const SnackButton = () => {
     <Box sx={{ maxWidth: 500 }}>
       <Button
         onClick={() => {
-          snack.successSnack("OOOOOPS");
+          snack.warnSnack("Alert title", {description: "Interactively monetize corporate alignments and fully tested niche markets", hideIcon: false});
         }}
       >
         <Typography>Show Toast</Typography>
@@ -57,7 +57,7 @@ const SnackButton = () => {
 
 const cardTemplate: Story<InformationCardProps> = (args) => {
   return (
-    <SnackbarProvider>
+    <SnackbarProvider hideIconVariant>
       <SnackButton/>
     </SnackbarProvider>
 )};
