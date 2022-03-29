@@ -45,8 +45,15 @@ const TextField = ({ mask = 'default', value, onChange, ...otherProps }: TextFie
   return (
     <MuiTextField
       variant="outlined"
+      InputLabelProps={{ shrink: true }}
       onChange={handleChange}
       value={denormalizedValue}
+      sx={{
+        '& .MuiOutlinedInput-input': {
+          paddingTop: '12px',
+          paddingBottom: '12px',
+        },
+      }}
       {...maskSetting.extraProps}
       {...otherProps}
     />

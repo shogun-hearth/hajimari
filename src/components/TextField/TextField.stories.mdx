@@ -9,9 +9,24 @@ import StatefulTextField from './StatefulTextField';
 import Typography from '../Typography';
 
 export const argTypes = {
-  width: {
-    control: { type: 'number' },
-    defaultValue: '100%',
+  label: {
+    control: { type: 'text' },
+    defaultValue: 'Label',
+  },
+  disabled: {
+    control: { type: 'boolean' },
+    defaultValue: false,
+  },
+  error: {
+    control: { type: 'boolean' },
+    defaultValue: false,
+  },
+  helperText: {
+    control: { type: 'text' },
+  },
+  multiline: {
+    control: { type: 'boolean' },
+    defaultValue: false,
   },
   mask: {
     control: { type: 'select' },
