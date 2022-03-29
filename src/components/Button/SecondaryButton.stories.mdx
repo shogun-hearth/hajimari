@@ -1,7 +1,8 @@
 import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
 
 import Button from "./Button";
-import { iconPlacementProps, argTypes } from "./storyUtils";
+import { button, argTypes } from "./Button.stories.tsx";
+import { iconPlacementProps } from "./storyUtils";
 
 <Meta title="Button/Secondary" component={Button} argTypes={argTypes} />
 
@@ -75,6 +76,6 @@ alternative, secondary action.
   </Story>
 </Canvas>
 
-<ArgsTable of={StoryTemplate} story="Sandbox" />
+<ArgsTable of={button} story="Sandbox" />
 
 <hr />

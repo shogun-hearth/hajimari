@@ -5,7 +5,8 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import Button from "./Button";
-import { iconPlacementProps, argTypes } from "./storyUtils";
+import { button, argTypes } from "./Button.stories.tsx";
+import { iconPlacementProps } from "./storyUtils";
 
 <Meta title="Button/Primary" component={Button} argTypes={argTypes} />
 
@@ -89,6 +90,6 @@ Primary buttons have high emphasis and should be used for the primary, most impo
   </Story>
 </Canvas>
 
-<ArgsTable of={StoryTemplate} story="Sandbox" />
+<ArgsTable of={button} story="Sandbox" />
 
 <hr />
