@@ -84,3 +84,38 @@ export const iconPlacementProps = (variant: string) => ({
     }
   },
 });
+
+
+/** META COMPONENT PROP UTILS */
+
+export const argTypes = {
+  variant: {
+    name: 'Variant',
+    control: { type: 'select' },
+    options: ['primary', 'secondary', 'filled', 'text'],
+  },
+  color: {
+    name: 'Color',
+    control: { type: 'select' },
+    options: ['primary', 'greyscale', 'green', 'yellow', 'error'],
+    table: {
+      category: 'Button',
+      type: {
+        summary: 'Any color',
+      }
+    },
+  },
+  children: {
+    name: 'Label',
+    control: {
+      type: 'text',
+    },
+  },
+  disabled: {
+    name: 'Disabled',
+    defaultValue: false,
+    control: {
+      type: 'boolean',
+    },
+  },
+};

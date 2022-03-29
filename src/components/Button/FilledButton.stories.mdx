@@ -7,13 +7,14 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Button from "./Button";
 import { iconPlacementProps, argTypes } from "./storyUtils";
 
-<Meta title="Button/Primary" component={Button} argTypes={argTypes} />
+<Meta title="Button/Filled" component={Button} argTypes={argTypes} />
 
-export const StoryTemplate = (args) => <Button variant="primary" {...args} />;
+export const StoryTemplate = (args) => <Button variant="filled" {...args} />;
 
-## Primary Button
+## Filled Button
 
-Primary buttons have high emphasis and should be used for the primary, most important, or most common action on a screen.
+Filled buttons are useful in contexts where a lower-priority button requires slightly more
+emphasis than a secondary button would give, such as "Next" in an onboarding flow.
 
 <br />
 
@@ -53,22 +54,22 @@ Primary buttons have high emphasis and should be used for the primary, most impo
 <Canvas>
   <Story
     name="Start Icon"
-    args={{ ...iconPlacementProps("primary").start.args }}
-    parameters={{ ...iconPlacementProps("primary").start.parameters }}
+    args={{ ...iconPlacementProps("filled").start.args }}
+    parameters={{ ...iconPlacementProps("filled").start.parameters }}
   >
     {StoryTemplate.bind()}
   </Story>
   <Story
     name="End Icon"
-    args={{ ...iconPlacementProps("primary").end.args }}
-    parameters={{ ...iconPlacementProps("primary").end.parameters }}
+    args={{ ...iconPlacementProps("filled").end.args }}
+    parameters={{ ...iconPlacementProps("filled").end.parameters }}
   >
     {StoryTemplate.bind()}
   </Story>
   <Story
     name="Double Icons"
-    args={{ ...iconPlacementProps("primary").double.args }}
-    parameters={{ ...iconPlacementProps("primary").double.parameters }}
+    args={{ ...iconPlacementProps("filled").double.args }}
+    parameters={{ ...iconPlacementProps("filled").double.parameters }}
   >
     {StoryTemplate.bind()}
   </Story>
@@ -83,7 +84,7 @@ Primary buttons have high emphasis and should be used for the primary, most impo
 <Canvas>
   <Story
     name="Sandbox"
-    args={{ children: "Primary", color: "primary", variant: "primary" }}
+    args={{ children: "Filled", color: "primary", variant: "filled" }}
   >
     {StoryTemplate.bind()}
   </Story>
