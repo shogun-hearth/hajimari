@@ -1,0 +1,79 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import Select from './Select';
+import StatefulSelect from './StatefulSelect';
+import selectOptions from './selectOptions';
+
+<Meta title="Molecules/Select" component={Select} />
+
+export const StoryTemplate = (args) => <StatefulSelect {...args} />;
+
+# TODO: Component name
+
+**DATE ADDED**: 03/29/2022 | **PROJECT**: [Project name with link to Notion, Figma, etc]
+
+**TODO** -- A `Select` is a dropdown menu that allows the user to choose one or multiple items
+in a list of items and then displays the selected item(s) in an input field.
+
+<br />
+
+---
+
+<br />
+
+### Usage and examples
+
+**TODO** -- add a more technical description of the component here, which will generally be some information
+about the available props; this can be listed as a table:
+
+<br />
+
+#### Default / Basic:
+
+> Short description of the basic use case of this component. Include a code snippet and canvas.
+
+```
+<Canvas>
+  <Story name="Basic">{component}<Story>
+</Canvas>
+```
+
+<Canvas>
+    <Story
+      name="Basic"
+      args={{ name: "Select", label: "Label", items: selectOptions }}
+    >
+      {StoryTemplate.bind({})}
+    </Story>
+</Canvas>
+
+#### Variants
+
+**TODO** -- add other variants / usage examples here, following the same format as the "Basic" example.
+
+<br />
+
+---
+
+<br />
+
+### Playground
+
+**TODO** -- This is where the component will actually be rendered with [interactive controls](https://storybook.js.org/docs/react/essentials/controls/). There should be a control
+for each prop that someone can change (i.e. background color, border color, width, or whatever else is appropriate for a given
+component).
+
+```
+<Canvas>
+  <Story name="Playground">{component}</Story>
+</Canvas>
+```
+
+<Canvas>
+    <Story
+      name="Playground"
+      args={{ name: "Select", label: "Label", items: selectOptions }}
+    >
+      {StoryTemplate.bind({})}
+    </Story>
+</Canvas>
