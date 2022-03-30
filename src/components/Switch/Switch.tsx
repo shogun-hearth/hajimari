@@ -1,20 +1,12 @@
-import React from 'react';
-import Switch from '@mui/material/Switch';
-// import { Switch, SwitchProps } from '@mui/material';
+import React from "react";
+import MuiSwitch, { SwitchProps as MuiSwitchProps } from "@mui/material/Switch";
 
 export type SwitchProps = {
-    enabled: boolean,
-    selected: boolean,
-};
+  selected: boolean;
+} & MuiSwitchProps;
 
-const DifSwitch = ({
-    width = '100%',
-    ...props
-}): JSX.Element => (
-    <div>
-        <div>Stuff</div>
-        <Switch  />
-    </div>
-  );
-  
-export default DifSwitch;
+const Switch = ({ ...props }: SwitchProps): JSX.Element => (
+  <MuiSwitch {...props} />
+);
+
+export default Switch;
