@@ -7,6 +7,7 @@ import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
 import TextField, { TextFieldProps } from './TextField';
 import StatefulTextField from './StatefulTextField';
 import Typography from '../Typography';
+import { Mask, maskTypes } from './utils';
 
 export const argTypes = {
   label: {
@@ -49,7 +50,13 @@ export const argTypes = {
   }}
 />
 
-export const TextFieldTemplate = (args) => <StatefulTextField {...args} />;
+export const TextFieldTemplate = (args) => {
+  const [value, setValue] = useState()
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+  return <StatefulTextField {...args} value={value} onChange={handleChange} />
+}
 
 # TextField
 
@@ -76,50 +83,24 @@ a percentage or absolute pixel value.
 #### Default / Basic:
 
 > The most basic usage of a `TextField`. The default `Typography` variant used is `p1`.
-<!-- 
+
 <Canvas>
   <Story
     name="Basic"
     component={TextField}
-    args={{ leftContent: 'Discount', rightContent: '-$10.00' }}
   >
     {TextFieldTemplate.bind()}
   </Story>
-</Canvas> -->
+</Canvas>
 
-#### Typography variant
-
-> Since `leftContent` and `rightContent` both accept `ReactNode`s, we can pass in a different
-> `Typography` element to render other variants or colors.
-<!-- 
-<Canvas>
-  <Story
-    name="Typography variant"
-    args={{
-      leftContent: (
-        <Typography variant="h2" weight="semibold">
-          Total
-        </Typography>
-      ),
-      rightContent: (
-        <Typography variant="h2" weight="semibold" color="success500">
-          1,714.0
-        </Typography>
-      ),
-    }}
-  >
-    {TextFieldTemplate.bind()}
-  </Story>
-</Canvas> -->
-
-#### Component variant
-
-> We can also pass in any other component to`leftContent` and `rightContent`, such as an `icon`.
+#### Money mask
 
 <Canvas>
   <Story
-    name="Component variant"
+    name="Money mask"
     args={{
+      mask: 'money',
+      label: 'Money mask',
     }}
   >
     {TextFieldTemplate.bind()}
