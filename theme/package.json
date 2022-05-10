@@ -1,0 +1,6 @@
+{
+  "sideEffects": false,
+  "module": "../dist/esm/theme.js",
+  "main": "../dist/cjs/theme.js",
+  "types": "./index.d.ts"
+}

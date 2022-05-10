@@ -76,6 +76,10 @@ export default {
     layout: 'centered',
   },
   argTypes: argTypes,
+  subcomponents: {
+    CardHeader,
+    CardContent,
+  },
 } as unknown as ComponentMeta<typeof Card>;
 
 const headerArgTypes = ['bottomDivider'];

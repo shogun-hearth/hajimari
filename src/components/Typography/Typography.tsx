@@ -1,7 +1,7 @@
 import React from 'react';
 import MuiTypography, { TypographyProps as MuiTypographyProps } from '@mui/material/Typography';
 
-import colors from '../../tokens/colors';
+import styled, { rootShouldForwardProp } from '../../theme/styled';
 
 export type FontWeightVariant = 'regular' | 'medium' | 'semibold';
 export type FontWeightValue = 400 | 500 | 600;
@@ -18,23 +18,25 @@ export const fontWeights: FontWeight = {
 
 export interface TypographyProps extends MuiTypographyProps {
   weight?: FontWeightVariant;
-  color?: Color;
 }
 
-const Typography = ({
-  weight,
-  color,
-  sx,
-  ...otherProps
-}: TypographyProps): JSX.Element => (
-  <MuiTypography
-    sx={{
-      fontWeight: weight ? fontWeights[weight] : 'inherit',
-      color: color ? colors[color] : 'inherit',
-      ...sx,
-    }}
-    {...otherProps}
-  />
+const TypographyRoot = styled(MuiTypography, {
+  name: 'HajimariTypography',
+  slot: 'Root',
+  shouldForwardProp: (prop) =>
+    rootShouldForwardProp(prop) &&
+    prop !== 'weight',
+  overridesResolver: ({ variant }: TypographyProps, styles) => ([
+    styles.root,
+    variant && styles[variant],
+  ]),
+  skipVariantsResolver: true,
+})<TypographyProps>(({ weight }) => ({
+  fontWeight: weight ? fontWeights[weight] : 'inherit',
+}));
+
+const Typography = (props: TypographyProps): JSX.Element => (
+  <TypographyRoot {...props} />
 );
 
 export default Typography;

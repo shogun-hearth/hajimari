@@ -51,7 +51,9 @@ Button labels use **title case**.
 
 ## Variants
 
-Available variants include: `primary`, `secondary`, `filled`, `textLight`, and `textDark`.
+Available variants include: <b>`primary`</b>, <b>`secondary`</b>, <b>`filled`</b>, and <b>`text`</b>.
+A `text` button may change color based on the background mode, specified via its props. By default,
+the background mode is "light."
 
 <br />
 
@@ -68,12 +70,12 @@ Available variants include: `primary`, `secondary`, `filled`, `textLight`, and `
     Filled
   </Button>
   <div style={{ marginRight: 16 }} />
-  <Button color="primary" variant="textLight">
-    TextLight
+  <Button color="primary" variant="text">
+    Text (on light)
   </Button>
   <div style={{ marginRight: 16 }} />
-  <Button color="primary" variant="textDark">
-    TextDark
+  <Button color="primary" variant="text" bg="dark">
+    Text (on Dark)
   </Button>
 </Story>
 
@@ -95,20 +97,20 @@ across different variants.
 <br />
 
 <Story name="Colors">
-  <Button color="basic" variant="primary">
-    Basic
+  <Button color="greyscale" variant="primary">
+    Greyscale
   </Button>
   <div style={{ marginRight: 16 }} />
   <Button color="primary" variant="secondary">
     Primary
   </Button>
   <div style={{ marginRight: 16 }} />
-  <Button color="success" variant="filled">
-    Success
+  <Button color="green" variant="filled">
+    Green
   </Button>
   <div style={{ marginRight: 16 }} />
-  <Button color="warning" variant="primary">
-    Warning
+  <Button color="yellow" variant="primary">
+    Yellow
   </Button>
   <div style={{ marginRight: 16 }} />
   <Button color="error" variant="primary">
@@ -152,6 +154,10 @@ Both icons can be used when appropriate.
   </Button>
 </Story>
 
+<br />
+<br />
+<hr />
+
 # Sandbox
 
 <br />
@@ -160,7 +166,7 @@ Both icons can be used when appropriate.
   <Story
     story={button}
     name="Sandbox"
-    args={{ variant: "primary" }}
+    args={{ variant: "primary", children: "Button" }}
     parameters={{ layout: "centered" }}
   />
 </Canvas>
