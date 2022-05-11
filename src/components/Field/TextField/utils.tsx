@@ -1,10 +1,11 @@
 import { TextFieldProps as MuiTextFieldProps } from '@mui/material/TextField';
 import AttachMoney from '@mui/icons-material/AttachMoney';
+import CalendarToday from '@mui/icons-material/CalendarToday';
 import Lock from '@mui/icons-material/Lock';
 import Phone from '@mui/icons-material/Phone';
 import Search from '@mui/icons-material/Search';
 
-export type Mask = 'money' | 'moneyWithCents' | 'ssn' | 'lastFourSsn' | 'bankNumber' | 'phone' | 'percent' | 'taxId' | 'year' | 'default' | 'search';
+export type Mask = 'money' | 'moneyWithCents' | 'ssn' | 'lastFourSsn' | 'bankNumber' | 'phone' | 'percent' | 'taxId' | 'year' | 'default' | 'search' | 'date';
 
 type MaskData = {
   normalize: (newValue: string, value?: string) => string;
@@ -132,4 +133,11 @@ export const maskTypes: Record<Mask, MaskData> = {
       InputProps: { startAdornment: <Search /> },
     },
   },
+  date: {
+    normalize: (text: string) => text,
+    denormalize: (text: string) => text,
+    extraProps: {
+      InputProps: { startAdornment: <CalendarToday /> },
+    },
+  }
 };

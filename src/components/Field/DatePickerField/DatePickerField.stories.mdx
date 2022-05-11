@@ -1,0 +1,49 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+
+import DatePickerField from "./DatePickerField";
+
+export const argTypes = {
+  label: {
+    control: { type: 'text' },
+    defaultValue: 'Label',
+  },
+  disabled: {
+    control: { type: 'boolean' },
+    defaultValue: false,
+  },
+  error: {
+    control: { type: 'boolean' },
+    defaultValue: false,
+  },
+  helperText: {
+    control: { type: 'text' },
+  },
+};
+
+<Meta
+  title="Atoms/Field/DatePickerField"
+  component={DatePickerField}
+/> 
+
+export const DatePickerTemplate = (args) => <DatePickerField {...args} />;
+
+## DatePickerField
+
+A wrapper around the base `DatePicker` component from the MUI component set.
+Makes use of our custom `TextField` component instead of the base MUI `TextField`.
+
+Can be consumed both in Formik and not-Formik forms.
+
+<br />
+
+---
+
+<br />
+
+### Playground
+
+<Canvas>
+  <Story name="Playground">
+    {DatePickerTemplate.bind()}
+  </Story>
+</Canvas>

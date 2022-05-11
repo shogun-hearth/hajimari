@@ -6,7 +6,7 @@ import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
 
 import TextField, { TextFieldProps } from './TextField';
 import StatefulTextField from './StatefulTextField';
-import Typography from '../Typography';
+import Typography from '../../Typography';
 import { Mask, maskTypes } from './utils';
 
 export const argTypes = {
@@ -31,13 +31,13 @@ export const argTypes = {
   },
   mask: {
     control: { type: 'select' },
-    options: ['money', 'moneyWithCents', 'ssn', 'lastFourSsn', 'bankNumber', 'phone', 'percent', 'taxId', 'year', 'default', 'search'],
+    options: ['money', 'moneyWithCents', 'ssn', 'lastFourSsn', 'bankNumber', 'phone', 'percent', 'taxId', 'year', 'default', 'search', 'date'],
     defaultValue: 'default',
   },
 };
 
 <Meta
-  title="Molecules/TextField"
+  title="Atoms/Field/TextField"
   component={TextField}
   argTypes={argTypes}
   parameters={{
@@ -233,7 +233,19 @@ a percentage or absolute pixel value.
   </Story>
 </Canvas>
 
+#### Date mask
 
+<Canvas>
+  <Story
+    name="Date mask"
+    args={{
+      mask: 'date',
+      label: 'Date mask',
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
 
 ---
 
