@@ -64,6 +64,8 @@
     "react-router-dom": "^5.x"
   },
   "files": [
-    "dist"
+    "dist",
+    "components",
+    "theme"
   ]
 }
