@@ -5,6 +5,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import MuiDatePicker, { DatePickerProps as MuiDatePickerProps } from '@mui/lab/DatePicker';
 import { TextFieldProps as MuiTextFieldProps } from '@mui/material/TextField';
 import { sentenceCase } from 'change-case';
+import cloneDeep from 'lodash.clonedeep';
 
 import TextField from '../TextField';
 import Typography from '../../Typography';
@@ -27,7 +28,6 @@ const DatePickerField = ({
     onChangeCallback,
     onBlurCallback,
     error,
-    ...otherProps
 }: DatePickerProps ): JSX.Element => {
   const [value, setValue] = useState<Date | null>(null);
 
@@ -52,6 +52,15 @@ const DatePickerField = ({
   };
 
   const caption = error || helperText;
+
+  // if we add inputProps to the text field, via textFieldProps, the displayed date
+  // does not update because the props controlling the display get overwritten --
+  // this makes testing date fields difficult, as data-testid is unusable
+  // this block ensures we don't overwrite the inputProps we want to retain
+  const otherTextFieldProps = cloneDeep(textFieldProps);
+  if (otherTextFieldProps.inputProps) {
+    delete otherTextFieldProps.inputProps;
+  }
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -81,7 +90,7 @@ const DatePickerField = ({
             }}
             helperText={caption ? <Typography variant="caption">{caption}</Typography> : undefined}
             mask={"date"}
-            {...otherProps}
+            {...otherTextFieldProps}
         />
         )}
       />
