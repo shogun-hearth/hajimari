@@ -66,6 +66,8 @@
   "files": [
     "dist",
     "components",
-    "theme"
+    "theme",
+    "globals.d.ts",
+    "index.d.ts"
   ]
 }
