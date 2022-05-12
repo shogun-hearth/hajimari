@@ -1,6 +1,7 @@
 import { SimplePaletteColorOptions, ThemeOptions, PaletteOptions } from '@mui/material/styles';
 export { StyledEngineProvider, Theme, ThemeProvider, useTheme } from '@mui/material/styles';
 import * as _mui_system from '@mui/system';
+export { SxProps, SystemProps, experimental_sx as sx } from '@mui/system';
 import * as _mui_material_styles_createTheme from '@mui/material/styles/createTheme';
 import React from 'react';
 

@@ -76,10 +76,12 @@ const ButtonRoot = styled(MuiButton)(({ theme, variant }) => ({
       color: theme.palette.greyscale[700],
     }),
   },
-  /** text buttons are left aligned unlike the other variants */
+  /**
+   * @TODO text buttons should be left aligned unlike the other variants;
+   * however, in the interim that looks kind of funny, so we'll leave
+   * the text centered for now.
+   * */
   ...(variant === 'text' && {
-    textAlign: 'left',
-    justifyContent: 'flex-start',
     /** @TODO confirm that text buttons don't follow the same min width rules */
     minWidth: 'min-content',
     padding: 0,

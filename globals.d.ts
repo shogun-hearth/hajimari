@@ -2,7 +2,7 @@ declare type BackgroundMode = 'light' | 'dark';
 
 declare type Shade = 100 | 300 | 500 | 700 | 900;
 
-declare type ColorOption =
+declare type Hue =
   'greyscale' |
   'basic' |
   'primary' |
