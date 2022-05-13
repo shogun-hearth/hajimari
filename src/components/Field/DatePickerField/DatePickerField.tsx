@@ -29,11 +29,11 @@ const DatePickerField = ({
     onBlurCallback,
     error,
 }: DatePickerProps ): JSX.Element => {
-  const [value, setValue] = useState<Date | null>(null);
+  const [value, setValue] = useState<Date | string | null>(null);
 
   const fieldLabel = label != null ? label : sentenceCase(name);
 
-  const handleChange = onChangeCallback || useCallback((val: any) => {
+  const handleChange = onChangeCallback || useCallback((val: Date | string | null) => {
     setValue(val);
   }, [setValue]);
 
@@ -72,7 +72,7 @@ const DatePickerField = ({
         onChange={handleChange}
         disabled={false}
         onError={() => {}}
-        renderInput={(params: MuiTextFieldProps) => (
+        renderInput={(params: MuiTextFieldProps): JSX.Element => (
           <TextField
             {...params}
             inputProps={{
@@ -89,8 +89,9 @@ const DatePickerField = ({
               textFieldProps?.onBlur ? textFieldProps.onBlur(e) : setValue(new Date(formatDate(e.target.value)));
             }}
             helperText={caption ? <Typography variant="caption">{caption}</Typography> : undefined}
-            mask={"date"}
             {...otherTextFieldProps}
+            mask={"date"}
+            value={params.value as string}
         />
         )}
       />
