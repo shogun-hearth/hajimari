@@ -17,7 +17,18 @@ export const fontWeights: FontWeight = {
 };
 
 export interface TypographyProps extends MuiTypographyProps {
+  /**
+   * @deafult 'regular'
+   */
   weight?: FontWeightVariant;
+  /**
+   * When using MUI in combination with styled/emotion, we lose access
+   * to the component prop. This appears to be a limitation of Typescript;
+   * doing this is a workaround:
+   * 
+   * https://github.com/mui/material-ui/issues/15695#issuecomment-1026602904
+   */
+  component?: React.ElementType;
 }
 
 const TypographyRoot = styled(MuiTypography, {
@@ -26,11 +37,6 @@ const TypographyRoot = styled(MuiTypography, {
   shouldForwardProp: (prop) =>
     rootShouldForwardProp(prop) &&
     prop !== 'weight',
-  overridesResolver: ({ variant }: TypographyProps, styles) => ([
-    styles.root,
-    variant && styles[variant],
-  ]),
-  skipVariantsResolver: true,
 })<TypographyProps>(({ weight }) => ({
   fontWeight: weight ? fontWeights[weight] : 'inherit',
 }));

@@ -84,7 +84,18 @@ declare type FontWeight = {
 };
 declare const fontWeights: FontWeight;
 interface TypographyProps extends TypographyProps$1 {
+    /**
+     * @deafult 'regular'
+     */
     weight?: FontWeightVariant;
+    /**
+     * When using MUI in combination with styled/emotion, we lose access
+     * to the component prop. This appears to be a limitation of Typescript;
+     * doing this is a workaround:
+     *
+     * https://github.com/mui/material-ui/issues/15695#issuecomment-1026602904
+     */
+    component?: React$1.ElementType;
 }
 declare const Typography: (props: TypographyProps) => JSX.Element;
 
@@ -123,4 +134,4 @@ interface ImageGridProps extends ImageListProps {
 }
 declare const ImageGrid: ({ children, ...props }: ImageGridProps) => JSX.Element;
 
-export { Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, FontWeightValue, FontWeightVariant, IconButton, ImageGrid, ImageGridItem, InformationCard, LineItem, Typography, TypographyProps, fontWeights };
+export { Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, LineItem, LineItemProps, Typography, TypographyProps, fontWeights };
