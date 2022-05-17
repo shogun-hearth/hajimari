@@ -7,4 +7,5 @@ export { default as LineItem } from './LineItem';
 export { default as InformationCard } from './InformationCard';
 export { default as ImageGridItem } from './ImageGridItem';
 export { default as ImageGrid } from './ImageGrid';
+export { default as SuggestedAction } from './SuggestedAction';
 export { default as TextField } from './TextField';
