@@ -12,4 +12,10 @@ export {
 } from '@mui/system';
 
 export * from './theme';
+export {
+  darken,
+  emphasize,
+  lighten,
+  hexValue,
+} from './colorManipulator';
 export { default } from './theme';

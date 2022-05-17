@@ -18,7 +18,7 @@ export const fontWeights: FontWeight = {
 
 export interface TypographyProps extends MuiTypographyProps {
   /**
-   * @deafult 'regular'
+   * @default 'regular'
    */
   weight?: FontWeightVariant;
   /**

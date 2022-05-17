@@ -171,4 +171,9 @@ declare const typography: ThemeOptions['typography'];
 declare const themeOptions: ThemeOptions;
 declare const theme: _mui_material_styles_createTheme.Theme;
 
-export { componentOverrides, theme as default, izakayaComponentOverrides, izakayaTypographyOptions, palette, styled, themeOptions, typography };
+declare const hexValue: (color: HajimariColor) => never;
+declare const emphasize: (color: HajimariColor, coefficient?: number) => string;
+declare const lighten: (color: HajimariColor, coefficient?: number) => string;
+declare const darken: (color: HajimariColor, coefficient?: number) => string;
+
+export { componentOverrides, darken, theme as default, emphasize, hexValue, izakayaComponentOverrides, izakayaTypographyOptions, lighten, palette, styled, themeOptions, typography };

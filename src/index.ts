@@ -27,6 +27,14 @@ export { default as colors } from './tokens/colors';
 export { default as theme } from './theme';
 export * from './theme';
 
+/** explicitly re-exporting these values to resolve ambiguity */
+export {
+  darken,
+  emphasize,
+  lighten,
+  hexValue,
+} from './theme/colorManipulator';
+
 export { SxProps } from '@mui/system';
 
 /**

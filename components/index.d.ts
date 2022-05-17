@@ -85,7 +85,7 @@ declare type FontWeight = {
 declare const fontWeights: FontWeight;
 interface TypographyProps extends TypographyProps$1 {
     /**
-     * @deafult 'regular'
+     * @default 'regular'
      */
     weight?: FontWeightVariant;
     /**

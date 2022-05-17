@@ -26,7 +26,7 @@ const pxToRem = createTheme().typography.pxToRem;
  * @DEPRECATED -- now legacy typography with variants we either no longer want
  * to use or have redefined with different attributes
  * */
- export const izakayaTypographyOptions: ThemeOptions['typography'] = {
+export const izakayaTypographyOptions: ThemeOptions['typography'] = {
   fontFamily: "'Poppins', sans-serif, 'Lora', serif",
   fontSize: 16,
   fontWeightLight: 400,
@@ -78,23 +78,23 @@ const pxToRem = createTheme().typography.pxToRem;
     fontSize: pxToRem(11),
     fontWeight: 400,
   },
- };
+};
 
 /**
  * @DEPRECATED -- custom keys added to theme options in izakaya
  * */
- const izakayaCustomOptions = {
+const izakayaCustomOptions = {
   drawerWidth: 204,
   drawerZIndex: 90,
   navbarHeight: 80,
   shape: {
     borderRadius: 1,
   },
- };
+};
 
- /**
- * @DEPRECATED -- component overrides within izakaya; merged with what is provided by hajimari
- * */
+/**
+* @DEPRECATED -- component overrides within izakaya; merged with what is provided by hajimari
+* */
 export const izakayaComponentOverrides: ThemeOptions['components'] = {
   MuiInputBase: {
     styleOverrides: {
@@ -366,7 +366,8 @@ export const componentOverrides: ThemeOptions['components'] = {
   MuiButton: {
     styleOverrides: {
       text: ({ ownerState, theme }) => (
-        {...(ownerState.color != null && {
+        {
+          ...(ownerState.color != null && {
             color: theme.palette[ownerState.color][500],
             '&:hover': {
               backgroundColor: theme.palette[ownerState.color][100],
