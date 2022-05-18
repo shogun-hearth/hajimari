@@ -1,4 +1,5 @@
 import React from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 import MuiButton, { ButtonProps as MuiButtonProps } from '@mui/material/Button';
 import { LinkProps } from 'react-router-dom';
 
@@ -6,10 +7,12 @@ import Typography from '../Typography';
 import styled from '../../theme/styled';
 import { titleCase } from '../../utils/stringFormatters';
 
+type HTMLAnchorProps = React.HTMLProps<HTMLAnchorElement>;
+
 export interface ButtonProps<C> extends MuiButtonProps {
   /** 
    * 
-   * This prop is only relevant for the "text" variant.
+   * This prop is only relevant for the `text` variant.
    * 
    * The background type on which this Button is appears. Since we don't
    * currently support light vs dark mode on web as a theme variant, we can
@@ -31,7 +34,24 @@ export interface ButtonProps<C> extends MuiButtonProps {
   to?: LinkProps['to'];
   css?: any;
   noStopPropagation?: boolean;
-  download?: string;
+  /**
+   * It appears there are some type limitations when it comes to passing in
+   * props that an HTML anchor element would accept as attributes; so for now,
+   * we'll manually declare these types so that they can be accessed.
+   */
+  download?: HTMLAnchorProps['download'];
+  target?: HTMLAnchorProps['target'];
+  rel?: HTMLAnchorProps['rel'];
+  /**
+   * If `true`, shows the button in a "loading state" with a circular progress indicator
+   * @default false
+   */
+  loading?: boolean;
+  /**
+   * Text to display in the button when `loading` is `true`.
+   * @default false
+   */
+  loadingIndicator?: string;
 };
 
 const ButtonRoot = styled(MuiButton)(({ theme, variant }) => ({
@@ -92,11 +112,13 @@ const Button = React.forwardRef(<C extends React.ComponentType<any>>({
   children,
   onClick,
   noStopPropagation,
+  loading = false,
+  loadingIndicator,
   variant = 'primary',
+  disabled,
   ...props
 }: ButtonProps<C>,
-  ref?: React.ForwardedRef<HTMLButtonElement>
-): JSX.Element => {
+  ref?: React.ForwardedRef<HTMLButtonElement>): JSX.Element => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     if (!noStopPropagation) {
       event.stopPropagation();
@@ -112,12 +134,17 @@ const Button = React.forwardRef(<C extends React.ComponentType<any>>({
       ref={ref}
       variant={variant}
       onClick={handleClick}
+      disabled={disabled || loading}
+      endIcon={loading ?
+        <CircularProgress size={16} thickness={6} color="inherit" /> :
+        undefined
+      }
       {...props}
       css={undefined}
     >
       {typeof children === 'string' ?
         <Typography variant="p1" weight="medium">
-          {titleCase(children)}
+          {loading ? loadingIndicator : titleCase(children)}
         </Typography> :
         children
       }
