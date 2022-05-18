@@ -1,0 +1,216 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { withDesign } from 'storybook-addon-designs';
+import { Box } from '@mui/material';
+import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
+
+import SuggestedAction from './SuggestedAction';
+import Typography from '../Typography';
+
+export const argTypes = {
+  variant: {
+    control: { type: "select" },
+    options: ["green", "yellow", "error", "greyscale"],
+    defaultValue: "green",
+    type: { required: true },
+    table: {
+      type: {
+        summary: '"green" | "yellow" | "error" | "greyscale"',
+      },
+    },
+  },
+  description: {
+    defaultValue: 'Sandy Scientist has approved Roofing Quote.',
+    control: {
+      type: 'text',
+    },
+    table: {
+      type: { summary: 'ReactNode' },
+    },
+  },
+  onClickMenu: {
+    defaultValue: () => null,
+  },
+  dueDate: {
+    defaultValue: 'May 16',
+    control: {
+      type: 'text',
+    },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  cta: {
+    defaultValue: 'Send contract',
+    control: { type: 'text' },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  ctaAction: {
+    defaultValue: () => null,
+  },
+  secondaryCta: {
+    control: { type: 'text' },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  secondaryCtaAction: {
+    defaultValue: () => null,
+  },
+};
+
+<Meta
+  title="Molecules/SuggestedAction"
+  component={SuggestedAction}
+  argTypes={argTypes}
+  parameters={{
+    layout: 'padded',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/xfmzo1QWKiFbf2tx7Q2NUa/HAJIMARI-Design-System?node-id=1227%3A9460',
+    },
+  }}
+/>
+
+export const SuggestedActionTemplate = (args) => <SuggestedAction {...args} />;
+
+# SuggestedAction
+
+**DATE ADDED**: 05/17/22 | **PROJECT**: [Suggested Actions/Notifications](https://www.notion.so/gethearth/Suggested-Action-Notification-44baf25d61db4f67afc5e92752134614)
+
+A `SuggestedAction` provides a reminder to the contractor to undertake a particular
+time-sensitive action, such as sending a reminder about an overdue invoice or sending
+a contract after a quote is approved. It can have up to two calls to action (CTAs),
+which the contractor clicks to take the action suggested.
+
+<br />
+
+---
+
+<br />
+
+### Usage and examples
+
+It has a `variant` attribute, which determines the color of the bar on the left. It has a
+`description` prop, which takes in a `string` or a `ReactNode`. The latter is useful when
+you want to render part of the description in, e.g., semibold font. The `onClickMenu` attribute
+determines what occurs when the user clicks the three dots in the upper right corner. Optionally,
+the component takes in a `dueDate`, which displays the date on which the related item is due.
+Finally, it takes in up to two CTAs (`cta` and `secondaryCta`) and CTA actions (`ctaAction` and
+`secondaryCtaAction`), with the first CTA being required.
+
+<br />
+
+#### Default / Basic:
+
+> The most basic usage of a `SuggestedAction`.
+> The component features only a single suggested action.
+
+<Canvas>
+  <Story
+    name="Basic"
+    component={SuggestedAction}
+    args={{
+      variant: 'green',
+      description: `Sandy Scientist approved Roofing Quote.`,
+      cta: 'Send a Contract',
+      ctaAction: () => null,
+      onClickMenu: () => null,
+    }}
+  >
+    {SuggestedActionTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### Non-string description:
+
+> We can also pass a non-string React node to `description`. This allows
+> us to render desired text in bold.
+
+<Canvas>
+  <Story
+    name="Non-string description"
+    component={SuggestedAction}
+    args={{
+      variant: 'green',
+      description: (
+        <Typography variant="p2">
+          <Box component="span" sx={{ fontWeight: 600  }}>Sandy Scientist </Box>
+          approved <Box component="span" sx={{ fontWeight: 600 }}>Roofing Quote</Box>.
+        </Typography>
+      ),
+      cta: 'Send a Contract',
+      ctaAction: () => null,
+      onClickMenu: () => null,
+    }}
+  >
+    {SuggestedActionTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### Due date:
+
+> We can pass a string to `dueDate` to render the date on which action is required.
+
+<Canvas>
+  <Story
+    name="Due date"
+    component={SuggestedAction}
+    args={{
+      variant: 'yellow',
+      description: (
+        <Typography variant="p2">
+          <Box component="span" sx={{ fontWeight: 600  }}>Sandy Scientist's Roofing Quote </Box>
+          is due in <Box component="span" sx={{ fontWeight: 600 }}>3 days</Box>.
+        </Typography>
+      ),
+      cta: 'Send a Contract',
+      dueDate: 'May 16',
+      ctaAction: () => null,
+      onClickMenu: () => null,
+    }}
+  >
+    {SuggestedActionTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### Two CTAs:
+
+> If a suggested action should have two CTAs, we can pass in the second CTA's copy via
+> `secondaryCta` and action via `secondaryCtaAction`.
+
+<Canvas>
+  <Story
+    name="Two CTAs"
+    component={SuggestedAction}
+    args={{
+      variant: 'error',
+      description: (
+        <Typography variant="p2">
+          <Box component="span" sx={{ fontWeight: 600  }}>Sandy Scientist's Roofing Quote </Box>
+          is overdue.
+        </Typography>
+      ),
+      onClickMenu: () => null,
+      cta: 'Send reminder',
+      ctaAction: () => null,
+      secondaryCta: 'Cancel quote',
+      secondaryCtaAction: () => null,
+    }}
+  >
+    {SuggestedActionTemplate.bind()}
+  </Story>
+</Canvas>
+
+---
+
+<br />
+
+### Playground
+
+<Canvas>
+  <Story name="Playground">{SuggestedActionTemplate.bind()}</Story>
+</Canvas>
+
+<ArgsTable of={SuggestedAction} story="Playground" />

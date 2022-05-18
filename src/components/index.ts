@@ -30,3 +30,6 @@ export * from './ImageGridItem/ImageGridItem';
 
 export { default as ImageGrid } from './ImageGrid';
 export * from './ImageGrid/ImageGrid';
+
+export { default as SuggestedAction } from './SuggestedAction';
+export * from './SuggestedAction/SuggestedAction';
