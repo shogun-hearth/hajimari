@@ -6,7 +6,7 @@ import Box from '../Box';
 import Typography from '../Typography';
 import Button from '../Button';
 
-type SuggestedActionVariant = 'green' | 'yellow' | 'error' | 'greyscale';
+type SuggestedActionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
 
 export interface SuggestedActionProps {
   /* sets color of left border */
@@ -37,16 +37,16 @@ const SuggestedAction = ({
   secondaryCta,
   secondaryCtaAction,
 }: SuggestedActionProps): JSX.Element => {
-  const setBorderColor = (variant: SuggestedActionVariant): CommonColor => {
+  const setBorderColor = (variant: SuggestedActionVariant): HajimariColor => {
     switch(variant) {
     case 'green':
-      return 'success500';
+      return 'green.500';
     case 'yellow':
-      return 'warning500';
-    case 'error':
-      return 'danger500';
+      return 'yellow.500';
+    case 'red':
+      return 'red.500';
     case 'greyscale':
-      return 'basic700';
+      return 'greyscale.700';
     }
   };
 
@@ -61,9 +61,11 @@ const SuggestedAction = ({
         sx={{
           pl: 2,
           borderLeft: '4px solid',
-          borderLeftColor: `common.${setBorderColor(variant)}`,
+          borderLeftColor: setBorderColor(variant),
           borderBottomLeftRadius: 4,
           borderTopLeftRadius: 4,
+          display: 'flex',
+          flexDirection: 'column',
         }}
       >
         <Box
@@ -84,20 +86,16 @@ const SuggestedAction = ({
           </IconButton>
         </Box>
         {dueDate &&
-          <Box sx={{ mt: 1 }}>
-            <Typography variant="p3">Due on {dueDate}</Typography>
-          </Box>
+          <Typography variant="p3" sx={{ mt: 1 }}>Due on {dueDate}</Typography>
         }
-        <Box sx={{ mt: 2.5, display: 'inline-flex' }}>
+        <Box sx={{ mt: 2.5, display: 'flex', width: 'fit-content' }}>
           <Button variant="text" onClick={ctaAction}>
             {cta}
           </Button>
           {secondaryCta && secondaryCtaAction &&
-            <Box sx={{ ml: 2.5  }}>
-              <Button variant="text" onClick={secondaryCtaAction}>
-                {secondaryCta}
-              </Button>
-            </Box>
+            <Button variant="text" onClick={secondaryCtaAction} sx={{ ml: 2.5 }}>
+              {secondaryCta}
+            </Button>
           }
         </Box>
       </Box>
