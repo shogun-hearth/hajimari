@@ -57,7 +57,6 @@ export interface ButtonProps<C> extends MuiButtonProps {
 const ButtonRoot = styled(MuiButton)(({ theme, variant }) => ({
   /** these styles apply to buttons universally */
   display: 'flex',
-  flex: 1,
   borderRadius: 8,
   alignItems: 'center',
   boxShadow: 'none',
@@ -104,7 +103,7 @@ const ButtonRoot = styled(MuiButton)(({ theme, variant }) => ({
   ...(variant === 'text' && {
     /** @TODO confirm that text buttons don't follow the same min width rules */
     minWidth: 'min-content',
-    padding: 0,
+    padding: '0px 16px',
   }),
 }));
 
