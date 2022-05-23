@@ -1,0 +1,58 @@
+import { Meta } from "@storybook/addon-docs";
+
+import SettingsList from './SettingsList';
+
+<Meta title="SettingsList" component={SettingsList} />
+
+export const SettingsListTemplate = () => <SettingsList />;
+
+# SettingsList
+
+**DATE ADDED**: [Date] | **PROJECT**: [Project name with link to Notion, Figma, etc]
+
+**TODO** -- add a "user facing" description of the component here; include why and where it was first added,
+the general use case, and any other relevant context.
+
+<br />
+
+---
+
+<br />
+
+### Usage and examples
+
+**TODO** -- add a more technical description of the component here, which will generally be some information
+about the available props; this can be listed as a table:
+
+<br />
+
+#### Default / Basic:
+
+> Short description of the basic use case of this component. Include a code snippet and canvas.
+
+<Canvas>
+  <Story name="Basic" component={SettingsList}>{SettingsListTemplate.bind()}<Story>
+</Canvas>
+
+
+#### Variants
+
+**TODO** -- add other variants / usage examples here, following the same format as the "Basic" example.
+
+<br />
+
+---
+
+<br />
+
+### Playground
+
+**TODO** -- This is where the component will actually be rendered with [interactive controls](https://storybook.js.org/docs/react/essentials/controls/). There should be a control
+for each prop that someone can change (i.e. background color, border color, width, or whatever else is appropriate for a given
+component).
+
+<Canvas>
+  <Story name="Settings List">{SettingsListTemplate.bind()}</Story>
+</Canvas>
+
+<ArgsTable of={SettingsList} story="Playground" />
