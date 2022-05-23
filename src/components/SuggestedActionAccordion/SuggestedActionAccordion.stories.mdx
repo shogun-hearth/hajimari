@@ -1,0 +1,149 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { withDesign } from 'storybook-addon-designs';
+import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
+
+import SuggestedActionAccordion from './SuggestedActionAccordion';
+import SuggestedAction from '../SuggestedAction';
+import Box from '../Box';
+
+export const argTypes = {
+  variant: {
+    control: { type: "select" },
+    options: ["green", "yellow", "red", "greyscale"],
+    defaultValue: "green",
+    type: { required: true },
+    table: {
+      type: {
+        summary: '"green" | "yellow" | "red" | "greyscale"',
+      },
+    },
+  },
+  description: {
+    defaultValue: 'Sandy Scientist has approved Roofing Quote.',
+    control: {
+      type: 'text',
+    },
+    table: {
+      type: { summary: 'ReactNode' },
+    },
+  },
+  onClickMenu: {
+    defaultValue: () => null,
+  },
+  dueDate: {
+    defaultValue: 'May 16',
+    control: {
+      type: 'text',
+    },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  cta: {
+    defaultValue: 'Send contract',
+    control: { type: 'text' },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  ctaAction: {
+    defaultValue: () => null,
+  },
+  secondaryCta: {
+    control: { type: 'text' },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  secondaryCtaAction: {
+    defaultValue: () => null,
+  },
+};
+
+<Meta
+  title="Molecules/SuggestedActionAccordion"
+  component={SuggestedActionAccordion}
+  parameters={{
+    layout: 'padded',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/xfmzo1QWKiFbf2tx7Q2NUa/HAJIMARI-Design-System?node-id=1228%3A11694',
+    },
+  }}
+/>
+
+export const SuggestedActionAccordionTemplate = (args) => <SuggestedActionAccordion {...args} />;
+
+# SuggestedActionAccordion
+
+**DATE ADDED**: 05/19/22 | **PROJECT**: [Suggested Actions/Notifications](https://www.notion.so/gethearth/Suggested-Action-Notification-44baf25d61db4f67afc5e92752134614)
+
+A `SuggestedActionAccordion` is a thing I will describe later
+
+<br />
+
+---
+
+<br />
+
+### Usage and examples
+
+It has attributes I will populate later
+
+<br />
+
+#### Default / Basic:
+
+> The most basic usage of a `SuggestedActionAccordion`. The accordion is collapsed by default.
+
+<Canvas>
+  <Story
+    name="Basic"
+    component={SuggestedActionAccordion}
+    args={{
+      variant: 'green',
+      groupTitle: 'Ready for action',
+      numItems: 3,
+      children: new Array(3).fill(null).map(_ =>
+        <SuggestedAction
+          variant="green"
+          description="Harry Homeowner has signed Roofing Contract"
+          onClickMenu={() => null}
+          cta="Send an invoice"
+          ctaAction={() => null}
+        />
+      ),
+    }}
+  >
+    {SuggestedActionAccordionTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### Controlled expand and collapse:
+
+> You can control whether the accordion is expanded or collapsed by passing in
+> a value for `expanded`. In practice, this will be a `useState` hook.
+
+<Canvas>
+  <Story
+    name="Controlled"
+    component={SuggestedActionAccordion}
+    args={{
+      variant: 'green',
+      groupTitle: 'Ready for action',
+      numItems: 3,
+      children: new Array(3).fill(null).map(_ =>
+        <SuggestedAction
+          variant="green"
+          description="Harry Homeowner has signed Roofing Contract"
+          onClickMenu={() => null}
+          cta="Send an invoice"
+          ctaAction={() => null}
+        />
+      ),
+      expanded: true,
+    }}
+  >
+    {SuggestedActionAccordionTemplate.bind()}
+  </Story>
+</Canvas>
