@@ -27,6 +27,7 @@ const SuggestedActionAccordion = ({
   ...otherProps
 }: SuggestedActionAccordionProps): JSX.Element => {
   const setIconColor = (variant: SuggestedActionAccordionVariant): HajimariColor => {
+    if (otherProps.disabled) return 'greyscale.700';
     switch(variant) {
     case 'green':
       return 'green.500';
@@ -40,13 +41,24 @@ const SuggestedActionAccordion = ({
   };
 
   return (
-    <Accordion {...otherProps}>
+    <Accordion
+      sx={{
+        boxShadow: 'none',
+        border: '1px solid',
+        borderColor: 'greyscale.500',
+        '&.MuiAccordion-root': {
+          borderRadius: 8,
+        },
+        '&.Mui-disabled	': {
+          color: 'greyscale.700',
+          backgroundColor: 'greyscale.100',
+        },
+      }}
+      {...otherProps} 
+    >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon sx={{ fontSize: 24 }} />}
-        sx={{
-          p: 2,
-          boxShadow: 'none',
-        }}
+        sx={{ px: 2, py: 1.5 }}
       >
         <Box
           sx={{

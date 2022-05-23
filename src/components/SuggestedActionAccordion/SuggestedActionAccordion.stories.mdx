@@ -147,3 +147,32 @@ It has attributes I will populate later
     {SuggestedActionAccordionTemplate.bind()}
   </Story>
 </Canvas>
+
+#### Disabled:
+
+> You can control whether the accordion is disabled by passing in
+> a value for `disabled`.
+
+<Canvas>
+  <Story
+    name="Disabled"
+    component={SuggestedActionAccordion}
+    args={{
+      variant: 'green',
+      groupTitle: 'Ready for action',
+      numItems: 0,
+      children: null,
+      disabled: true,
+    }}
+  >
+    {SuggestedActionAccordionTemplate.bind()}
+  </Story>
+</Canvas>
+
+### Playground
+
+<Canvas>
+  <Story name="Playground">{SuggestedActionAccordionTemplate.bind()}</Story>
+</Canvas>
+
+<ArgsTable of={SuggestedActionAccordion} story="Playground" />
