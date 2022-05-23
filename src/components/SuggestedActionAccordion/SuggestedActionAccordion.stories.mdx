@@ -169,6 +169,36 @@ It has attributes I will populate later
   </Story>
 </Canvas>
 
+#### Highlight number of items:
+
+> Under various circumstances (e.g., an unviewed suggested action), you may
+> want to highlight the number of items. You can do this by setting `highlightNumber`
+> to true.
+
+<Canvas>
+  <Story
+    name="Highlight Number"
+    component={SuggestedActionAccordion}
+    args={{
+      variant: 'green',
+      groupTitle: 'Ready for action',
+      numItems: 3,
+      children: new Array(3).fill(null).map(_ =>
+        <SuggestedAction
+          variant="green"
+          description="Harry Homeowner has signed Roofing Contract"
+          onClickMenu={() => null}
+          cta="Send an invoice"
+          ctaAction={() => null}
+        />
+      ),
+      highlightNumber: true,
+    }}
+  >
+    {SuggestedActionAccordionTemplate.bind()}
+  </Story>
+</Canvas>
+
 ### Playground
 
 <Canvas>

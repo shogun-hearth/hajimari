@@ -17,12 +17,15 @@ export interface SuggestedActionAccordionProps extends Omit<AccordionProps, 'var
   groupTitle: string;
   /* number of suggested actions in category */
   numItems: number;
+  /* includes blue circle around number of items */
+  highlightNumber?: boolean;
 }
 
 const SuggestedActionAccordion = ({
   variant,
   groupTitle,
   numItems,
+  highlightNumber = false,
   children,
   ...otherProps
 }: SuggestedActionAccordionProps): JSX.Element => {
@@ -75,9 +78,21 @@ const SuggestedActionAccordion = ({
               {groupTitle}
             </Typography>
           </Box>
-          <Typography variant="p1">
-            {numItems}
-          </Typography>
+          <Box>
+            <Typography
+              variant="p1"
+              sx={highlightNumber ? {
+                  bgcolor: 'blue.500',
+                  borderRadius: 16,
+                  px: 1,
+                } : {}
+              }
+              weight={highlightNumber ? 'semibold' : 'regular'}
+              color={highlightNumber ? 'greyscale.100' : 'inherit'}
+            >
+              {numItems}
+            </Typography>
+          </Box>
         </Box>
       </AccordionSummary>
       <AccordionDetails>
