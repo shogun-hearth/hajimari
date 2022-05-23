@@ -4,7 +4,7 @@ import SettingsList from './SettingsList';
 
 <Meta title="SettingsList" component={SettingsList} />
 
-export const SettingsListTemplate = () => <SettingsList />;
+export const SettingsListTemplate = (argsq) => <SettingsList />;
 
 # SettingsList
 
@@ -31,7 +31,7 @@ about the available props; this can be listed as a table:
 > Short description of the basic use case of this component. Include a code snippet and canvas.
 
 <Canvas>
-  <Story name="Basic" component={SettingsList}>{SettingsListTemplate.bind()}<Story>
+  <Story name="Basic" component={SettingsList}>{SettingsListTemplate.bind()}</Story>
 </Canvas>
 
 

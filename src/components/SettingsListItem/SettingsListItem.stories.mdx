@@ -1,0 +1,161 @@
+import { Meta } from "@storybook/addon-docs";
+import { Switch, IconButton } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+ 
+import SettingsListItem from './SettingsListItem';
+import Button from '../Button';
+
+export const argTypes = {
+  headerText: {
+    defaultValue: 'Some invoice settings example',
+    control : {
+      type: 'text',
+    }
+  },
+  description: {
+    defaultValue: 'Here is some optional content',
+    control : {
+      type: 'text',
+    },
+  },
+  divider: {
+    control: { type: 'boolean' },
+    defaultValue: true,
+  },
+  isHeader: {
+    control: { type: 'boolean' },
+    defaultValue: true,
+  },
+  children: {
+    name: 'action type',
+    control: 'ReactNode',
+    table: {
+      type: { summary: 'ReactNode' },
+    },
+  }
+};
+
+<Meta
+  title="Molecules/SettingsListItem"
+  component={SettingsListItem}
+  argTypes={argTypes}
+/>
+
+export const SettingsListItemTemplate = (args) => <SettingsListItem {...args}/>;
+
+# TODO: Component name
+
+**DATE ADDED**: [Date] | **PROJECT**: [Project name with link to Notion, Figma, etc]
+
+**TODO** -- add a "user facing" description of the component here; include why and where it was first added,
+the general use case, and any other relevant context.
+
+<br />
+
+---
+
+<br />
+
+### Usage and examples
+
+**TODO** -- add a more technical description of the component here, which will generally be some information
+about the available props; this can be listed as a table:
+
+<br />
+
+#### Default / Basic:
+
+> Short description of the basic use case of this component. Include a code snippet and canvas.
+
+<Canvas>
+  <Story
+    name="Basic"
+    component={SettingsListItem}
+    args={{
+      headerText: 'Here is a basic setting',
+      description: 'There might be some description',
+      divider: false,
+      isHeader: true,
+    }}
+  >
+    {SettingsListItemTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### Variants
+
+**TODO** -- add other variants / usage examples here, following the same format as the "Basic" example.
+
+<br />
+
+---
+
+<br />
+
+<Canvas>
+  <Story
+    name="With Button CTA"
+    component={SettingsListItem}
+    args={{
+      headerText: 'Here is a setting',
+      description: 'some description',
+      divider: true,
+      isHeader: false,
+      children: (
+        <Button variant="primary" color="primary">Some CTA</Button>
+      )
+    }}
+  >
+    {SettingsListItemTemplate.bind()}
+  </Story>
+</Canvas>
+
+
+<Canvas>
+  <Story
+    name="With Toggle CTA"
+    component={SettingsListItem}
+    args={{
+      headerText: 'Here is a setting',
+      description: 'some description',
+      divider: true,
+      isHeader: false,
+      children: (
+        <Switch variant="primary"/>
+      )
+    }}
+  >
+    {SettingsListItemTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="With Expand CTA"
+    component={SettingsListItem}
+    args={{
+      headerText: 'Here is a setting',
+      description: 'some description',
+      divider: true,
+      isHeader: false,
+      children: (
+        <IconButton>
+          <ExpandMoreIcon />
+        </IconButton>
+      )
+    }}
+  >
+    {SettingsListItemTemplate.bind()}
+  </Story>
+</Canvas>
+
+
+### Playground
+
+**TODO** -- This is where the component will actually be rendered with [interactive controls](https://storybook.js.org/docs/react/essentials/controls/). There should be a control
+for each prop that someone can change (i.e. background color, border color, width, or whatever else is appropriate for a given
+component).
+
+<Canvas>
+  <Story name="Playground">{SettingsListItemTemplate.bind()}</Story>
+</Canvas>
