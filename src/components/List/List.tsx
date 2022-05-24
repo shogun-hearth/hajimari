@@ -1,12 +1,12 @@
 import { List as MuiList, ListProps as MuiListProps } from '@mui/material';
 
-interface SettingsListProps extends MuiListProps {
+export interface ListProps extends MuiListProps {
   children: React.ReactNode;
 }
 
-const SettingsList = ({
+const List = ({
   children,
-}: SettingsListProps): JSX.Element => (
+}: ListProps): JSX.Element => (
   <MuiList
     sx={{
       border: 1,
@@ -18,4 +18,4 @@ const SettingsList = ({
   </MuiList>
 );
 
-export default SettingsList;
+export default List;

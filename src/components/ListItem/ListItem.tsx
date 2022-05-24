@@ -5,20 +5,20 @@ import {
   ListItemProps as MuiListItemProps,
 } from '@mui/material';
 
-export interface SettingsListItemProps extends MuiListItemProps {
+export interface ListItemProps extends MuiListItemProps {
   headerText: string;
   description?: string;
   children?: React.ReactNode;
   isHeader?: boolean,
 }
 
-const SettingsListItem = ({
+const ListItem = ({
   headerText,
   description,
   children,
   divider = false,
   isHeader,
-}: SettingsListItemProps): JSX.Element => (
+}: ListItemProps): JSX.Element => (
   <>
     <MuiListItem
       alignItems="flex-start"
@@ -41,4 +41,4 @@ const SettingsListItem = ({
   </>
 );
 
-export default SettingsListItem;
+export default ListItem;

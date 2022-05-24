@@ -1,12 +1,23 @@
 import { Meta } from "@storybook/addon-docs";
 
-import SettingsList from './SettingsList';
+import { listItem, argTypes } from './ListItem.stories.tsx';
 
-<Meta title="SettingsList" component={SettingsList} />
+<Meta
+  title="Molecules/List/ListItem"
+  component={ListItem}
+  argTypes={argTypes}
+  parameters={{
+    backgrounds: {
+      default: "light blue",
+      values: [
+        { name: "light blue", value: "#F4F6F9" },
+        { name: "white", value: "#FFFFFF" }
+      ],
+    },
+  }}
+/>
 
-export const SettingsListTemplate = (argsq) => <SettingsList />;
-
-# SettingsList
+# TODO: Component name
 
 **DATE ADDED**: [Date] | **PROJECT**: [Project name with link to Notion, Figma, etc]
 
@@ -30,11 +41,6 @@ about the available props; this can be listed as a table:
 
 > Short description of the basic use case of this component. Include a code snippet and canvas.
 
-<Canvas>
-  <Story name="Basic" component={SettingsList}>{SettingsListTemplate.bind()}</Story>
-</Canvas>
-
-
 #### Variants
 
 **TODO** -- add other variants / usage examples here, following the same format as the "Basic" example.
@@ -45,6 +51,7 @@ about the available props; this can be listed as a table:
 
 <br />
 
+
 ### Playground
 
 **TODO** -- This is where the component will actually be rendered with [interactive controls](https://storybook.js.org/docs/react/essentials/controls/). There should be a control
@@ -52,7 +59,7 @@ for each prop that someone can change (i.e. background color, border color, widt
 component).
 
 <Canvas>
-  <Story name="Settings List">{SettingsListTemplate.bind()}</Story>
+  <Story story={listItem} name="Playground" />
 </Canvas>
 
-<ArgsTable of={SettingsList} story="Playground" />
+<ArgsTable of={listItem} story="Playground" />
