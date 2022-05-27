@@ -61,7 +61,7 @@ const ListItemTemplate = ({ children, ...args }:TemplateArgs): JSX.Element => {
   const getCta = () => {
     switch(children) {
       case('Button'):
-        return <Button variant="primary" color="primary">Some Button</Button>
+        return <Button variant="primary" color="blue">Some Button</Button>
       case('Toggle'):
         return <Switch color="primary" />
       case('Expand'):

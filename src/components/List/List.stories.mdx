@@ -6,7 +6,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '../Button';
 import ListItem from '../ListItem';
 import List from '../List';
-import { list } from './List.stories.tsx';
+import { list, variantListItems } from './List.stories.tsx';
 import Box from '../Box';
 
 <Meta title='Molecules/List' component={List} />
@@ -27,7 +27,24 @@ export const ListTemplate = (args) => {
   );
 };
 
-# TODO: Component name
+export const listItems = [
+  {
+    headerText: 'This is the main text',
+    description: 'you can add an optional description',
+    isHeader: true,
+    divider: true,
+  },
+  {
+    headerText: 'These items have no primary action',
+    divider: true,
+  },
+  {
+    headerText:
+      'Since this is the last child element, we can omit the divider prop',
+  },
+];
+
+# List
 
 **DATE ADDED**: [Date] | **PROJECT**: [Project name with link to Notion, Figma, etc]
 
@@ -42,27 +59,33 @@ three possible (and optional) primary actions. A row without primary actions wil
 
 ### Usage and examples
 
-**TODO** -- add a more technical description of the component here, which will generally be some information
-about the available props; this can be listed as a table:
+`ListItem` accepts several props. It has `headerText`, which takes in a string and represents the main content
+in list item. Additionally, if the `isHeader` prop is set to true, the `headerText` will be bolded.
+It also accepts an optional `description`(also a string), which is useful for providing more detail
+to the main content. The primary actions are determined by the elements you pass in as `children` to `ListItem`.
+Current primary action use cases are limited to `Button`, `Switch` (or `Toggle`), and `Expand`. If a child element
+is not provided, the list item will just render a text row (see basic use case). Finally, the `divider` prop ensures that
+the list item is separated if it is followed by a sibling element.
 
 <br />
 
 #### Default / Basic:
 
-> A basic use case of `List` would be a list with one `ListItem` entry.
+> A basic use case of `List` would comprise of `ListItems` with no primary actions.
 
 <Canvas>
   <Story
     name='Basic'
     component={List}
     args={{
-      children: (
+      children: listItems.map((item) => (
         <ListItem
-          headerText='This is the main text'
-          description='you can add an optional description'
-          isHeader
+          headerText={item.headerText}
+          description={item.description}
+          isHeader={item.isHeader}
+          divider={item.divider}
         />
-      ),
+      )),
     }}
   >
     {ListTemplate.bind({})}
@@ -78,30 +101,16 @@ about the available props; this can be listed as a table:
     name='with multiple list items'
     component={list}
     args={{
-      children: (
-        <>
-          <ListItem
-            headerText='Payment Options On Invoices'
-            description='Show or hide payment options for all of your customers'
-            isHeader
-            divider
-          >
-            <Switch color='primary' />
-          </ListItem>
-          <ListItem headerText='Payments Account' divider>
-            <Button variant='primary' color='blue'>
-              {' '}
-              Edit Account{' '}
-            </Button>
-          </ListItem>
-          <ListItem headerText='Automated Payment Reminders'>
-            <IconButton>
-              {' '}
-              <ExpandMoreIcon />{' '}
-            </IconButton>
-          </ListItem>
-        </>
-      ),
+      children: variantListItems.map((item) => (
+        <ListItem
+          headerText={item.headerText}
+          description={item.description}
+          isHeader={item.isHeader}
+          divider={item.divider}
+        >
+          {item.childNode}
+        </ListItem>
+      )),
     }}
   />
 </Canvas>
