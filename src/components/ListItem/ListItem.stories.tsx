@@ -10,7 +10,7 @@ import Box from '../Box';
 
 export const argTypes = {
   headerText: {
-    defaultValue: 'Invoice Setting Example',
+    defaultValue: 'This is a header',
     control : {
       type: 'text',
     }
