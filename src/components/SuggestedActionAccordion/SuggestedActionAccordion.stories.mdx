@@ -18,51 +18,54 @@ export const argTypes = {
       },
     },
   },
-  description: {
-    defaultValue: 'Sandy Scientist has approved Roofing Quote.',
-    control: {
-      type: 'text',
+  groupTitle: {
+    defaultValue: 'Ready for action',
+    control: { type: 'text' },
+    table: {
+      type: { summary: 'string' },
     },
+  },
+  numItems: {
+    defaultValue: 3,
+    control: { type: 'number' },
+    table: {
+      type: { summary: 'number' },
+    },
+  },
+  highlightNumber: {
+    defaultValue: false,
+    control: { type: 'boolean' },
+    table: {
+      type: { summary: 'boolean' },
+    },
+  },
+  children: {
+    defaultValue: new Array(3).fill(null).map(_ =>
+      <SuggestedAction
+        variant="green"
+        description="Harry Homeowner has signed Roofing Contract"
+        onClickMenu={() => null}
+        cta="Send an invoice"
+        ctaAction={() => null}
+      />
+    ),
     table: {
       type: { summary: 'ReactNode' },
     },
   },
-  onClickMenu: {
-    defaultValue: () => null,
-  },
-  dueDate: {
-    defaultValue: 'May 16',
-    control: {
-      type: 'text',
-    },
+  disabled: {
+    defaultValue: false,
+    control: { type: 'boolean' },
     table: {
-      type: { summary: 'string' },
+      type: { summary: 'boolean' },
     },
-  },
-  cta: {
-    defaultValue: 'Send contract',
-    control: { type: 'text' },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  ctaAction: {
-    defaultValue: () => null,
-  },
-  secondaryCta: {
-    control: { type: 'text' },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  secondaryCtaAction: {
-    defaultValue: () => null,
   },
 };
 
 <Meta
   title="Molecules/SuggestedActionAccordion"
   component={SuggestedActionAccordion}
+  argTypes={argTypes}
   parameters={{
     layout: 'padded',
     design: {
@@ -76,9 +79,10 @@ export const SuggestedActionAccordionTemplate = (args) => <SuggestedActionAccord
 
 # SuggestedActionAccordion
 
-**DATE ADDED**: 05/19/22 | **PROJECT**: [Suggested Actions/Notifications](https://www.notion.so/gethearth/Suggested-Action-Notification-44baf25d61db4f67afc5e92752134614)
+**DATE ADDED**: 05/27/22 | **PROJECT**: [Suggested Actions/Notifications](https://www.notion.so/gethearth/Suggested-Action-Notification-44baf25d61db4f67afc5e92752134614)
 
-A `SuggestedActionAccordion` is a thing I will describe later
+A `SuggestedActionAccordion` is an expandable and collapsible
+container for `SuggestedAction` components.
 
 <br />
 
@@ -88,7 +92,14 @@ A `SuggestedActionAccordion` is a thing I will describe later
 
 ### Usage and examples
 
-It has attributes I will populate later
+It has a `variant` attribute, which determines the color of the circle on the left. It
+has a `groupTitle` attribute, which sets the text displayed in the header. It has a `numItems`
+attribute, which should correspond to the number of child elements (e.g., `SuggestedAction`
+components) and sets the number adjacent to the dropdown icon. It has a `highlightNumber`
+attribute, which determines whether the number adjacent to the dropdown icon has a blue
+background; this is useful for emphasizing new items and is false by default. The component
+also accepts all parameters in `AccordionProps`. This is most useful for adding a `disabled`
+attribute, which determines whether the component renders in a disabled state.
 
 <br />
 
