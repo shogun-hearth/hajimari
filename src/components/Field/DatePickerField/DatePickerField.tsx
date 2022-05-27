@@ -11,12 +11,19 @@ import TextField from '../TextField';
 import Typography from '../../Typography';
 
 export type DatePickerProps = { 
+  /* the internal name of the component instance */
   name: string;
+  /* text to show as the label (if any) */
   label?: string;
+  /* message if there is a warning */
   helperText?: string;
+  /* the additional props to be sent directly to the underlying TextField */
   textFieldProps?: Partial<MuiTextFieldProps>;
+  /* an error message to display */
   error?: string,
+  /* additional logic to do whenver an onChange event is triggered */
   onChangeCallback?: (date: any, keyboardInputValue?: string | undefined) => void,
+  /* additional logic to do whenver an onBlur event is triggered */
   onBlurCallback?: () => void,
 } & MuiDatePickerProps;
 
@@ -39,9 +46,11 @@ const DatePickerField = ({
 
   const formatDate = (date: string): string => {
     const dateArr = date.split('/');
-    // if contractor hasn't entered a year, leave date as is
-    // returning an empty string causes an "invalid date" error
-    // to be displayed and the entered text to be retained
+    /*
+      if contractor hasn't entered a year, leave date as is
+      returning an empty string causes an "invalid date" error
+      to be displayed and the entered text to be retained
+    */
     if (dateArr.length < 3 || dateArr?.[2] === '') return '';
     let year = dateArr.pop();
     if (year && year.length < 4) {
@@ -52,11 +61,12 @@ const DatePickerField = ({
   };
 
   const caption = error || helperText;
-
-  // if we add inputProps to the text field, via textFieldProps, the displayed date
-  // does not update because the props controlling the display get overwritten --
-  // this makes testing date fields difficult, as data-testid is unusable
-  // this block ensures we don't overwrite the inputProps we want to retain
+  /*
+    if we add inputProps to the text field, via textFieldProps, the displayed date
+    does not update because the props controlling the display get overwritten --
+    this makes testing date fields difficult, as data-testid is unusable
+    this block ensures we don't overwrite the inputProps we want to retain
+  */
   const otherTextFieldProps = cloneDeep(textFieldProps);
   if (otherTextFieldProps.inputProps) {
     delete otherTextFieldProps.inputProps;
