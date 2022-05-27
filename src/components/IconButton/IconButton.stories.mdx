@@ -1,0 +1,123 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+import CloseIcon from "@mui/icons-material/Close";
+import AddIcon from "@mui/icons-material/Add";
+import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
+
+import IconButton from "./IconButton";
+
+export const argTypes = {
+  children: {
+    name: "Icon",
+    table: {
+      type: { summary: "ReactNode" },
+    },
+    control: { type: "select" },
+    options: ["CloseIcon", "AddIcon", "HappyIcon"],
+    mapping: {
+      CloseIcon: <CloseIcon />,
+      AddIcon: <AddIcon />,
+      HappyIcon: <SentimentVerySatisfiedIcon />,
+    },
+  },
+  color: {
+    name: "Color",
+    control: { type: "select" },
+    defaultValue: {
+      summary: "default",
+    },
+    options: ["primary", "default", "green", "yellow", "error", "greyscale"],
+    table: {
+      type: {
+        summary:
+          "'primary' | 'default' | 'green' | 'yellow' | 'error' | 'greyscale'",
+      },
+    },
+  },
+  bg: {
+    name: "Background",
+    control: { type: "radio" },
+    defaultValue: {
+      summary: "light",
+    },
+    options: ["light", "dark"],
+    table: {
+      type: {
+        summary: "'light' | 'dark'",
+      },
+    },
+  },
+};
+
+<Meta
+  title="Button/Icon Button"
+  component={IconButton}
+  argTypes={argTypes}
+  decorators={[
+    (story) => (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {story()}
+      </div>
+    ),
+  ]}
+/>
+
+export const IconButtonTemplate = (args) => <IconButton {...args} />;
+
+## Icon Button
+
+`IconButton` is built on top of MUI's [IconButton API](https://mui.com/api/icon-button).
+Like a `Button`, it uses `ButtonBase` under the hood. Similar to `text` buttons, it also accepts
+a `bg` prop to determine the background mode ("light" or "dark"), which affects its styles.
+
+<br />
+
+<Story name="Variants">
+  <IconButton color="primary">
+    <SentimentVerySatisfiedIcon />
+  </IconButton>
+  <div style={{ marginRight: 16 }} />
+  <IconButton color="default">
+    <SentimentVerySatisfiedIcon />
+  </IconButton>
+  <div style={{ marginRight: 16 }} />
+  <IconButton color="greyscale">
+    <SentimentVerySatisfiedIcon />
+  </IconButton>
+  <div style={{ marginRight: 16 }} />
+  <IconButton color="green">
+    <SentimentVerySatisfiedIcon />
+  </IconButton>
+  <div style={{ marginRight: 16 }} />
+  <IconButton color="yellow">
+    <SentimentVerySatisfiedIcon />
+  </IconButton>
+  <div style={{ marginRight: 16 }} />
+  <IconButton color="error">
+    <SentimentVerySatisfiedIcon />
+  </IconButton>
+</Story>
+
+<br />
+
+## Sandbox
+
+<Canvas>
+  <Story
+    name="Sandbox"
+    component={IconButton}
+    args={{
+      children: "CloseIcon",
+      color: "default",
+      bg: "light",
+    }}
+  >
+    {IconButtonTemplate.bind()}
+  </Story>
+</Canvas>
+
+<ArgsTable of={IconButton} story="Sandbox" />

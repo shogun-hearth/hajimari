@@ -1,11 +1,11 @@
 import React from 'react';
-import { CardHeader as MuiCardHeader, Divider } from '@mui/material';
-import { CardHeaderProps as MuiCardHeaderProps } from '@mui/material/CardHeader';
+import Divider from '@mui/material/Divider';
+import MuiCardHeader, { CardHeaderProps as MuiCardHeaderProps } from '@mui/material/CardHeader';
 
-import { CardColorProperty } from '../Card/Card';
-
-export interface CardHeaderProps extends MuiCardHeaderProps, CardColorProperty {
+export interface CardHeaderProps extends MuiCardHeaderProps {
   bottomDivider?: boolean;
+  border?: CommonColor;
+  bg?: CommonColor;
 }
 
 const CardHeader = ({

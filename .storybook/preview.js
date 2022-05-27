@@ -1,3 +1,4 @@
+import React from 'react';
 import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
 import { StylesProvider } from '@mui/styles';
 import { ThemeProvider } from 'emotion-theming';

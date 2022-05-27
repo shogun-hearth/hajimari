@@ -1,0 +1,6 @@
+{
+  "sideEffects": false,
+  "module": "../dist/esm/components.js",
+  "main": "../dist/cjs/components.js",
+  "types": "./index.d.ts"
+}

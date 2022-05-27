@@ -4,8 +4,8 @@ import MuiCard, { CardProps as MuiCardProps } from '@mui/material/Card';
 import theme from '../../theme';
 
 export interface CardColorProperty {
-  border?: Color;
-  bg?: Color;
+  border?: CommonColor;
+  bg?: CommonColor;
 }
 
 export interface CardProps extends MuiCardProps, CardColorProperty { }
