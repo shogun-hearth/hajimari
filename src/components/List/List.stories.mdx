@@ -1,66 +1,38 @@
-import { Meta } from "@storybook/addon-docs";
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
 import { withDesign } from 'storybook-addon-designs';
 import { IconButton, Switch } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import Button from '../Button';
 import ListItem from '../ListItem';
+import List from '../List';
+import { list } from './List.stories.tsx';
 import Box from '../Box';
 
-<Meta
-  title="Molecules/List"
-  component={List}
-/>
+<Meta title='Molecules/List' component={List} />
 
 export const argTypes = {
   children: {
-    control : {
+    control: {
       type: 'select',
-    }
-  }
-}
+    },
+  },
+};
 
 export const ListTemplate = (args) => {
-return (
-  <Box width='900px'>
-    <List {...args}>
-      <ListItem
-        headerText="Payment Options On Invoices"
-        description="Show or hide payment options for all of your customers"
-        divider
-        header
-      >
-        <Button color="primary" variant="primary" onClick={() => {}}>
-          Edit Account
-        </Button>
-      </ListItem>
-      <ListItem
-        headerText="Accept Credit/ Debit Card Payments"
-        description="Credit/Debit Card Payment fee is 3.0% + $0.00 per payment."
-        divider
-      >
-        <IconButton>
-          <ExpandMoreIcon />
-        </IconButton>
-      </ListItem>
-      <ListItem
-        headerText="Accept Credit/ Debit Card Payments"
-        description="Credit/Debit Card Payment fee is 3.0% + $0.00 per payment."
-        header
-      >
-        <Switch color="primary" />
-      </ListItem>
-    </List>
-  </Box>
-  )
-}
+  return (
+    <Box width='900px'>
+      <List {...args} />
+    </Box>
+  );
+};
 
 # TODO: Component name
 
 **DATE ADDED**: [Date] | **PROJECT**: [Project name with link to Notion, Figma, etc]
 
-**TODO** -- add a "user facing" description of the component here; include why and where it was first added,
-the general use case, and any other relevant context.
+A `List` is a continuous, vertical group of text rows. They are composed of `List items` containing
+three possible (and optional) primary actions. A row without primary actions will just have text.
 
 <br />
 
@@ -77,14 +49,62 @@ about the available props; this can be listed as a table:
 
 #### Default / Basic:
 
-> Short description of the basic use case of this component. Include a code snippet and canvas.
+> A basic use case of `List` would be a list with one `ListItem` entry.
+
 <Canvas>
-  <Story name="Basic" component={List} args={{}}>{ListTemplate.bind({})}</Story>
+  <Story
+    name='Basic'
+    component={List}
+    args={{
+      children: (
+        <ListItem
+          headerText='This is the main text'
+          description='you can add an optional description'
+          isHeader
+        />
+      ),
+    }}
+  >
+    {ListTemplate.bind({})}
+  </Story>
 </Canvas>
 
-#### Variants
+#### with multiple list items
 
-**TODO** -- add other variants / usage examples here, following the same format as the "Basic" example.
+> Most likely, lists will have multiple `ListItem` children, each are customizeable.
+
+<Canvas>
+  <Story
+    name='with multiple list items'
+    component={list}
+    args={{
+      children: (
+        <>
+          <ListItem
+            headerText='Payment Options On Invoices'
+            description='Show or hide payment options for all of your customers'
+            isHeader
+            divider
+          >
+            <Switch color='primary' />
+          </ListItem>
+          <ListItem headerText='Payments Account' divider>
+            <Button variant='primary' color='blue'>
+              {' '}
+              Edit Account{' '}
+            </Button>
+          </ListItem>
+          <ListItem headerText='Automated Payment Reminders'>
+            <IconButton>
+              {' '}
+              <ExpandMoreIcon />{' '}
+            </IconButton>
+          </ListItem>
+        </>
+      ),
+    }}
+  />
+</Canvas>
 
 <br />
 
@@ -94,10 +114,8 @@ about the available props; this can be listed as a table:
 
 ### Playground
 
-**TODO** -- This is where the component will actually be rendered with [interactive controls](https://storybook.js.org/docs/react/essentials/controls/). There should be a control
-for each prop that someone can change (i.e. background color, border color, width, or whatever else is appropriate for a given
-component).
-
 <Canvas>
-  <Story name="Playground">{ListTemplate.bind()}</Story>
+  <Story name='Playground' component={list} />
 </Canvas>
+
+<ArgsTable of={List} story='Playground' />
