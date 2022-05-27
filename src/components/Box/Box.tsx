@@ -1,14 +1,10 @@
 import React from 'react';
 import MuiBox, { BoxProps as MuiBoxProps } from '@mui/material/Box';
 
-export type BoxProps = {
-  children: React.ReactNode;
-} & MuiBoxProps;
+export interface BoxProps extends MuiBoxProps { };
 
-const Box = ({ children, ...props }: BoxProps): JSX.Element => (
-  <MuiBox {...props}>
-    {children}
-  </MuiBox>
+const Box = (props: BoxProps): JSX.Element => (
+  <MuiBox {...props} />
 );
 
 export default Box;

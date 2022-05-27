@@ -3,9 +3,10 @@ import MuiCardContent, {
   CardContentProps as MuiCardContentProps
 } from '@mui/material/CardContent';
 
-import { CardColorProperty } from '../Card/Card';
-
-export interface CardContentProps extends MuiCardContentProps, CardColorProperty { }
+export interface CardContentProps extends MuiCardContentProps {
+  border?: CommonColor;
+  bg?: CommonColor;
+}
 
 const CardContent = ({
   children,

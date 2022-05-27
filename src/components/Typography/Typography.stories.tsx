@@ -8,14 +8,14 @@ import theme from '../../theme';
 
 export const argTypes = {
   color: {
-    defaultValue: 'basic1100',
+    defaultValue: 'greyscale.1100',
     table: {
       defaultValue: {
-        summary: 'basic1100',
+        summary: 'greyscale.1100',
       },
     },
     control: { type: 'select' },
-    options: Object.keys({ ...theme.palette.common }),
+    options: Object.keys({ ...theme.palette }),
   },
   weight: {
     options: ['regular', 'medium', 'semibold'],

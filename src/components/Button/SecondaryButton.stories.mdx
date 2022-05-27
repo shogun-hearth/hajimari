@@ -1,7 +1,7 @@
 import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
 
 import Button from "./Button";
-import { button, argTypes } from "./Button.stories.tsx";
+import { secondaryButton, argTypes } from "./Button.stories.tsx";
 import { iconPlacementProps } from "./storyUtils";
 
 <Meta title="Button/Secondary" component={Button} argTypes={argTypes} />
@@ -71,11 +71,13 @@ alternative, secondary action.
 ## Sandbox
 
 <Canvas>
-  <Story name="Sandbox" args={{ children: "Secondary", color: "primary" }}>
-    {StoryTemplate.bind()}
-  </Story>
+  <Story
+    story={secondaryButton}
+    name="Sandbox"
+    parameters={{ layout: "centered" }}
+  />
 </Canvas>
 
-<ArgsTable of={button} story="Sandbox" />
+<ArgsTable of={secondaryButton} story="Sandbox" />
 
 <hr />

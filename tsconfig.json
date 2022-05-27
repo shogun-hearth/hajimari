@@ -1,5 +1,4 @@
 {
-  // "exclude": ["src/stories/**"],
   "compilerOptions": {
     // Default
     "target": "es6", 
@@ -23,5 +22,7 @@
     "paths": {
       "/*": ["./src/*"]
     }
-  }
+  },
+  "include": ["./src", "./globals.d.ts"],
+  "exclude": ["**/*.stories.tsx"]
 }

@@ -5,7 +5,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import Button from "./Button";
-import { button, argTypes } from "./Button.stories.tsx";
+import { primaryButton, argTypes } from "./Button.stories.tsx";
 import { iconPlacementProps } from "./storyUtils";
 
 <Meta title="Button/Primary" component={Button} argTypes={argTypes} />
@@ -53,6 +53,7 @@ Primary buttons have high emphasis and should be used for the primary, most impo
 
 <Canvas>
   <Story
+    inline
     name="Start Icon"
     args={{ ...iconPlacementProps("primary").start.args }}
     parameters={{ ...iconPlacementProps("primary").start.parameters }}
@@ -60,6 +61,7 @@ Primary buttons have high emphasis and should be used for the primary, most impo
     {StoryTemplate.bind()}
   </Story>
   <Story
+    inline
     name="End Icon"
     args={{ ...iconPlacementProps("primary").end.args }}
     parameters={{ ...iconPlacementProps("primary").end.parameters }}
@@ -67,6 +69,7 @@ Primary buttons have high emphasis and should be used for the primary, most impo
     {StoryTemplate.bind()}
   </Story>
   <Story
+    inline
     name="Double Icons"
     args={{ ...iconPlacementProps("primary").double.args }}
     parameters={{ ...iconPlacementProps("primary").double.parameters }}
@@ -83,13 +86,12 @@ Primary buttons have high emphasis and should be used for the primary, most impo
 
 <Canvas>
   <Story
+    story={primaryButton}
     name="Sandbox"
-    args={{ children: "Primary", color: "primary", variant: "primary" }}
-  >
-    {StoryTemplate.bind()}
-  </Story>
+    parameters={{ layout: "centered" }}
+  />
 </Canvas>
 
-<ArgsTable of={button} story="Sandbox" />
+<ArgsTable of={primaryButton} story="Sandbox" />
 
 <hr />
