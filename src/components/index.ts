@@ -33,3 +33,6 @@ export * from './ImageGrid/ImageGrid';
 
 export { default as SuggestedAction } from './SuggestedAction';
 export * from './SuggestedAction/SuggestedAction';
+
+export { default as TextField } from './TextField';
+export * from './TextField/TextField';
