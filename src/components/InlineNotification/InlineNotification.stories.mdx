@@ -1,0 +1,296 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { withDesign } from 'storybook-addon-designs';
+
+import InlineNotification from './InlineNotification';
+import Box from '../Box';
+import Typography from '../Typography';
+
+export const argTypes = {
+  variant: {
+    control: { type: "select" },
+    options: ["info", "warning", "error"],
+    defaultValue: "info",
+    type: { required: false },
+    table: {
+      type: {
+        summary: '"info" | "warning" | "error"',
+      },
+    },
+  },
+  startIcon: {
+    control: { type: 'boolean' },
+    defaultValue: false,
+    table: {
+      type: {
+        summary: 'true | false',
+        defaultValue: false,
+      },
+    },
+  },
+  onClose: {
+    control: { type: 'radio' },
+    options: ['show close button', 'hide close button'],
+    description: 'Accepts a function that is called when the close icon is clicked',
+    defaultValue: 'show close button',
+    mapping: {
+      'show close button': () => { },
+      'hide close button': null,
+    }
+  },
+  action: {
+    control: { type: 'radio' },
+    options: ['with action', 'without action'],
+    defaultValue: 'without action',
+    description: 'Accepts a function that renders an optional action button',
+    mapping: {
+      'with action': () => { },
+      'without action': undefined,
+    }
+  },
+  actionLabel: {
+    defaultValue: 'Button Label',
+    control: {
+      type: 'text',
+    },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  children: {
+    type: { required: true },
+    defaultValue: 'This is an inline notification with some text',
+    control: {
+      type: 'text',
+    },
+    table: {
+      type: { summary: 'ReactNode' },
+    },
+  },
+};
+
+<Meta
+  title="Molecules/InlineNotification"
+  component={InlineNotification}
+  argTypes={argTypes}
+  parameters={{
+    layout: 'padded',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/xfmzo1QWKiFbf2tx7Q2NUa/HAJIMARI-Design-System?node-id=747%3A7813',
+    },
+  }}
+/>
+
+export const InlineNotificationTemplate = (args) => <InlineNotification {...args} />;
+
+# InlineNotification
+
+`InlineNotification`s are nondisruptive and confined to a specific area in the UI. They display
+both task-generated and system-generated messages and persist until they are dismissed by
+the user or the notification is resolved. They are frequently used in conjunction with
+field-level messages for errors in forms or other input areas.
+
+<br />
+
+## Usage and examples
+
+Available variants include: <b>`info`</b>, <b>`warning`</b>, <b>`filled`</b>, and <b>`error`</b>.
+Each variant maps to a particular `startIcon` and top border color. If no variant is passed in,
+the component defaults to `info`.
+
+<br />
+
+### Variants
+
+#### Info:
+
+> The default variant of an `InlineNotification`.
+It has a header color of `primary.500`, and if `startIcon` is `true`, shows the
+[**`InfoOutlined`**](https://mui.com/material-ui/material-icons/?query=info&theme=Outlined&selected=InfoOutlined)🔗
+icon at the beginning of the component.
+
+<Canvas>
+  <Story
+    height="100px"
+    name="Info"
+    component={InlineNotification}
+    args={{
+      variant: 'info',
+      children: `This is an informational inline notification`,
+      startIcon: true,
+      actionLabel: undefined,
+    }}
+  >
+    {InlineNotificationTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### Warning:
+
+> The default variant of an `InlineNotification`.
+It has a header color of `yellow.500`, and if `startIcon` is `true`, shows the
+[**`WarningAmber`**](https://mui.com/material-ui/material-icons/?query=warning&selected=WarningAmber)🔗
+icon at the beginning of the component.
+
+<Canvas>
+  <Story
+    height="100px"
+    name="Warning"
+    component={InlineNotification}
+    args={{
+      variant: 'warning',
+      children: `This is a warning inline notification`,
+      startIcon: true,
+      actionLabel: undefined,
+    }}
+  >
+    {InlineNotificationTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### Error:
+
+> The default variant of an `InlineNotification`.
+It has a header color of `yellow.500`, and if `startIcon` is `true`, shows the
+[**`CancelOutlined`**](https://mui.com/material-ui/material-icons/?query=cancel&theme=Outlined&selected=CancelOutlined)🔗
+icon at the beginning of the component.
+
+<Canvas>
+  <Story
+    height="100px"
+    name="Error"
+    component={InlineNotification}
+    args={{
+      variant: 'error',
+      children: `This is a error inline notification`,
+      startIcon: true,
+      actionLabel: undefined,
+    }}
+  >
+    {InlineNotificationTemplate.bind()}
+  </Story>
+</Canvas>
+
+---
+
+<br />
+
+### Optional props
+
+#### `startIcon`
+
+By default, an `InlineNotification` does not have a `startIcon`, regardless of the variant. If, however,
+the prop is passed as `true`, then an icon corresponding to the variant will appear at the left (see above).
+
+#### `onClose`
+
+By default, if no `onClose` function is provided, then we do not render a close icon
+
+<Canvas>
+  <Story
+    height="100px"
+    name="With onClose"
+    args={{
+      children: 'This is an inline notification with an onClose',
+      actionLabel: undefined,
+      onClose: () => {},
+    }}
+  >
+    {InlineNotificationTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    height="100px"
+    name="Without onClose"
+    args={{
+      children: 'This is an inline notification without an onClose',
+      startIcon: true,
+      actionLabel: undefined,
+      onClose: undefined,
+    }}
+  >
+    {InlineNotificationTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### `action` and `actionLabel`
+
+An `InlineNotification` accepts an `action` and `actionLabel`, which will render a `text` button
+at the end of the component, just before the close button (if an `onClose` is provided).
+
+If an `actionLabel` is provided without an `action`, the button will not be rendered.
+
+If an `action` is provided without an `actionLabel` (the reverse), then the button will be rendered
+with only the arrow icon.
+
+**Best Practice**:
+The optional button is adjacent to the title and body content. On mobile screens the action button wraps
+under the body content. This button should allow users to take further action on the notification.
+
+<Canvas>
+  <Story
+    height="100px"
+    name="With action"
+    component={InlineNotification}
+    args={{
+      children: `This is an inline notification with an action`,
+      startIcon: true,
+      action: () => {},
+      actionLabel: 'Action',
+    }}
+  >
+    {InlineNotificationTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    height="100px"
+    name="Without action"
+    component={InlineNotification}
+    args={{
+      children: `This is an inline notification without an action`,
+      action: undefined,
+      actionLabel: 'Action',
+    }}
+  >
+    {InlineNotificationTemplate.bind()}
+  </Story>
+</Canvas>
+
+---
+
+<br />
+
+### Sandbox
+
+<Canvas>
+  <Story
+    name="Sandbox"
+    height="100px"
+  >
+  {InlineNotificationTemplate.bind()}
+  </Story>
+</Canvas>
+
+<ArgsTable of={InlineNotification} story="Sandbox" />
+
+---
+
+<br />
+
+# Additional Notes
+
+#### Sizing
+The width of inline notifications varies based on content and layout. They can expand to
+the fill the container or content area they relate to. Their height is based on the content length,
+which should not exceed two lines of text. If it exceeds more than two lines, the text should
+stay centered.
+
+<br />
+
+#### Placement
+Inline notifications appear near their related items. They can expand to fill the width of the
+container or content area they are in and should align to the grid columns.
