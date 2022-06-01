@@ -1,16 +1,17 @@
 import { useCallback, useState } from 'react';
 
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import MuiDatePicker, { DatePickerProps as MuiDatePickerProps } from '@mui/lab/DatePicker';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import {
+  DatePicker as MuiDatePicker,
+  LocalizationProvider,
+} from '@mui/x-date-pickers';
 import { TextFieldProps as MuiTextFieldProps } from '@mui/material/TextField';
-import { sentenceCase } from 'change-case';
 import cloneDeep from 'lodash.clonedeep';
 
 import TextField from '../TextField';
 import Typography from '../../Typography';
 
-export type DatePickerProps = { 
+export interface DatePickerProps { 
   /* the internal name of the component instance */
   name: string;
   /* text to show as the label (if any) */
@@ -25,7 +26,7 @@ export type DatePickerProps = {
   onChangeCallback?: (date: any, keyboardInputValue?: string | undefined) => void,
   /* additional logic to do whenver an onBlur event is triggered */
   onBlurCallback?: () => void,
-} & MuiDatePickerProps;
+};
 
 const DatePickerField = ({
     name,
@@ -38,7 +39,7 @@ const DatePickerField = ({
 }: DatePickerProps ): JSX.Element => {
   const [value, setValue] = useState<Date | string | null>(null);
 
-  const fieldLabel = label != null ? label : sentenceCase(name);
+  const fieldLabel = label != null ? label : name;
 
   const handleChange = onChangeCallback || useCallback((val: Date | string | null) => {
     setValue(val);
@@ -78,7 +79,6 @@ const DatePickerField = ({
         value={value}
         label={fieldLabel}
         InputAdornmentProps={{ position: 'start', sx: { ml: 1 } }}
-        allowSameDateSelection
         onChange={handleChange}
         disabled={false}
         onError={() => {}}
