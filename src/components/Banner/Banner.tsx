@@ -114,7 +114,6 @@ const Banner = ({
           xs: 'column-reverse',
           sm: 'unset',
         },
-        mt: { xs: 2, sm: 0 },
       }}
     >
       {secondaryAction && secondaryActionLabel &&
@@ -139,6 +138,7 @@ const Banner = ({
           color="blue"
           endIcon={<ArrowForwardIcon />}
           onClick={primaryAction}
+          sx={{ mt: { xs: 2, sm: 0 } }}
         >
           {primaryActionLabel}
         </Button>
