@@ -10,6 +10,7 @@ import {
   InformationCard,
   ImageGridItem,
   ImageGrid,
+  InlineNotification,
 } from './components';
 export * from '@mui/material';
 
@@ -54,4 +55,5 @@ export {
   InformationCard,
   ImageGridItem,
   ImageGrid,
+  InlineNotification,
 };

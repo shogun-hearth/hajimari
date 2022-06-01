@@ -36,3 +36,6 @@ export * from './SuggestedAction/SuggestedAction';
 
 export { default as TextField } from './TextField';
 export * from './TextField/TextField';
+
+export { default as InlineNotification } from './InlineNotification';
+export * from './InlineNotification/InlineNotification';
