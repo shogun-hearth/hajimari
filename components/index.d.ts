@@ -209,4 +209,55 @@ interface InlineNotificationProps extends BoxProps {
 }
 declare const InlineNotification: ({ children, variant, onClose, showStartIcon, action, actionLabel, ...props }: InlineNotificationProps) => JSX.Element;
 
-export { Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
+interface BannerProps extends BoxProps {
+    /**
+     * the bolded title at the top of the banner
+     *
+     * @optional
+     * */
+    title?: string;
+    /** the description within the banner; the only required prop */
+    description: string;
+    /**
+     * determines whether the `InfoOutlinedIcon` appears to the left of the title
+     *
+     * @default false
+    */
+    showStartIcon?: boolean;
+    /**
+     * if defined, renders a `CloseIcon` at the top right of the banner, which
+     * will call the function passed to `onClose` on click
+     *
+     * @optional
+     */
+    onClose?: (args?: any) => void;
+    /**
+     * if defined in conjunction with `primaryActionLabel`, renders a primary
+     * `Button` for a primary action
+     *
+     * @optional
+     */
+    primaryAction?: (args?: any) => void;
+    /**
+     * `Button` label for the primary action
+     *
+     * @optional
+     */
+    primaryActionLabel?: string;
+    /**
+     * if defined in conjunction with `secondaryActionLabel`, renders a text
+     * `Button` for a secondary action
+     *
+     * @optional
+     */
+    secondaryAction?: (args?: any) => void;
+    /**
+     * `Button` label for the secondary action
+     *
+     * @optional
+     */
+    secondaryActionLabel?: string;
+}
+declare const Banner: ({ title, description, showStartIcon, onClose, primaryAction, primaryActionLabel, secondaryAction, secondaryActionLabel, }: BannerProps) => JSX.Element;
+
+export { Banner, BannerProps, Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };

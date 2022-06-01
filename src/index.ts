@@ -11,6 +11,7 @@ import {
   ImageGridItem,
   ImageGrid,
   InlineNotification,
+  Banner,
 } from './components';
 export * from '@mui/material';
 
@@ -56,4 +57,5 @@ export {
   ImageGridItem,
   ImageGrid,
   InlineNotification,
+  Banner,
 };

@@ -39,3 +39,6 @@ export * from './TextField/TextField';
 
 export { default as InlineNotification } from './InlineNotification';
 export * from './InlineNotification/InlineNotification';
+
+export { default as Banner } from './Banner';
+export * from './Banner/Banner';
