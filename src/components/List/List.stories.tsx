@@ -10,8 +10,7 @@ import Button from '../Button';
 
 
 export const argTypes = {
-  listItem: {
-    defaultValue: <ListItem headerText='a list item' />,
+  children: {
     control: {
       type: 'select',
     },
@@ -49,7 +48,7 @@ export default {
     actions: { disabled: true },
     layout: 'centered',
   },
-  argTypes: argTypes,
+  // argTypes: argTypes,
   subcomponents: {
     ListItem,
   },

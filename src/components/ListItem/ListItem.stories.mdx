@@ -1,24 +1,59 @@
 import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import { withDesign } from 'storybook-addon-designs';
 
-import { listItem, argTypes } from './ListItem.stories.tsx';
+import ListItem from './ListItem';
+
+export const argTypes = {
+  headerText: {
+    defaultValue: 'This is a header',
+    control: {
+      type: 'text',
+    }
+  },
+  description: {
+    defaultValue: 'some optional description',
+    control : {
+      type: 'text',
+    },
+  },
+  divider: {
+    control: { type: 'boolean' },
+    defaultValue: true,
+  },
+  isHeader: {
+    control: { type: 'boolean' },
+    defaultValue: true,
+    description: 'If set to true, headerText will be bolded',
+  },
+  children: {
+    name: 'action type',
+    control: 'select',
+    table: {
+      type: { summary: 'ReactNode' },
+    },
+    description: 'an optional argument that accepts a ReactNode, which will render an action',
+    options: ['Button', 'Toggle', 'Expand', 'None']
+  }
+};
 
 <Meta
   title="Molecules/List/ListItem"
   component={ListItem}
   argTypes={argTypes}
   parameters={{
+    layout: "centered",
     backgrounds: {
       default: "light blue",
       values: [
         { name: "light blue", value: "#F4F6F9" },
-        { name: "white", value: "#FFFFFF" }
+        { name: "white", value: "#FFFFFF" },
       ],
     },
   }}
 />
 
-<Canvas>
-  <Story story={listItem} name="Playground" />
-</Canvas>
+export const ListItemTemplate = (args) => <ListItem {...args}/>
 
-<ArgsTable of={listItem} story="Playground" />
+<Canvas>
+  <Story name="Sandbox" args={{ headerText: 'some text!' }}>{ListItemTemplate.bind({})}</Story>
+</Canvas>

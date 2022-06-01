@@ -2,6 +2,7 @@ import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
 import { withDesign } from 'storybook-addon-designs';
 import { IconButton, Switch } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import dedent from 'ts-dedent';
 
 import Button from '../Button';
 import ListItem from '../ListItem';
@@ -9,15 +10,68 @@ import List from '../List';
 import { list, variantListItems } from './List.stories.tsx';
 import Box from '../Box';
 
-<Meta title='Molecules/List' component={List} />
-
 export const argTypes = {
-  children: {
+  headerText: {
+    defaultValue: 'This is a header',
     control: {
-      type: 'select',
+      type: 'text',
+    },
+    table: {
+      category: 'ListItem',
+    },
+  },
+  description: {
+    defaultValue: 'some optional description',
+    control: {
+      type: 'text',
+    },
+    table: {
+      category: 'ListItem',
+    },
+  },
+  divider: {
+    control: { type: 'boolean' },
+    defaultValue: true,
+    table: {
+      category: 'ListItem',
+    },
+  },
+  isHeader: {
+    control: { type: 'boolean' },
+    defaultValue: true,
+    description: 'If set to true, headerText will be bolded',
+    table: {
+      category: 'ListItem',
+    },
+  },
+  children: {
+    name: 'action type',
+    control: 'select',
+    table: {
+      category: 'ListItem',
+      type: { summary: 'ReactNode' },
+    },
+    description:
+      'an optional argument that accepts a ReactNode, which will render an action',
+    options: ['Button', 'Toggle', 'Expand', 'None'],
+    mapping: {
+      Button: <Button> Button </Button>,
+      Toggle: <Switch />,
+      Expand: (
+        <IconButton>
+          <ExpandMoreIcon />{' '}
+        </IconButton>
+      ),
     },
   },
 };
+
+<Meta
+  title='Organism/List'
+  component={List}
+  argTypes={argTypes}
+  subcomponents={ListItem}
+/>
 
 export const ListTemplate = (args) => {
   return (
@@ -26,6 +80,8 @@ export const ListTemplate = (args) => {
     </Box>
   );
 };
+
+export const ListItemTemplate = (args) => <ListItem {...args} />;
 
 export const listItems = [
   {
@@ -48,7 +104,7 @@ export const listItems = [
 
 **DATE ADDED**: [Date] | **PROJECT**: [Project name with link to Notion, Figma, etc]
 
-A `List` is a continuous, vertical group of text rows. They are composed of `List items` containing
+A `List` is a continuous, vertical group of text rows. They are composed of `List items`, which render
 three possible (and optional) primary actions. A row without primary actions will just have text.
 
 <br />
@@ -112,6 +168,17 @@ the list item is separated if it is followed by a sibling element.
         </ListItem>
       )),
     }}
+    parameters={{
+      docs: {
+        source: {
+          code: dedent`
+          <Button variant="primary" color="blue">
+            Start Icon
+          </Button>`,
+          language: 'tsx',
+        },
+      },
+    }}
   />
 </Canvas>
 
@@ -124,7 +191,14 @@ the list item is separated if it is followed by a sibling element.
 ### Playground
 
 <Canvas>
-  <Story name='Playground' component={list} />
+  <Story
+    name='Playground'
+    args={{
+      headerText: 'this is a header',
+    }}
+  >
+    {ListTemplate.bind({})}
+  </Story>
 </Canvas>
 
-<ArgsTable of={List} story='Playground' />
+<ArgsTable of={ListTemplate} story='Playground' />

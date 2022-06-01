@@ -270,6 +270,7 @@ declare const TextField: ({ mask, value, onChange, ...otherProps }: TextFieldPro
 
 declare const StatefulTextField: (props: TextFieldProps) => JSX.Element;
 
+<<<<<<< HEAD
 interface DatePickerProps {
     name: string;
     label?: string;
@@ -278,6 +279,14 @@ interface DatePickerProps {
     error?: string;
     onChangeCallback?: (date: any, keyboardInputValue?: string | undefined) => void;
     onBlurCallback?: () => void;
+=======
+interface ListProps extends ListProps$1 {
+    /**
+     * pass in list items as children
+     * @default undefined
+     */
+    children: React.ReactNode;
+>>>>>>> 5d9d3086 (post pairing)
 }
 declare const DatePickerField: ({ name, label, helperText, textFieldProps, onChangeCallback, onBlurCallback, error, ...otherProps }: DatePickerProps) => JSX.Element;
 

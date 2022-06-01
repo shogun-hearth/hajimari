@@ -1,6 +1,10 @@
 import { List as MuiList, ListProps as MuiListProps } from '@mui/material';
 
 export interface ListProps extends MuiListProps {
+  /**
+   * pass in list items as children
+   * @default undefined
+   */
   children: React.ReactNode;
 }
 
