@@ -34,6 +34,9 @@ export * from './ImageGrid/ImageGrid';
 export { default as SuggestedAction } from './SuggestedAction';
 export * from './SuggestedAction/SuggestedAction';
 
+export { default as InlineNotification } from './InlineNotification';
+export * from './InlineNotification/InlineNotification';
+
 export { default as TextField } from './Field/TextField';
 export * from './Field/TextField/TextField';
 
