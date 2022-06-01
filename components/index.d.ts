@@ -194,7 +194,7 @@ interface InlineNotificationProps extends BoxProps {
      *
      * @default false
      */
-    startIcon?: boolean;
+    showStartIcon?: boolean;
     /**
      * @optional function to do some kind of action
      */
@@ -207,6 +207,6 @@ interface InlineNotificationProps extends BoxProps {
      *  */
     actionLabel?: string;
 }
-declare const InlineNotification: ({ children, variant, onClose, startIcon, action, actionLabel, ...props }: InlineNotificationProps) => JSX.Element;
+declare const InlineNotification: ({ children, variant, onClose, showStartIcon, action, actionLabel, ...props }: InlineNotificationProps) => JSX.Element;
 
 export { Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };

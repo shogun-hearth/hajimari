@@ -105,7 +105,7 @@ the component defaults to `info`.
 #### Info:
 
 > The default variant of an `InlineNotification`.
-It has a header color of `primary.500`, and if `startIcon` is `true`, shows the
+It has a header color of `blue.500`, and if `showStartIcon` is `true`, shows the
 [**`InfoOutlined`**](https://mui.com/material-ui/material-icons/?query=info&theme=Outlined&selected=InfoOutlined)🔗
 icon at the beginning of the component.
 
@@ -117,7 +117,7 @@ icon at the beginning of the component.
     args={{
       variant: 'info',
       children: `This is an informational inline notification`,
-      startIcon: true,
+      showStartIcon: true,
       actionLabel: undefined,
     }}
   >
@@ -128,7 +128,7 @@ icon at the beginning of the component.
 #### Warning:
 
 > The default variant of an `InlineNotification`.
-It has a header color of `yellow.500`, and if `startIcon` is `true`, shows the
+It has a header color of `yellow.500`, and if `showStartIcon` is `true`, shows the
 [**`WarningAmber`**](https://mui.com/material-ui/material-icons/?query=warning&selected=WarningAmber)🔗
 icon at the beginning of the component.
 
@@ -140,7 +140,7 @@ icon at the beginning of the component.
     args={{
       variant: 'warning',
       children: `This is a warning inline notification`,
-      startIcon: true,
+      showStartIcon: true,
       actionLabel: undefined,
     }}
   >
@@ -151,7 +151,7 @@ icon at the beginning of the component.
 #### Error:
 
 > The default variant of an `InlineNotification`.
-It has a header color of `yellow.500`, and if `startIcon` is `true`, shows the
+It has a header color of `red.500`, and if `showStartIcon` is `true`, shows the
 [**`CancelOutlined`**](https://mui.com/material-ui/material-icons/?query=cancel&theme=Outlined&selected=CancelOutlined)🔗
 icon at the beginning of the component.
 
@@ -163,7 +163,7 @@ icon at the beginning of the component.
     args={{
       variant: 'error',
       children: `This is a error inline notification`,
-      startIcon: true,
+      showStartIcon: true,
       actionLabel: undefined,
     }}
   >
@@ -177,9 +177,9 @@ icon at the beginning of the component.
 
 ### Optional props
 
-#### `startIcon`
+#### `showStartIcon`
 
-By default, an `InlineNotification` does not have a `startIcon`, regardless of the variant. If, however,
+By default, an `InlineNotification` does not have a `showStartIcon`, regardless of the variant. If, however,
 the prop is passed as `true`, then an icon corresponding to the variant will appear at the left (see above).
 
 #### `onClose`

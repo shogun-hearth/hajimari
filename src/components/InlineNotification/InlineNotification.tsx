@@ -31,7 +31,7 @@ export interface InlineNotificationProps extends BoxProps {
    * 
    * @default false
    */
-  startIcon?: boolean;
+  showStartIcon?: boolean;
   /**
    * @optional function to do some kind of action
    */
@@ -107,7 +107,7 @@ const InlineNotification = ({
   children,
   variant = NotificationVariant.info,
   onClose,
-  startIcon,
+  showStartIcon,
   action,
   actionLabel = '',
   ...props
@@ -116,7 +116,7 @@ const InlineNotification = ({
     <TopHighlightRoot variant={variant} />
     <NotificationContent>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        {startIcon &&
+        {showStartIcon &&
           <Box sx={{ mr: 1, mt: 0.5 }}>
             {variantIcons[variant]}
           </Box>
@@ -143,7 +143,7 @@ const InlineNotification = ({
       <ActionButton
         label={actionLabel}
         sx={{
-          ml: startIcon ? 4 : 0,
+          ml: showStartIcon ? 4 : 0,
           mt: -1.5,
           display: { sm: 'none' },
         }}
