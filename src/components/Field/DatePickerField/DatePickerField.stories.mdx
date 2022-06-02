@@ -12,8 +12,7 @@ export const argTypes = {
     defaultValue: false,
   },
   error: {
-    control: { type: 'boolean' },
-    defaultValue: false,
+    control: { type: 'text' },
   },
   helperText: {
     control: { type: 'text' },
@@ -22,6 +21,7 @@ export const argTypes = {
 
 <Meta
   title="Atoms/Field/DatePickerField"
+  argTypes={argTypes}
   component={DatePickerField}
 /> 
 
@@ -43,7 +43,9 @@ Can be consumed both in Formik and not-Formik forms.
 ### Playground
 
 <Canvas>
-  <Story name="Playground">
+  <Story name="Sandbox">
     {DatePickerTemplate.bind()}
   </Story>
 </Canvas>
+
+<ArgsTable of={DatePickerTemplate} story="Playground" />

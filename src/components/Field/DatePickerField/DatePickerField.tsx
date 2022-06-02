@@ -36,6 +36,7 @@ const DatePickerField = ({
     onChangeCallback,
     onBlurCallback,
     error,
+    ...otherProps
 }: DatePickerProps ): JSX.Element => {
   const [value, setValue] = useState<Date | string | null>(null);
 
@@ -91,19 +92,20 @@ const DatePickerField = ({
             }}
             fullWidth
             hiddenLabel={false}
-            error={textFieldProps?.error}
+            error={!!error || textFieldProps?.error}
             // allow passing these functions in at the top level, rather than into textFieldProps
             onFocus={(e) => textFieldProps?.onFocus && textFieldProps.onFocus(e)}
             onBlur={(e) => {
               onBlurCallback && onBlurCallback();
               textFieldProps?.onBlur ? textFieldProps.onBlur(e) : setValue(new Date(formatDate(e.target.value)));
             }}
-            helperText={caption ? <Typography variant="caption">{caption}</Typography> : undefined}
+            helperText={caption ? <Typography variant="p3">{caption}</Typography> : undefined}
             {...otherTextFieldProps}
             mask={"date"}
             value={params.value as string}
         />
         )}
+        {...otherProps}
       />
     </LocalizationProvider>
   )
