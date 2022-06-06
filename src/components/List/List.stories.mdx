@@ -7,7 +7,6 @@ import dedent from 'ts-dedent';
 import Button from '../Button';
 import ListItem from '../ListItem';
 import List from '../List';
-import { list, variantListItems } from './List.stories.tsx';
 import Box from '../Box';
 
 export const argTypes = {
@@ -100,6 +99,35 @@ export const listItems = [
   },
 ];
 
+export const variantListItems = [
+  {
+    headerText: 'Payment Options On Invoices',
+    description: 'Show or hide payment options for all of your customers',
+    isHeader: true,
+    divider: true,
+    childNode: <Switch color='primary' />,
+  },
+  {
+    headerText: 'Payments Account',
+    divider: true,
+    childNode: (
+      <Button variant='primary' color='blue'>
+        {' '}
+        Edit Account{' '}
+      </Button>
+    ),
+  },
+  {
+    headerText: 'Automated Payment Reminders',
+    childNode: (
+      <IconButton>
+        {' '}
+        <ExpandMoreIcon />{' '}
+      </IconButton>
+    ),
+  },
+];
+
 # List
 
 **DATE ADDED**: [Date] | **PROJECT**: [Project name with link to Notion, Figma, etc]
@@ -155,7 +183,7 @@ the list item is separated if it is followed by a sibling element.
 <Canvas>
   <Story
     name='with multiple list items'
-    component={list}
+    component={List}
     args={{
       children: variantListItems.map((item) => (
         <ListItem
@@ -196,6 +224,7 @@ the list item is separated if it is followed by a sibling element.
     args={{
       headerText: 'this is a header',
     }}
+    component={List}
   >
     {ListTemplate.bind({})}
   </Story>

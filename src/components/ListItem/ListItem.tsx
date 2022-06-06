@@ -10,11 +10,12 @@ export interface ListItemProps extends MuiListItemProps {
   /**
    * The main text of list item row
    * @default undefined
+   * @optional 
    */
-  headerText: string;
+  headerText?: string;
   /**
    * a sorta subheader or more text to supplement main header
-   * @optional 
+   * @optional i
    */
   description?: string;
   /**

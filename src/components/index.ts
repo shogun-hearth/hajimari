@@ -37,6 +37,9 @@ export * from './SuggestedAction/SuggestedAction';
 export { default as SuggestedActionAccordion } from './SuggestedActionAccordion';
 export * from './SuggestedActionAccordion/SuggestedActionAccordion';
 
+export { default as ListItem } from './ListItem';
+export * from './ListItem/ListItem';
+
 export { default as InlineNotification } from './InlineNotification';
 export * from './InlineNotification/InlineNotification';
 
