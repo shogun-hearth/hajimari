@@ -103,7 +103,8 @@ const ButtonRoot = styled(MuiButton)(({ theme, variant }) => ({
   ...(variant === 'text' && {
     /** @TODO confirm that text buttons don't follow the same min width rules */
     minWidth: 'min-content',
-    padding: '0px 16px',
+    paddingLeft: 0,
+    paddingRight: 0,
   }),
 }));
 
