@@ -2,11 +2,11 @@ import {
   emphasize as systemEmphasize,
   lighten as systemLighten,
   darken as systemDarken,
+  alpha as systemAlpha,
 } from '@mui/system';
 import { PaletteOptions, PaletteColorOptions } from '@mui/material/styles/createPalette';
 
 import theme from './theme';
-
 
 type TransformedColor = {
   hue: keyof PaletteOptions;
@@ -51,4 +51,10 @@ export const darken = (color: HajimariColor, coefficient = 0.15) => {
   const { hue, shade } = __decomposeColor__(color);
 
   return systemDarken(theme.palette[hue][shade], coefficient);
+};
+
+export const alpha = (color: HajimariColor, coefficient = 0.15) => {
+  const { hue, shade } = __decomposeColor__(color);
+
+  return systemAlpha(theme.palette[hue][shade], coefficient);
 };

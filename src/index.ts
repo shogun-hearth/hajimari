@@ -12,6 +12,14 @@ import {
   ImageGrid,
   InlineNotification,
 } from './components';
+import {
+  darken,
+  emphasize,
+  lighten,
+  hexValue,
+  alpha,
+} from './theme/colorManipulator';
+
 export * from '@mui/material';
 
 export {
@@ -20,7 +28,7 @@ export {
   useTheme,
   Theme,
 } from '@mui/material/styles';
-export { default as makeStyles } from '@mui/styles/makeStyles';
+export { default as makeStyles } from './theme/makeStyles';
 export { default as styled } from './theme/styled';
 
 export * from './colors';
@@ -28,15 +36,9 @@ export { default as colors } from './tokens/colors';
 export { default as theme } from './theme';
 export * from './theme';
 
-/** explicitly re-exporting these values to resolve ambiguity */
-export {
-  darken,
-  emphasize,
-  lighten,
-  hexValue,
-} from './theme/colorManipulator';
-
 export { SxProps } from '@mui/system';
+
+/** explicitly re-exporting these values to resolve ambiguity */
 
 /**
  * this should work with the default MUI imports above since local
@@ -56,4 +58,9 @@ export {
   ImageGridItem,
   ImageGrid,
   InlineNotification,
+  darken,
+  emphasize,
+  lighten,
+  hexValue,
+  alpha,
 };
