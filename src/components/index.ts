@@ -34,11 +34,14 @@ export * from './ImageGrid/ImageGrid';
 export { default as SuggestedAction } from './SuggestedAction';
 export * from './SuggestedAction/SuggestedAction';
 
-export { default as TextField } from './TextField';
-export * from './TextField/TextField';
-
 export { default as InlineNotification } from './InlineNotification';
 export * from './InlineNotification/InlineNotification';
 
 export { default as Banner } from './Banner';
 export * from './Banner/Banner';
+
+export { default as TextField } from './Field/TextField';
+export * from './Field/TextField/TextField';
+
+export { default as DatePicker } from './Field/DatePickerField';
+export * from './Field/DatePickerField/DatePickerField';
