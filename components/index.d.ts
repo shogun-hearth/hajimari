@@ -10,6 +10,7 @@ import { CardContentProps as CardContentProps$1 } from '@mui/material/CardConten
 import { TypographyProps as TypographyProps$1 } from '@mui/material/Typography';
 import { ImageListItemProps } from '@mui/material/ImageListItem';
 import { ImageListProps } from '@mui/material/ImageList';
+import { AccordionProps } from '@mui/material/Accordion';
 import { TextFieldProps as TextFieldProps$1 } from '@mui/material/TextField';
 
 interface BoxProps extends BoxProps$1 {
@@ -166,6 +167,15 @@ interface SuggestedActionProps {
 }
 declare const SuggestedAction: ({ variant, description, onClickMenu, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, }: SuggestedActionProps) => JSX.Element;
 
+declare type SuggestedActionAccordionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
+interface SuggestedActionAccordionProps extends Omit<AccordionProps, 'variant'> {
+    variant: SuggestedActionAccordionVariant;
+    groupTitle: string;
+    numItems: number;
+    highlightNumber?: boolean;
+}
+declare const SuggestedActionAccordion: ({ variant, groupTitle, numItems, highlightNumber, children, ...otherProps }: SuggestedActionAccordionProps) => JSX.Element;
+
 declare enum NotificationVariant {
     info = "info",
     warning = "warning",
@@ -220,4 +230,4 @@ interface DatePickerProps {
 }
 declare const DatePickerField: ({ name, label, helperText, textFieldProps, onChangeCallback, onBlurCallback, error, ...otherProps }: DatePickerProps) => JSX.Element;
 
-export { Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, DatePickerField as DatePicker, DatePickerProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
+export { Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, DatePickerField as DatePicker, DatePickerProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };

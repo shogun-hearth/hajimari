@@ -11,6 +11,8 @@ import {
   ImageGridItem,
   ImageGrid,
   InlineNotification,
+  SuggestedAction,
+  SuggestedActionAccordion,
 } from './components';
 import {
   darken,
@@ -63,4 +65,6 @@ export {
   lighten,
   hexValue,
   alpha,
+  SuggestedAction,
+  SuggestedActionAccordion,
 };
