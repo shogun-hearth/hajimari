@@ -10,6 +10,7 @@ import { CardContentProps as CardContentProps$1 } from '@mui/material/CardConten
 import { TypographyProps as TypographyProps$1 } from '@mui/material/Typography';
 import { ImageListItemProps } from '@mui/material/ImageListItem';
 import { ImageListProps } from '@mui/material/ImageList';
+import { AccordionProps } from '@mui/material/Accordion';
 import { TextFieldProps as TextFieldProps$1 } from '@mui/material/TextField';
 
 interface BoxProps extends BoxProps$1 {
@@ -166,15 +167,14 @@ interface SuggestedActionProps {
 }
 declare const SuggestedAction: ({ variant, description, onClickMenu, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, }: SuggestedActionProps) => JSX.Element;
 
-declare type Mask = 'money' | 'moneyWithCents' | 'ssn' | 'lastFourSsn' | 'bankNumber' | 'phone' | 'percent' | 'taxId' | 'year' | 'default' | 'search';
-
-declare type TextFieldProps = {
-    mask: Mask;
-    value?: string;
-} & TextFieldProps$1;
-declare const TextField: ({ mask, value, onChange, ...otherProps }: TextFieldProps) => JSX.Element;
-
-declare const StatefulTextField: (props: TextFieldProps) => JSX.Element;
+declare type SuggestedActionAccordionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
+interface SuggestedActionAccordionProps extends Omit<AccordionProps, 'variant'> {
+    variant: SuggestedActionAccordionVariant;
+    groupTitle: string;
+    numItems: number;
+    highlightNumber?: boolean;
+}
+declare const SuggestedActionAccordion: ({ variant, groupTitle, numItems, highlightNumber, children, ...otherProps }: SuggestedActionAccordionProps) => JSX.Element;
 
 declare enum NotificationVariant {
     info = "info",
@@ -209,4 +209,25 @@ interface InlineNotificationProps extends BoxProps {
 }
 declare const InlineNotification: ({ children, variant, onClose, showStartIcon, action, actionLabel, ...props }: InlineNotificationProps) => JSX.Element;
 
-export { Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
+declare type Mask = 'money' | 'moneyWithCents' | 'ssn' | 'lastFourSsn' | 'bankNumber' | 'phone' | 'percent' | 'taxId' | 'year' | 'default' | 'search' | 'date';
+
+declare type TextFieldProps = {
+    mask: Mask;
+    value?: string;
+} & TextFieldProps$1;
+declare const TextField: ({ mask, value, onChange, ...otherProps }: TextFieldProps) => JSX.Element;
+
+declare const StatefulTextField: (props: TextFieldProps) => JSX.Element;
+
+interface DatePickerProps {
+    name: string;
+    label?: string;
+    helperText?: string;
+    textFieldProps?: Partial<TextFieldProps$1>;
+    error?: string;
+    onChangeCallback?: (date: any, keyboardInputValue?: string | undefined) => void;
+    onBlurCallback?: () => void;
+}
+declare const DatePickerField: ({ name, label, helperText, textFieldProps, onChangeCallback, onBlurCallback, error, ...otherProps }: DatePickerProps) => JSX.Element;
+
+export { Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, DatePickerField as DatePicker, DatePickerProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };

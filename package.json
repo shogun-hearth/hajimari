@@ -16,6 +16,9 @@
   },
   "author": "Sondhayni",
   "license": "ISC",
+  "resolutions": {
+    "**/@emotion/styled": "^11.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/plugin-transform-runtime": "^7.16.5",
@@ -65,6 +68,7 @@
   "peerDependencies": {
     "@date-io/date-fns": "^1.x",
     "@emotion/react": "^11.x",
+    "@emotion/styled": "^11.x.x",
     "@mui/material": "^5.x",
     "@mui/styles": "^5.x",
     "@mui/system": "^5.x",
