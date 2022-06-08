@@ -11,6 +11,7 @@ import {
   ImageGridItem,
   ImageGrid,
   InlineNotification,
+  Banner,
   SuggestedAction,
   SuggestedActionAccordion,
 } from './components';
@@ -60,6 +61,7 @@ export {
   ImageGridItem,
   ImageGrid,
   InlineNotification,
+  Banner,
   darken,
   emphasize,
   lighten,

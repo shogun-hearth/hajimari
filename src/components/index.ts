@@ -40,6 +40,9 @@ export * from './SuggestedActionAccordion/SuggestedActionAccordion';
 export { default as InlineNotification } from './InlineNotification';
 export * from './InlineNotification/InlineNotification';
 
+export { default as Banner } from './Banner';
+export * from './Banner/Banner';
+
 export { default as TextField } from './Field/TextField';
 export * from './Field/TextField/TextField';
 

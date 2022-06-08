@@ -1,0 +1,232 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { withDesign } from 'storybook-addon-designs';
+
+import Banner from './Banner';
+import Typography from '../Typography';
+
+export const defaultDescription = 
+  'This is the banner description. Banners remain until dismissed by user ' +
+  'or if the state that caused the banner is resolved. This can be a longer ' +
+  'description if needed.';
+
+export const argTypes = {
+  title: {
+    defaultValue: 'This is the banner title',
+    control: {
+      type: 'text',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'null' },
+    },
+  },
+  description: {
+    type: { required: true },
+    defaultValue: defaultDescription,
+    control: {
+      type: 'text',
+    },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  showStartIcon: {
+    description: 'Determines whether the info icon appears to the left of the title',
+    control: { type: 'boolean' },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
+    defaultValue: false,
+  },
+  onClose: {
+    control: { type: 'boolean' },
+    defaultValue: true,
+    options: ['true', 'false'],
+    mapping: {
+      'true': () => { },
+      'false': undefined,
+    }
+  },
+  primaryAction: {
+    description: 'Accepts a function that renders the primary action button',
+    table: {
+      type: { summary: 'function' },
+    },
+    control: { type: 'boolean' },
+    defaultValue: true,
+    options: ['true', 'false'],
+    mapping: {
+      'true': () => null,
+      'false': undefined,
+    },
+  },
+  primaryActionLabel: {
+    defaultValue: 'Primary Action',
+    control: {
+      type: 'text',
+    },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  secondaryAction: {
+    description: 'Accepts a function that renders the secondary action button',
+    table: {
+      type: { summary: 'function' },
+    },
+    control: { type: 'boolean' },
+    defaultValue: true,
+    options: ['true', 'false'],
+    mapping: {
+      'true': () => { },
+      'false': undefined,
+    },
+  },
+  secondaryActionLabel: {
+    defaultValue: 'Secondary Action',
+    control: {
+      type: 'text',
+    },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+};
+
+<Meta
+  title="Molecules/Banner"
+  component={Banner}
+  argTypes={argTypes}
+  parameters={{
+    layout: 'padded',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/xfmzo1QWKiFbf2tx7Q2NUa/HAJIMARI-Design-System?node-id=727%3A7347',
+    },
+  }}
+/>
+
+export const BannerTemplate = (args) => <Banner {...args} />;
+
+# Banner
+
+`Banner`s take over the top of an interface to show general notifications for the product or system,
+not a specific task. They persist until they are dismissed by the user (if dismissible). Banners
+can include a ghost button or link. Depending on the message, the user resolving a product or
+system issue (for example, updating necessary account information), may also dismiss the banner.
+Banners may also persist across multiple sessions.
+
+<br />
+
+## Usage and examples
+
+#### Basic:
+
+At a minimum, a `Banner` requires a `description`. All other props are optional.
+
+<Canvas>
+  <Story
+    height="100px"
+    name="Basic"
+    component={Banner}
+    args={{
+      description: defaultDescription,
+      title: undefined,
+      primaryAction: undefined,
+      primaryActionLabel: undefined,
+      secondaryAction: undefined,
+      secondaryActionLabel: undefined,
+      onClose: false,
+    }}
+  >
+    {BannerTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### Without actions:
+
+A `Banner` accepts an optional `title`, as well a `showStartIcon` boolean that controls whether an
+[`InfoOutlinedIcon`](https://mui.com/material-ui/material-icons/?query=info&theme=Outlined&selected=InfoOutlined)
+appears next to the `title`.
+
+
+It also accepts an `onClose` function that will render a
+[`CloseIcon`](https://mui.com/material-ui/material-icons/?query=close&selected=Close)
+at the top right of the `Banner` that the user can click to dismiss or take other actions.
+
+<Canvas>
+  <Story
+    height="100px"
+    name="Without actions"
+    component={Banner}
+    args={{
+      title: 'This is a banner title',
+      description: defaultDescription,
+      showStartIcon: true,
+      primaryAction: undefined,
+      primaryActionLabel: undefined,
+      secondaryAction: undefined,
+      secondaryActionLabel: undefined,
+      showStartIcon: true,
+    }}
+  >
+    {BannerTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### With actions:
+
+> **NOTE**: There is currently an [open issue](https://github.com/storybookjs/storybook/issues/17701)
+> about a bug in `storybook` that is causing functions passed into a component after the first
+> to appear as `function noRefCheck() {}`.
+
+`Banner`s can have optional *primary* and *secondary* action buttons that correspond to the
+`primaryAction` / `primaryActionLabel` and `secondaryAction` / `secondaryActionLabel` props
+respectively. For either button, both the action function and label must be passed in to `Banner`.
+If only one of a pair is passed in, that button will not appear.
+
+<Canvas>
+  <Story
+    height="100px"
+    name="With actions"
+    component={Banner}
+    args={{
+      title: 'This is a banner title',
+      description: defaultDescription,
+      showStartIcon: true,
+    }}
+  >
+    {BannerTemplate.bind()}
+  </Story>
+</Canvas>
+
+---
+
+<br />
+
+### Sandbox
+
+<Canvas>
+  <Story
+    name="Sandbox"
+    height="100px"
+  >
+    {BannerTemplate.bind()}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Banner} story="Sandbox" />
+
+---
+<br />
+
+# Additional Notes
+
+- Banners should be placed at the top of the content area they relate to.
+- Do not cover other content with a banner notification.
+- Place system-wide messages directly below the main header or navigation bar.
+- Banners are not sticky and should scroll with the other content on the page.
+- Only show one banner at a time. 
+
+<br />
