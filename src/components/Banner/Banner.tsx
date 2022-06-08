@@ -1,3 +1,4 @@
+import React from 'react';
 import { experimental_sx as e_sx, SxProps } from '@mui/system';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -138,7 +139,7 @@ const Banner = ({
           color="blue"
           endIcon={<ArrowForwardIcon />}
           onClick={primaryAction}
-          sx={{ mt: { xs: 2, sm: 0 } }}
+          sx={{ mt: { xs: 2, sm: 1 } }}
         >
           {primaryActionLabel}
         </Button>
