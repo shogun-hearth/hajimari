@@ -1,9 +1,16 @@
-import { SimplePaletteColorOptions, ThemeOptions, PaletteOptions } from '@mui/material/styles';
+import { Theme, SimplePaletteColorOptions, ThemeOptions, PaletteOptions } from '@mui/material/styles';
 export { StyledEngineProvider, Theme, ThemeProvider, useTheme } from '@mui/material/styles';
 import * as _mui_system from '@mui/system';
 export { SxProps, SystemProps, experimental_sx as sx } from '@mui/system';
 import * as _mui_material_styles_createTheme from '@mui/material/styles/createTheme';
+import { Styles, WithStylesOptions, ClassNameMap } from '@mui/styles';
 import React from 'react';
+
+declare const hexValue: (color: HajimariColor) => never;
+declare const emphasize: (color: HajimariColor, coefficient?: number) => string;
+declare const lighten: (color: HajimariColor, coefficient?: number) => string;
+declare const darken: (color: HajimariColor, coefficient?: number) => string;
+declare const alpha: (color: HajimariColor, coefficient?: number) => string;
 
 declare const styled: _mui_system.CreateMUIStyled<_mui_material_styles_createTheme.Theme>;
 
@@ -25,6 +32,10 @@ interface CustomPaletteColor {
     /** only greyscale has a 1100 shade */
     1100?: string;
 }
+declare module '@mui/styles/defaultTheme' {
+    interface DefaultTheme extends Theme {
+    }
+}
 declare type CustomPaletteColorOption = SimplePaletteColorOptions & CustomPaletteColor;
 interface CustomPaletteOptions {
     greyscale?: CustomPaletteColorOption;
@@ -42,16 +53,14 @@ interface CustomColorOptions {
     blue?: true;
     purple?: true;
 }
-declare module '@mui/styles/defaultTheme' {
-    interface DefaultTheme extends IzakayaCustomTheme {
-    }
-}
 declare module '@mui/material/styles' {
     interface CommonColors extends Record<CommonColor, string> {
     }
     interface Theme extends IzakayaCustomTheme {
     }
     interface ThemeOptions extends Partial<IzakayaCustomTheme> {
+    }
+    interface DefaultTheme extends Theme {
     }
     interface TypographyVariants {
         p1: React.CSSProperties;
@@ -171,9 +180,6 @@ declare const typography: ThemeOptions['typography'];
 declare const themeOptions: ThemeOptions;
 declare const theme: _mui_material_styles_createTheme.Theme;
 
-declare const hexValue: (color: HajimariColor) => never;
-declare const emphasize: (color: HajimariColor, coefficient?: number) => string;
-declare const lighten: (color: HajimariColor, coefficient?: number) => string;
-declare const darken: (color: HajimariColor, coefficient?: number) => string;
+declare const makeStyles: <Props extends object = {}, ClassKey extends string = string>(styles: Styles<_mui_material_styles_createTheme.Theme, Props, ClassKey>, options?: Omit<WithStylesOptions<_mui_material_styles_createTheme.Theme>, "withTheme"> | undefined) => (props?: any) => ClassNameMap<ClassKey>;
 
-export { componentOverrides, darken, theme as default, emphasize, hexValue, izakayaComponentOverrides, izakayaTypographyOptions, lighten, palette, styled, themeOptions, typography };
+export { alpha, componentOverrides, darken, theme as default, emphasize, hexValue, izakayaComponentOverrides, izakayaTypographyOptions, lighten, makeStyles, palette, styled, themeOptions, typography };

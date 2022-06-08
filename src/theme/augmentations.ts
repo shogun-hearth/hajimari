@@ -1,4 +1,4 @@
-import { SimplePaletteColorOptions } from '@mui/material/styles';
+import { SimplePaletteColorOptions, Theme } from '@mui/material/styles';
 import React from 'react';
 import '@mui/styles';
 import '@emotion/core';
@@ -22,10 +22,14 @@ interface CustomPaletteColor {
   /** only greyscale has a 1100 shade */
   1100?: string;
 }
+declare module '@mui/styles/defaultTheme' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface DefaultTheme extends Theme { }
+}
 
 declare module '@mui/material/styles/createPalette' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface CommonColors extends Record<CommonColor, string> {}
+  interface CommonColors extends Record<CommonColor, string> { }
 }
 
 type CustomPaletteColorOption = SimplePaletteColorOptions & CustomPaletteColor;
@@ -47,21 +51,18 @@ interface CustomColorOptions {
   blue?: true;
   purple?: true;
 }
-
-declare module '@mui/styles/defaultTheme' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends IzakayaCustomTheme { }
-}
-
 declare module '@mui/material/styles' {
-  interface CommonColors extends Record<CommonColor, string> {}
+  interface CommonColors extends Record<CommonColor, string> { }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface Theme extends IzakayaCustomTheme { }
 
   // allow configuration using `createMuiTheme`
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface ThemeOptions extends Partial<IzakayaCustomTheme> {}
+  interface ThemeOptions extends Partial<IzakayaCustomTheme> { }
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface DefaultTheme extends Theme { }
 
   interface TypographyVariants {
     p1: React.CSSProperties;
@@ -98,7 +99,7 @@ declare module '@mui/material/styles' {
 declare module '@mui/material/styles/createTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface Theme extends IzakayaCustomTheme { }
-  interface ThemeOptions extends Partial<IzakayaCustomTheme> {}
+  interface ThemeOptions extends Partial<IzakayaCustomTheme> { }
 }
 
 declare module '@mui/material/styles/createPalette' {
@@ -160,7 +161,7 @@ declare module '@mui/material/Button' {
     secondary: true;
     filled: true;
   }
-  
+
   interface ButtonPropsColorOverrides extends CustomColorOptions {
     /**
      * we don't have color overrides for these keys (provided by MUI),

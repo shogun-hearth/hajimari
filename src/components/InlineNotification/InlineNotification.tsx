@@ -121,7 +121,7 @@ const InlineNotification = ({
             {variantIcons[variant]}
           </Box>
         }
-        <Typography variant="p3" weight="medium">
+        <Typography variant="p2" weight="medium">
           {children}
         </Typography>
       </Box>
@@ -129,7 +129,7 @@ const InlineNotification = ({
         {action &&
           <ActionButton
             label={actionLabel}
-            sx={{ display: { xs: 'none', sm: 'flex' }}}
+            sx={{ display: { xs: 'none', sm: 'flex' } }}
           />
         }
         {onClose &&
