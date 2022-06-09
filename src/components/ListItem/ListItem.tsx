@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   ListItem as MuiListItem,
   Divider,
@@ -10,7 +11,7 @@ export interface ListItemProps extends MuiListItemProps {
   /**
    * The main text of list item row
    * @default undefined
-   * @optional 
+   * @optional
    */
   headerText?: string;
   /**
@@ -21,12 +22,12 @@ export interface ListItemProps extends MuiListItemProps {
   /**
    * primary actions are passed in as children. current use cases include button, toggle, and expand.
    * if no children is passed in, list item will display text row.
-   * @optional 
+   * @optional
    */
   children?: React.ReactNode;
   /**
    * if true, headerText will be bolded
-   * @optional 
+   * @optional
    * @default false
    */
   isHeader?: boolean;
@@ -41,7 +42,7 @@ const ListItem = ({
 }: ListItemProps): JSX.Element => (
   <Box>
     <MuiListItem
-      alignItems="flex-start"
+      alignItems='flex-start'
       sx={{
         my: 1,
       }}
@@ -55,9 +56,7 @@ const ListItem = ({
       />
       {children}
     </MuiListItem>
-    {divider &&
-      <Divider variant="middle" />
-    }
+    {divider && <Divider variant='middle' />}
   </Box>
 );
 

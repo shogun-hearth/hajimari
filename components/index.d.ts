@@ -609,7 +609,36 @@ interface ListProps extends ListProps$1 {
    * pass in list items as children
    * @default undefined
    */
-  children: React.ReactNode;
+  children: React$1.ReactNode;
+  bordered?: boolean;
+  border?: HajimariColor;
+}
+declare const List: ({ children, bordered, border }: ListProps) => JSX.Element;
+
+interface ListItemProps extends ListItemProps$1 {
+  /**
+   * The main text of list item row
+   * @default undefined
+   * @optional
+   */
+  headerText?: string;
+  /**
+   * a sorta subheader or more text to supplement main header
+   * @optional i
+   */
+  description?: string;
+  /**
+   * primary actions are passed in as children. current use cases include button, toggle, and expand.
+   * if no children is passed in, list item will display text row.
+   * @optional
+   */
+  children?: React$1.ReactNode;
+  /**
+   * if true, headerText will be bolded
+   * @optional
+   * @default false
+   */
+  isHeader?: boolean;
 }
 declare const DatePickerField: ({
   name,

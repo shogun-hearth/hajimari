@@ -8,62 +8,8 @@ import Button from '../Button';
 import ListItem from '../ListItem';
 import List from '../List';
 import Box from '../Box';
-
-export const argTypes = {
-  headerText: {
-    defaultValue: 'This is a header',
-    control: {
-      type: 'text',
-    },
-    table: {
-      category: 'ListItem',
-    },
-  },
-  description: {
-    defaultValue: 'some optional description',
-    control: {
-      type: 'text',
-    },
-    table: {
-      category: 'ListItem',
-    },
-  },
-  divider: {
-    control: { type: 'boolean' },
-    defaultValue: true,
-    table: {
-      category: 'ListItem',
-    },
-  },
-  isHeader: {
-    control: { type: 'boolean' },
-    defaultValue: true,
-    description: 'If set to true, headerText will be bolded',
-    table: {
-      category: 'ListItem',
-    },
-  },
-  children: {
-    name: 'action type',
-    control: 'select',
-    table: {
-      category: 'ListItem',
-      type: { summary: 'ReactNode' },
-    },
-    description:
-      'an optional argument that accepts a ReactNode, which will render an action',
-    options: ['Button', 'Toggle', 'Expand', 'None'],
-    mapping: {
-      Button: <Button> Button </Button>,
-      Toggle: <Switch />,
-      Expand: (
-        <IconButton>
-          <ExpandMoreIcon />{' '}
-        </IconButton>
-      ),
-    },
-  },
-};
+import theme from '../../theme';
+import { list, argTypes } from './List.stories.tsx';
 
 <Meta
   title='Organism/List'
@@ -74,7 +20,7 @@ export const argTypes = {
 
 export const ListTemplate = (args) => {
   return (
-    <Box width='900px'>
+    <Box width='700px'>
       <List {...args} />
     </Box>
   );
@@ -112,8 +58,7 @@ export const variantListItems = [
     divider: true,
     childNode: (
       <Button variant='primary' color='blue'>
-        {' '}
-        Edit Account{' '}
+        Edit Account
       </Button>
     ),
   },
@@ -121,8 +66,7 @@ export const variantListItems = [
     headerText: 'Automated Payment Reminders',
     childNode: (
       <IconButton>
-        {' '}
-        <ExpandMoreIcon />{' '}
+        <ExpandMoreIcon />
       </IconButton>
     ),
   },
@@ -143,13 +87,8 @@ three possible (and optional) primary actions. A row without primary actions wil
 
 ### Usage and examples
 
-`ListItem` accepts several props. It has `headerText`, which takes in a string and represents the main content
-in list item. Additionally, if the `isHeader` prop is set to true, the `headerText` will be bolded.
-It also accepts an optional `description`(also a string), which is useful for providing more detail
-to the main content. The primary actions are determined by the elements you pass in as `children` to `ListItem`.
-Current primary action use cases are limited to `Button`, `Switch` (or `Toggle`), and `Expand`. If a child element
-is not provided, the list item will just render a text row (see basic use case). Finally, the `divider` prop ensures that
-the list item is separated if it is followed by a sibling element.
+The usage of `List` is rather simple. You pass in however many `ListItem` children elements as you want.
+These will represent one entry or row in the list.
 
 <br />
 
@@ -162,6 +101,7 @@ the list item is separated if it is followed by a sibling element.
     name='Basic'
     component={List}
     args={{
+      border: 'greyscale.500',
       children: listItems.map((item) => (
         <ListItem
           headerText={item.headerText}
@@ -170,6 +110,28 @@ the list item is separated if it is followed by a sibling element.
           divider={item.divider}
         />
       )),
+    }}
+    parameters={{
+      docs: {
+        source: {
+          code: dedent`
+          <List>
+            <ListItem
+              headerText="This is the main text"
+              description="you can add an optional description
+              isHeader
+              divider
+            />
+            <ListItem
+              headerText="These items have no primary action"
+              divider
+            />
+            <ListItem headerText="Since this is the last child element, we can omit the divider prop" />
+          </List>
+          `,
+          language: 'tsx',
+        },
+      },
     }}
   >
     {ListTemplate.bind({})}
@@ -185,6 +147,7 @@ the list item is separated if it is followed by a sibling element.
     name='with multiple list items'
     component={List}
     args={{
+      border: 'blue.500',
       children: variantListItems.map((item) => (
         <ListItem
           headerText={item.headerText}
@@ -200,9 +163,25 @@ the list item is separated if it is followed by a sibling element.
       docs: {
         source: {
           code: dedent`
-          <Button variant="primary" color="blue">
-            Start Icon
-          </Button>`,
+          <List>
+            <ListItem
+              headerText="Payment Options On Invoices"
+              description="Show or hide payment options for all of your customers"
+              divider
+              isHeader
+            >
+              <Switch />
+            </ListItem>
+            <ListItem headerText="Payments Account" divider>
+              <Button variant="primary" color="blue">
+                Edit Account
+              </Button>
+            </ListItem>
+            <ListItem headerText="Automated Payment Reminders">
+              <IconButton><ExpandMoreIcon /> </IconButton>
+            </ListItem>
+          </List>
+          `,
           language: 'tsx',
         },
       },
@@ -219,15 +198,7 @@ the list item is separated if it is followed by a sibling element.
 ### Playground
 
 <Canvas>
-  <Story
-    name='Playground'
-    args={{
-      headerText: 'this is a header',
-    }}
-    component={List}
-  >
-    {ListTemplate.bind({})}
-  </Story>
+  <Story name='Playground' story={list} />
 </Canvas>
 
-<ArgsTable of={ListTemplate} story='Playground' />
+<ArgsTable of={List} story='Playground' />
