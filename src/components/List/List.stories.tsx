@@ -5,6 +5,7 @@ import { Switch } from '@mui/material';
 
 import List, { ListProps } from './List';
 import ListItem from '../ListItem';
+import Box from '../Box';
 
 export const argTypes = {
   border: {
@@ -85,9 +86,11 @@ const ListTemplate = ({ children, ...args }: TemplateArgs): JSX.Element => {
     return val;
   }, {});
   return (
-    <List border={'greyscale.500'}>
-      {<ListItem {...listItemArgs}>{children}</ListItem>}
-    </List>
+    <Box width='500px'>
+      <List border={'greyscale.500'}>
+        <ListItem {...listItemArgs}>{children}</ListItem>
+      </List>
+    </Box>
   );
 };
 

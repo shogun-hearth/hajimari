@@ -604,16 +604,106 @@ declare const InlineNotification: ({
   ...props
 }: InlineNotificationProps) => JSX.Element;
 
+interface BannerProps extends BoxProps {
+  /**
+   * the bolded title at the top of the banner
+   *
+   * @optional
+   * */
+  title?: string;
+  /** the description within the banner; the only required prop */
+  description: string;
+  /**
+   * determines whether the `InfoOutlinedIcon` appears to the left of the title
+   *
+   * @default false
+   */
+  showStartIcon?: boolean;
+  /**
+   * if defined, renders a `CloseIcon` at the top right of the banner, which
+   * will call the function passed to `onClose` on click
+   *
+   * @optional
+   */
+  onClose?: (args?: any) => void;
+  /**
+   * if defined in conjunction with `primaryActionLabel`, renders a primary
+   * `Button` for a primary action
+   *
+   * @optional
+   */
+  primaryAction?: (args?: any) => void;
+  /**
+   * `Button` label for the primary action
+   *
+   * @optional
+   */
+  primaryActionLabel?: string;
+  /**
+   * if defined in conjunction with `secondaryActionLabel`, renders a text
+   * `Button` for a secondary action
+   *
+   * @optional
+   */
+  secondaryAction?: (args?: any) => void;
+  /**
+   * `Button` label for the secondary action
+   *
+   * @optional
+   */
+  secondaryActionLabel?: string;
+}
+declare const Banner: ({
+  title,
+  description,
+  showStartIcon,
+  onClose,
+  primaryAction,
+  primaryActionLabel,
+  secondaryAction,
+  secondaryActionLabel,
+}: BannerProps) => JSX.Element;
+
+declare type Mask =
+  | 'money'
+  | 'moneyWithCents'
+  | 'ssn'
+  | 'lastFourSsn'
+  | 'bankNumber'
+  | 'phone'
+  | 'percent'
+  | 'taxId'
+  | 'year'
+  | 'default'
+  | 'search'
+  | 'date';
+
+declare type TextFieldProps = {
+  mask: Mask;
+  value?: string;
+} & TextFieldProps$1;
+declare const TextField: ({
+  mask,
+  value,
+  onChange,
+  ...otherProps
+}: TextFieldProps) => JSX.Element;
+
+declare const StatefulTextField: (props: TextFieldProps) => JSX.Element;
+
 interface ListProps extends ListProps$1 {
   /**
    * pass in list items as children
    * @default undefined
    */
   children: React$1.ReactNode;
-  bordered?: boolean;
+  /**
+   * if a hajimari color is specified, the list will have a border
+   * @default undefined
+   */
   border?: HajimariColor;
 }
-declare const List: ({ children, bordered, border }: ListProps) => JSX.Element;
+declare const List: ({ children, border }: ListProps) => JSX.Element;
 
 interface ListItemProps extends ListItemProps$1 {
   /**
@@ -639,6 +729,26 @@ interface ListItemProps extends ListItemProps$1 {
    * @default false
    */
   isHeader?: boolean;
+}
+declare const ListItem: ({
+  headerText,
+  description,
+  children,
+  divider,
+  isHeader,
+}: ListItemProps) => JSX.Element;
+
+interface DatePickerProps {
+  name: string;
+  label?: string;
+  helperText?: string;
+  textFieldProps?: Partial<TextFieldProps$1>;
+  error?: string;
+  onChangeCallback?: (
+    date: any,
+    keyboardInputValue?: string | undefined
+  ) => void;
+  onBlurCallback?: () => void;
 }
 declare const DatePickerField: ({
   name,
@@ -682,6 +792,10 @@ export {
   InlineNotificationProps,
   LineItem,
   LineItemProps,
+  List,
+  ListItem,
+  ListItemProps,
+  ListProps,
   NotificationVariant,
   StatefulTextField,
   SuggestedAction,

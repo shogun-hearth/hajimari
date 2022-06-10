@@ -10,7 +10,7 @@ export interface ListProps extends MuiListProps {
    */
   children: React.ReactNode;
   /**
-   * if a hajimari color is specified, the list will have a controlled border
+   * if a hajimari color is specified, the list will have a border
    * @default undefined
    */
   border?: HajimariColor;
@@ -21,16 +21,15 @@ const ListRoot = styled(MuiList, {
 })<ListProps>(({ border }) =>
   e_sx({
     ...(border != null && {
+      border: '1px solid',
       borderRadius: 8,
       borderColor: border,
-      border: '1px solid',
     }),
   })
 );
 
-const List = ({
-  children,
-  border = 'greyscale.500',
-}: ListProps): JSX.Element => <ListRoot border={border}>{children}</ListRoot>;
+const List = ({ children, border }: ListProps): JSX.Element => (
+  <ListRoot border={border}>{children}</ListRoot>
+);
 
 export default List;
