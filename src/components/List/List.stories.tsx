@@ -87,7 +87,7 @@ const ListTemplate = ({ children, ...args }: TemplateArgs): JSX.Element => {
   }, {});
   return (
     <Box width='500px'>
-      <List border={'greyscale.500'}>
+      <List border='greyscale.500'>
         <ListItem {...listItemArgs}>{children}</ListItem>
       </List>
     </Box>

@@ -37,6 +37,9 @@ export * from './SuggestedAction/SuggestedAction';
 export { default as SuggestedActionAccordion } from './SuggestedActionAccordion';
 export * from './SuggestedActionAccordion/SuggestedActionAccordion';
 
+export { default as List } from './List';
+export * from './List/List';
+
 export { default as ListItem } from './ListItem';
 export * from './ListItem/ListItem';
 
@@ -51,5 +54,3 @@ export * from './Field/TextField/TextField';
 
 export { default as DatePicker } from './Field/DatePickerField';
 export * from './Field/DatePickerField/DatePickerField';
-
-export { default as List } from './List';
