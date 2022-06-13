@@ -1,22 +1,16 @@
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
-import { withDesign } from 'storybook-addon-designs';
 import { IconButton, Switch } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import dedent from 'ts-dedent';
 
 import Button from '../Button';
 import ListItem from '../ListItem';
-import List from '../List';
+import List from './List';
 import Box from '../Box';
 import theme from '../../theme';
 import { list, argTypes } from './List.stories.tsx';
 
-<Meta
-  title='Organism/List'
-  component={List}
-  argTypes={argTypes}
-  subcomponents={ListItem}
-/>
+<Meta title='Organism/List' component={List} argTypes={argTypes} />
 
 export const ListTemplate = (args) => {
   return (
@@ -74,9 +68,9 @@ export const variantListItems = [
 
 # List
 
-**DATE ADDED**: [Date] | **PROJECT**: [Project name with link to Notion, Figma, etc]
+**DATE ADDED**: [06/13/2022] | **PROJECT**: [Revamp Invoice Settings UI](https://www.figma.com/file/Jw6huFbSL8KYqfb4vbigBh/Payments)
 
-A `List` is a continuous, vertical group of text rows. They are composed of `List items`, which render
+A `List` is a continuous, vertical group of text rows. They are composed of `List items`, which currently render
 three possible (and optional) primary actions. A row without primary actions will just have text.
 
 <br />
@@ -186,9 +180,9 @@ These will represent one entry or row in the list.
         },
       },
     }}
-
-/>
-
+  >
+    {ListTemplate.bind({})}
+  </Story>
 </Canvas>
 
 <br />
