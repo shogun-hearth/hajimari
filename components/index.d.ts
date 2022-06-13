@@ -11,6 +11,7 @@ import { TypographyProps as TypographyProps$1 } from '@mui/material/Typography';
 import { ImageListItemProps } from '@mui/material/ImageListItem';
 import { ImageListProps } from '@mui/material/ImageList';
 import { AccordionProps } from '@mui/material/Accordion';
+import { ListProps as ListProps$1, ListItemProps as ListItemProps$1 } from '@mui/material';
 import { TextFieldProps as TextFieldProps$1 } from '@mui/material/TextField';
 
 interface BoxProps extends BoxProps$1 {
@@ -176,6 +177,47 @@ interface SuggestedActionAccordionProps extends Omit<AccordionProps, 'variant'> 
 }
 declare const SuggestedActionAccordion: ({ variant, groupTitle, numItems, highlightNumber, children, ...otherProps }: SuggestedActionAccordionProps) => JSX.Element;
 
+interface ListProps extends ListProps$1 {
+    /**
+     * pass in list items as children
+     * @default undefined
+     */
+    children: React$1.ReactNode;
+    /**
+     * if a hajimari color is specified, the list will have a border
+     * @default undefined
+     */
+    border?: HajimariColor;
+}
+declare const List: ({ children, border }: ListProps) => JSX.Element;
+
+interface ListItemProps extends ListItemProps$1 {
+    /**
+     * The main text of list item row
+     * @default undefined
+     * @optional
+     */
+    headerText?: string;
+    /**
+     * a sorta subheader or more text to supplement main header
+     * @optional i
+     */
+    description?: string;
+    /**
+     * primary actions are passed in as children. current use cases include button, toggle, and expand.
+     * if no children is passed in, list item will display text row.
+     * @optional
+     */
+    children?: React$1.ReactNode;
+    /**
+     * if true, headerText will be bolded
+     * @optional
+     * @default false
+     */
+    isHeader?: boolean;
+}
+declare const ListItem: ({ headerText, description, children, divider, isHeader, }: ListItemProps) => JSX.Element;
+
 declare enum NotificationVariant {
     info = "info",
     warning = "warning",
@@ -281,4 +323,4 @@ interface DatePickerProps {
 }
 declare const DatePickerField: ({ name, label, helperText, textFieldProps, onChangeCallback, onBlurCallback, error, ...otherProps }: DatePickerProps) => JSX.Element;
 
-export { Banner, BannerProps, Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, DatePickerField as DatePicker, DatePickerProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
+export { Banner, BannerProps, Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, DatePickerField as DatePicker, DatePickerProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };

@@ -1,0 +1,200 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import { IconButton, Switch } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import dedent from 'ts-dedent';
+
+import Button from '../Button';
+import ListItem from '../ListItem';
+import List from './List';
+import Box from '../Box';
+import theme from '../../theme';
+import { list, argTypes } from './List.stories.tsx';
+
+<Meta title='Organism/List' component={List} argTypes={argTypes} />
+
+export const ListTemplate = (args) => {
+  return (
+    <Box width='700px'>
+      <List {...args} />
+    </Box>
+  );
+};
+
+export const ListItemTemplate = (args) => <ListItem {...args} />;
+
+export const listItems = [
+  {
+    headerText: 'This is the main text',
+    description: 'you can add an optional description',
+    isHeader: true,
+    divider: true,
+  },
+  {
+    headerText: 'These items have no primary action',
+    divider: true,
+  },
+  {
+    headerText:
+      'Since this is the last child element, we can omit the divider prop',
+  },
+];
+
+export const variantListItems = [
+  {
+    headerText: 'Payment Options On Invoices',
+    description: 'Show or hide payment options for all of your customers',
+    isHeader: true,
+    divider: true,
+    childNode: <Switch color='primary' />,
+  },
+  {
+    headerText: 'Payments Account',
+    divider: true,
+    childNode: (
+      <Button variant='primary' color='blue'>
+        Edit Account
+      </Button>
+    ),
+  },
+  {
+    headerText: 'Automated Payment Reminders',
+    childNode: (
+      <IconButton>
+        <ExpandMoreIcon />
+      </IconButton>
+    ),
+  },
+];
+
+# List
+
+**DATE ADDED**: [06/13/2022] | **PROJECT**: [Revamp Invoice Settings UI](https://www.figma.com/file/Jw6huFbSL8KYqfb4vbigBh/Payments)
+
+A `List` is a continuous, vertical group of text rows. They are composed of `List items`, which currently render
+three possible (and optional) primary actions. A row without primary actions will just have text.
+
+<br />
+
+---
+
+<br />
+
+### Usage and examples
+
+The usage of `List` is rather simple. You pass in however many `ListItem` children elements as you want.
+These will represent one entry or row in the list.
+
+<br />
+
+#### Default / Basic:
+
+> A basic use case of `List` would comprise of `ListItems` with no primary actions.
+
+<Canvas>
+  <Story
+    name='Basic'
+    component={List}
+    args={{
+      border: 'greyscale.500',
+      children: listItems.map((item) => (
+        <ListItem
+          headerText={item.headerText}
+          description={item.description}
+          isHeader={item.isHeader}
+          divider={item.divider}
+        />
+      )),
+    }}
+    parameters={{
+      docs: {
+        source: {
+          code: dedent`
+          <List border="greyscale.500">
+            <ListItem
+              headerText="This is the main text"
+              description="you can add an optional description"
+              isHeader
+              divider
+            />
+            <ListItem
+              headerText="These items have no primary action"
+              divider
+            />
+            <ListItem headerText="Since this is the last child element, we can omit the divider prop" />
+          </List>
+          `,
+          language: 'tsx',
+        },
+      },
+    }}
+  >
+    {ListTemplate.bind({})}
+  </Story>
+</Canvas>
+
+#### with multiple list items
+
+> Most likely, lists will have multiple `ListItem` children, each are customizeable.
+
+<Canvas>
+  <Story
+    name='with multiple list items'
+    component={List}
+    args={{
+      border: 'blue.500',
+      children: variantListItems.map((item) => (
+        <ListItem
+          headerText={item.headerText}
+          description={item.description}
+          isHeader={item.isHeader}
+          divider={item.divider}
+        >
+          {item.childNode}
+        </ListItem>
+      )),
+    }}
+    parameters={{
+      docs: {
+        source: {
+          code: dedent`
+          <List border="blue.500">
+            <ListItem
+              headerText="Payment Options On Invoices"
+              description="Show or hide payment options for all of your customers"
+              divider
+              isHeader
+            >
+              <Switch />
+            </ListItem>
+            <ListItem headerText="Payments Account" divider>
+              <Button variant="primary" color="blue">
+                Edit Account
+              </Button>
+            </ListItem>
+            <ListItem headerText="Automated Payment Reminders">
+              <IconButton><ExpandMoreIcon /> </IconButton>
+            </ListItem>
+          </List>
+          `,
+          language: 'tsx',
+        },
+      },
+    }}
+  >
+    {ListTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<br />
+
+---
+
+<br />
+
+### Playground
+
+<Canvas>
+  <Story name='Playground' story={list} />
+</Canvas>
+
+<ArgsTable of={List} story='Playground' />
