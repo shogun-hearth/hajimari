@@ -43,6 +43,9 @@ export const argTypes = {
   children: {
     defaultValue: <Switch />,
   },
+  /**
+   * @TODO pass HajimariColor as argType for border prop
+   */
 };
 
 export default {

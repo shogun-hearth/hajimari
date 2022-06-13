@@ -16,7 +16,7 @@ export interface ListItemProps extends MuiListItemProps {
   headerText?: string;
   /**
    * a sorta subheader or more text to supplement main header
-   * @optional i
+   * @optional
    */
   description?: string;
   /**
@@ -38,15 +38,10 @@ const ListItem = ({
   description,
   children,
   divider = false,
-  isHeader,
+  isHeader = false,
 }: ListItemProps): JSX.Element => (
   <Box>
-    <MuiListItem
-      alignItems='flex-start'
-      sx={{
-        my: 1,
-      }}
-    >
+    <MuiListItem alignItems='flex-start' sx={{ my: 1 }}>
       <ListItemText
         primary={headerText}
         secondary={description || null}
