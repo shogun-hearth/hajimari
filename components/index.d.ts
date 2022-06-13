@@ -200,7 +200,7 @@ interface ListItemProps extends ListItemProps$1 {
     headerText?: string;
     /**
      * a sorta subheader or more text to supplement main header
-     * @optional i
+     * @optional
      */
     description?: string;
     /**
