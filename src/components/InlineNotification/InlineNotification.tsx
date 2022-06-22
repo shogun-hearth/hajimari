@@ -89,7 +89,7 @@ type ActionButtonProps = {
 
 const ActionButton = ({ label, sx, action }: ActionButtonProps): JSX.Element => (
   <Button
-    variant="primary"
+    variant="text"
     color="blue"
     endIcon={<ArrowForwardIcon />}
     sx={sx}
