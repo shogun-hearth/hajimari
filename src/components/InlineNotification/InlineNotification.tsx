@@ -84,7 +84,7 @@ const NotificationContent = styled('div', { name: 'NotificationContent' })({
 type ActionButtonProps = {
   label: string;
   sx?: SxProps;
-  action: () => void,
+  action?: () => void,
 };
 
 const ActionButton = ({ label, sx, action }: ActionButtonProps): JSX.Element => (
