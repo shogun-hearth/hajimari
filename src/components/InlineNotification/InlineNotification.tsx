@@ -84,14 +84,16 @@ const NotificationContent = styled('div', { name: 'NotificationContent' })({
 type ActionButtonProps = {
   label: string;
   sx?: SxProps;
+  action: () => void,
 };
 
-const ActionButton = ({ label, sx }: ActionButtonProps): JSX.Element => (
+const ActionButton = ({ label, sx, action }: ActionButtonProps): JSX.Element => (
   <Button
     variant="text"
     color="blue"
     endIcon={<ArrowForwardIcon />}
     sx={sx}
+    onClick={action}
   >
     {label}
   </Button>
@@ -129,6 +131,7 @@ const InlineNotification = ({
         {action &&
           <ActionButton
             label={actionLabel}
+            action={action}
             sx={{ display: { xs: 'none', sm: 'flex' } }}
           />
         }
