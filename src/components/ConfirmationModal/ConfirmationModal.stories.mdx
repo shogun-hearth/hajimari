@@ -1,6 +1,5 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { withDesign } from 'storybook-addon-designs';
-import { MemoryRouter } from 'react-router-dom';
 
 import ConfirmationModal from './ConfirmationModal';
 import Box from '../Box';
@@ -65,12 +64,8 @@ export const argTypes = {
       type: { summary: 'string' },
     },
   },
-  linkBackTo: {
-    defaultValue: '#',
-    control: { type: 'text' },
-    table: {
-      type: { summary: 'string' },
-    },
+  linkBackAction: {
+    defaultValue: () => {},
   },
   linkBackCopy: {
     defaultValue: 'Back to dashboard',
@@ -94,11 +89,7 @@ export const argTypes = {
   }}
 />
 
-export const ConfirmationModalTemplate = (args) => (
-  <MemoryRouter>
-    <ConfirmationModal {...args} />
-  </MemoryRouter>
-);
+export const ConfirmationModalTemplate = (args) => <ConfirmationModal {...args} />;
 
 # ConfirmationModal
 
@@ -129,10 +120,11 @@ it has a `primaryActionCopy` prop, which is the `string` displayed in the confir
 Finally, it has a `secondaryActionCopy` prop, which is the `string` displayed in the cancel
 button.
 
-Optionally, it takes `string`s for `linkBackTo` and `linkBackCopy`, which set the path to
-which the link redirects and the copy the link displays, respectively; if these props are
-provided, the link appears above the header. Also optionally, it has an `onOpen` prop, which
-specifies a function that runs when the modal opens. This prop is useful for analytics tracking.
+Optionally, it takes `string`s for `linkBackAction` and `linkBackCopy`, which set action
+that occurs when the link is clcked and the copy the link displays, respectively; if these
+props are provided, the link appears above the header. Also optionally, it has an `onOpen`
+prop, which specifies a function that runs when the modal opens. This prop is useful for
+analytics tracking.
 
 <br />
 
@@ -154,7 +146,7 @@ a link back to another page, as well as an `onOpen` action.
       primaryAction: () => {},
       primaryActionCopy: 'Confirm',
       secondaryActionCopy: 'Cancel',
-      linkBackTo: null,
+      linkBackAction: null,
       linkBackCopy: null,
     }}
   >
@@ -164,7 +156,7 @@ a link back to another page, as well as an `onOpen` action.
 
 #### Back link:
 
-> Optionally, the `ConfirmationModal` accepts values for `linkBackTo`
+> Optionally, the `ConfirmationModal` accepts values for `linkBackAction`
 and `linkBackCopy`, which add a link to the upper left above the modal title.
 
 <Canvas>
@@ -180,7 +172,7 @@ and `linkBackCopy`, which add a link to the upper left above the modal title.
       primaryAction: () => {},
       primaryActionCopy: 'Confirm',
       secondaryActionCopy: 'Cancel',
-      linkBackTo: '#',
+      linkBackAction: () => {},
       linkBackCopy: 'Back to dashboard',
     }}
   >
@@ -208,7 +200,7 @@ e.g., implementing analytics events.
       primaryAction: () => {},
       primaryActionCopy: 'Confirm',
       secondaryActionCopy: 'Cancel',
-      linkBackTo: null,
+      linkBackAction: null,
       linkBackCopy: null,
     }}
   >

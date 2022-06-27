@@ -4,7 +4,6 @@ import { DialogProps, Theme } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import CloseIcon from '@mui/icons-material/Close';
-import { Link } from 'react-router-dom';
 
 import Box from '../Box';
 import Button from '../Button';
@@ -38,7 +37,7 @@ export interface ConfirmationModalProps extends Omit<DialogProps, 'title'> {
   /* cancel action button copy */
   secondaryActionCopy: string;
   /* action when user clicks link back */
-  linkBackTo?: string;
+  linkBackAction?: () => void;
   /* cancel action button copy */
   linkBackCopy?: React.ReactNode;
 }
@@ -54,7 +53,7 @@ const ConfirmationModal = ({
   primaryAction,
   primaryActionCopy,
   secondaryActionCopy,
-  linkBackTo,
+  linkBackAction,
   linkBackCopy,
   ...otherProps
 }: ConfirmationModalProps): JSX.Element => {
@@ -73,6 +72,7 @@ const ConfirmationModal = ({
           borderRadius: 8,
         },
       }}
+      fullWidth
       {...otherProps}
     >
       <Box
@@ -91,12 +91,11 @@ const ConfirmationModal = ({
             mb: 4,
           }}
         >
-          {linkBackCopy && linkBackTo &&
+          {linkBackCopy && linkBackAction &&
             <Button
-              component={Link}
               variant="text"
               color="blue"
-              to={linkBackTo}
+              onClick={linkBackAction}
             >
               {typeof linkBackCopy === 'string' ?
                 <Box

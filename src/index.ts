@@ -16,6 +16,7 @@ import {
   Banner,
   SuggestedAction,
   SuggestedActionAccordion,
+  ConfirmationModal,
 } from './components';
 import {
   darken,
@@ -73,4 +74,5 @@ export {
   alpha,
   SuggestedAction,
   SuggestedActionAccordion,
+  ConfirmationModal,
 };
