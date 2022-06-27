@@ -80,7 +80,7 @@ const ConfirmationModal = ({
           display: 'flex',
           flexDirection: 'column',
           py: 3,
-          px: { xs: 2, sm: 3 },
+          mx: { xs: 2, sm: 3 },
         }}
       >
         <Box
@@ -118,7 +118,7 @@ const ConfirmationModal = ({
             <CloseIcon />
           </IconButton>
         </Box>
-        <Box sx={{ px: {xs: 0, sm: 4 }, mb: 7.5 }}>
+        <Box sx={{ px: { xs: 3, sm: 4 }, mb: 7.5 }}>
           {typeof title === 'string' ?
             <Typography
               variant={isMobile ? 'h2' : 'h1'}
@@ -128,7 +128,7 @@ const ConfirmationModal = ({
             </Typography> :
             title
           }
-          <Box sx={{ mt: {xs: 3, sm: 4 } }} />
+          <Box sx={{ mt: { xs: 3, sm: 4 } }} />
           {typeof body === 'string' ?
             <Typography variant={isMobile ? 'p2' : 'p1'}>
               {body}
