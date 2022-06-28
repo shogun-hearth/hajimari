@@ -143,7 +143,7 @@ interface ConfirmationModalProps extends Omit<DialogProps, 'title'> {
     open: boolean;
     onClose: () => void;
     onOpen?: () => void;
-    title: React$1.ReactNode;
+    title?: React$1.ReactNode;
     body: React$1.ReactNode;
     primaryAction: () => void;
     primaryActionCopy: string;

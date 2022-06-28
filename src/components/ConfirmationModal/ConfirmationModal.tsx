@@ -27,7 +27,7 @@ export interface ConfirmationModalProps extends Omit<DialogProps, 'title'> {
   /* optional function called when modal is opened */
   onOpen?: () => void;
   /* modal header */
-  title: React.ReactNode;
+  title?: React.ReactNode;
   /* content between header and buttons */
   body: React.ReactNode;
   /* confirm action */
@@ -119,16 +119,19 @@ const ConfirmationModal = ({
           </IconButton>
         </Box>
         <Box sx={{ px: { xs: 3, sm: 4 }, mb: 7.5 }}>
-          {typeof title === 'string' ?
-            <Typography
-              variant={isMobile ? 'h2' : 'h1'}
-              weight="semibold"
-            >
-              {title}
-            </Typography> :
-            title
+          {title &&
+            <Box sx={{ mb: { xs: 3, sm: 4 } }}>
+              {typeof title === 'string' ?
+                <Typography
+                  variant={isMobile ? 'h2' : 'h1'}
+                  weight="semibold"
+                >
+                  {title}
+                </Typography> :
+                title
+              }
+            </Box>
           }
-          <Box sx={{ mt: { xs: 3, sm: 4 } }} />
           {typeof body === 'string' ?
             <Typography variant={isMobile ? 'p2' : 'p1'}>
               {body}
