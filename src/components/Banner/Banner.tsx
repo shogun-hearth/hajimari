@@ -66,6 +66,7 @@ const BannerRoot = styled('div', { name: 'BannerRoot' })(e_sx({
   backgroundColor: 'blue.100',
   display: 'flex',
   flexDirection: 'column',
+  position: 'relative',
 }));
 
 const Banner = ({
