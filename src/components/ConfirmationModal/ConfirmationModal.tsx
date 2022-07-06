@@ -24,9 +24,17 @@ export interface ConfirmationModalProps extends Omit<DialogProps, 'title'> {
   open: boolean;
   /* function called when modal is closed */
   onClose: () => void;
-  /* optional function called when modal is opened */
+  /**
+   * function called when modal is opened
+   * 
+   * @optional
+   */
   onOpen?: () => void;
-  /* modal header */
+  /**
+   * modal header
+   * 
+   * @optional
+   */
   title?: React.ReactNode;
   /* content between header and buttons */
   body: React.ReactNode;
@@ -36,9 +44,17 @@ export interface ConfirmationModalProps extends Omit<DialogProps, 'title'> {
   primaryActionCopy: string;
   /* cancel action button copy */
   secondaryActionCopy: string;
-  /* action when user clicks link back */
+  /**
+   * action when user clicks link back
+   * 
+   * @optional
+   */
   linkBackAction?: () => void;
-  /* cancel action button copy */
+  /**
+   * copy for link back
+   * 
+   * @optional
+   */
   linkBackCopy?: React.ReactNode;
 }
 
