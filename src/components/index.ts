@@ -52,5 +52,5 @@ export * from './Banner/Banner';
 export { default as TextField } from './Field/TextField';
 export * from './Field/TextField/TextField';
 
-export { default as DatePicker } from './Field/DatePickerField';
+export { default as DatePickerField } from './Field/DatePickerField';
 export * from './Field/DatePickerField/DatePickerField';

@@ -1,17 +1,21 @@
-import { useCallback, useState } from 'react';
-
+import React, { useCallback, useState } from 'react';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import {
-  DatePicker as MuiDatePicker,
-  LocalizationProvider,
-} from '@mui/x-date-pickers';
+import { DatePicker as MuiDatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TextFieldProps as MuiTextFieldProps } from '@mui/material/TextField';
 import cloneDeep from 'lodash.clonedeep';
 
 import TextField from '../TextField';
 import Typography from '../../Typography';
 
-export interface DatePickerProps { 
+/*
+  NOTE:
+  Currently, @mui/x-date-pickers cannot be used unless as part of a singleton implementation,
+  so this cannot be currently used until this issue is resolved.
+  See: https://github.com/mui/mui-x/issues/5349
+*/
+
+export interface DatePickerProps {
   /* the internal name of the component instance */
   name: string;
   /* text to show as the label (if any) */
@@ -21,30 +25,49 @@ export interface DatePickerProps {
   /* the additional props to be sent directly to the underlying TextField */
   textFieldProps?: Partial<MuiTextFieldProps>;
   /* an error message to display */
-  error?: string,
+  error?: string;
   /* additional logic to do whenver an onChange event is triggered */
-  onChangeCallback?: (date: any, keyboardInputValue?: string | undefined) => void,
+  onChangeCallback?: (
+    date: any,
+    keyboardInputValue?: string | undefined,
+  ) => void;
   /* additional logic to do whenver an onBlur event is triggered */
-  onBlurCallback?: () => void,
-};
+  onBlurCallback?: () => void;
+  /* date of start of range */
+  minDate?: Date | string;
+  /* date of end of range */
+  maxDate?: Date | string;
+  /* if the field should be disabled */
+  disabled?: boolean;
+  /* the initial value to use for the field */
+  value?: string | Date | null;
+}
 
 const DatePickerField = ({
-    name,
-    label,
-    helperText,
-    textFieldProps = {},
-    onChangeCallback,
-    onBlurCallback,
-    error,
-    ...otherProps
-}: DatePickerProps ): JSX.Element => {
-  const [value, setValue] = useState<Date | string | null>(null);
+  name,
+  label,
+  helperText,
+  textFieldProps = {},
+  onChangeCallback,
+  onBlurCallback,
+  error,
+  value: initialValue,
+  ...otherProps
+}: DatePickerProps): JSX.Element => {
+  const [value, setValue] = useState<Date | string | null>(
+    initialValue || null,
+  );
 
   const fieldLabel = label != null ? label : name;
 
-  const handleChange = onChangeCallback || useCallback((val: Date | string | null) => {
-    setValue(val);
-  }, [setValue]);
+  const handleChange =
+    onChangeCallback ||
+    useCallback(
+      (val: Date | string | null) => {
+        setValue(val);
+      },
+      [setValue],
+    );
 
   const formatDate = (date: string): string => {
     const dateArr = date.split('/');
@@ -94,21 +117,29 @@ const DatePickerField = ({
             hiddenLabel={false}
             error={!!error || textFieldProps?.error}
             // allow passing these functions in at the top level, rather than into textFieldProps
-            onFocus={(e) => textFieldProps?.onFocus && textFieldProps.onFocus(e)}
+            onFocus={(e) =>
+              textFieldProps?.onFocus && textFieldProps.onFocus(e)
+            }
             onBlur={(e) => {
               onBlurCallback && onBlurCallback();
-              textFieldProps?.onBlur ? textFieldProps.onBlur(e) : setValue(new Date(formatDate(e.target.value)));
+              textFieldProps?.onBlur
+                ? textFieldProps.onBlur(e)
+                : setValue(new Date(formatDate(e.target.value)));
             }}
-            helperText={caption ? <Typography variant="p3">{caption}</Typography> : undefined}
+            helperText={
+              caption ? (
+                <Typography variant="p3">{caption}</Typography>
+              ) : undefined
+            }
             {...otherTextFieldProps}
-            mask={"date"}
+            mask={'date'}
             value={params.value as string}
-        />
+          />
         )}
         {...otherProps}
       />
     </LocalizationProvider>
-  )
+  );
 };
 
 export default DatePickerField;
