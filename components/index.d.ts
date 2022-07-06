@@ -142,13 +142,33 @@ interface ConfirmationModalProps extends Omit<DialogProps, 'title'> {
     variant?: ConfirmationModalVariant;
     open: boolean;
     onClose: () => void;
+    /**
+     * function called when modal is opened
+     *
+     * @optional
+     */
     onOpen?: () => void;
+    /**
+     * modal header
+     *
+     * @optional
+     */
     title?: React$1.ReactNode;
     body: React$1.ReactNode;
     primaryAction: () => void;
     primaryActionCopy: string;
     secondaryActionCopy: string;
+    /**
+     * action when user clicks link back
+     *
+     * @optional
+     */
     linkBackAction?: () => void;
+    /**
+     * copy for link back
+     *
+     * @optional
+     */
     linkBackCopy?: React$1.ReactNode;
 }
 declare const ConfirmationModal: ({ variant, open, onClose, onOpen, title, body, primaryAction, primaryActionCopy, secondaryActionCopy, linkBackAction, linkBackCopy, ...otherProps }: ConfirmationModalProps) => JSX.Element;
