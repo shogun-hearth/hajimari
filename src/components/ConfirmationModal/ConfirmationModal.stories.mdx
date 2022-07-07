@@ -1,0 +1,226 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { withDesign } from 'storybook-addon-designs';
+
+import ConfirmationModal from './ConfirmationModal';
+import Box from '../Box';
+import Typography from '../Typography';
+
+export const argTypes = {
+  variant: {
+    control: { type: "select" },
+    options: ["blue", "green", "yellow", "red", "greyscale"],
+    defaultValue: "blue",
+    type: { required: true },
+    table: {
+      type: {
+        summary: '"blue" | "green" | "yellow" | "red" | "greyscale"',
+      },
+    },
+  },
+  open: {
+    control: { type: "boolean" },
+    defaultValue: true,
+    table: {
+      type: {
+        summary: 'true | false',
+        defaultValue: true,
+      },
+    },
+  },
+  onClose: {
+    defaultValue: () => {},
+  },
+  onOpen: {
+    defaultValue: () => {},
+  },
+  title: {
+    defaultValue: 'Discard progress?',
+    control: { type: 'text' },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  body: {
+    defaultValue: 'Are you sure you want to discard your progress?',
+    control: { type: 'text' },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  primaryAction: {
+    defaultValue: () => {},
+  },
+  primaryActionCopy: {
+    defaultValue: 'Confirm',
+    control: { type: 'text' },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  secondaryActionCopy: {
+    defaultValue: 'Cancel',
+    control: { type: 'text' },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  linkBackAction: {
+    defaultValue: () => {},
+  },
+  linkBackCopy: {
+    defaultValue: 'Back to dashboard',
+    control: { type: 'text' },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+};
+
+<Meta
+  title="Molecules/ConfirmationModal"
+  component={ConfirmationModal}
+  argTypes={argTypes}
+  parameters={{
+    layout: 'padded',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/xfmzo1QWKiFbf2tx7Q2NUa/HAJIMARI-Design-System?node-id=766%3A8102',
+    },
+  }}
+/>
+
+export const ConfirmationModalTemplate = (args) => <ConfirmationModal {...args} />;
+
+# ConfirmationModal
+
+**DATE ADDED**: 06/27/22 | **PROJECT**: [Suggested Actions/Notifications](https://www.notion.so/gethearth/Suggested-Action-Notification-44baf25d61db4f67afc5e92752134614)
+
+A `ConfirmationModal` is a special case of the general `Dialog` component that
+confirms whether the contractor wants to take a particular (typically irreversible)
+course of action. If the contractor clicks the primary action button, the action
+is confirmed. If the contractor clicks the secondary action button or otherwise closes
+the modal, the action is canceled.
+
+<br />
+
+---
+
+<br />
+
+### Usage and examples
+
+It has a `variant` attribute, which determines the color of the confirm and cancel buttons.
+It has a `title` attribute, which takes in a `string` or a `ReactNode` that appears at the
+top of the modal. Similarly, it has a `body` attribute that also takes in a `string` or a
+`ReactNode` and appears below the `title`. It has an `open` attribute, which is a `boolean`
+that determines whether the modal is visible. It also has an `onClose` attribute, which
+takes in a function that is called when the modal is closed. It has a `primaryAction` prop,
+which takes in a function that is called when the user clicks the confirm button. Relatedly,
+it has a `primaryActionCopy` prop, which is the `string` displayed in the confirm button.
+Finally, it has a `secondaryActionCopy` prop, which is the `string` displayed in the cancel
+button.
+
+Optionally, it takes `string`s for `linkBackAction` and `linkBackCopy`, which set action
+that occurs when the link is clcked and the copy the link displays, respectively; if these
+props are provided, the link appears above the header. Also optionally, it has an `onOpen`
+prop, which specifies a function that runs when the modal opens. This prop is useful for
+analytics tracking.
+
+<br />
+
+#### Default / Basic:
+
+> The most basic usage of a `ConfirmationModal`. The component lacks
+a link back to another page, as well as an `onOpen` action.
+
+<Canvas>
+  <Story
+    name="Basic"
+    component={ConfirmationModal}
+    args={{
+      variant: 'blue',
+      open: true,
+      onClose: () => {},
+      title: 'Discard progress?',
+      body: 'Are you sure you want to discard your progress?',
+      primaryAction: () => {},
+      primaryActionCopy: 'Confirm',
+      secondaryActionCopy: 'Cancel',
+      linkBackAction: null,
+      linkBackCopy: null,
+    }}
+  >
+    {ConfirmationModalTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### Back link:
+
+> Optionally, the `ConfirmationModal` accepts values for `linkBackAction`
+and `linkBackCopy`, which add a link to the upper left above the modal title.
+
+<Canvas>
+  <Story
+    name="Back Link"
+    component={ConfirmationModal}
+    args={{
+      variant: 'blue',
+      open: true,
+      onClose: () => {},
+      title: 'Discard progress?',
+      body: 'Are you sure you want to discard your progress?',
+      primaryAction: () => {},
+      primaryActionCopy: 'Confirm',
+      secondaryActionCopy: 'Cancel',
+      linkBackAction: () => {},
+      linkBackCopy: 'Back to dashboard',
+    }}
+  >
+    {ConfirmationModalTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### onOpen:
+
+> Optionally, the `ConfirmationModal` accepts a function for `onOpen`,
+which runs when the modal becomes visible. This property is useful for,
+e.g., implementing analytics events.
+
+<Canvas>
+  <Story
+    name="onOpen"
+    component={ConfirmationModal}
+    args={{
+      variant: 'blue',
+      open: true,
+      onClose: () => {},
+      onOpen: () => console.log('opened'),
+      title: 'Discard progress?',
+      body: 'Are you sure you want to discard your progress?',
+      primaryAction: () => {},
+      primaryActionCopy: 'Confirm',
+      secondaryActionCopy: 'Cancel',
+      linkBackAction: null,
+      linkBackCopy: null,
+    }}
+  >
+    {ConfirmationModalTemplate.bind()}
+  </Story>
+</Canvas>
+
+---
+
+<br />
+
+### Sandbox
+
+<Canvas>
+  <Story
+    name="Sandbox"
+    height="100px"
+  >
+  {ConfirmationModalTemplate.bind()}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ConfirmationModal} story="Sandbox" />
