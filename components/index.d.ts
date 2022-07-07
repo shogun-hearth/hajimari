@@ -593,35 +593,36 @@ declare const InformationCard: ({
 }: InformationCardProps) => JSX.Element;
 
 declare enum NotificationVariant {
-  info = 'info',
-  warning = 'warning',
-  error = 'error',
+    info = "info",
+    warning = "warning",
+    success = "success",
+    error = "error"
 }
 interface InlineNotificationProps extends BoxProps {
-  /**
-   * Inline notifications are constrained to `info`, `warning`, or `error`.
-   * Since the default value is `info`, the default component will have styles
-   * related to that variant.
-   * @default `info`
-   */
-  variant?: NotificationVariant;
-  onClose?: (args?: any) => void;
-  /**
-   *
-   * @default false
-   */
-  showStartIcon?: boolean;
-  /**
-   * @optional function to do some kind of action
-   */
-  action?: (args?: any) => void;
-  /**
-   * the text of the actual button. If an `action` is provided without an `actionLabel`,
-   * a standalone arrow icon will appear as the CTA
-   *
-   * @default undefined
-   *  */
-  actionLabel?: string;
+    /**
+     * Inline notifications are constrained to `info`, `warning`, `success`, or `error`.
+     * Since the default value is `info`, the default component will have styles
+     * related to that variant.
+     * @default `info`
+     */
+    variant?: NotificationVariant;
+    onClose?: (args?: any) => void;
+    /**
+     *
+     * @default false
+     */
+    showStartIcon?: boolean;
+    /**
+     * @optional function to do some kind of action
+     */
+    action?: (args?: any) => void;
+    /**
+     * the text of the actual button. If an `action` is provided without an `actionLabel`,
+     * a standalone arrow icon will appear as the CTA
+     *
+     * @default undefined
+     *  */
+    actionLabel?: string;
 }
 declare const InlineNotification: ({
   children,

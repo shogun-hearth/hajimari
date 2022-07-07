@@ -4,6 +4,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import WarningAmberOutlinedIcon from '@mui/icons-material/WarningAmberOutlined';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import { experimental_sx as e_sx, SxProps } from '@mui/system';
 
 import Box, { BoxProps } from '../Box/Box';
@@ -15,12 +16,13 @@ import styled from '../../theme/styled';
 export enum NotificationVariant {
   info = 'info',
   warning = 'warning',
+  success = 'success',
   error = 'error'
 }
 
 export interface InlineNotificationProps extends BoxProps {
   /**
-   * Inline notifications are constrained to `info`, `warning`, or `error`.
+   * Inline notifications are constrained to `info`, `warning`, `success`, or `error`.
    * Since the default value is `info`, the default component will have styles
    * related to that variant.
    * @default `info`
@@ -69,6 +71,9 @@ const TopHighlightRoot = styled('div', {
   ...(variant === 'warning' && {
     borderTopColor: 'yellow.500',
   }),
+  ...(variant === 'success' && {
+    borderTopColor: 'green.500',
+  }),
   ...(variant === 'error' && {
     borderTopColor: 'red.500',
   }),
@@ -102,6 +107,7 @@ const ActionButton = ({ label, sx, action }: ActionButtonProps): JSX.Element => 
 const variantIcons: Record<NotificationVariant, React.ReactNode> = {
   [NotificationVariant.info]: <InfoOutlinedIcon sx={{ fontSize: 24 }} />,
   [NotificationVariant.warning]: <WarningAmberOutlinedIcon sx={{ fontSize: 24 }} />,
+  [NotificationVariant.success]: <CheckCircleOutlinedIcon sx={{ fontSize: 24 }} />,
   [NotificationVariant.error]: <CancelOutlinedIcon sx={{ fontSize: 24 }} />,
 };
 
