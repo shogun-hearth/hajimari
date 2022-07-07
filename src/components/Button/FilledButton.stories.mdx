@@ -5,7 +5,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import Button from "./Button";
-import { button, argTypes } from "./Button.stories.tsx";
+import { filledButton, argTypes } from "./Button.stories.tsx";
 import { iconPlacementProps } from "./storyUtils";
 
 <Meta title="Button/Filled" component={Button} argTypes={argTypes} />
@@ -84,13 +84,12 @@ emphasis than a secondary button would give, such as "Next" in an onboarding flo
 
 <Canvas>
   <Story
+    story={filledButton}
     name="Sandbox"
-    args={{ children: "Filled", color: "primary", variant: "filled" }}
-  >
-    {StoryTemplate.bind()}
-  </Story>
+    parameters={{ layout: "centered" }}
+  />
 </Canvas>
 
-<ArgsTable of={button} story="Sandbox" />
+<ArgsTable of={filledButton} story="Sandbox" />
 
 <hr />

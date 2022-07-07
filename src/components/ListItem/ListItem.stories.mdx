@@ -1,0 +1,95 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import { IconButton, Switch } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+import ListItem from './ListItem';
+import Button from '../Button';
+import Box from '../Box';
+
+export const argTypes = {
+  headerText: {
+    defaultValue: 'This is a header',
+    control: {
+      type: 'text',
+    },
+  },
+  description: {
+    defaultValue: 'some optional description',
+    control: {
+      type: 'text',
+    },
+  },
+  divider: {
+    control: { type: 'boolean' },
+    defaultValue: true,
+  },
+  isHeader: {
+    control: { type: 'boolean' },
+    defaultValue: true,
+    description: 'If set to true, headerText will be bolded',
+  },
+  children: {
+    name: 'primary action type',
+    control: { type: 'select' },
+    description:
+      'an optional argument that accepts a ReactNode, which will render an action',
+    options: ['Button', 'Toggle', 'Expand', 'None'],
+    mapping: {
+      Button: (
+        <Button variant='primary' color='blue'>
+          Button
+        </Button>
+      ),
+      Toggle: <Switch />,
+      Expand: (
+        <IconButton>
+          <ExpandMoreIcon />
+        </IconButton>
+      ),
+      None: null,
+    },
+  },
+};
+
+<Meta
+  title='Organism/List/ListItem'
+  component={ListItem}
+  argTypes={argTypes}
+  parameters={{
+    layout: 'centered',
+    backgrounds: {
+      default: 'light blue',
+      values: [
+        { name: 'light blue', value: '#F4F6F9' },
+        { name: 'white', value: '#FFFFFF' },
+      ],
+    },
+  }}
+/>
+
+export const ListItemTemplate = (args) => {
+  const { children } = args;
+  return (
+    <Box width='800px'>
+      <ListItem {...args}>{children}</ListItem>
+    </Box>
+  );
+};
+
+# List Item
+
+`ListItem` accepts several props. It has `headerText`, which takes in a string and represents the main content
+in list item. Additionally, if the `isHeader` prop is set to true, the `headerText` will be bolded.
+It also accepts an optional `description`(also a string), which is useful for providing more detail
+to the main content. The primary actions are determined by the elements you pass in as `children` to `ListItem`.
+Current primary action use cases are limited to `Button`, `Switch` (or `Toggle`), and `Expand`. If a child element
+is not provided, the list item will just render a text row (see basic use case). Finally, the `divider` prop ensures that
+the list item is separated if it is followed by a sibling element.
+
+<Canvas>
+  <Story name='Sandbox' args={{ headerText: 'some text!' }}>
+    {ListItemTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ListItemTemplate} story='Sandbox' />

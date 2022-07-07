@@ -1,0 +1,260 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { withDesign } from 'storybook-addon-designs';
+import { Box } from '@mui/material';
+import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
+
+import TextField, { TextFieldProps } from './TextField';
+import StatefulTextField from './StatefulTextField';
+import Typography from '../../Typography';
+import { Mask, maskTypes } from './utils';
+
+export const argTypes = {
+  label: {
+    control: { type: 'text' },
+    defaultValue: 'Label',
+  },
+  disabled: {
+    control: { type: 'boolean' },
+    defaultValue: false,
+  },
+  error: {
+    control: { type: 'boolean' },
+    defaultValue: false,
+  },
+  helperText: {
+    control: { type: 'text' },
+  },
+  multiline: {
+    control: { type: 'boolean' },
+    defaultValue: false,
+  },
+  mask: {
+    control: { type: 'select' },
+    options: ['money', 'moneyWithCents', 'ssn', 'lastFourSsn', 'bankNumber', 'phone', 'percent', 'taxId', 'year', 'default', 'search', 'date'],
+    defaultValue: 'default',
+  },
+};
+
+<Meta
+  title="Atoms/Field/TextField"
+  component={TextField}
+  argTypes={argTypes}
+  parameters={{
+    actions: { disabled: true },
+    layout: 'padded',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/MsUWgABtjnh8LAttdex2q1/Quotes?node-id=571%3A1104',
+    },
+  }}
+/>
+
+export const TextFieldTemplate = (args) => {
+  const [value, setValue] = useState()
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+  return <StatefulTextField {...args} value={value} onChange={handleChange} />
+}
+
+# TextField
+
+**DATE ADDED**: 12/03/21 | **PROJECT**: [Quotes](https://www.notion.so/gethearth/Quotes-Bid-Estimate-Tool-c05b0b74bbb9404f8e2cc40dfdec044a)
+
+A `TextField` is essentially two `string` values with dots as a separator between them.
+First added to support a receipt-esque run-down of values and totals in a `Quote`, with multiple line items that
+add up to some total value.
+
+<br />
+
+---
+
+<br />
+
+### Usage and examples
+
+It has props `leftContent` and `rightContent`, which are both of type `ReactNode`. It also has a
+`width` prop, which is `100%` by default, and accepts a `number` or `string` so that the width can be
+a percentage or absolute pixel value.
+
+<br />
+
+#### Default / Basic:
+
+> The most basic usage of a `TextField`. The default `Typography` variant used is `p1`.
+
+<Canvas>
+  <Story
+    name="Basic"
+    component={TextField}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### money mask
+
+<Canvas>
+  <Story
+    name="Money mask"
+    args={{
+      mask: 'money',
+      label: 'Money mask',
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### moneyWithCents mask
+
+<Canvas>
+  <Story
+    name="Money with cents"
+    args={{
+      mask: 'moneyWithCents',
+      label: 'Money with cents mask',
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### ssn mask
+
+<Canvas>
+  <Story
+    name="ssn"
+    args={{
+      mask: 'ssn',
+      label: 'ssn mask',
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### lastFourSsn mask
+
+<Canvas>
+  <Story
+    name="last four ssn"
+    args={{
+      mask: 'lastFourSsn',
+      label: 'last four ssn mask',
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### bankNumber mask
+
+<Canvas>
+  <Story
+    name="bank number"
+    args={{
+      mask: 'bankNumber',
+      label: 'bank number mask',
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### phone mask
+
+<Canvas>
+  <Story
+    name="phone number"
+    args={{
+      mask: 'phone',
+      label: 'phone number mask',
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### percent mask
+
+<Canvas>
+  <Story
+    name="percent"
+    args={{
+      mask: 'percent',
+      label: 'percent mask',
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### taxId mask
+
+<Canvas>
+  <Story
+    name="taxId"
+    args={{
+      mask: 'taxId',
+      label: 'tax id mask',
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### year mask
+
+<Canvas>
+  <Story
+    name="year"
+    args={{
+      mask: 'year',
+      label: 'year mask',
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### search mask
+
+<Canvas>
+  <Story
+    name="search"
+    args={{
+      mask: 'search',
+      label: 'search mask',
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### Date mask
+
+<Canvas>
+  <Story
+    name="Date mask"
+    args={{
+      mask: 'date',
+      label: 'Date mask',
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+---
+
+<br />
+
+### Playground
+
+<Canvas>
+  <Story name="Playground">{TextFieldTemplate.bind()}</Story>
+</Canvas>
+
+<ArgsTable of={TextField} story="Playground" />

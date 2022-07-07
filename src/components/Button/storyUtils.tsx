@@ -1,6 +1,5 @@
 import dedent from "ts-dedent";
 import AddIcon from "@mui/icons-material/Add";
-import { Parameters } from "@storybook/react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";

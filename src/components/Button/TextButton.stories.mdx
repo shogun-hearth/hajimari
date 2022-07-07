@@ -1,0 +1,122 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+import AddIcon from "@mui/icons-material/Add";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+
+import Button from "./Button";
+import { textButton, argTypes } from "./Button.stories.tsx";
+import { iconPlacementProps } from "./storyUtils";
+
+<Meta title="Button/Text" component={Button} argTypes={argTypes} />
+
+export const StoryTemplate = (args) => <Button variant="text" {...args} />;
+export const DarkBgStoryTemplate = (args) => (
+  <Button variant="text" bg="dark" {...args} />
+);
+
+## Text Button
+
+Text buttons are typically used for less-pronounced actions, including those located in dialogs,
+cards and snackbars. Text label should use a distinct action. Text button color depends on the
+background it is placed on.
+
+<br />
+
+### States
+
+<Canvas>
+  <Story name="Default" args={{ children: "Default" }}>
+    {StoryTemplate.bind()}
+  </Story>
+  <Story name="Disabled" args={{ children: "Disabled", disabled: true }}>
+    {StoryTemplate.bind()}
+  </Story>
+</Canvas>
+
+### Colors (on light)
+
+<Canvas>
+  <Story name="Primary" args={{ children: "Primary", color: "primary" }}>
+    {StoryTemplate.bind()}
+  </Story>
+  <Story name="Greyscale" args={{ children: "Greyscale", color: "greyscale" }}>
+    {StoryTemplate.bind()}
+  </Story>
+  <Story name="Green" args={{ children: "Green", color: "green" }}>
+    {StoryTemplate.bind()}
+  </Story>
+  <Story name="Yellow" args={{ children: "Yellow", color: "yellow" }}>
+    {StoryTemplate.bind()}
+  </Story>
+  <Story name="Error" args={{ children: "Error", color: "error" }}>
+    {StoryTemplate.bind()}
+  </Story>
+</Canvas>
+
+### Colors (on dark)
+
+<Canvas>
+  <Story name="Primary (Dark)" args={{ children: "Primary", color: "primary" }}>
+    {DarkBgStoryTemplate.bind()}
+  </Story>
+  <Story
+    name="Greyscale (Dark)"
+    args={{ children: "Greyscale", color: "greyscale" }}
+  >
+    {DarkBgStoryTemplate.bind()}
+  </Story>
+  <Story name="Green (Dark)" args={{ children: "Green", color: "green" }}>
+    {DarkBgStoryTemplate.bind()}
+  </Story>
+  <Story name="Yellow (Dark)" args={{ children: "Yellow", color: "yellow" }}>
+    {DarkBgStoryTemplate.bind()}
+  </Story>
+  <Story name="Error (Dark)" args={{ children: "Error", color: "error" }}>
+    {DarkBgStoryTemplate.bind()}
+  </Story>
+</Canvas>
+
+### With Icons (on light)
+
+<Canvas>
+  <Story
+    name="Start Icon"
+    args={{ ...iconPlacementProps("text").start.args }}
+    parameters={{ ...iconPlacementProps("text").start.parameters }}
+  >
+    {StoryTemplate.bind()}
+  </Story>
+  <Story
+    name="End Icon"
+    args={{ ...iconPlacementProps("text").end.args }}
+    parameters={{ ...iconPlacementProps("text").end.parameters }}
+  >
+    {StoryTemplate.bind()}
+  </Story>
+  <Story
+    name="Double Icons"
+    args={{ ...iconPlacementProps("text").double.args }}
+    parameters={{ ...iconPlacementProps("text").double.parameters }}
+  >
+    {StoryTemplate.bind()}
+  </Story>
+</Canvas>
+
+<br />
+<br />
+<br />
+
+## Sandbox
+
+<Canvas>
+  <Story
+    story={textButton}
+    name="Sandbox"
+    parameters={{ layout: "centered" }}
+  />
+</Canvas>
+
+<ArgsTable of={textButton} story="Sandbox" />
+
+<hr />

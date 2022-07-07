@@ -1,0 +1,6 @@
+{
+  "sideEffects": false,
+  "module": "../dist/esm/mui.js",
+  "main": "../dist/cjs/mui.js",
+  "types": "./index.d.ts"
+}

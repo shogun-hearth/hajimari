@@ -1,5 +1,4 @@
-import { ImageList as MuiImageList } from '@mui/material';
-import { ImageListProps as MuiImageListProps } from '@mui/material/ImageList';
+import MuiImageList, { ImageListProps as MuiImageListProps } from '@mui/material/ImageList';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ImageGridProps extends MuiImageListProps { }

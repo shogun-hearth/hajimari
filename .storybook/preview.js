@@ -1,6 +1,6 @@
-import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
+import React from 'react';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { StylesProvider } from '@mui/styles';
-import { ThemeProvider } from 'emotion-theming';
 
 import theme from '../src/theme';
 import storybookTheme from './storybookTheme';
@@ -46,11 +46,11 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <StylesProvider injectFirst>
-      <MUIThemeProvider theme={theme}>
+      <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
           {Story()}
         </ThemeProvider>
-      </MUIThemeProvider>
+      </StyledEngineProvider>
     </StylesProvider>
   )
 ];
