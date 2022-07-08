@@ -3,10 +3,12 @@ import { ComponentMeta, Story } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
 import { ArgType } from '@storybook/components';
 
+import Button from '../Button';
 import Dialog, { DialogProps } from './Dialog'
 import DialogContent from '../DialogContentText'
 import DialogHeader from '../DialogHeader'
 import DialogTopContent from '../DialogTopContent';
+import DialogActions from '../DialogActions';
 
 export const argTypes = {
   open: {
@@ -38,7 +40,7 @@ export const argTypes = {
     },
   },
   backlink: {
-    defaultValue: '',
+    defaultValue: 'Optional Link Back',
     control: {
       type: 'text',
     },
@@ -73,6 +75,18 @@ export const argTypes = {
       category: 'DialogContent',
     },
   },
+  actions: {
+    defaultValue: [
+      <Button variant="text">Cancel</Button>,
+      <Button variant="primary" color="blue">
+        Delete
+      </Button>,
+    ],
+    control: { type: "object" },
+    table: {
+      category: 'DialogActions',
+    },
+  }
 }
 
 type TemplateArgs = {
@@ -101,6 +115,7 @@ const DialogTemplate = ({
   backlink,
   open,
   maxWidth,
+  actions,
   showCloseButton,
   ...args
 }: TemplateArgs): JSX.Element => {
@@ -125,6 +140,11 @@ const DialogTemplate = ({
         <DialogContent>
           {content}
         </DialogContent>
+      }
+      {actions && 
+        <DialogActions>
+          {actions}
+        </DialogActions>
       }
     </Dialog>
   );

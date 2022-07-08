@@ -20,6 +20,7 @@ const DialogContent = ({
           padding: `50px 24px`,
           backgroundColor: 'inherit',
         },
+        minWidth: 300,
         ...sx,
       }}
       {...otherProps}
