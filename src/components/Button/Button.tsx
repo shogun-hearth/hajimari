@@ -95,19 +95,6 @@ const ButtonRoot = styled(MuiButton)(({ theme, variant }) => ({
       color: theme.palette.greyscale[700],
     }),
   },
-  /**
-   * @TODO text buttons should be left aligned unlike the other variants;
-   * however, in the interim that looks kind of funny, so we'll leave
-   * the text centered for now.
-   * */
-  ...(variant === 'text' && {
-    /** @TODO confirm that text buttons don't follow the same min width rules */
-    minWidth: 'min-content',
-    paddingRight: 0,
-    paddingLeft: 0,
-    marginRight: 16,
-    marginLeft: 16,
-  }),
 }));
 
 const Button = React.forwardRef(<C extends React.ComponentType<any>>({
@@ -118,6 +105,7 @@ const Button = React.forwardRef(<C extends React.ComponentType<any>>({
   loadingIndicator,
   variant = 'primary',
   disabled,
+  color = 'blue',
   ...props
 }: ButtonProps<C>,
   ref?: React.ForwardedRef<HTMLButtonElement>): JSX.Element => {
@@ -134,6 +122,7 @@ const Button = React.forwardRef(<C extends React.ComponentType<any>>({
   return (
     <ButtonRoot
       ref={ref}
+      color={color}
       variant={variant}
       onClick={handleClick}
       disabled={disabled || loading}

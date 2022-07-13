@@ -22,24 +22,14 @@ export const argTypes = {
   color: {
     name: 'Color',
     control: { type: 'select' },
-    options: ["primary", "greyscale", "green", "yellow", "error"],
-    table: {
-      type: {
-        summary:
-          "'primary' | 'green' | 'yellow' | 'error' | 'greyscale'",
-      },
-    },
-  },
-  bg: {
-    name: "Background",
-    control: { type: "radio" },
-    options: ["light", "dark"],
+    options: ["blue", "greyscale", "green", "yellow", "red"],
     table: {
       defaultValue: {
-        summary: 'light'
+        summary: 'blue',
       },
       type: {
-        summary: "'light' | 'dark'",
+        summary:
+          "'blue' | 'green' | 'yellow' | 'red' | 'greyscale'",
       },
     },
   },
@@ -105,9 +95,11 @@ export const button = buttonTemplate.bind({});
 
 /** default arg values that are shared across variants */
 button.args = {
-  bg: 'light',
   disabled: false,
-  color: 'primary',
+  color: 'blue',
+  /** will be overidden below; primarily for the overview sandbox */
+  children: 'Button',
+  variant: 'primary',
 };
 
 export const primaryButton = buttonTemplate.bind({});
@@ -138,6 +130,7 @@ export const textButton = buttonTemplate.bind({});
 
 textButton.args = {
   ...button.args,
+  bg: 'light',
   children: 'Text',
   variant: 'text',
 };
