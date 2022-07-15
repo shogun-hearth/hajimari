@@ -18,7 +18,7 @@ export const argTypes = {
     },
   },
   disableSpacing: {
-    defaultVale: false,
+    defaultValue: false,
     control: { type: "boolean" },
     table: {
       type: { summary: "boolean" },

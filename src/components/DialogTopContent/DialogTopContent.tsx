@@ -2,11 +2,12 @@ import React from "react";
 import MuiDialogTopContent, {
   DialogTitleProps as MuiDialogTopContentProps,
 } from "@mui/material/DialogTitle";
-import Button from "../Button";
-
 import { IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CloseIcon from "@mui/icons-material/Close";
+
+import Button from "../Button";
+
 export interface DialogTopContentProps extends MuiDialogTopContentProps {
   showCloseButton: boolean;
   backlink?: string;
