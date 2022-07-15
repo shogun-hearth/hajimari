@@ -367,6 +367,7 @@ export const componentOverrides: ThemeOptions['components'] = {
     styleOverrides: {
       text: ({ ownerState, theme }) => (
         {
+          // boxSizing: 'border-box',
           ...(ownerState.color != null && {
             color: theme.palette[ownerState.color][500],
             '&:hover': {
@@ -392,7 +393,7 @@ export const componentOverrides: ThemeOptions['components'] = {
               '&:disabled': {
                 color: theme.palette.greyscale[900],
               },
-            })
+            }),
           })
         }
       ),
