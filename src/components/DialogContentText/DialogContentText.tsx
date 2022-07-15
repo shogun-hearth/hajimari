@@ -2,8 +2,7 @@ import React from 'react';
 import { DialogContent as MuiDialogContent, DialogContentText } from '@mui/material';
 import { DialogContentProps as MuiDialogContentProps } from '@mui/material/DialogContent';
 
-export interface DialogContentProps extends MuiDialogContentProps {
-}
+export interface DialogContentProps extends MuiDialogContentProps { }
 
 const DialogContent = ({
   children,
@@ -17,7 +16,7 @@ const DialogContent = ({
         flexWrap: 'wrap',
         overflowX: 'hidden',
         '&.MuiDialogContent-root': {
-          padding: `50px 24px`,
+          p: '50px 24px',
           backgroundColor: 'inherit',
         },
         minWidth: 300,
