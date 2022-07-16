@@ -16,7 +16,8 @@ const DialogContent = ({
         flexWrap: 'wrap',
         overflowX: 'hidden',
         '&.MuiDialogContent-root': {
-          p: '50px 24px',
+          px: 3,
+          py: 6,
           backgroundColor: 'inherit',
         },
         minWidth: 300,

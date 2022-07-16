@@ -84,5 +84,9 @@
     "theme",
     "globals.d.ts",
     "index.d.ts"
-  ]
+  ],
+  "dependencies": {
+    "@emotion/styled": "^11.9.3",
+    "react-router-dom": "^6.3.0"
+  }
 }
