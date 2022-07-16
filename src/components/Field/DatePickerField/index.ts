@@ -1,1 +1,1 @@
-export { default } from './DatePickerField';
+export { default, DatePickerProps } from './DatePickerField';

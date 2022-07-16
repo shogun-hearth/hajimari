@@ -55,5 +55,8 @@ export * from './SuggestedActionAccordion/SuggestedActionAccordion';
 export { default as TextField } from './Field/TextField';
 export * from './Field/TextField/TextField';
 
+export { default as DatePickerField } from './Field/DatePickerField';
+export * from './Field/DatePickerField/DatePickerField';
+
 export { default as Typography } from './Typography';
 export * from './Typography/Typography';

@@ -181,8 +181,12 @@ interface DatePickerProps {
     error?: string;
     onChangeCallback?: (date: any, keyboardInputValue?: string | undefined) => void;
     onBlurCallback?: () => void;
+    minDate?: Date | string;
+    maxDate?: Date | string;
+    disabled?: boolean;
+    value?: string | Date | null;
 }
-declare const DatePickerField: ({ name, label, helperText, textFieldProps, onChangeCallback, onBlurCallback, error, ...otherProps }: DatePickerProps) => JSX.Element;
+declare const DatePickerField: ({ name, label, helperText, textFieldProps, onChangeCallback, onBlurCallback, error, value: initialValue, ...otherProps }: DatePickerProps) => JSX.Element;
 
 declare type IconButtonProps = {
     /**
@@ -227,11 +231,12 @@ declare const InformationCard: ({ title, children }: InformationCardProps) => JS
 declare enum NotificationVariant {
     info = "info",
     warning = "warning",
+    success = "success",
     error = "error"
 }
 interface InlineNotificationProps extends BoxProps {
     /**
-     * Inline notifications are constrained to `info`, `warning`, or `error`.
+     * Inline notifications are constrained to `info`, `warning`, `success`, or `error`.
      * Since the default value is `info`, the default component will have styles
      * related to that variant.
      * @default `info`
@@ -359,4 +364,4 @@ interface TypographyProps extends TypographyProps$1 {
 }
 declare const Typography: (props: TypographyProps) => JSX.Element;
 
-export { Banner, BannerProps, Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, DatePickerField as DatePicker, DatePickerProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
+export { Banner, BannerProps, Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, DatePickerField as DatePicker, DatePickerField, DatePickerProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
