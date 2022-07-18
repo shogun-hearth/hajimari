@@ -3,21 +3,24 @@ import MuiDialogHeader, {
   DialogTitleProps as MuiDialogHeaderProps
 } from '@mui/material/DialogTitle';
 
+import styled from '../../theme/styled';
+
 export interface DialogHeaderProps extends MuiDialogHeaderProps { }
+
+const DialogHeaderRoot = styled(MuiDialogHeader)(() => ({
+  backgroundColor: 'inherit',
+  overflowX: 'hidden',
+}));
 
 const DialogHeader = ({
   children,
   ...props
 }: DialogHeaderProps): JSX.Element => (
-  <MuiDialogHeader
-    sx={{
-      backgroundColor: 'inherit',
-      overflowX: 'hidden',
-    }}
+  <DialogHeaderRoot
     {...props}
   >
     {children}
-  </MuiDialogHeader>
+  </DialogHeaderRoot>
 );
 
 export default DialogHeader;
