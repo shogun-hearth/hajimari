@@ -1,0 +1,24 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+
+import Dialog from "./Dialog";
+import { dialog, argTypes } from "./Dialog.stories.tsx";
+
+<Meta
+  title="Molecules/Dialog"
+  component={Dialog}
+  argTypes={argTypes}
+  parameters={{
+    maxWidth: "sm",
+  }}
+/>
+
+# Dialog
+
+A dialog is a basic component to be used across the product.
+It can be composed of `DialogHeader`, `DialogTopContent` and `DialogActions`.
+
+<Canvas>
+  <Story story={dialog} name="Playground" />
+</Canvas>
+
+<ArgsTable of={Dialog} story="Playground" />
