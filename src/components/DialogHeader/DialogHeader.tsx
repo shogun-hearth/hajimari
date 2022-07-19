@@ -16,9 +16,7 @@ const DialogHeader = ({
   children,
   ...props
 }: DialogHeaderProps): JSX.Element => (
-  <DialogHeaderRoot
-    {...props}
-  >
+  <DialogHeaderRoot {...props}>
     {children}
   </DialogHeaderRoot>
 );

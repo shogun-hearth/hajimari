@@ -2,14 +2,15 @@ import { Meta } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
 
 import DialogContent, { DialogContentProps } from './DialogContentText';
+import Typography from '../Typography';
 
 export const argTypes = {
   children: {
-    name: 'content',
-    control: {
-      type: 'text',
+    control: { type: "object" },
+    table: {
+      type: { summary: "ReactNode" },
     },
-    defaultValue: 'This is content',
+    defaultValue: <Typography>This is content</Typography>,
   },
 };
 

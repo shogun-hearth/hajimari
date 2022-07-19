@@ -96,7 +96,7 @@ type TemplateArgs = {
 } & DialogProps;
 
 export default {
-  title: 'Atoms/Dialog',
+  title: 'Molecules/Dialog',
   decorators: [withDesign],
   includeStories: [],
   component: Dialog,
@@ -133,7 +133,7 @@ const DialogTemplate = ({
       >
         <DialogTopContent
           backlink={backlink}
-          showCloseButton={Boolean(showCloseButton)}
+          showCloseButton={showCloseButton}
         />
         {header && <DialogHeader>{header}</DialogHeader>}
         {content && <DialogContent>{content}</DialogContent>}

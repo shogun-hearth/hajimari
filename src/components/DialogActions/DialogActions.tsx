@@ -19,9 +19,7 @@ const DialogActions = ({
   sx,
   ...otherProps
 }: DialogActionProps): JSX.Element => (
-  <DialogActionsRoot
-    {...otherProps}
-  >
+  <DialogActionsRoot {...otherProps}>
     {children}
   </DialogActionsRoot>
 );

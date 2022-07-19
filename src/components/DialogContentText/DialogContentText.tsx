@@ -22,9 +22,7 @@ const DialogContent = ({
   ...otherProps
 }: DialogContentProps): JSX.Element => (
   <>
-    <DialogContentRoot
-      {...otherProps}
-    >
+    <DialogContentRoot {...otherProps}>
       <DialogContentText>
         {children}
       </DialogContentText>

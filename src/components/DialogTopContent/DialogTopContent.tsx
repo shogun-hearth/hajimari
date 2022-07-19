@@ -31,9 +31,7 @@ const DialogTopContent = ({
   backlinkAction,
   ...props
 }: DialogTopContentProps): JSX.Element => (
-  <DialogTopContentRoot
-    {...props}
-  >
+  <DialogTopContentRoot {...props}>
     {backlink && (
       <Button
         variant="text"
