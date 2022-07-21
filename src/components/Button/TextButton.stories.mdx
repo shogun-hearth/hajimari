@@ -8,7 +8,26 @@ import Button from "./Button";
 import { textButton, argTypes } from "./Button.stories.tsx";
 import { iconPlacementProps } from "./storyUtils";
 
-<Meta title="Button/Text" component={Button} argTypes={argTypes} />
+<Meta
+  title="Button/Text"
+  component={Button}
+  argTypes={{
+    ...argTypes,
+    bg: {
+      name: "Background",
+      control: { type: "radio" },
+      options: ["light", "dark"],
+      table: {
+        defaultValue: {
+          summary: 'light'
+        },
+        type: {
+          summary: "'light' | 'dark'",
+        },
+      },
+    },
+  }}
+/>
 
 export const StoryTemplate = (args) => <Button variant="text" {...args} />;
 export const DarkBgStoryTemplate = (args) => (
@@ -37,7 +56,7 @@ background it is placed on.
 ### Colors (on light)
 
 <Canvas>
-  <Story name="Primary" args={{ children: "Primary", color: "primary" }}>
+  <Story name="Primary" args={{ children: "Blue", color: "blue" }}>
     {StoryTemplate.bind()}
   </Story>
   <Story name="Greyscale" args={{ children: "Greyscale", color: "greyscale" }}>
@@ -49,7 +68,7 @@ background it is placed on.
   <Story name="Yellow" args={{ children: "Yellow", color: "yellow" }}>
     {StoryTemplate.bind()}
   </Story>
-  <Story name="Error" args={{ children: "Error", color: "error" }}>
+  <Story name="Error" args={{ children: "Red", color: "red" }}>
     {StoryTemplate.bind()}
   </Story>
 </Canvas>
@@ -57,7 +76,7 @@ background it is placed on.
 ### Colors (on dark)
 
 <Canvas>
-  <Story name="Primary (Dark)" args={{ children: "Primary", color: "primary" }}>
+  <Story name="Primary (Dark)" args={{ children: "Blue", color: "blue" }}>
     {DarkBgStoryTemplate.bind()}
   </Story>
   <Story
@@ -72,7 +91,7 @@ background it is placed on.
   <Story name="Yellow (Dark)" args={{ children: "Yellow", color: "yellow" }}>
     {DarkBgStoryTemplate.bind()}
   </Story>
-  <Story name="Error (Dark)" args={{ children: "Error", color: "error" }}>
+  <Story name="Error (Dark)" args={{ children: "Red", color: "red" }}>
     {DarkBgStoryTemplate.bind()}
   </Story>
 </Canvas>

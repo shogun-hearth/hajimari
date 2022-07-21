@@ -103,7 +103,11 @@ const Banner = ({
     </Typography>
     <Box
       sx={{
+        mt: { xs: 2, sm: 1, md: 'unset' },
         display: 'flex',
+        alignItems: {
+          sm: 'center',
+        },
         alignSelf: {
           xs: 'stretch',
           sm: 'flex-end',
@@ -125,7 +129,7 @@ const Banner = ({
           onClick={secondaryAction}
           sx={{
             mr: { sm: 3 },
-            mt: { xs: 2, sm: 0 },
+            mt: { xs: 2, sm: 'unset' },
             '&:hover': {
               backgroundColor: 'blue.300',
             },
@@ -140,7 +144,6 @@ const Banner = ({
           color="blue"
           endIcon={<ArrowForwardIcon />}
           onClick={primaryAction}
-          sx={{ mt: { xs: 2, sm: 1 } }}
         >
           {primaryActionLabel}
         </Button>

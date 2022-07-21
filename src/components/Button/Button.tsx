@@ -9,7 +9,7 @@ import { titleCase } from '../../utils/stringFormatters';
 
 type HTMLAnchorProps = React.HTMLProps<HTMLAnchorElement>;
 
-export interface ButtonProps<C> extends MuiButtonProps {
+export interface ButtonProps<C = any> extends MuiButtonProps {
   /** 
    * 
    * This prop is only relevant for the `text` variant.
@@ -52,9 +52,21 @@ export interface ButtonProps<C> extends MuiButtonProps {
    * @default false
    */
   loadingIndicator?: string;
+  /**
+   * 
+   * `text` buttons should have their content aligned to one side or the other, so that they
+   * are aligned vertically along the same access as content around them. We achieve this using
+   * negative margins. This prop lets us conditionally determine whether that alignment (and
+   * on the left or right.
+   * 
+   * @default undefined
+   */
+  align?: 'left' | 'right';
 };
 
-const ButtonRoot = styled(MuiButton)(({ theme, variant }) => ({
+const ButtonRoot = styled(MuiButton, {
+  shouldForwardProp: (prop) => prop !== 'align',
+})<ButtonProps>(({ theme, variant, align }) => ({
   /** these styles apply to buttons universally */
   display: 'flex',
   borderRadius: 8,
@@ -95,18 +107,9 @@ const ButtonRoot = styled(MuiButton)(({ theme, variant }) => ({
       color: theme.palette.greyscale[700],
     }),
   },
-  /**
-   * @TODO text buttons should be left aligned unlike the other variants;
-   * however, in the interim that looks kind of funny, so we'll leave
-   * the text centered for now.
-   * */
   ...(variant === 'text' && {
-    /** @TODO confirm that text buttons don't follow the same min width rules */
-    minWidth: 'min-content',
-    paddingRight: 0,
-    paddingLeft: 0,
-    marginRight: 16,
-    marginLeft: 16,
+    ...(align === 'left' && { marginLeft: -16 }),
+    ...(align === 'right' && { marginRight: -16 }),
   }),
 }));
 
@@ -118,6 +121,7 @@ const Button = React.forwardRef(<C extends React.ComponentType<any>>({
   loadingIndicator,
   variant = 'primary',
   disabled,
+  color = 'blue',
   ...props
 }: ButtonProps<C>,
   ref?: React.ForwardedRef<HTMLButtonElement>): JSX.Element => {
@@ -134,6 +138,7 @@ const Button = React.forwardRef(<C extends React.ComponentType<any>>({
   return (
     <ButtonRoot
       ref={ref}
+      color={color}
       variant={variant}
       onClick={handleClick}
       disabled={disabled || loading}

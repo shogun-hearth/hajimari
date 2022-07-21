@@ -38,15 +38,15 @@ const SuggestedAction = ({
   secondaryCtaAction,
 }: SuggestedActionProps): JSX.Element => {
   const setBorderColor = (variant: SuggestedActionVariant): HajimariColor => {
-    switch(variant) {
-    case 'green':
-      return 'green.500';
-    case 'yellow':
-      return 'yellow.500';
-    case 'red':
-      return 'red.500';
-    case 'greyscale':
-      return 'greyscale.700';
+    switch (variant) {
+      case 'green':
+        return 'green.500';
+      case 'yellow':
+        return 'yellow.500';
+      case 'red':
+        return 'red.500';
+      case 'greyscale':
+        return 'greyscale.700';
     }
   };
 
@@ -75,7 +75,7 @@ const SuggestedAction = ({
             alignItems: 'flex-start',
             pt: 0.5,
           }}
-          >
+        >
           {typeof description === 'string' ?
             <Typography variant="p2">{description}</Typography> :
             description
@@ -88,12 +88,24 @@ const SuggestedAction = ({
         {dueDate &&
           <Typography variant="p3" sx={{ mt: 1 }}>Due on {dueDate}</Typography>
         }
-        <Box sx={{ mt: 2.5, display: 'flex', width: 'fit-content' }}>
-          <Button variant="text" onClick={ctaAction}>
+        <Box
+          sx={{
+            mt: 2.5,
+            display: 'flex',
+            width: 'fit-content',
+            flexWrap: { xs: 'wrap', sm: 'unset' },
+          }}
+        >
+          <Button variant="text" onClick={ctaAction} align="left">
             {cta}
           </Button>
           {secondaryCta && secondaryCtaAction &&
-            <Button variant="text" onClick={secondaryCtaAction} sx={{ ml: 2.5 }}>
+            <Button
+              variant="text"
+              onClick={secondaryCtaAction}
+              sx={{ ml: { xs: -2, sm: 0.5 } }}
+              align="left"
+            >
               {secondaryCta}
             </Button>
           }

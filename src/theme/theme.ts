@@ -343,11 +343,11 @@ export const componentOverrides: ThemeOptions['components'] = {
             ...(color === 'inherit' && {
               backgroundColor: 'inherit',
             }),
-            ...((color === 'primary' || color === 'default') && {
-              backgroundColor: theme.palette.primary[100],
+            ...((color === 'blue' || color === 'default') && {
+              backgroundColor: theme.palette.blue[100],
             }),
-            ...(color === 'error' && {
-              backgroundColor: theme.palette.error[100],
+            ...(color === 'red' && {
+              backgroundColor: theme.palette.red[100],
             }),
             ...(color === 'green' && {
               backgroundColor: theme.palette.green[100],
@@ -392,7 +392,7 @@ export const componentOverrides: ThemeOptions['components'] = {
               '&:disabled': {
                 color: theme.palette.greyscale[900],
               },
-            })
+            }),
           })
         }
       ),
