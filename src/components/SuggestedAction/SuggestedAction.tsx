@@ -93,7 +93,7 @@ const SuggestedAction = ({
             mt: 2.5,
             display: 'flex',
             width: 'fit-content',
-            flexWrap: { xs: 'wrap', sm: 'wrap' },
+            flexWrap: { xs: 'wrap', sm: 'unset' },
           }}
         >
           <Button variant="text" onClick={ctaAction} align="left">

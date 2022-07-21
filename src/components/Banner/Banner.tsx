@@ -105,7 +105,7 @@ const Banner = ({
       sx={{
         mt: { xs: 2, sm: 1, md: 'unset' },
         display: 'flex',
-        aignItems: {
+        alignItems: {
           sm: 'center',
         },
         alignSelf: {
