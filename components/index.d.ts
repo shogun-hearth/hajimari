@@ -330,8 +330,10 @@ interface SuggestedActionProps {
     ctaAction: () => void;
     secondaryCta?: string;
     secondaryCtaAction?: () => void;
+    hideCtas?: boolean;
+    children?: React$1.ReactNode;
 }
-declare const SuggestedAction: ({ variant, description, onClickMenu, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, }: SuggestedActionProps) => JSX.Element;
+declare const SuggestedAction: ({ variant, description, onClickMenu, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, }: SuggestedActionProps) => JSX.Element;
 
 declare type SuggestedActionAccordionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
 interface SuggestedActionAccordionProps extends Omit<AccordionProps, 'variant'> {

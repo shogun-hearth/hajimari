@@ -46,7 +46,10 @@ export * from './List/List';
 export { default as ListItem } from './ListItem';
 export * from './ListItem/ListItem';
 
-export { default as SuggestedAction } from './SuggestedAction';
+export {
+  default as SuggestedAction,
+  SuggestedActionProps,
+} from './SuggestedAction';
 export * from './SuggestedAction/SuggestedAction';
 
 export { default as SuggestedActionAccordion } from './SuggestedActionAccordion';
