@@ -18,6 +18,7 @@ import {
   Banner,
   SuggestedAction,
   SuggestedActionAccordion,
+  SuggestedActionProps,
   ConfirmationModal,
 } from './components';
 import {
@@ -77,6 +78,7 @@ export {
   hexValue,
   alpha,
   SuggestedAction,
+  SuggestedActionProps,
   SuggestedActionAccordion,
   ConfirmationModal,
 };
