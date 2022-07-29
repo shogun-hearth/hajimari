@@ -1,5 +1,5 @@
 import React from 'react';
-import Accordion, { AccordionProps } from '@mui/material/Accordion'
+import Accordion, { AccordionProps } from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -10,7 +10,8 @@ import Typography from '../Typography';
 
 type SuggestedActionAccordionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
 
-export interface SuggestedActionAccordionProps extends Omit<AccordionProps, 'variant'> {
+export interface SuggestedActionAccordionProps
+  extends Omit<AccordionProps, 'variant'> {
   /* sets color of left pill */
   variant: SuggestedActionAccordionVariant;
   /* title of accordion header */
@@ -29,22 +30,25 @@ const SuggestedActionAccordion = ({
   children,
   ...otherProps
 }: SuggestedActionAccordionProps): JSX.Element => {
-  const setIconColor = (variant: SuggestedActionAccordionVariant): HajimariColor => {
+  const setIconColor = (
+    variant: SuggestedActionAccordionVariant,
+  ): HajimariColor => {
     if (otherProps.disabled) return 'greyscale.700';
-    switch(variant) {
-    case 'green':
-      return 'green.500';
-    case 'yellow':
-      return 'yellow.500';
-    case 'red':
-      return 'red.500';
-    case 'greyscale':
-      return 'greyscale.700';
+    switch (variant) {
+      case 'green':
+        return 'green.500';
+      case 'yellow':
+        return 'yellow.500';
+      case 'red':
+        return 'red.500';
+      case 'greyscale':
+        return 'greyscale.700';
     }
   };
 
   return (
     <Accordion
+      disableGutters={true}
       sx={{
         boxShadow: 'none',
         border: '1px solid',
@@ -57,11 +61,14 @@ const SuggestedActionAccordion = ({
           backgroundColor: 'greyscale.100',
         },
       }}
-      {...otherProps} 
+      {...otherProps}
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon sx={{ fontSize: 24 }} />}
-        sx={{ px: 2, py: 1.5 }}
+        sx={{
+          px: 2,
+          py: 0.5,
+        }}
       >
         <Box
           sx={{
@@ -73,7 +80,9 @@ const SuggestedActionAccordion = ({
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Brightness1Icon sx={{ color: setIconColor(variant), fontSize: 10, mr: 1.5 }} />
+            <Brightness1Icon
+              sx={{ color: setIconColor(variant), fontSize: 10, mr: 1.5 }}
+            />
             <Typography variant="p1" weight="semibold">
               {groupTitle}
             </Typography>
@@ -81,11 +90,14 @@ const SuggestedActionAccordion = ({
           <Box>
             <Typography
               variant="p1"
-              sx={highlightNumber ? {
-                  bgcolor: 'blue.500',
-                  borderRadius: 16,
-                  px: 1,
-                } : {}
+              sx={
+                highlightNumber
+                  ? {
+                      bgcolor: 'blue.500',
+                      borderRadius: 16,
+                      px: 1,
+                    }
+                  : {}
               }
               weight={highlightNumber ? 'semibold' : 'regular'}
               color={highlightNumber ? 'greyscale.100' : 'inherit'}
@@ -95,9 +107,7 @@ const SuggestedActionAccordion = ({
           </Box>
         </Box>
       </AccordionSummary>
-      <AccordionDetails>
-        {children}
-      </AccordionDetails>
+      <AccordionDetails>{children}</AccordionDetails>
     </Accordion>
   );
 };
