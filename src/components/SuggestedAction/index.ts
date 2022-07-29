@@ -1,1 +1,1 @@
-export { default } from './SuggestedAction';
+export { default, SuggestedActionProps } from './SuggestedAction';

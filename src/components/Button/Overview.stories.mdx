@@ -58,23 +58,23 @@ the background mode is "light."
 <br />
 
 <Story name="Variants">
-  <Button color="primary" variant="primary">
+  <Button color="blue" variant="primary">
     Primary
   </Button>
   <div style={{ marginRight: 16 }} />
-  <Button color="primary" variant="secondary">
+  <Button color="blue" variant="secondary">
     Secondary
   </Button>
   <div style={{ marginRight: 16 }} />
-  <Button color="primary" variant="filled">
+  <Button color="blue" variant="filled">
     Filled
   </Button>
   <div style={{ marginRight: 16 }} />
-  <Button color="primary" variant="text">
+  <Button color="blue" variant="text">
     Text (on light)
   </Button>
   <div style={{ marginRight: 16 }} />
-  <Button color="primary" variant="text" bg="dark">
+  <Button color="blue" variant="text" bg="dark">
     Text (on Dark)
   </Button>
 </Story>
@@ -86,12 +86,22 @@ the background mode is "light."
 Buttons have a _default_, _hover_, or _disabled_ state. The hover state is generally a darkened
 hue of the `color` of the button.
 
+<Story name="States">
+  <Button color="green" variant="primary">
+    Default
+  </Button>
+  <div style={{ marginRight: 16 }} />
+  <Button color="blue" variant="secondary" disabled>
+    Disabled
+  </Button>
+</Story>
+
 <br />
 
 ## Colors
 
-A button accepts a `color` prop which is one of `primary`, `greyscale`,
-`green`, `yellow`, and `error`. The examples below show the available colors
+A button accepts a `color` prop which is one of `blue`, `greyscale`,
+`green`, `yellow`, and `red`. The examples below show the available colors
 across different variants.
 
 <br />
@@ -101,7 +111,7 @@ across different variants.
     Greyscale
   </Button>
   <div style={{ marginRight: 16 }} />
-  <Button color="primary" variant="secondary">
+  <Button color="blue" variant="secondary">
     Primary
   </Button>
   <div style={{ marginRight: 16 }} />
@@ -113,7 +123,7 @@ across different variants.
     Yellow
   </Button>
   <div style={{ marginRight: 16 }} />
-  <Button color="error" variant="primary">
+  <Button color="red" variant="primary">
     Error
   </Button>
 </Story>
