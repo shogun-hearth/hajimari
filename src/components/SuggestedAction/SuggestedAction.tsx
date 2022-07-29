@@ -66,19 +66,19 @@ const SuggestedAction = ({
     >
       <Box
         sx={{
-          ml: 1,
-          width: '4px',
           borderRadius: 2,
           backgroundColor: setBorderColor(variant),
           py: 0.5,
+          mx: 0.25,
+          width: 4,
         }}
       />
       <Box
         sx={{
-          pl: 2,
-          width: '100%',
           display: 'flex',
           flexDirection: 'column',
+          pl: 1.75,
+          width: '100%',
         }}
       >
         <Box
