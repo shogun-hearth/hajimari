@@ -69,7 +69,7 @@ const SuggestedAction = ({
           borderRadius: 2,
           backgroundColor: setBorderColor(variant),
           py: 0.5,
-          mx: 0.25,
+          ml: 0.375,
           width: 4,
         }}
       />
@@ -77,7 +77,7 @@ const SuggestedAction = ({
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          pl: 1.75,
+          pl: 1.875,
           width: '100%',
         }}
       >
