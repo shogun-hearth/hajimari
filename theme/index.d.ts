@@ -171,8 +171,8 @@ declare module '@mui/material/Button' {
  * */
 declare const izakayaTypographyOptions: ThemeOptions['typography'];
 /**
-* @DEPRECATED -- component overrides within izakaya; merged with what is provided by hajimari
-* */
+ * @DEPRECATED -- component overrides within izakaya; merged with what is provided by hajimari
+ * */
 declare const izakayaComponentOverrides: ThemeOptions['components'];
 declare const componentOverrides: ThemeOptions['components'];
 declare const palette: PaletteOptions;

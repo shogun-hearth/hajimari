@@ -9,7 +9,6 @@ import DialogContent from '../DialogContentText';
 import DialogHeader from '../DialogHeader';
 import DialogTopContent from '../DialogTopContent';
 import DialogActions from '../DialogActions';
-import ConfirmationModal from '../ConfirmationModal/ConfirmationModal';
 
 export const argTypes = {
   open: {
@@ -75,8 +74,8 @@ export const argTypes = {
   },
   actions: {
     defaultValue: [
-      <Button variant="text">Cancel</Button>,
-      <Button variant="primary" color="blue">
+      <Button variant='text'>Cancel</Button>,
+      <Button variant='primary' color='blue'>
         Delete
       </Button>,
     ],
@@ -92,7 +91,9 @@ type TemplateArgs = {
   header?: ArgType;
   content?: ArgType;
   maxWidth?: ArgType;
-  showCloseButton?: ArgType;
+  showCloseButton?: boolean;
+  actions: ArgType;
+  title?: ArgType;
 } & DialogProps;
 
 export default {

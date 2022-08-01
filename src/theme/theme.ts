@@ -93,8 +93,8 @@ const izakayaCustomOptions = {
 };
 
 /**
-* @DEPRECATED -- component overrides within izakaya; merged with what is provided by hajimari
-* */
+ * @DEPRECATED -- component overrides within izakaya; merged with what is provided by hajimari
+ * */
 export const izakayaComponentOverrides: ThemeOptions['components'] = {
   MuiInputBase: {
     styleOverrides: {
@@ -316,6 +316,19 @@ export const componentOverrides: ThemeOptions['components'] = {
       },
     },
   },
+  MuiDialog: {
+    styleOverrides: {
+      root: { padding: '24px' },
+      paper: {
+        borderRadius: 8,
+        boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.08);',
+        minWidth: '280px',
+        minHeight: '180px',
+        maxHeight: '560px',
+        maxWidth: '680px',
+      },
+    },
+  },
   MuiIconButton: {
     styleOverrides: {
       root: ({ ownerState, theme }) => {
@@ -329,16 +342,17 @@ export const componentOverrides: ThemeOptions['components'] = {
            * If a color that is not "default" is passed in, we
            * can use the 500 shade of that color for the icon
            */
-          ...(color !== 'default' && color !== 'inherit' && {
-            color: theme.palette[color][500],
-          }),
+          ...(color !== 'default' &&
+            color !== 'inherit' && {
+              color: theme.palette[color][500],
+            }),
           /**
-          * The background color of an IconButton on hover is generally
-          * the lightest shade of the chosen color. Rather than trying to do
-          * any "clever" code-golfing, we're being intentionally verbose so it's
-          * very obvious what each color does on hover, particularly since there
-          * are a few exceptions to the general shade rule of 100.
-          * */
+           * The background color of an IconButton on hover is generally
+           * the lightest shade of the chosen color. Rather than trying to do
+           * any "clever" code-golfing, we're being intentionally verbose so it's
+           * very obvious what each color does on hover, particularly since there
+           * are a few exceptions to the general shade rule of 100.
+           * */
           '&:hover, &.Mui-focusVisible': {
             ...(color === 'inherit' && {
               backgroundColor: 'inherit',
@@ -365,37 +379,35 @@ export const componentOverrides: ThemeOptions['components'] = {
   },
   MuiButton: {
     styleOverrides: {
-      text: ({ ownerState, theme }) => (
-        {
-          ...(ownerState.color != null && {
-            color: theme.palette[ownerState.color][500],
+      text: ({ ownerState, theme }) => ({
+        ...(ownerState.color != null && {
+          color: theme.palette[ownerState.color][500],
+          '&:hover': {
+            backgroundColor: theme.palette[ownerState.color][100],
+          },
+          '&:disabled': {
+            color: theme.palette.greyscale[700],
+          },
+          /**
+           * styles applied only for 'text'variant = 'text' when bg (background mode) = 'dark'
+           * */
+          ...(ownerState.bg === 'dark' && {
+            color: theme.palette[ownerState.color][300],
+            /**
+             * On dark backgrounds, the hover background color for every color
+             * that isn't "default" will be the 300 shade value at 10% opacity.
+             * (Note the "10" as the alpha to extend the hex color)
+             *
+             */
             '&:hover': {
-              backgroundColor: theme.palette[ownerState.color][100],
+              backgroundColor: `${theme.palette[ownerState.color][300]}10`,
             },
             '&:disabled': {
-              color: theme.palette.greyscale[700],
+              color: theme.palette.greyscale[900],
             },
-            /**
-             * styles applied only for 'text'variant = 'text' when bg (background mode) = 'dark'
-             * */
-            ...(ownerState.bg === 'dark' && {
-              color: theme.palette[ownerState.color][300],
-              /**
-               * On dark backgrounds, the hover background color for every color
-               * that isn't "default" will be the 300 shade value at 10% opacity.
-               * (Note the "10" as the alpha to extend the hex color)
-               * 
-              */
-              '&:hover': {
-                backgroundColor: `${theme.palette[ownerState.color][300]}10`,
-              },
-              '&:disabled': {
-                color: theme.palette.greyscale[900],
-              },
-            }),
-          })
-        }
-      ),
+          }),
+        }),
+      }),
       disabled: ({ ownerState, theme }) => ({
         borderRadius: 8,
         padding: '12px 16px',
@@ -414,11 +426,12 @@ export const componentOverrides: ThemeOptions['components'] = {
         }),
       }),
       primary: ({ ownerState, theme }) => {
-        const background = ownerState.color && theme.palette[ownerState.color][500];
+        const background =
+          ownerState.color && theme.palette[ownerState.color][500];
         return {
           /**
            * the default background color for a primary button is the 500 shade
-          */
+           */
           ...(ownerState.color != null && {
             color: background && theme.palette.getContrastText(background),
             backgroundColor: background,
@@ -459,7 +472,7 @@ export const componentOverrides: ThemeOptions['components'] = {
           },
         }),
       }),
-    }
+    },
   },
 };
 
@@ -614,5 +627,3 @@ export const themeOptions: ThemeOptions = {
 const theme = createTheme(themeOptions);
 
 export default theme;
-
-
