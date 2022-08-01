@@ -19,8 +19,23 @@ export * from './CardHeader/CardHeader';
 export { default as ConfirmationModal } from './ConfirmationModal';
 export * from './ConfirmationModal/ConfirmationModal';
 
-export { default as DatePicker } from './Field/DatePickerField';
+export { default as DatePickerField } from './Field/DatePickerField';
 export * from './Field/DatePickerField/DatePickerField';
+
+export { default as Dialog } from './Dialog';
+export * from './Dialog/Dialog';
+
+export { default as DialogActions } from './DialogActions';
+export * from './DialogActions/DialogActions';
+
+export { default as DialogContentText } from './DialogContentText';
+export * from './DialogContentText/DialogContentText';
+
+export { default as DialogHeader } from './DialogHeader';
+export * from './DialogHeader/DialogHeader';
+
+export { default as DialogTopContent } from './DialogTopContent';
+export * from './DialogTopContent/DialogTopContent';
 
 export { default as IconButton } from './IconButton';
 export * from './IconButton/IconButton';
@@ -57,9 +72,6 @@ export * from './SuggestedActionAccordion/SuggestedActionAccordion';
 
 export { default as TextField } from './Field/TextField';
 export * from './Field/TextField/TextField';
-
-export { default as DatePickerField } from './Field/DatePickerField';
-export * from './Field/DatePickerField/DatePickerField';
 
 export { default as Typography } from './Typography';
 export * from './Typography/Typography';
