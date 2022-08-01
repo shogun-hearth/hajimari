@@ -6,8 +6,11 @@ import { LinkProps } from 'react-router-dom';
 import { CardProps as CardProps$1 } from '@mui/material/Card';
 import { CardContentProps as CardContentProps$1 } from '@mui/material/CardContent';
 import { CardHeaderProps as CardHeaderProps$1 } from '@mui/material/CardHeader';
-import { DialogProps, ListProps as ListProps$1, ListItemProps as ListItemProps$1 } from '@mui/material';
+import { DialogProps as DialogProps$1, DialogActionsProps, ListProps as ListProps$1, ListItemProps as ListItemProps$1 } from '@mui/material';
 import { TextFieldProps as TextFieldProps$1 } from '@mui/material/TextField';
+import { DialogProps as DialogProps$2 } from '@mui/material/Dialog';
+import { DialogContentProps as DialogContentProps$1 } from '@mui/material/DialogContent';
+import { DialogTitleProps } from '@mui/material/DialogTitle';
 import { IconButtonProps as IconButtonProps$1 } from '@mui/material/IconButton';
 import { ImageListProps } from '@mui/material/ImageList';
 import { ImageListItemProps } from '@mui/material/ImageListItem';
@@ -148,7 +151,7 @@ interface CardHeaderProps extends CardHeaderProps$1 {
 declare const CardHeader: ({ bottomDivider, children, bg, sx, ...otherProps }: CardHeaderProps) => JSX.Element;
 
 declare type ConfirmationModalVariant = 'greyscale' | 'blue' | 'green' | 'yellow' | 'red';
-interface ConfirmationModalProps extends Omit<DialogProps, 'title'> {
+interface ConfirmationModalProps extends Omit<DialogProps$1, 'title'> {
     variant?: ConfirmationModalVariant;
     open: boolean;
     onClose: () => void;
@@ -197,6 +200,30 @@ interface DatePickerProps {
     value?: string | Date | null;
 }
 declare const DatePickerField: ({ name, label, helperText, textFieldProps, onChangeCallback, onBlurCallback, error, value: initialValue, ...otherProps }: DatePickerProps) => JSX.Element;
+
+interface DialogProps extends DialogProps$2 {
+}
+declare const Dialog: ({ children, sx, ...props }: DialogProps) => JSX.Element;
+
+interface DialogActionProps extends DialogActionsProps {
+}
+declare const DialogActions: ({ children, sx, ...otherProps }: DialogActionProps) => JSX.Element;
+
+interface DialogContentProps extends DialogContentProps$1 {
+}
+declare const DialogContent: ({ children, ...otherProps }: DialogContentProps) => JSX.Element;
+
+interface DialogHeaderProps extends DialogTitleProps {
+}
+declare const DialogHeader: ({ children, ...props }: DialogHeaderProps) => JSX.Element;
+
+interface DialogTopContentProps extends DialogTitleProps {
+    showCloseButton: boolean;
+    backlink?: string;
+    backlinkAction?: () => void;
+    onClose?: () => void;
+}
+declare const DialogTopContent: ({ children, showCloseButton, onClose, backlink, backlinkAction, ...props }: DialogTopContentProps) => JSX.Element;
 
 declare type IconButtonProps = {
     /**
@@ -376,4 +403,4 @@ interface TypographyProps extends TypographyProps$1 {
 }
 declare const Typography: (props: TypographyProps) => JSX.Element;
 
-export { Banner, BannerProps, Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, DatePickerField as DatePicker, DatePickerField, DatePickerProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
+export { Banner, BannerProps, Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
