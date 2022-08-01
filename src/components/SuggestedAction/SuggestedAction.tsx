@@ -1,10 +1,10 @@
 import React from 'react';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import IconButton from '@mui/material/IconButton';
 
 import Box from '../Box';
 import Typography from '../Typography';
 import Button from '../Button';
+import IconButton from '../IconButton';
 
 type SuggestedActionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
 
@@ -59,19 +59,26 @@ const SuggestedAction = ({
   return (
     <Box
       sx={{
-        padding: '8px 6px 12px 0',
+        padding: '8px 0 12px 0',
         bgcolor: 'greyscale.100',
+        display: 'flex',
       }}
     >
       <Box
         sx={{
-          pl: 2,
-          borderLeft: '4px solid',
-          borderLeftColor: setBorderColor(variant),
-          borderBottomLeftRadius: 4,
-          borderTopLeftRadius: 4,
+          borderRadius: 2,
+          backgroundColor: setBorderColor(variant),
+          py: 0.5,
+          ml: 0.375,
+          width: 4,
+        }}
+      />
+      <Box
+        sx={{
           display: 'flex',
           flexDirection: 'column',
+          pl: 1.875,
+          width: '100%',
         }}
       >
         <Box
@@ -79,7 +86,6 @@ const SuggestedAction = ({
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-start',
-            pt: 0.5,
           }}
         >
           {typeof description === 'string' ? (
@@ -88,7 +94,13 @@ const SuggestedAction = ({
             description
           )}
           <Box sx={{ mr: 3 }} />
-          <IconButton onClick={onClickMenu}>
+          <IconButton
+            onClick={onClickMenu}
+            sx={{
+              py: 0,
+              px: 0.5,
+            }}
+          >
             <MoreVertIcon />
           </IconButton>
         </Box>
@@ -100,7 +112,7 @@ const SuggestedAction = ({
         {!hideCtas && (
           <Box
             sx={{
-              mt: 2.5,
+              mt: 1.5,
               display: 'flex',
               width: 'fit-content',
               flexWrap: { xs: 'wrap', sm: 'unset' },
