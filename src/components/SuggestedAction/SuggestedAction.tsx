@@ -18,8 +18,6 @@ export interface SuggestedActionProps {
   variant: SuggestedActionVariant;
   /* copy -- react node to allow control over bold text */
   description: React.ReactNode;
-  /* what happens when the menu icon is clicked */
-  onClickMenu: () => void;
   /* due date */
   dueDate?: string;
   /* left cta copy */
@@ -36,10 +34,19 @@ export interface SuggestedActionProps {
   children?: React.ReactNode;
 }
 
+/**
+ *
+ * 1. View workflow details
+ *  /dashboard/clients/${homeownerId}/quote/${quoteId}
+ * 2. Dismiss
+ *  suggestedActionId
+ * 3. Don't show this again
+ * suggestedActionTypeID
+ */
+
 const SuggestedAction = ({
   variant,
   description,
-  onClickMenu,
   dueDate,
   cta,
   ctaAction,

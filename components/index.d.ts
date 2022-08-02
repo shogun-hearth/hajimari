@@ -351,7 +351,6 @@ declare type SuggestedActionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
 interface SuggestedActionProps {
     variant: SuggestedActionVariant;
     description: React$1.ReactNode;
-    onClickMenu: () => void;
     dueDate?: string;
     cta: string;
     ctaAction: () => void;
@@ -360,7 +359,16 @@ interface SuggestedActionProps {
     hideCtas?: boolean;
     children?: React$1.ReactNode;
 }
-declare const SuggestedAction: ({ variant, description, onClickMenu, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, }: SuggestedActionProps) => JSX.Element;
+/**
+ *
+ * 1. View workflow details
+ *  /dashboard/clients/${homeownerId}/quote/${quoteId}
+ * 2. Dismiss
+ *  suggestedActionId
+ * 3. Don't show this again
+ * suggestedActionTypeID
+ */
+declare const SuggestedAction: ({ variant, description, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, }: SuggestedActionProps) => JSX.Element;
 
 declare type SuggestedActionAccordionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
 interface SuggestedActionAccordionProps extends Omit<AccordionProps, 'variant'> {
@@ -413,18 +421,18 @@ interface MenuProps extends MenuProps$1 {
      * an HTML element that's used to set the position of the menu
      * @default undefined
      */
-    anchorEl: HTMLElement;
+    anchorEl: HTMLElement | null;
     /**
      * if true, menu is shown
      * @default undefined
      */
     open: boolean;
 }
-declare const Menu: ({ children, anchorEl, open }: MenuProps) => JSX.Element;
+declare const Menu: ({ children, anchorEl, open, ...props }: MenuProps) => JSX.Element;
 
 interface MenuTopContentProps {
     onClose?: (args?: any) => void;
-    title: string;
+    title?: string;
 }
 declare const MenuTopContent: ({ onClose, title }: MenuTopContentProps) => JSX.Element;
 
