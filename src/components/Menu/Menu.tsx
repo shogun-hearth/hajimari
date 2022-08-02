@@ -13,7 +13,7 @@ export interface MenuProps extends MuiMenuProps {
    * an HTML element that's used to set the position of the menu
    * @default undefined
    */
-  anchorEl: HTMLElement;
+  anchorEl: HTMLElement | null;
   /**
    * if true, menu is shown
    * @default undefined
