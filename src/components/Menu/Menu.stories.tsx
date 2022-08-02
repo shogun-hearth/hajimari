@@ -30,7 +30,6 @@ export default {
   includeStories: [],
   decorators: [withDesign],
   component: Menu,
-  // subcomponents: { ListItem },
   argTypes: argTypes,
 } as ComponentMeta<typeof Menu>;
 
@@ -53,15 +52,22 @@ const MenuTemplate = () => {
         anchorEl={anchorEl}
         onClose={() => setAnchorEl(null)}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        transformOrigin={{ horizontal: 'center', vertical: 'top' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'center' }}
+        sx={{ '& .MuiPaper-root': { width: '390px' } }}
       >
         <MenuTopContent
           title='More Actions'
           onClose={() => setAnchorEl(null)}
         />
-        <Button>Click Me</Button>
-        <Button>Or Me</Button>
-        <Button>Or Me</Button>
+        <Button variant='filled' onClick={() => setAnchorEl(null)}>
+          Click Me
+        </Button>
+        <Button variant='filled' onClick={() => setAnchorEl(null)}>
+          Or Me
+        </Button>
+        <Button variant='filled' onClick={() => setAnchorEl(null)}>
+          Or Me
+        </Button>
       </Menu>
     </>
   );

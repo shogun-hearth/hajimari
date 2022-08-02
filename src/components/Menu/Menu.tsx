@@ -26,17 +26,16 @@ const MenuRoot = styled(MuiMenu)(() => ({
     padding: '16px 24px',
     boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.1)',
     borderRadius: 8,
-    width: '200px',
   },
   '& .MuiMenu-list .MuiButton-root': {
     margin: 'auto',
-    width: '95%',
+    width: '100%',
     marginTop: '10px',
   },
 }));
 
-const Menu = ({ children, anchorEl, open }: MenuProps) => (
-  <MenuRoot anchorEl={anchorEl} open={open}>
+const Menu = ({ children, anchorEl, open, ...props }: MenuProps) => (
+  <MenuRoot anchorEl={anchorEl} open={open} {...props}>
     {children}
   </MenuRoot>
 );
