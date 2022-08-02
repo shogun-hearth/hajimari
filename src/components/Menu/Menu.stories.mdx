@@ -9,7 +9,9 @@ import { menu, argTypes } from './Menu.stories.tsx';
 
 A `Menu` displays a list of choices on a temporary surfaces, or popovers. It appears when a user interacts with a button or some other control.
 `Menus` are meant to be less disruptive to a user's current context compared to `Dialogs`.
-It can be composed of `MenuTopContent` and any number of `MenuItems` or any number of `Buttons`.
+
+A `Menu` can be composed of `MenuTopContent` and any number of `MenuItems` or any number of `Buttons`. Choosing an option like clicking a button
+should immediately commit the the option and close the menu.
 
 <Canvas>
   <Story story={menu} name='Playground' />
