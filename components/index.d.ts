@@ -358,17 +358,11 @@ interface SuggestedActionProps {
     secondaryCtaAction?: () => void;
     hideCtas?: boolean;
     children?: React$1.ReactNode;
+    dismissAction?: () => void;
+    viewWorkflow?: () => void;
+    disableAction?: () => void;
 }
-/**
- *
- * 1. View workflow details
- *  /dashboard/clients/${homeownerId}/quote/${quoteId}
- * 2. Dismiss
- *  suggestedActionId
- * 3. Don't show this again
- * suggestedActionTypeID
- */
-declare const SuggestedAction: ({ variant, description, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, }: SuggestedActionProps) => JSX.Element;
+declare const SuggestedAction: ({ variant, description, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, dismissAction, viewWorkflow, disableAction, }: SuggestedActionProps) => JSX.Element;
 
 declare type SuggestedActionAccordionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
 interface SuggestedActionAccordionProps extends Omit<AccordionProps, 'variant'> {
