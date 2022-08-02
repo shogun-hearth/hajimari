@@ -8,7 +8,7 @@ import styled from '../../theme/styled';
 
 export interface MenuTopContentProps {
   onClose?: (args?: any) => void;
-  title: string;
+  title?: string;
 }
 
 const MenuTopContentRoot = styled(Box)(() => ({
@@ -20,12 +20,16 @@ const MenuTopContentRoot = styled(Box)(() => ({
 
 const MenuTopContent = ({ onClose, title }: MenuTopContentProps) => (
   <MenuTopContentRoot>
-    <Typography variant='p1' weight='semibold'>
-      {title}
-    </Typography>
-    <IconButton onClick={onClose} sx={{ ml: 'auto', px: 1 }}>
-      <CloseIcon sx={{ fontSize: 24 }} />
-    </IconButton>
+    {title && (
+      <Typography variant='p1' weight='semibold'>
+        {title}
+      </Typography>
+    )}
+    {onClose && (
+      <IconButton onClick={onClose} sx={{ ml: 'auto', px: 1 }}>
+        <CloseIcon sx={{ fontSize: 24 }} />
+      </IconButton>
+    )}
   </MenuTopContentRoot>
 );
 
