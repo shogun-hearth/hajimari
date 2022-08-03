@@ -1,10 +1,10 @@
 import React from 'react';
-import { IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 import Box from '../Box';
 import Typography from '../Typography';
 import styled from '../../theme/styled';
+import IconButton from '../IconButton';
 
 export interface MenuTopContentProps {
   onClose?: (args?: any) => void;
