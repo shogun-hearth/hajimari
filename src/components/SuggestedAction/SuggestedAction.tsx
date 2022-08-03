@@ -93,14 +93,20 @@ const SuggestedAction = ({
         <Button
           variant='filled'
           startIcon={<HighlightOffIcon />}
-          onClick={dismissAction}
+          onClick={() => {
+            dismissAction();
+            setAnchorEl(null);
+          }}
         >
           Dismiss
         </Button>
         <Button
           variant='filled'
           startIcon={<NotificationsOffIcon />}
-          onClick={disableAction}
+          onClick={() => {
+            disableAction();
+            setAnchorEl(null);
+          }}
         >
           Don't Show This Again
         </Button>
