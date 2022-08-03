@@ -83,7 +83,10 @@ const SuggestedAction = ({
         <Button
           variant='filled'
           startIcon={<OpenInBrowserIcon />}
-          onClick={viewWorkflow}
+          onClick={() => {
+            viewWorkflow();
+            setAnchorEl(null);
+          }}
         >
           View Details
         </Button>

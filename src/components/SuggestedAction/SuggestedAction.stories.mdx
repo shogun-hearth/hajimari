@@ -7,9 +7,9 @@ import Typography from '../Typography';
 
 export const argTypes = {
   variant: {
-    control: { type: "select" },
-    options: ["green", "yellow", "red", "greyscale"],
-    defaultValue: "green",
+    control: { type: 'select' },
+    options: ['green', 'yellow', 'red', 'greyscale'],
+    defaultValue: 'green',
     type: { required: true },
     table: {
       type: {
@@ -25,9 +25,6 @@ export const argTypes = {
     table: {
       type: { summary: 'ReactNode' },
     },
-  },
-  onClickMenu: {
-    defaultValue: () => null,
   },
   dueDate: {
     defaultValue: 'May 16',
@@ -60,7 +57,7 @@ export const argTypes = {
 };
 
 <Meta
-  title="Molecules/SuggestedAction"
+  title='Molecules/SuggestedAction'
   component={SuggestedAction}
   argTypes={argTypes}
   parameters={{
@@ -93,8 +90,7 @@ which the contractor clicks to take the action suggested.
 
 It has a `variant` attribute, which determines the color of the bar on the left. It has a
 `description` prop, which takes in a `string` or a `ReactNode`. The latter is useful when
-you want to render part of the description in, e.g., semibold font. The `onClickMenu` attribute
-determines what occurs when the user clicks the three dots in the upper right corner. Optionally,
+you want to render part of the description in, e.g., semibold font. Optionally,
 the component takes in a `dueDate`, which displays the date on which the related item is due.
 Finally, it takes in up to two CTAs (`cta` and `secondaryCta`) and CTA actions (`ctaAction` and
 `secondaryCtaAction`), with the first CTA being required.
@@ -108,14 +104,13 @@ Finally, it takes in up to two CTAs (`cta` and `secondaryCta`) and CTA actions (
 
 <Canvas>
   <Story
-    name="Basic"
+    name='Basic'
     component={SuggestedAction}
     args={{
       variant: 'green',
       description: `Sandy Scientist approved Roofing Quote.`,
       cta: 'Send a Contract',
       ctaAction: () => null,
-      onClickMenu: () => null,
     }}
   >
     {SuggestedActionTemplate.bind()}
@@ -129,19 +124,22 @@ Finally, it takes in up to two CTAs (`cta` and `secondaryCta`) and CTA actions (
 
 <Canvas>
   <Story
-    name="Non-string description"
+    name='Non-string description'
     component={SuggestedAction}
     args={{
       variant: 'green',
       description: (
-        <Typography variant="p2">
-          <Box component="span" sx={{ fontWeight: 600  }}>Sandy Scientist </Box>
-          approved <Box component="span" sx={{ fontWeight: 600 }}>Roofing Quote</Box>.
+        <Typography variant='p2'>
+          <Box component='span' sx={{ fontWeight: 600 }}>
+            Sandy Scientist{' '}
+          </Box>
+          approved <Box component='span' sx={{ fontWeight: 600 }}>
+            Roofing Quote
+          </Box>.
         </Typography>
       ),
       cta: 'Send a Contract',
       ctaAction: () => null,
-      onClickMenu: () => null,
     }}
   >
     {SuggestedActionTemplate.bind()}
@@ -154,20 +152,23 @@ Finally, it takes in up to two CTAs (`cta` and `secondaryCta`) and CTA actions (
 
 <Canvas>
   <Story
-    name="Due date"
+    name='Due date'
     component={SuggestedAction}
     args={{
       variant: 'yellow',
       description: (
-        <Typography variant="p2">
-          <Box component="span" sx={{ fontWeight: 600  }}>Sandy Scientist's Roofing Quote </Box>
-          is due in <Box component="span" sx={{ fontWeight: 600 }}>3 days</Box>.
+        <Typography variant='p2'>
+          <Box component='span' sx={{ fontWeight: 600 }}>
+            Sandy Scientist's Roofing Quote{' '}
+          </Box>
+          is due in <Box component='span' sx={{ fontWeight: 600 }}>
+            3 days
+          </Box>.
         </Typography>
       ),
       cta: 'Send a Contract',
       dueDate: 'May 16',
       ctaAction: () => null,
-      onClickMenu: () => null,
     }}
   >
     {SuggestedActionTemplate.bind()}
@@ -181,17 +182,18 @@ Finally, it takes in up to two CTAs (`cta` and `secondaryCta`) and CTA actions (
 
 <Canvas>
   <Story
-    name="Two CTAs"
+    name='Two CTAs'
     component={SuggestedAction}
     args={{
       variant: 'red',
       description: (
-        <Typography variant="p2">
-          <Box component="span" sx={{ fontWeight: 600  }}>Sandy Scientist's Roofing Quote </Box>
+        <Typography variant='p2'>
+          <Box component='span' sx={{ fontWeight: 600 }}>
+            Sandy Scientist's Roofing Quote{' '}
+          </Box>
           is overdue.
         </Typography>
       ),
-      onClickMenu: () => null,
       cta: 'Send reminder',
       ctaAction: () => null,
       secondaryCta: 'Cancel quote',
@@ -209,7 +211,7 @@ Finally, it takes in up to two CTAs (`cta` and `secondaryCta`) and CTA actions (
 ### Playground
 
 <Canvas>
-  <Story name="Playground">{SuggestedActionTemplate.bind()}</Story>
+  <Story name='Playground'>{SuggestedActionTemplate.bind()}</Story>
 </Canvas>
 
-<ArgsTable of={SuggestedAction} story="Playground" />
+<ArgsTable of={SuggestedAction} story='Playground' />

@@ -358,9 +358,9 @@ interface SuggestedActionProps {
     secondaryCtaAction?: () => void;
     hideCtas?: boolean;
     children?: React$1.ReactNode;
-    dismissAction?: () => void;
-    viewWorkflow?: () => void;
-    disableAction?: () => void;
+    dismissAction: () => void;
+    viewWorkflow: () => void;
+    disableAction: () => void;
 }
 declare const SuggestedAction: ({ variant, description, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, dismissAction, viewWorkflow, disableAction, }: SuggestedActionProps) => JSX.Element;
 
