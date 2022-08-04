@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import NotificationsOffIcon from '@mui/icons-material/NotificationsOff';
@@ -32,13 +32,16 @@ export interface SuggestedActionProps {
   hideCtas?: boolean;
   /* any children components; optional */
   children?: React.ReactNode;
-  /* these next three props are actions for the hamburger menu, all the arguments are specified in izakaya */
-  /* dismisses the suggestedaction */
-  dismissAction: () => void;
-  /* lets the contractor view the workflow details */
-  viewWorkflow: () => void;
-  /* disables all suggested actions of the specified type */
-  disableAction: () => void;
+  hamburgerActionProps: {
+    workflow: string;
+    /* these next three props are actions for the hamburger menu, all the arguments are specified in izakaya */
+    /* dismisses the suggestedaction */
+    dismissAction: () => void;
+    /* lets the contractor view the workflow details */
+    viewWorkflow: () => void;
+    /* disables all suggested actions of the specified type */
+    disableAction: () => void;
+  };
 }
 
 const SuggestedAction = ({
@@ -51,9 +54,7 @@ const SuggestedAction = ({
   secondaryCtaAction,
   hideCtas,
   children,
-  dismissAction,
-  viewWorkflow,
-  disableAction,
+  hamburgerActionProps,
 }: SuggestedActionProps): JSX.Element => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const setBorderColor = (variant: SuggestedActionVariant): HajimariColor => {
@@ -68,6 +69,9 @@ const SuggestedAction = ({
         return 'greyscale.700';
     }
   };
+
+  const { viewWorkflow, disableAction, dismissAction, workflow } =
+    hamburgerActionProps;
 
   return (
     <>
@@ -88,7 +92,7 @@ const SuggestedAction = ({
             setAnchorEl(null);
           }}
         >
-          View Details
+          View {workflow} Details
         </Button>
         <Button
           variant='filled'

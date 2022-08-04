@@ -12,8 +12,8 @@ export const MenuTopContentTemplate = (args) => {
 
 # Menu
 
-A `Menu` displays a list of choices on a temporary surfaces, or popovers. It appears when a user interacts with a button or some other control.
-`Menus` are meant to be less disruptive to a user's current context compared to `Dialogs`.
+A `Menu` displays a list of choices on a temporary surfaces or popovers. It appears when a user interacts with a button or some other control.
+`Menu`s are meant to be less disruptive to a user's current context compared to `Dialog`s.
 
 A `Menu` can be composed of `MenuTopContent` and any number of `MenuItems` or any number of `Buttons`. Choosing an option like clicking a button
 should immediately commit the the option and close the menu.
@@ -27,7 +27,7 @@ the menu is open or not. `MenuItems`, `MenuTopContent`, and `Buttons` are passed
 If `onClose` is defined, `MenuTopContent` will display an `X` (close) icon.
 
 <Canvas>
-  <Story story={menu} name='Playground' />
+  <Story story={menu} name='Sandbox' />
 </Canvas>
 
-<ArgsTable of={Menu} story='Playground' />
+<ArgsTable of={Menu} story='Sandbox' />

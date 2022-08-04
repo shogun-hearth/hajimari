@@ -16,12 +16,12 @@ export interface MenuProps extends MuiMenuProps {
   anchorEl: HTMLElement | null;
   /**
    * if true, menu is shown
-   * @default undefined
+   * @default false
    */
   open: boolean;
 }
 
-const MenuRoot = styled(MuiMenu)(() => ({
+const MenuRoot = styled(MuiMenu, { label: 'Hajimari' })(() => ({
   '& .MuiPaper-root': {
     padding: '16px 24px',
     boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.1)',
