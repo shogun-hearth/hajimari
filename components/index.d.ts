@@ -358,14 +358,12 @@ interface SuggestedActionProps {
     secondaryCtaAction?: () => void;
     hideCtas?: boolean;
     children?: React$1.ReactNode;
-    hamburgerActionProps: {
-        workflow: string;
-        dismissAction: () => void;
-        viewWorkflow: () => void;
-        disableAction: () => void;
-    };
+    workflow: string;
+    dismissAction: () => void;
+    viewWorkflow: () => void;
+    disableAction: () => void;
 }
-declare const SuggestedAction: ({ variant, description, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, hamburgerActionProps, }: SuggestedActionProps) => JSX.Element;
+declare const SuggestedAction: ({ variant, description, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, workflow, viewWorkflow, disableAction, dismissAction, }: SuggestedActionProps) => JSX.Element;
 
 declare type SuggestedActionAccordionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
 interface SuggestedActionAccordionProps extends Omit<AccordionProps, 'variant'> {
