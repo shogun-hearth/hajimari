@@ -6,7 +6,7 @@ import { LinkProps } from 'react-router-dom';
 import { CardProps as CardProps$1 } from '@mui/material/Card';
 import { CardContentProps as CardContentProps$1 } from '@mui/material/CardContent';
 import { CardHeaderProps as CardHeaderProps$1 } from '@mui/material/CardHeader';
-import { DialogProps as DialogProps$1, DialogActionsProps, ListProps as ListProps$1, ListItemProps as ListItemProps$1 } from '@mui/material';
+import { DialogProps as DialogProps$1, DialogActionsProps, ListProps as ListProps$1, ListItemProps as ListItemProps$1, MenuProps as MenuProps$1 } from '@mui/material';
 import { TextFieldProps as TextFieldProps$1 } from '@mui/material/TextField';
 import { DialogProps as DialogProps$2 } from '@mui/material/Dialog';
 import { DialogContentProps as DialogContentProps$1 } from '@mui/material/DialogContent';
@@ -351,7 +351,6 @@ declare type SuggestedActionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
 interface SuggestedActionProps {
     variant: SuggestedActionVariant;
     description: React$1.ReactNode;
-    onClickMenu: () => void;
     dueDate?: string;
     cta: string;
     ctaAction: () => void;
@@ -359,8 +358,12 @@ interface SuggestedActionProps {
     secondaryCtaAction?: () => void;
     hideCtas?: boolean;
     children?: React$1.ReactNode;
+    workflow: string;
+    dismissAction: () => void;
+    viewWorkflow: () => void;
+    disableAction: () => void;
 }
-declare const SuggestedAction: ({ variant, description, onClickMenu, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, }: SuggestedActionProps) => JSX.Element;
+declare const SuggestedAction: ({ variant, description, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, workflow, viewWorkflow, disableAction, dismissAction, }: SuggestedActionProps) => JSX.Element;
 
 declare type SuggestedActionAccordionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
 interface SuggestedActionAccordionProps extends Omit<AccordionProps, 'variant'> {
@@ -403,4 +406,29 @@ interface TypographyProps extends TypographyProps$1 {
 }
 declare const Typography: (props: TypographyProps) => JSX.Element;
 
-export { Banner, BannerProps, Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
+interface MenuProps extends MenuProps$1 {
+    /**
+     * pass in menu items or buttons as children
+     * @default undefined
+     */
+    children: React$1.ReactNode;
+    /**
+     * an HTML element that's used to set the position of the menu
+     * @default undefined
+     */
+    anchorEl: HTMLElement | null;
+    /**
+     * if true, menu is shown
+     * @default false
+     */
+    open: boolean;
+}
+declare const Menu: ({ children, anchorEl, open, ...props }: MenuProps) => JSX.Element;
+
+interface MenuTopContentProps {
+    onClose?: (args?: any) => void;
+    title?: string;
+}
+declare const MenuTopContent: ({ onClose, title }: MenuTopContentProps) => JSX.Element;
+
+export { Banner, BannerProps, Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, Menu, MenuProps, MenuTopContent, MenuTopContentProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };

@@ -8,9 +8,9 @@ import Box from '../Box';
 
 export const argTypes = {
   variant: {
-    control: { type: "select" },
-    options: ["green", "yellow", "red", "greyscale"],
-    defaultValue: "green",
+    control: { type: 'select' },
+    options: ['green', 'yellow', 'red', 'greyscale'],
+    defaultValue: 'green',
     type: { required: true },
     table: {
       type: {
@@ -40,15 +40,16 @@ export const argTypes = {
     },
   },
   children: {
-    defaultValue: new Array(3).fill(null).map(_ =>
-      <SuggestedAction
-        variant="green"
-        description="Harry Homeowner has signed Roofing Contract"
-        onClickMenu={() => {}}
-        cta="Send an invoice"
-        ctaAction={() => {}}
-      />
-    ),
+    defaultValue: new Array(3)
+      .fill(null)
+      .map((_) => (
+        <SuggestedAction
+          variant='green'
+          description='Harry Homeowner has signed Roofing Contract'
+          cta='Send an invoice'
+          ctaAction={() => {}}
+        />
+      )),
     table: {
       type: { summary: 'ReactNode' },
     },
@@ -63,7 +64,7 @@ export const argTypes = {
 };
 
 <Meta
-  title="Molecules/SuggestedActionAccordion"
+  title='Molecules/SuggestedActionAccordion'
   component={SuggestedActionAccordion}
   argTypes={argTypes}
   parameters={{
@@ -75,7 +76,9 @@ export const argTypes = {
   }}
 />
 
-export const SuggestedActionAccordionTemplate = (args) => <SuggestedActionAccordion {...args} />;
+export const SuggestedActionAccordionTemplate = (args) => (
+  <SuggestedActionAccordion {...args} />
+);
 
 # SuggestedActionAccordion
 
@@ -109,21 +112,22 @@ attribute, which determines whether the component renders in a disabled state.
 
 <Canvas>
   <Story
-    name="Basic"
+    name='Basic'
     component={SuggestedActionAccordion}
     args={{
       variant: 'green',
       groupTitle: 'Ready for action',
       numItems: 3,
-      children: new Array(3).fill(null).map(_ =>
-        <SuggestedAction
-          variant="green"
-          description="Harry Homeowner has signed Roofing Contract"
-          onClickMenu={() => {}}
-          cta="Send an invoice"
-          ctaAction={() => {}}
-        />
-      ),
+      children: new Array(3)
+        .fill(null)
+        .map((_) => (
+          <SuggestedAction
+            variant='green'
+            description='Harry Homeowner has signed Roofing Contract'
+            cta='Send an invoice'
+            ctaAction={() => {}}
+          />
+        )),
     }}
   >
     {SuggestedActionAccordionTemplate.bind()}
@@ -137,21 +141,22 @@ attribute, which determines whether the component renders in a disabled state.
 
 <Canvas>
   <Story
-    name="Controlled"
+    name='Controlled'
     component={SuggestedActionAccordion}
     args={{
       variant: 'green',
       groupTitle: 'Ready for action',
       numItems: 3,
-      children: new Array(3).fill(null).map(_ =>
-        <SuggestedAction
-          variant="green"
-          description="Harry Homeowner has signed Roofing Contract"
-          onClickMenu={() => {}}
-          cta="Send an invoice"
-          ctaAction={() => {}}
-        />
-      ),
+      children: new Array(3)
+        .fill(null)
+        .map((_) => (
+          <SuggestedAction
+            variant='green'
+            description='Harry Homeowner has signed Roofing Contract'
+            cta='Send an invoice'
+            ctaAction={() => {}}
+          />
+        )),
       expanded: true,
     }}
   >
@@ -166,7 +171,7 @@ attribute, which determines whether the component renders in a disabled state.
 
 <Canvas>
   <Story
-    name="Disabled"
+    name='Disabled'
     component={SuggestedActionAccordion}
     args={{
       variant: 'green',
@@ -188,21 +193,22 @@ attribute, which determines whether the component renders in a disabled state.
 
 <Canvas>
   <Story
-    name="Highlight Number"
+    name='Highlight Number'
     component={SuggestedActionAccordion}
     args={{
       variant: 'green',
       groupTitle: 'Ready for action',
       numItems: 3,
-      children: new Array(3).fill(null).map(_ =>
-        <SuggestedAction
-          variant="green"
-          description="Harry Homeowner has signed Roofing Contract"
-          onClickMenu={() => {}}
-          cta="Send an invoice"
-          ctaAction={() => {}}
-        />
-      ),
+      children: new Array(3)
+        .fill(null)
+        .map((_) => (
+          <SuggestedAction
+            variant='green'
+            description='Harry Homeowner has signed Roofing Contract'
+            cta='Send an invoice'
+            ctaAction={() => {}}
+          />
+        )),
       highlightNumber: true,
     }}
   >
@@ -213,7 +219,7 @@ attribute, which determines whether the component renders in a disabled state.
 ### Playground
 
 <Canvas>
-  <Story name="Playground">{SuggestedActionAccordionTemplate.bind()}</Story>
+  <Story name='Playground'>{SuggestedActionAccordionTemplate.bind()}</Story>
 </Canvas>
 
-<ArgsTable of={SuggestedActionAccordion} story="Playground" />
+<ArgsTable of={SuggestedActionAccordion} story='Playground' />
