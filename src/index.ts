@@ -24,6 +24,7 @@ import {
   SuggestedAction,
   SuggestedActionAccordion,
   SuggestedActionProps,
+  TextField,
   ConfirmationModal,
 } from './components';
 import {
@@ -90,5 +91,6 @@ export {
   SuggestedAction,
   SuggestedActionProps,
   SuggestedActionAccordion,
+  TextField,
   ConfirmationModal,
 };
