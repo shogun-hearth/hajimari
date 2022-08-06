@@ -360,7 +360,7 @@ interface SuggestedActionProps {
     children?: React$1.ReactNode;
     workflow: string;
     dismissAction: () => void;
-    viewWorkflow: () => void;
+    viewWorkflow?: () => void;
     disableAction: () => void;
 }
 declare const SuggestedAction: ({ variant, description, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, workflow, viewWorkflow, disableAction, dismissAction, }: SuggestedActionProps) => JSX.Element;
