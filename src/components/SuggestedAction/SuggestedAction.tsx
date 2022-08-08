@@ -32,7 +32,7 @@ export interface SuggestedActionProps {
   hideCtas?: boolean;
   /* any children components; optional */
   children?: React.ReactNode;
-  workflow: string;
+  workflow?: string;
   /* these next three props are actions for the hamburger menu, all the arguments are specified in izakaya */
   /* dismisses the suggestedaction */
   dismissAction: () => void;
