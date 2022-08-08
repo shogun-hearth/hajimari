@@ -32,12 +32,12 @@ export interface SuggestedActionProps {
   hideCtas?: boolean;
   /* any children components; optional */
   children?: React.ReactNode;
-  workflow: string;
+  workflow?: string;
   /* these next three props are actions for the hamburger menu, all the arguments are specified in izakaya */
   /* dismisses the suggestedaction */
   dismissAction: () => void;
   /* lets the contractor view the workflow details */
-  viewWorkflow: () => void;
+  viewWorkflow?: () => void;
   /* disables all suggested actions of the specified type */
   disableAction: () => void;
 }
@@ -82,16 +82,18 @@ const SuggestedAction = ({
           title='More Actions'
           onClose={() => setAnchorEl(null)}
         />
-        <Button
-          variant='filled'
-          startIcon={<OpenInBrowserIcon />}
-          onClick={() => {
-            viewWorkflow();
-            setAnchorEl(null);
-          }}
-        >
-          View {workflow} Details
-        </Button>
+        {viewWorkflow && (
+          <Button
+            variant='filled'
+            startIcon={<OpenInBrowserIcon />}
+            onClick={() => {
+              viewWorkflow();
+              setAnchorEl(null);
+            }}
+          >
+            View {workflow} Details
+          </Button>
+        )}
         <Button
           variant='filled'
           startIcon={<HighlightOffIcon />}

@@ -25,6 +25,7 @@ import {
   SuggestedActionAccordion,
   SuggestedActionProps,
   ConfirmationModal,
+  TextField,
 } from './components';
 import {
   darken,
@@ -91,4 +92,5 @@ export {
   SuggestedActionProps,
   SuggestedActionAccordion,
   ConfirmationModal,
+  TextField,
 };
