@@ -358,7 +358,7 @@ interface SuggestedActionProps {
     secondaryCtaAction?: () => void;
     hideCtas?: boolean;
     children?: React$1.ReactNode;
-    workflow: string;
+    workflow?: string;
     dismissAction: () => void;
     viewWorkflow?: () => void;
     disableAction: () => void;
