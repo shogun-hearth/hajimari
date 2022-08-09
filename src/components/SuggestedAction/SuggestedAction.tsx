@@ -120,13 +120,14 @@ const SuggestedAction = ({
           padding: '8px 0 12px 0',
           bgcolor: 'greyscale.100',
           display: 'flex',
+          position: 'relative',
         }}
       >
         <Box
           sx={{
             borderRadius: 2,
             backgroundColor: setBorderColor(variant),
-            py: 0.5,
+            mb: 1.5,
             ml: 0.375,
             width: 4,
           }}
@@ -156,10 +157,7 @@ const SuggestedAction = ({
               onClick={(e) => {
                 setAnchorEl(e.currentTarget);
               }}
-              sx={{
-                py: 0,
-                px: 0.5,
-              }}
+              sx={{ position: 'absolute', top: 0, right: 0 }}
             >
               <MoreVertIcon />
             </IconButton>
@@ -172,21 +170,30 @@ const SuggestedAction = ({
           {!hideCtas && (
             <Box
               sx={{
-                mt: 1.5,
+                mt: 1,
                 display: 'flex',
                 width: 'fit-content',
-                flexWrap: { xs: 'wrap', sm: 'unset' },
+                flexDirection: { xs: 'column', sm: 'row' },
+                alignItems: { xs: 'flex-start', sm: 'unset' }
               }}
             >
-              <Button variant='text' onClick={ctaAction} align='left'>
+              <Button
+                variant='text'
+                onClick={ctaAction}
+                align='left'
+              >
                 {cta}
               </Button>
               {secondaryCta && secondaryCtaAction && (
                 <Button
                   variant='text'
                   onClick={secondaryCtaAction}
-                  sx={{ ml: { xs: -2, sm: 0.5 } }}
                   align='left'
+                  sx={{
+                    ml: { sm: 0.5 },
+                    // a Button, in general, has a default minWidth of 148px
+                    minWidth: { xs: 0, sm: 148 },
+                  }}
                 >
                   {secondaryCta}
                 </Button>
