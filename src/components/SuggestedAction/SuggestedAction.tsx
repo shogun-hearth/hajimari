@@ -35,11 +35,11 @@ export interface SuggestedActionProps {
   workflow?: string;
   /* these next three props are actions for the hamburger menu, all the arguments are specified in izakaya */
   /* dismisses the suggestedaction */
-  dismissAction: () => void;
+  dismissAction?: () => void;
   /* lets the contractor view the workflow details */
   viewWorkflow?: () => void;
   /* disables all suggested actions of the specified type */
-  disableAction: () => void;
+  disableAction?: () => void;
 }
 
 const SuggestedAction = ({
@@ -94,26 +94,30 @@ const SuggestedAction = ({
             View {workflow} Details
           </Button>
         )}
-        <Button
-          variant='filled'
-          startIcon={<HighlightOffIcon />}
-          onClick={() => {
-            dismissAction();
-            setAnchorEl(null);
-          }}
-        >
-          Dismiss
-        </Button>
-        <Button
-          variant='filled'
-          startIcon={<NotificationsOffIcon />}
-          onClick={() => {
-            disableAction();
-            setAnchorEl(null);
-          }}
-        >
-          Don't Show This Again
-        </Button>
+        {dismissAction && (
+          <Button
+            variant='filled'
+            startIcon={<HighlightOffIcon />}
+            onClick={() => {
+              dismissAction();
+              setAnchorEl(null);
+            }}
+          >
+            Dismiss
+          </Button>
+        )}
+        {disableAction && (
+          <Button
+            variant='filled'
+            startIcon={<NotificationsOffIcon />}
+            onClick={() => {
+              disableAction();
+              setAnchorEl(null);
+            }}
+          >
+            Don't Show This Again
+          </Button>
+        )}
       </SuggestedActionHamburgerMenu>
       <Box
         sx={{
