@@ -359,9 +359,9 @@ interface SuggestedActionProps {
     hideCtas?: boolean;
     children?: React$1.ReactNode;
     workflow?: string;
-    dismissAction: () => void;
+    dismissAction?: () => void;
     viewWorkflow?: () => void;
-    disableAction: () => void;
+    disableAction?: () => void;
 }
 declare const SuggestedAction: ({ variant, description, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, workflow, viewWorkflow, disableAction, dismissAction, }: SuggestedActionProps) => JSX.Element;
 
@@ -377,7 +377,7 @@ declare const SuggestedActionAccordion: ({ variant, groupTitle, numItems, highli
 declare type Mask = 'money' | 'moneyWithCents' | 'ssn' | 'lastFourSsn' | 'bankNumber' | 'phone' | 'percent' | 'taxId' | 'year' | 'default' | 'search' | 'date';
 
 declare type TextFieldProps = {
-    mask: Mask;
+    mask?: Mask;
     value?: string;
 } & TextFieldProps$1;
 declare const TextField: ({ mask, value, onChange, ...otherProps }: TextFieldProps) => JSX.Element;
