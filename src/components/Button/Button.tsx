@@ -108,8 +108,14 @@ const ButtonRoot = styled(MuiButton, {
     }),
   },
   ...(variant === 'text' && {
-    ...(align === 'left' && { marginLeft: -16 }),
-    ...(align === 'right' && { marginRight: -16 }),
+    paddingLeft: 12,
+    paddingRight: 12,
+    ...(align === 'left' && {
+      marginLeft: -12,
+    }),
+    ...(align === 'right' && {
+      marginRight: -12,
+    }),
   }),
 }));
 
