@@ -4,7 +4,7 @@ import MuiTextField, { TextFieldProps as MuiTextFieldProps } from '@mui/material
 import { Mask, maskTypes } from './utils';
 
 export type TextFieldProps = {
-  mask: Mask;
+  mask?: Mask;
   value?: string;
 } & MuiTextFieldProps;
 
