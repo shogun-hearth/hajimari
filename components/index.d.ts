@@ -362,8 +362,9 @@ interface SuggestedActionProps {
     dismissAction?: () => void;
     viewWorkflow?: () => void;
     disableAction?: () => void;
+    viewMenuCallback?: () => void;
 }
-declare const SuggestedAction: ({ variant, description, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, workflow, viewWorkflow, disableAction, dismissAction, }: SuggestedActionProps) => JSX.Element;
+declare const SuggestedAction: ({ variant, description, dueDate, cta, ctaAction, secondaryCta, secondaryCtaAction, hideCtas, children, workflow, viewWorkflow, disableAction, dismissAction, viewMenuCallback, }: SuggestedActionProps) => JSX.Element;
 
 declare type SuggestedActionAccordionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
 interface SuggestedActionAccordionProps extends Omit<AccordionProps, 'variant'> {
