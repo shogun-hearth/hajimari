@@ -57,7 +57,7 @@ const SuggestedAction = ({
   viewWorkflow,
   disableAction,
   dismissAction,
-  viewMenuCallback,
+  viewMenuCallback = () => {},
 }: SuggestedActionProps): JSX.Element => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const setBorderColor = (variant: SuggestedActionVariant): HajimariColor => {
@@ -162,7 +162,7 @@ const SuggestedAction = ({
             <IconButton
               onClick={(e) => {
                 setAnchorEl(e.currentTarget);
-                viewMenuCallback && viewMenuCallback();
+                viewMenuCallback();
               }}
               sx={{ position: 'absolute', top: 0, right: 0 }}
             >
