@@ -1,6 +1,6 @@
 {
   "name": "hajimari",
-  "version": "0.1.56",
+  "version": "0.1.57",
   "description": "Hearth's design system + component library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
