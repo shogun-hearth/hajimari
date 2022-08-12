@@ -40,6 +40,7 @@ export interface SuggestedActionProps {
   viewWorkflow?: () => void;
   /* disables all suggested actions of the specified type */
   disableAction?: () => void;
+  viewMenuCallback?: () => void;
 }
 
 const SuggestedAction = ({
@@ -56,6 +57,7 @@ const SuggestedAction = ({
   viewWorkflow,
   disableAction,
   dismissAction,
+  viewMenuCallback = () => {},
 }: SuggestedActionProps): JSX.Element => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const setBorderColor = (variant: SuggestedActionVariant): HajimariColor => {
@@ -160,6 +162,7 @@ const SuggestedAction = ({
             <IconButton
               onClick={(e) => {
                 setAnchorEl(e.currentTarget);
+                viewMenuCallback();
               }}
               sx={{ position: 'absolute', top: 0, right: 0 }}
             >
@@ -178,14 +181,10 @@ const SuggestedAction = ({
                 display: 'flex',
                 width: 'fit-content',
                 flexDirection: { xs: 'column', sm: 'row' },
-                alignItems: { xs: 'flex-start', sm: 'unset' }
+                alignItems: { xs: 'flex-start', sm: 'unset' },
               }}
             >
-              <Button
-                variant='text'
-                onClick={ctaAction}
-                align='left'
-              >
+              <Button variant='text' onClick={ctaAction} align='left'>
                 {cta}
               </Button>
               {secondaryCta && secondaryCtaAction && (
