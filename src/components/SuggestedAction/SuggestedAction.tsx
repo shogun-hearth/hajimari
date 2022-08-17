@@ -81,12 +81,12 @@ const SuggestedAction = ({
         onClose={() => setAnchorEl(null)}
       >
         <MenuTopContent
-          title='More Actions'
+          title="More Actions"
           onClose={() => setAnchorEl(null)}
         />
         {viewWorkflow && (
           <Button
-            variant='filled'
+            variant="filled"
             startIcon={<OpenInBrowserIcon />}
             onClick={() => {
               viewWorkflow();
@@ -98,7 +98,7 @@ const SuggestedAction = ({
         )}
         {dismissAction && (
           <Button
-            variant='filled'
+            variant="filled"
             startIcon={<HighlightOffIcon />}
             onClick={() => {
               dismissAction();
@@ -110,7 +110,7 @@ const SuggestedAction = ({
         )}
         {disableAction && (
           <Button
-            variant='filled'
+            variant="filled"
             startIcon={<NotificationsOffIcon />}
             onClick={() => {
               disableAction();
@@ -154,7 +154,7 @@ const SuggestedAction = ({
             }}
           >
             {typeof description === 'string' ? (
-              <Typography variant='p2'>{description}</Typography>
+              <Typography variant="p2">{description}</Typography>
             ) : (
               description
             )}
@@ -170,7 +170,7 @@ const SuggestedAction = ({
             </IconButton>
           </Box>
           {dueDate && (
-            <Typography variant='p3' sx={{ mt: 1 }}>
+            <Typography variant="p3" sx={{ mt: 1 }}>
               Due on {dueDate}
             </Typography>
           )}
@@ -184,14 +184,22 @@ const SuggestedAction = ({
                 alignItems: { xs: 'flex-start', sm: 'unset' },
               }}
             >
-              <Button variant='text' onClick={ctaAction} align='left'>
+              <Button
+                variant="text"
+                onClick={ctaAction}
+                align="left"
+                sx={{
+                  // a Button, in general, has a default minWidth of 148px
+                  minWidth: { xs: 0, sm: 148 },
+                }}
+              >
                 {cta}
               </Button>
               {secondaryCta && secondaryCtaAction && (
                 <Button
-                  variant='text'
+                  variant="text"
                   onClick={secondaryCtaAction}
-                  align='left'
+                  align="left"
                   sx={{
                     ml: { sm: 0.5 },
                     // a Button, in general, has a default minWidth of 148px
