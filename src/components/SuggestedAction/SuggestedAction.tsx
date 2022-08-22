@@ -164,7 +164,7 @@ const SuggestedAction = ({
                 setAnchorEl(e.currentTarget);
                 viewMenuCallback();
               }}
-              sx={{ position: 'absolute', top: 0, right: 0 }}
+              sx={{ position: 'absolute', top: 0, right: 0, px: '3px' }}
             >
               <MoreVertIcon />
             </IconButton>
