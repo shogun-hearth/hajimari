@@ -190,7 +190,7 @@ const SuggestedAction = ({
                 align="left"
                 sx={{
                   // a Button, in general, has a default minWidth of 148px
-                  minWidth: { xs: 0, sm: 148 },
+                  minWidth: 0,
                 }}
               >
                 {cta}
@@ -203,7 +203,7 @@ const SuggestedAction = ({
                   sx={{
                     ml: { sm: 0.5 },
                     // a Button, in general, has a default minWidth of 148px
-                    minWidth: { xs: 0, sm: 148 },
+                    minWidth: 0,
                   }}
                 >
                   {secondaryCta}
