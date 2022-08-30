@@ -10,14 +10,14 @@ import { titleCase } from '../../utils/stringFormatters';
 type HTMLAnchorProps = React.HTMLProps<HTMLAnchorElement>;
 
 export interface ButtonProps<C = any> extends MuiButtonProps {
-  /** 
-   * 
+  /**
+   *
    * This prop is only relevant for the `text` variant.
-   * 
+   *
    * The background type on which this Button is appears. Since we don't
    * currently support light vs dark mode on web as a theme variant, we can
    * use this prop to determine relevant styles.
-   * 
+   *
    * @default 'light'
    */
   bg?: BackgroundMode;
@@ -25,10 +25,10 @@ export interface ButtonProps<C = any> extends MuiButtonProps {
    * In order to use certain props that one would expect to have available on a button
    * while satisfying typescript in accordance with MUI's component 'composition'
    * rules, we have to do some forwardRef + generics shenanigans:
-   * 
+   *
    * https://mui.com/material-ui/guides/composition/#with-typescript
    * https://github.com/mui/material-ui/issues/15827#issuecomment-809209533
-   * 
+   *
    */
   component?: C | string;
   to?: LinkProps['to'];
@@ -53,16 +53,23 @@ export interface ButtonProps<C = any> extends MuiButtonProps {
    */
   loadingIndicator?: string;
   /**
-   * 
+   *
    * `text` buttons should have their content aligned to one side or the other, so that they
    * are aligned vertically along the same access as content around them. We achieve this using
    * negative margins. This prop lets us conditionally determine whether that alignment (and
    * on the left or right.
-   * 
+   *
    * @default undefined
    */
   align?: 'left' | 'right';
-};
+  /**
+   *
+   * prop to disable hover state of button.
+   *
+   * @default false
+   */
+  disableHover?: boolean;
+}
 
 const ButtonRoot = styled(MuiButton, {
   shouldForwardProp: (prop) => prop !== 'align',
@@ -79,13 +86,13 @@ const ButtonRoot = styled(MuiButton, {
   /**
    * We want our buttons to have padding: '12px 16px'; however, the root styles of the
    * MuiButton have padding: '6px 16px'. So we're doing some math here.
-   * 
+   *
    * https://github.com/mui/material-ui/blob/1b64a416d6eccc4423eb7749dc1fe12bfed64c1d/packages/mui-material/src/Button/Button.js#L81
    * */
   padding: '6px 16px',
   minHeight: 0,
   whiteSpace: 'nowrap',
-  /** 
+  /**
    * By default, a button width is dynamically set to fit its content.
    * If the width is less than 148px, the button width should be set to at least 148px wide.
    */
@@ -119,50 +126,58 @@ const ButtonRoot = styled(MuiButton, {
   }),
 }));
 
-const Button = React.forwardRef(<C extends React.ComponentType<any>>({
-  children,
-  onClick,
-  noStopPropagation,
-  loading = false,
-  loadingIndicator,
-  variant = 'primary',
-  disabled,
-  color = 'blue',
-  ...props
-}: ButtonProps<C>,
-  ref?: React.ForwardedRef<HTMLButtonElement>): JSX.Element => {
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    if (!noStopPropagation) {
-      event.stopPropagation();
-    }
-
-    if (onClick) {
-      onClick(event);
-    }
-  };
-
-  return (
-    <ButtonRoot
-      ref={ref}
-      color={color}
-      variant={variant}
-      onClick={handleClick}
-      disabled={disabled || loading}
-      endIcon={loading ?
-        <CircularProgress size={16} thickness={6} color="inherit" /> :
-        undefined
+const Button = React.forwardRef(
+  <C extends React.ComponentType<any>>(
+    {
+      children,
+      onClick,
+      noStopPropagation,
+      loading = false,
+      loadingIndicator,
+      variant = 'primary',
+      disabled,
+      color = 'blue',
+      disableHover,
+      ...props
+    }: ButtonProps<C>,
+    ref?: React.ForwardedRef<HTMLButtonElement>
+  ): JSX.Element => {
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+      if (!noStopPropagation) {
+        event.stopPropagation();
       }
-      {...props}
-      css={undefined}
-    >
-      {typeof children === 'string' ?
-        <Typography variant="p1" weight="medium">
-          {loading ? loadingIndicator : titleCase(children)}
-        </Typography> :
-        children
+
+      if (onClick) {
+        onClick(event);
       }
-    </ButtonRoot>
-  );
-});
+    };
+
+    return (
+      <ButtonRoot
+        ref={ref}
+        color={color}
+        variant={variant}
+        onClick={handleClick}
+        disabled={disabled || loading}
+        endIcon={
+          loading ? (
+            <CircularProgress size={16} thickness={6} color="inherit" />
+          ) : undefined
+        }
+        disableHover={disableHover}
+        {...props}
+        css={undefined}
+      >
+        {typeof children === 'string' ? (
+          <Typography variant="p1" weight="medium">
+            {loading ? loadingIndicator : titleCase(children)}
+          </Typography>
+        ) : (
+          children
+        )}
+      </ButtonRoot>
+    );
+  }
+);
 
 export default Button;
