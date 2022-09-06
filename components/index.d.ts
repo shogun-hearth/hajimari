@@ -432,4 +432,16 @@ interface MenuTopContentProps {
 }
 declare const MenuTopContent: ({ onClose, title }: MenuTopContentProps) => JSX.Element;
 
-export { Banner, BannerProps, Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, Menu, MenuProps, MenuTopContent, MenuTopContentProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
+interface ActionButtonProps extends ButtonProps {
+    label: string;
+    onClick?: () => void;
+    isPrimary?: boolean;
+    loading?: boolean;
+    href?: string;
+    'data-testid'?: string;
+    disabled?: boolean;
+    startIcon: React$1.ReactNode;
+}
+declare const ActionButton: ({ label, startIcon, onClick, fullWidth, isPrimary, loading, component, href, download, "data-testid": testId, disabled, color, }: ActionButtonProps) => JSX.Element;
+
+export { ActionButton, ActionButtonProps, Banner, BannerProps, Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, Menu, MenuProps, MenuTopContent, MenuTopContentProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };

@@ -25,7 +25,9 @@ import {
   SuggestedActionAccordion,
   SuggestedActionProps,
   ConfirmationModal,
+  ActionButton,
 } from './components';
+
 import {
   darken,
   emphasize,
@@ -91,4 +93,6 @@ export {
   SuggestedActionProps,
   SuggestedActionAccordion,
   ConfirmationModal,
+  ActionButton,
 };
+
