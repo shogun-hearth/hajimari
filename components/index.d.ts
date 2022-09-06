@@ -432,4 +432,13 @@ interface MenuTopContentProps {
 }
 declare const MenuTopContent: ({ onClose, title }: MenuTopContentProps) => JSX.Element;
 
-export { Banner, BannerProps, Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, Menu, MenuProps, MenuTopContent, MenuTopContentProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
+declare type ParagraphVariant = 'greyscale' | 'blue' | 'green' | 'yellow' | 'red';
+interface ParagraphProps extends Omit<TypographyProps, 'variant'> {
+    variant?: ParagraphVariant;
+    bulletedList: string[];
+    icon: JSX.Element;
+    fontVariant?: TypographyProps['variant'];
+}
+declare const Paragraph: ({ variant, bulletedList, icon, fontVariant, ...otherProps }: ParagraphProps) => JSX.Element;
+
+export { Banner, BannerProps, Box, BoxProps, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, Menu, MenuProps, MenuTopContent, MenuTopContentProps, NotificationVariant, Paragraph, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };

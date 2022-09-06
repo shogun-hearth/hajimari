@@ -81,3 +81,6 @@ export * from './Menu';
 
 export { default as MenuTopContent } from './MenuTopContent';
 export * from './MenuTopContent';
+
+export { default as Paragraph } from './Paragraph';
+export * from './Paragraph';

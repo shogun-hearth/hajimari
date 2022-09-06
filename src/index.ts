@@ -25,6 +25,7 @@ import {
   SuggestedActionAccordion,
   SuggestedActionProps,
   ConfirmationModal,
+  Paragraph,
 } from './components';
 import {
   darken,
@@ -66,6 +67,7 @@ export {
   Card,
   CardHeader,
   CardContent,
+  ConfirmationModal,
   DatePickerField,
   DatePickerProps,
   Dialog,
@@ -81,6 +83,7 @@ export {
   ImageGridItem,
   ImageGrid,
   InlineNotification,
+  Paragraph,
   Banner,
   darken,
   emphasize,
@@ -90,5 +93,4 @@ export {
   SuggestedAction,
   SuggestedActionProps,
   SuggestedActionAccordion,
-  ConfirmationModal,
 };
