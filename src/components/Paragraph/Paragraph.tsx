@@ -19,7 +19,7 @@ export interface ParagraphProps extends Omit<TypographyProps, 'variant'> {
   bulletedList: string[];
   /* icon to be displayed next to paragraphs */
   icon: JSX.Element;
-  /* function called when modal is closed */
+  /* font size */
   fontVariant?: TypographyProps['variant'];
 }
 
