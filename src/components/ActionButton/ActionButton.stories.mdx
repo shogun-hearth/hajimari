@@ -1,21 +1,104 @@
-import { Meta } from "@storybook/addon-docs";
+import ActionButton from '../ActionButton';
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+import CloseIcon from "@mui/icons-material/Close";
+import AddIcon from "@mui/icons-material/Add";
+import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
 
-<Meta title="ActionButton" />
+# ActionButton
 
-# TODO: ActionButton
-
-**DATE ADDED**: September 6, 2022 | **PROJECT**: https://gethearth.atlassian.net/browse/ROK-1146
+September 6, 2022 |  https://gethearth.atlassian.net/browse/ROK-1146
 
 The Action Button is a slightly more specific button that will be used in the Action Button Group component.
 Action Buttons can be full width or smaller so that they line up horizontally.
 
-<br />
+## Action Button
 
----
+`ActionButton` is built on the Button component. It has some slight variances that are specific to the Action
+Button section of a workflow.
 
 <br />
 
 ### Usage and examples
+export const argTypes = {
+  children: {
+    name: "Icon",
+    table: {
+      type: { summary: "ReactNode" },
+    },
+    control: { type: "select" },
+    options: ["CloseIcon", "AddIcon", "HappyIcon"],
+    mapping: {
+      CloseIcon: <CloseIcon />,
+      AddIcon: <AddIcon />,
+      HappyIcon: <SentimentVerySatisfiedIcon />,
+    },
+  },
+  color: {
+    name: "Color",
+    control: { type: "select" },
+    defaultValue: {
+      summary: "default",
+    },
+    options: ["blue", "default", "green", "yellow", "red", "greyscale"],
+    table: {
+      type: {
+        summary:
+          "'blue' | 'default' | 'green' | 'yellow' | 'red' | 'greyscale'",
+      },
+    },
+  },
+  bg: {
+    name: "Background",
+    control: { type: "radio" },
+    defaultValue: {
+      summary: "light",
+    },
+    options: ["light", "dark"],
+    table: {
+      type: {
+        summary: "'light' | 'dark'",
+      },
+    },
+  },
+};
+
+<Meta
+  title="Button/Action Button"
+  component={ActionButton}
+  argTypes={argTypes}
+  decorators={[
+    (story) => (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {story()}
+      </div>
+    ),
+  ]}
+/>
+
+<Story name="Variants">
+  <ActionButton
+    startIcon={<AddIcon />}
+    color="blue"
+    variant="primary"
+    fullWidth={false}
+    onClick={() => {}}
+    loading={false}
+    component='button'
+    href={undefined}
+    download=''
+    label='A button!'
+  />
+</Story>
+
+<br />
+
+
+export const ActionButtonTemplate = (args) => <ActionButton {...args} />;
 
 **TODO** -- add a more technical description of the component here, which will generally be some information
 about the available props; this can be listed as a table:
@@ -48,8 +131,20 @@ about the available props; this can be listed as a table:
 for each prop that someone can change (i.e. background color, border color, width, or whatever else is appropriate for a given
 component).
 
-```
 <Canvas>
-  <Story name="Sandbox">{component}</Story>
+  <Story name="Sandbox">
+    <ActionButton
+      startIcon={<AddIcon />}
+      color="blue"
+      variant="primary"
+      fullWidth={false}
+      onClick={() => {}}
+      loading={false}
+      component='button'
+      href={undefined}
+      download=''
+      label='A button!'
+    />
+  </Story>
 </Canvas>
-```
+
