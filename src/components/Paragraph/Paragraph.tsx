@@ -16,7 +16,7 @@ export interface ParagraphProps extends Omit<TypographyProps, 'variant'> {
   /* sets color of icons */
   variant?: ParagraphVariant;
   /* each block of text */
-  bulletedList: string[];
+  bulletedList: React.ReactNode[];
   /* icon to be displayed next to paragraphs */
   icon: JSX.Element;
   /* font size */
@@ -43,25 +43,34 @@ const Paragraph = ({
 
   return (
     <Box>
-      {bulletedList.map((listItem, index) => (
-        <Box
-          sx={{
-            display: 'flex',
-            mb: index === listItem.length - 1 ? 0 : 2
-          }}
-          key={listItem}
-        >
-          <Box sx={{ color: iconColorMap[variant], mr: 1.5 }}>
-            {React.cloneElement(icon, { color: 'inherit' })}
-          </Box>
-          <Typography
-            variant={fontVariant || (isMobile ? 'p2' : 'p1')}
-            {...otherProps}
+      {bulletedList.map((listItem, index) => {
+        // typecheck
+        if (!listItem) return null;
+
+        return (
+          <Box
+            sx={{
+              display: 'flex',
+              mb: index === bulletedList.length - 1 ? 0 : 2
+            }}
+            key={listItem.toString()}
           >
-            {listItem}
-          </Typography>
-        </Box>
-      ))}
+            <Box sx={{ color: iconColorMap[variant], mr: 1.5 }}>
+              {React.cloneElement(icon, { color: 'inherit' })}
+            </Box>
+            {typeof listItem === 'string' ? (
+              <Typography
+                variant={fontVariant || (isMobile ? 'p2' : 'p1')}
+                {...otherProps}
+              >
+                {listItem}
+              </Typography>
+            ) : (
+              listItem
+            )}
+          </Box>
+        )
+      })}
     </Box>
   );
 };

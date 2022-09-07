@@ -5,6 +5,7 @@ import CircleIcon from '@mui/icons-material/Circle';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 import Paragraph from './Paragraph';
+import Typography from '../Typography';
 
 export const argTypes = {
   variant: {
@@ -81,10 +82,11 @@ icons taking the place of bullets.
 ### Usage and examples
 
 It has a `variant` attribute, which determines the color of the bullet icons. It has a
-`bulletedList` attribute, which takes in an `array` of `string`s and creates list items
-from those strings. It has an `icon` property, which determines the icon that appears
-as bullets in the list. Finally, it has an optional `fontVariant` property, which sets
-the size of the `Typography` element of the list items.
+`bulletedList` attribute, which takes in an `array` of `ReactNode`s and creates list items
+from those nodes. The component takes in `ReactNode`s rather than strings to allow text
+decorations. It has an `icon` property, which determines the icon that appears as bullets
+in the list. Finally, it has an optional `fontVariant` property, which sets the size of the
+`Typography` element of the list items (if the given list item is a string).
 
 <br />
 
@@ -101,6 +103,28 @@ the size of the `Typography` element of the list items.
       icon: <CheckIcon />,
       bulletedList: ['Hearth sends automated reminders to your customers. The majority of approved quotes are completed in under 2 days.'],
       fontVariant: 'p1',
+    }}
+  >
+    {ParagraphTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### Bold text:
+
+> When an item includes bolded text, a ReactNode should be passed in.
+
+<Canvas>
+  <Story
+    name="Bold Text"
+    component={Paragraph}
+    args={{
+      variant: 'greyscale',
+      icon: <CheckIcon />,
+      bulletedList: [
+        <Typography variant="p1">
+          Hearth sends automated reminders to your customers. The majority of approved quotes are completed <span style={{ fontWeight: 600 }}>in under 2 days.</span>
+        </Typography>
+      ],
     }}
   >
     {ParagraphTemplate.bind()}
