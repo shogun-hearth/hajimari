@@ -43,8 +43,14 @@ const Paragraph = ({
 
   return (
     <Box>
-      {bulletedList.map((listItem) => (
-        <Box sx={{ display: 'flex', mb: 2 }} key={listItem}>
+      {bulletedList.map((listItem, index) => (
+        <Box
+          sx={{
+            display: 'flex',
+            mb: index === listItem.length - 1 ? 0 : 2
+          }}
+          key={listItem}
+        >
           <Box sx={{ color: iconColorMap[variant], mr: 1.5 }}>
             {React.cloneElement(icon, { color: 'inherit' })}
           </Box>
