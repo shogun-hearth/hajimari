@@ -435,7 +435,7 @@ declare const MenuTopContent: ({ onClose, title }: MenuTopContentProps) => JSX.E
 declare type ParagraphVariant = 'greyscale' | 'blue' | 'green' | 'yellow' | 'red';
 interface ParagraphProps extends Omit<TypographyProps, 'variant'> {
     variant?: ParagraphVariant;
-    bulletedList: string[];
+    bulletedList: React$1.ReactNode[];
     icon: JSX.Element;
     fontVariant?: TypographyProps['variant'];
 }
