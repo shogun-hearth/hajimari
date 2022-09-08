@@ -25,7 +25,7 @@ import {
   SuggestedActionAccordion,
   SuggestedActionProps,
   ConfirmationModal,
-  Paragraph,
+  BulletedList,
 } from './components';
 import {
   darken,
@@ -83,7 +83,7 @@ export {
   ImageGridItem,
   ImageGrid,
   InlineNotification,
-  Paragraph,
+  BulletedList,
   Banner,
   darken,
   emphasize,

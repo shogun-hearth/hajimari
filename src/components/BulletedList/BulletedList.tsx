@@ -5,32 +5,32 @@ import Box from '../Box';
 import Typography, { TypographyProps } from '../Typography';
 import theme from '../../theme';
 
-export type ParagraphVariant =
+export type BulletedListVariant =
   | 'greyscale'
   | 'blue'
   | 'green'
   | 'yellow'
   | 'red';
 
-export interface ParagraphProps extends Omit<TypographyProps, 'variant'> {
+export interface BulletedListProps extends Omit<TypographyProps, 'variant'> {
   /* sets color of icons */
-  variant?: ParagraphVariant;
+  variant?: BulletedListVariant;
   /* each block of text */
-  bulletedList: React.ReactNode[];
-  /* icon to be displayed next to paragraphs */
+  bulletedListItems: React.ReactNode[];
+  /* icon to be displayed next to list items */
   icon: JSX.Element;
   /* font size */
   fontVariant?: TypographyProps['variant'];
 }
 
 
-const Paragraph = ({
+const BulletedList = ({
   variant = 'greyscale',
-  bulletedList,
+  bulletedListItems,
   icon,
   fontVariant,
   ...otherProps
-}: ParagraphProps): JSX.Element => {
+}: BulletedListProps): JSX.Element => {
   const isMobile = useMediaQuery((t: Theme) => t.breakpoints.down('md'));
 
   const iconColorMap = {
@@ -43,7 +43,7 @@ const Paragraph = ({
 
   return (
     <Box>
-      {bulletedList.map((listItem, index) => {
+      {bulletedListItems.map((listItem, index) => {
         // typecheck
         if (!listItem) return null;
 
@@ -51,7 +51,7 @@ const Paragraph = ({
           <Box
             sx={{
               display: 'flex',
-              mb: index === bulletedList.length - 1 ? 0 : 2
+              mb: index === bulletedListItems.length - 1 ? 0 : 2
             }}
             key={listItem.toString()}
           >
@@ -75,4 +75,4 @@ const Paragraph = ({
   );
 };
 
-export default Paragraph;
+export default BulletedList;
