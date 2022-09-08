@@ -68,35 +68,35 @@ const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
       }}
     >
       <Box>
-      {topButton}
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          mt: 1,
-        }}
-      >
-        {smallButtons.map((row, rowIdx) => {
-          return (
-            <Box
-              sx={{
-                width: '100%',
-                my: rowIdx > 0 ? 1 : 0,
-                display: 'flex',
-              }}
-              key={`smallButtonsRow-${rowIdx}`}
-            >
-              {(showRow(rowIdx) && Array.isArray(row)) &&
-                row?.map((button: React.ReactNode, buttonIdx: number) => (
-                  <React.Fragment key={`action-button-${buttonIdx}`}>
-                    {buttonIdx !== 0 && <Box sx={{ m: 1, width: 10 }}/>}
-                    {button}
-                  </React.Fragment>
-                ))}
-            </Box>
-          )
-        })}
-      </Box>
+        {topButton}
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            mt: 1,
+          }}
+        >
+          {smallButtons.map((row, rowIdx) => {
+            return (
+              <Box
+                sx={{
+                  width: '100%',
+                  my: rowIdx > 0 ? 1 : 0,
+                  display: 'flex',
+                }}
+                key={`smallButtonsRow-${rowIdx}`}
+              >
+                {(showRow(rowIdx) && Array.isArray(row)) &&
+                  row?.map((button: React.ReactNode, buttonIdx: number) => (
+                    <React.Fragment key={`action-button-${buttonIdx}`}>
+                      {buttonIdx !== 0 && <Box sx={{ m: 1, width: 10 }}/>}
+                      {button}
+                    </React.Fragment>
+                  ))}
+              </Box>
+            )
+          })}
+        </Box>
       </Box>
       {arrayChildren.length > 4 && <Button
         variant='text'
