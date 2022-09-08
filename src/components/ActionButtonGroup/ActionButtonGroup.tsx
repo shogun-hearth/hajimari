@@ -8,7 +8,7 @@ export type ActionButtonGroupProps = {
   /**
    * The Hajimari buttons to include in the action buttons group.
    */
-  children: React.ReactElement;
+  children: React.ReactNode;
 }
 
 const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
