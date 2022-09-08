@@ -4,4 +4,4 @@ dist
 .cache
 *.log
 storybook-static
-.idea/
+.idea/*
