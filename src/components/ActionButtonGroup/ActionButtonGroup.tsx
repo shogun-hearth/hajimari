@@ -93,7 +93,7 @@ const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
                     {button}
                   </React.Fragment>
                 ))}
-          </Box>
+            </Box>
           )
         })}
       </Box>
