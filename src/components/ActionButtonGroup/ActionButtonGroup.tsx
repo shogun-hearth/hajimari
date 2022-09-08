@@ -1,12 +1,12 @@
 import React, { useState, useMemo, isValidElement } from 'react';
+import { ExpandMore, ExpandLess } from '@mui/icons-material';
+
 import Button from '../Button';
 import Box from '../Box';
-import Typography from '../Typography';
-import { ArrowUpward, ArrowDownward, ExpandMore, ExpandLess } from '@mui/icons-material';
 
 export type ActionButtonGroupProps = {
   /**
-   * The buttons to include in the action buttons group.
+   * The Hajimari buttons to include in the action buttons group.
    */
   children: React.ReactElement;
 }
