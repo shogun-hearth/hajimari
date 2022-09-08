@@ -26,6 +26,7 @@ import {
   SuggestedActionProps,
   ConfirmationModal,
   ActionButtonGroup,
+  BulletedList,
 } from './components';
 
 import {
@@ -68,6 +69,7 @@ export {
   Card,
   CardHeader,
   CardContent,
+  ConfirmationModal,
   DatePickerField,
   DatePickerProps,
   Dialog,
@@ -83,6 +85,7 @@ export {
   ImageGridItem,
   ImageGrid,
   InlineNotification,
+  BulletedList,
   Banner,
   darken,
   emphasize,
@@ -92,7 +95,6 @@ export {
   SuggestedAction,
   SuggestedActionProps,
   SuggestedActionAccordion,
-  ConfirmationModal,
   ActionButtonGroup,
 };
 
