@@ -1,0 +1,172 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { withDesign } from 'storybook-addon-designs';
+import CheckIcon from '@mui/icons-material/Check';
+import CircleIcon from '@mui/icons-material/Circle';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+
+import BulletedList from './BulletedList';
+import Typography from '../Typography';
+
+export const argTypes = {
+  variant: {
+    control: { type: "select" },
+    options: ["blue", "green", "yellow", "red", "greyscale"],
+    defaultValue: "greyscale",
+    type: { required: true },
+    table: {
+      type: {
+        summary: '"blue" | "green" | "yellow" | "red" | "greyscale"',
+      },
+    },
+  },
+  bulletedListItems: {
+    table: {
+      type: { summary: "string[]" },
+    },
+    defaultValue: ['Hearth sends automated reminders to your customers. The majority of approved quotes are completed in under 2 days.'],
+  },
+  icon: {
+    table: {
+      type: { summary: "ReactNode" },
+    },
+    control: { type: "select" },
+    options: ["CheckIcon", "CircleIcon", "StarBorderIcon"],
+    mapping: {
+      CheckIcon: <CheckIcon />,
+      CircleIcon: <CircleIcon />,
+      StarBorderIcon: <StarBorderIcon />,
+    },
+    defaultValue: "CheckIcon",
+  },
+  fontVariant: {
+    control: { type: "select" },
+    options: ["h1", "h2", "p1", "p2", "p3"],
+    defaultValue: "p1",
+    type: { required: true },
+    table: {
+      type: {
+        summary: '"h1" | "h2" | "p1" | "p2" | "p3"',
+      },
+    },
+  },
+};
+
+<Meta
+  title="Molecules/BulletedList"
+  component={BulletedList}
+  argTypes={argTypes}
+  parameters={{
+    layout: 'padded',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/xfmzo1QWKiFbf2tx7Q2NUa/HAJIMARI-Design-System?node-id=2151%3A24629',
+    },
+  }}
+/>
+
+export const BulletedListTemplate = (args) => <BulletedList {...args} />;
+
+# BulletedList
+
+**DATE ADDED**: 09/06/22 | **PROJECT**: [Empty States](https://www.notion.so/gethearth/Empty-State-f48a52f1804547ba931852ebc2a18885)
+
+A `BulletedList` is a list of `Typography` elements arranged in a bulleted list, with
+icons taking the place of bullets.
+
+<br />
+
+---
+
+<br />
+
+### Usage and examples
+
+It has a `variant` attribute, which determines the color of the bullet icons. It has a
+`bulletedList` attribute, which takes in an `array` of `ReactNode`s and creates list items
+from those nodes. The component takes in `ReactNode`s rather than strings to allow text
+decorations. It has an `icon` property, which determines the icon that appears as bullets
+in the list. Finally, it has an optional `fontVariant` property, which sets the size of the
+`Typography` element of the list items (if the given list item is a string).
+
+<br />
+
+#### Default / Basic:
+
+> The most basic usage of a `BulletedList`, with only a single bulleted item.
+
+<Canvas>
+  <Story
+    name="Basic"
+    component={BulletedList}
+    args={{
+      variant: 'greyscale',
+      icon: <CheckIcon />,
+      bulletedList: ['Hearth sends automated reminders to your customers. The majority of approved quotes are completed in under 2 days.'],
+      fontVariant: 'p1',
+    }}
+  >
+    {BulletedListTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### Bold text:
+
+> When an item includes bolded text, a ReactNode should be passed in.
+
+<Canvas>
+  <Story
+    name="Bold Text"
+    component={BulletedList}
+    args={{
+      variant: 'greyscale',
+      icon: <CheckIcon />,
+      bulletedListItems: [
+        <Typography variant="p1">
+          Hearth sends automated reminders to your customers. The majority of approved quotes are completed <span style={{ fontWeight: 600 }}>in under 2 days.</span>
+        </Typography>
+      ],
+    }}
+  >
+    {BulletedListTemplate.bind()}
+  </Story>
+</Canvas>
+
+#### Multiple list items:
+
+> `BulletedList` accepts multiple strings in the `bulletedListItems` array,
+which are in turn rendered as multiple list items.
+
+<Canvas>
+  <Story
+    name="Multiple List Items"
+    component={BulletedList}
+    args={{
+      variant: 'greyscale',
+      icon: <CheckIcon />,
+      bulletedListItems: [
+        'Hearth sends automated reminders to your customers. The majority of approved quotes are completed in under 2 days.',
+        'When you set up automated payouts, payments will be transferred to your bank account automatically within 3 business days.',
+      ],
+      fontVariant: 'p1',
+    }}
+  >
+    {BulletedListTemplate.bind()}
+  </Story>
+</Canvas>
+
+---
+
+<br />
+
+### Sandbox
+
+<Canvas>
+  <Story
+    name="Sandbox"
+    height="100px"
+  >
+  {BulletedListTemplate.bind()}
+  </Story>
+</Canvas>
+
+<ArgsTable of={BulletedList} story="Sandbox" />
