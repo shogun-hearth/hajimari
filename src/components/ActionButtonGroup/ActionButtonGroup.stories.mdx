@@ -1,0 +1,141 @@
+import ActionButtonGroup from '../ActionButtonGroup';
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+import CloseIcon from "@mui/icons-material/Close";
+import AddIcon from "@mui/icons-material/Add";
+import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
+import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
+import {Button} from "../index";
+import Check from '@mui/icons-material/Check';
+import { SendOutlined, OpenInNewOutlined, KeyboardReturnIcon, CancelOutlined } from '@mui/icons-material';
+
+# ActionButtonGroup
+
+September 6, 2022 |  https://gethearth.atlassian.net/browse/ROK-1146
+
+The action button group takes in children buttons and positions them for the details screens.
+
+<br />
+
+### Usage and examples
+
+export const buttonData = [
+  { label: 'Mark As Collected', icon: <SendOutlined /> },
+  { label: 'Send Reminder', icon: <SendOutlined /> },
+  { label: 'View Invoice', icon: <OpenInNewOutlined /> },
+  { label: 'Cancel', icon: <CancelOutlined /> },
+  { label: 'Edit Invoice', icon: <OpenInNewOutlined /> },
+]
+
+export const argTypes = {
+  buttonNumber: {
+    name: 'Number of buttons',
+    control: { type: 'select' },
+    options: [1, 2, 3, 4, 5],
+    table: {
+      defaultValue: {
+        summary: 3,
+      },
+      type: {
+        summary:
+          "1 | 2 | 3 | 4 | 5",
+      },
+    },
+  },
+};
+
+<Meta
+  title="Button/Action Button Group"
+  component={ActionButtonGroup}
+  argTypes={argTypes}
+/>
+
+<Canvas>
+  <Story name="Basic">
+    <ActionButtonGroup>
+      <Button
+        startIcon={<Check />}
+      >
+        Mark As Collected
+      </Button>
+      <Button
+      startIcon={<SendOutlined />}
+      >
+        Send Reminder
+      </Button>
+      <Button
+        startIcon={<OpenInNewOutlined />}
+      >
+        View Invoice
+      </Button>
+      <Button
+        startIcon={<CancelOutlined />}
+      >
+        Cancel
+      </Button>
+      <Button
+        startIcon={<OpenInNewOutlined />}
+      >
+        Edit Invoice
+      </Button>
+    </ActionButtonGroup>
+  </Story>
+</Canvas>
+
+<br />
+
+
+export const ActionButtonGroupTemplate = ({buttonNumber, ...args}) => {
+  // Set the default value, otherwise it's an object not the value.
+  if (typeof buttonNumber !== 'number') {
+    buttonNumber = buttonNumber.table.defaultValue.summary;
+  }
+  const children = buttonData.slice(0, buttonNumber).map(button => (
+        <Button
+          startIcon={button.icon}
+        >
+          {button.label}
+        </Button>
+      )
+    )
+  return <ActionButtonGroup children={children} {...args} />
+};
+
+***Technical Description***
+Action Button Group takes in children buttons and arranges them according to:
+https://www.figma.com/file/xfmzo1QWKiFbf2tx7Q2NUa/HAJIMARI-Design-System?node-id=106%3A2
+
+This component overrides the size and primary / secondary variant status of the buttons passed in.
+
+The buttons are displayed in this order:
+takes in all children and returns rows as below, where each subsequent array will be on a lower line.
+<br />
+[[a]]
+<br />
+[[a, b]]
+<br />
+[[a], [b, c]]
+<br />
+[[a], [b, c, d]]
+<br />
+[[a], [b, c], [d, e]]
+
+
+<br />
+
+---
+
+<br />
+
+### Sandbox
+
+
+<Canvas>
+  <Story
+    name="Action Button Canvas"
+    args={argTypes}
+  >
+    {ActionButtonGroupTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Action Button Canvas" />

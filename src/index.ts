@@ -25,7 +25,7 @@ import {
   SuggestedActionAccordion,
   SuggestedActionProps,
   ConfirmationModal,
-  ActionButton,
+  ActionButtonGroup,
 } from './components';
 
 import {
@@ -93,6 +93,6 @@ export {
   SuggestedActionProps,
   SuggestedActionAccordion,
   ConfirmationModal,
-  ActionButton,
+  ActionButtonGroup,
 };
 
