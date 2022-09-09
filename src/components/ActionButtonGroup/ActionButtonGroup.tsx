@@ -12,10 +12,9 @@ export type ActionButtonGroupProps = {
 }
 
 const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
-  const [showingMore, setShowingMore] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 
   const arrayChildren = React.Children.toArray(children);
-  let caretRenders = arrayChildren.length > 4;
 
   const updateFirstButton = (child: React.ReactNode): React.ReactNode => {
     const props = { fullWidth: true, variant: 'primary' }
@@ -36,6 +35,16 @@ const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
     });
   }, [arrayChildren]);
 
+  /*
+  rowData looks at the number of children and returns data formatted like:
+
+  [[a]]
+  [[a, b]]
+  [[a], [b, c]]
+  [[a], [b, c, d]]
+  [[a], [b, c], [d, e]]
+
+   */
   const rowData = useMemo(() => {
     // typecheck
     if (!variantCorrected || !variantCorrected.length) return [];
@@ -59,7 +68,7 @@ const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
     return rowData.slice(1)
   }, [rowData]);
 
-  const showRow = (rowIdx: number) => rowIdx < 1 || showingMore;
+  const showRow = (rowIdx: number) => rowIdx < 1 || showMore;
   return (
     <Box
       sx={{
@@ -89,7 +98,9 @@ const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
                 {(showRow(rowIdx) && Array.isArray(row)) &&
                   row?.map((button: React.ReactNode, buttonIdx: number) => (
                     <React.Fragment key={`action-button-${buttonIdx}`}>
-                      {buttonIdx !== 0 && <Box sx={{ m: 1, width: 10 }}/>}
+                      {buttonIdx !== 0 &&
+                        <Box sx={{ m: 1 }}/>
+                      }
                       {button}
                     </React.Fragment>
                   ))}
@@ -98,14 +109,16 @@ const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
           })}
         </Box>
       </Box>
-      {arrayChildren.length > 4 && <Button
-        variant='text'
-        color='blue'
-        endIcon={showingMore ? <ExpandLess/> : <ExpandMore />}
-        onClick={() => setShowingMore(!showingMore)}
-      >
-        {showingMore ? 'Less Actions' : 'More Actions'}
-      </Button>}
+      {arrayChildren.length > 4 &&
+        <Button
+          variant='text'
+          color='blue'
+          endIcon={showMore ? <ExpandLess/> : <ExpandMore />}
+          onClick={() => setShowMore(!showMore)}
+        >
+          {showMore ? 'Less Actions' : 'More Actions'}
+        </Button>
+      }
     </Box>
   )
 }
