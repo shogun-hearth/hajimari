@@ -51,9 +51,9 @@ const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
     if (variantCorrected.length <= 2) {
       return [[variantCorrected]];
     } else if (variantCorrected.length <= 4) {
-      return [ [variantCorrected[0]], variantCorrected?.slice(1)];
+      return [[variantCorrected[0]], variantCorrected?.slice(1)];
     } else {
-      return [ [variantCorrected[0]], variantCorrected?.slice(1, 3), variantCorrected?.slice(3, 5)];
+      return [[variantCorrected[0]], variantCorrected?.slice(1, 3), variantCorrected?.slice(3, 5)];
     }
   }, [variantCorrected]);
   const topButton = useMemo(() => {
@@ -99,7 +99,7 @@ const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
                   row?.map((button: React.ReactNode, buttonIdx: number) => (
                     <React.Fragment key={`action-button-${buttonIdx}`}>
                       {buttonIdx !== 0 &&
-                        <Box sx={{ m: 1 }}/>
+                        <Box sx={{ m: 1 }} />
                       }
                       {button}
                     </React.Fragment>
@@ -111,12 +111,12 @@ const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
       </Box>
       {arrayChildren.length > 4 &&
         <Button
-          variant='text'
-          color='blue'
-          endIcon={showMore ? <ExpandLess/> : <ExpandMore />}
+          variant="text"
+          color="blue"
+          endIcon={showMore ? <ExpandLess /> : <ExpandMore />}
           onClick={() => setShowMore(!showMore)}
         >
-          {showMore ? 'Less Actions' : 'More Actions'}
+          {showMore ? 'Fewer Actions' : 'More Actions'}
         </Button>
       }
     </Box>
