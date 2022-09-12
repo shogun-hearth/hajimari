@@ -82,5 +82,8 @@ export * from './Menu';
 export { default as MenuTopContent } from './MenuTopContent';
 export * from './MenuTopContent';
 
+export { default as ActionButtonGroup } from './ActionButtonGroup';
+export * from './ActionButtonGroup';
+
 export { default as BulletedList } from './BulletedList';
 export * from './BulletedList';

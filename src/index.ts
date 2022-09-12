@@ -25,8 +25,10 @@ import {
   SuggestedActionAccordion,
   SuggestedActionProps,
   ConfirmationModal,
+  ActionButtonGroup,
   BulletedList,
 } from './components';
+
 import {
   darken,
   emphasize,
@@ -93,4 +95,6 @@ export {
   SuggestedAction,
   SuggestedActionProps,
   SuggestedActionAccordion,
+  ActionButtonGroup,
 };
+
