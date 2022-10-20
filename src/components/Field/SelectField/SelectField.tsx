@@ -29,7 +29,7 @@ const SelectField = ({
       id='select'
       value={selectedValue}
       onChange={handleChange}
-      sx={{ minWidth: '200px' }}
+      sx={{ minWidth: '100px' }}
       {...otherProps}
     >
       {options.map((option, idx) => (
