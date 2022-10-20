@@ -1,4 +1,4 @@
-import React, { useState, useCallback, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 
 import TextField, { TextFieldProps } from '../TextField';
@@ -18,18 +18,19 @@ const SelectField = ({
 }: SelectFieldProps): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState('');
 
-  const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(event.target.value);
-  }, []);
+  };
 
   return (
     <TextField
       variant='outlined'
       select
+      id='select'
       value={selectedValue}
       onChange={handleChange}
+      sx={{ minWidth: '200px' }}
       {...otherProps}
-      sx={{ width: '500px' }}
     >
       {options.map((option, idx) => (
         <MenuItem value={option.value} key={idx}>
