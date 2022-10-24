@@ -4,14 +4,18 @@ import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import Button from '../Button';
 import Box from '../Box';
 
+export type ActionButtonGroupActionProps = {
+  moreActionsAction?: (e: any) => void;
+};
+
 export type ActionButtonGroupProps = {
   /**
    * The Hajimari buttons to include in the action buttons group.
    */
   children: React.ReactNode;
-}
+} & ActionButtonGroupActionProps;
 
-const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
+const ActionButtonGroup = ({ children, ...otherProps }: ActionButtonGroupProps) => {
   const [showMore, setShowMore] = useState(false);
 
   const arrayChildren = React.Children.toArray(children);
@@ -68,6 +72,11 @@ const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
     return rowData.slice(1)
   }, [rowData]);
 
+  const handleClickShowMore = (e?: any) => {
+    setShowMore(!showMore);
+    if (otherProps.moreActionsAction) otherProps.moreActionsAction(e);
+  }
+
   const showRow = (rowIdx: number) => rowIdx < 1 || showMore;
   return (
     <Box
@@ -114,7 +123,7 @@ const ActionButtonGroup = ({ children }: ActionButtonGroupProps) => {
           variant="text"
           color="blue"
           endIcon={showMore ? <ExpandLess /> : <ExpandMore />}
-          onClick={() => setShowMore(!showMore)}
+          onClick={handleClickShowMore}
         >
           {showMore ? 'Fewer Actions' : 'More Actions'}
         </Button>
