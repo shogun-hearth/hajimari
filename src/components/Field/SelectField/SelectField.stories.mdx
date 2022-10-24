@@ -1,0 +1,93 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+
+import SelectField from './SelectField';
+
+export const argTypes = {
+  label: {
+    control: { type: 'text' },
+    defaultValue: 'Label',
+  },
+  disabled: {
+    control: { type: 'boolean' },
+    defaultValue: false,
+  },
+  error: {
+    control: { type: 'boolean' },
+    defaultValue: false,
+  },
+  helperText: {
+    control: { type: 'text' },
+  },
+};
+
+<Meta
+  title='Atoms/Field/SelectField'
+  component={SelectField}
+  argTypes={argTypes}
+/>
+
+export const SelectFieldTemplate = (args) => {
+  const [value, setValue] = useState();
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+  return (
+    <SelectField
+      sx={{ width: '500px' }}
+      value={value}
+      onChange={handleChange}
+      {...args}
+    />
+  );
+};
+
+# SelectField
+
+**DATE ADDED**: October 20, 2022 | **PROJECT**: [Leads/RFQ](https://www.notion.so/gethearth/Leads-Request-a-Quote-RFQ-185a5e3b927846e5860eb07ab874cb3c)
+
+A `SelectField` is an application of the `TextField` component that provides the user with a list of options.
+It takes the same props as `TextField` as well as an `options` prop. The `options` prop should be an array of
+objects with a specified `value` and `label`.
+
+<br />
+
+---
+
+<br />
+
+### Default / Basic:
+
+<Canvas>
+  <Story
+    name="Basic"
+    component={SelectField}
+    args={{
+      options: [
+        { value: 'one', label: 'option one' },
+        { value: 'two', label: 'option two' },
+      ],
+      label: 'Label',
+    }}
+  >
+    {SelectFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+### Sandbox
+
+<Canvas>
+  <Story
+    name="Sandbox"
+    args={{
+      options: [
+        { value: 'one', label: 'option one' },
+        { value: 'two', label: 'option two' },
+      ],
+    }}
+  >
+    {SelectFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+<ArgsTable of={SelectField} story="Sandbox" />
