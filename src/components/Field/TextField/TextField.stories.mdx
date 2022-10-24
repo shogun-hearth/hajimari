@@ -50,7 +50,7 @@ export const argTypes = {
 };
 
 <Meta
-  title='Atoms/Field/TextField'
+  title="Atoms/Field/TextField"
   component={TextField}
   argTypes={argTypes}
   parameters={{
@@ -67,7 +67,6 @@ export const TextFieldTemplate = (args) => {
   const [value, setValue] = useState();
   const handleChange = (event) => {
     setValue(event.target.value);
-    console.log(value);
   };
   return <StatefulTextField {...args} value={value} onChange={handleChange} />;
 };
@@ -108,7 +107,7 @@ a percentage or absolute pixel value.
 
 <Canvas>
   <Story
-    name='Money mask'
+    name="Money mask"
     args={{
       mask: 'money',
       label: 'Money mask',
@@ -122,7 +121,7 @@ a percentage or absolute pixel value.
 
 <Canvas>
   <Story
-    name='Money with cents'
+    name="Money with cents"
     args={{
       mask: 'moneyWithCents',
       label: 'Money with cents mask',
@@ -136,7 +135,7 @@ a percentage or absolute pixel value.
 
 <Canvas>
   <Story
-    name='ssn'
+    name="ssn"
     args={{
       mask: 'ssn',
       label: 'ssn mask',
@@ -150,7 +149,7 @@ a percentage or absolute pixel value.
 
 <Canvas>
   <Story
-    name='last four ssn'
+    name="last four ssn"
     args={{
       mask: 'lastFourSsn',
       label: 'last four ssn mask',
@@ -164,7 +163,7 @@ a percentage or absolute pixel value.
 
 <Canvas>
   <Story
-    name='bank number'
+    name="bank number"
     args={{
       mask: 'bankNumber',
       label: 'bank number mask',
@@ -178,7 +177,7 @@ a percentage or absolute pixel value.
 
 <Canvas>
   <Story
-    name='phone number'
+    name="phone number"
     args={{
       mask: 'phone',
       label: 'phone number mask',
@@ -192,7 +191,7 @@ a percentage or absolute pixel value.
 
 <Canvas>
   <Story
-    name='percent'
+    name="percent"
     args={{
       mask: 'percent',
       label: 'percent mask',
@@ -206,7 +205,7 @@ a percentage or absolute pixel value.
 
 <Canvas>
   <Story
-    name='taxId'
+    name="taxId"
     args={{
       mask: 'taxId',
       label: 'tax id mask',
@@ -220,7 +219,7 @@ a percentage or absolute pixel value.
 
 <Canvas>
   <Story
-    name='year'
+    name="year"
     args={{
       mask: 'year',
       label: 'year mask',
@@ -234,7 +233,7 @@ a percentage or absolute pixel value.
 
 <Canvas>
   <Story
-    name='search'
+    name="search"
     args={{
       mask: 'search',
       label: 'search mask',
@@ -248,7 +247,7 @@ a percentage or absolute pixel value.
 
 <Canvas>
   <Story
-    name='Date mask'
+    name="Date mask"
     args={{
       mask: 'date',
       label: 'Date mask',
@@ -265,7 +264,7 @@ a percentage or absolute pixel value.
 ### Playground
 
 <Canvas>
-  <Story name='Playground'>{TextFieldTemplate.bind()}</Story>
+  <Story name="Playground">{TextFieldTemplate.bind()}</Story>
 </Canvas>
 
-<ArgsTable of={TextField} story='Playground' />
+<ArgsTable of={TextField} story="Playground" />
