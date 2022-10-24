@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
 
 import SelectField from './SelectField';
@@ -26,9 +27,20 @@ export const argTypes = {
   argTypes={argTypes}
 />
 
-export const SelectFieldTemplate = (args) => (
-  <SelectField sx={{ width: '500px' }} {...args} />
-);
+export const SelectFieldTemplate = (args) => {
+  const [value, setValue] = useState();
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+  return (
+    <SelectField
+      sx={{ width: '500px' }}
+      value={value}
+      onChange={handleChange}
+      {...args}
+    />
+  );
+};
 
 # SelectField
 
