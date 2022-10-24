@@ -72,7 +72,7 @@ const ActionButtonGroup = ({ children, ...otherProps }: ActionButtonGroupProps) 
     return rowData.slice(1)
   }, [rowData]);
 
-  const handleClick = (e: any) => {
+  const handleClickShowMore = (e?: any) => {
     setShowMore(!showMore);
     if (otherProps.moreActionsAction) otherProps.moreActionsAction(e);
   }
@@ -123,7 +123,7 @@ const ActionButtonGroup = ({ children, ...otherProps }: ActionButtonGroupProps) 
           variant="text"
           color="blue"
           endIcon={showMore ? <ExpandLess /> : <ExpandMore />}
-          onClick={handleClick}
+          onClick={handleClickShowMore}
         >
           {showMore ? 'Fewer Actions' : 'More Actions'}
         </Button>
