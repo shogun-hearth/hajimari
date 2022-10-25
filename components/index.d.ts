@@ -432,13 +432,16 @@ interface MenuTopContentProps {
 }
 declare const MenuTopContent: ({ onClose, title }: MenuTopContentProps) => JSX.Element;
 
+declare type ActionButtonGroupActionProps = {
+    moreActionsAction?: (e: any) => void;
+};
 declare type ActionButtonGroupProps = {
     /**
      * The Hajimari buttons to include in the action buttons group.
      */
     children: React$1.ReactNode;
-};
-declare const ActionButtonGroup: ({ children }: ActionButtonGroupProps) => JSX.Element;
+} & ActionButtonGroupActionProps;
+declare const ActionButtonGroup: ({ children, ...otherProps }: ActionButtonGroupProps) => JSX.Element;
 
 declare type BulletedListVariant = 'greyscale' | 'blue' | 'green' | 'yellow' | 'red';
 interface BulletedListProps extends Omit<TypographyProps, 'variant'> {
@@ -449,4 +452,4 @@ interface BulletedListProps extends Omit<TypographyProps, 'variant'> {
 }
 declare const BulletedList: ({ variant, bulletedListItems, icon, fontVariant, ...otherProps }: BulletedListProps) => JSX.Element;
 
-export { ActionButtonGroup, ActionButtonGroupProps, Banner, BannerProps, Box, BoxProps, BulletedList, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, Menu, MenuProps, MenuTopContent, MenuTopContentProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
+export { ActionButtonGroup, Banner, BannerProps, Box, BoxProps, BulletedList, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, Menu, MenuProps, MenuTopContent, MenuTopContentProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
