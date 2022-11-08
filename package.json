@@ -84,5 +84,8 @@
     "theme",
     "globals.d.ts",
     "index.d.ts"
-  ]
+  ],
+  "dependencies": {
+    "@mui/x-data-grid": "^5.17.10"
+  }
 }
