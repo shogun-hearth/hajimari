@@ -28,9 +28,9 @@ const SelectField = ({
 
   return (
     <TextField
-      variant="outlined"
+      variant='outlined'
       select
-      id="select"
+      id='select'
       value={value}
       onChange={handleChange}
       sx={{ minWidth: '100px' }}
