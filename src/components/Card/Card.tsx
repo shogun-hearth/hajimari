@@ -21,7 +21,7 @@ const Card = ({
     elevation={0}
     sx={{
       border: borderColor ? `1px solid` : 'inherit',
-      borderColor: borderColor,
+      borderColor,
       borderRadius: '16px',
       '&.MuiPaper-root': {
         backgroundColor: theme.palette.common[bg],
