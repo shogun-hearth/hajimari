@@ -1,3 +1,4 @@
+import React from 'react';
 import { ComponentMeta, Story } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
 import { ArgType } from '@storybook/components';
@@ -8,17 +9,34 @@ import CardContent from '../CardContent';
 
 import theme from '../../theme';
 
+const colors = ['blue', 'red', 'greyscale', 'green', 'yellow'];
+const init: string[] = [];
+const colorOptions = Object.entries({ ...theme.palette }).reduce(
+  (val, currColor) => {
+    if (colors.includes(currColor[0])) {
+      Object.keys(currColor[1]).forEach((subValue) => {
+        if (subValue !== 'main') {
+          init.push(`${currColor[0]}.${subValue}`);
+          return;
+        }
+      });
+    }
+    return val;
+  },
+  init
+);
+
 export const argTypes = {
-  border: {
+  borderColor: {
     name: 'border color',
     control: { type: 'select' },
-    defaultValue: 'basic500',
-    options: Object.keys({ ...theme.palette.common }),
+    defaultValue: 'greyscale.500',
+    options: colorOptions,
     table: {
       category: 'Card',
       type: {
-        summary: 'Any color',
-      }
+        summary: 'Any hajimari color',
+      },
     },
   },
   bg: {
@@ -28,7 +46,7 @@ export const argTypes = {
     options: Object.keys({ ...theme.palette.common }),
     table: {
       type: {
-        summary: 'a color'
+        summary: 'a color',
       },
       category: 'Card',
     },
@@ -84,7 +102,11 @@ export default {
 
 const headerArgTypes = ['bottomDivider'];
 
-const CardTemplate = ({ header, content, ...args }: TemplateArgs): JSX.Element => {
+const CardTemplate = ({
+  header,
+  content,
+  ...args
+}: TemplateArgs): JSX.Element => {
   // pull out the args related to CardHeader
   const headerArgs = Object.entries(args).reduce((val, currArg) => {
     // if they belong to CardHeader, push them into that key
@@ -114,16 +136,8 @@ const CardTemplate = ({ header, content, ...args }: TemplateArgs): JSX.Element =
 
   return (
     <Card {...cardArgs}>
-      {header &&
-        <CardHeader {...headerArgs}>
-          {header}
-        </CardHeader>
-      }
-      {content &&
-        <CardContent>
-          {content}
-        </CardContent>
-      }
+      {header && <CardHeader {...headerArgs}>{header}</CardHeader>}
+      {content && <CardContent>{content}</CardContent>}
     </Card>
   );
 };

@@ -44,9 +44,12 @@ const ImageGridItem = ({
 
   if (showBrokenImage) {
     return (
-      <Card border="basic700" bg="basic500">
+      <Card borderColor='greyscale.700' bg='basic500'>
         <Box sx={{ px: 8, py: 5, ...sharedStyles }}>
-          <BrokenImageOutlinedIcon sx={{ color: 'common.basic700' }} fontSize="large" />
+          <BrokenImageOutlinedIcon
+            sx={{ color: 'common.basic700' }}
+            fontSize='large'
+          />
         </Box>
       </Card>
     );
@@ -67,8 +70,8 @@ const ImageGridItem = ({
           // this makes the action element more visible when the color is similar to its background
           filter: 'drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.4))',
         }}
-        position="top"
-        actionPosition="right"
+        position='top'
+        actionPosition='right'
         actionIcon={action}
       />
       <Dialog open={imageEnlarged} onClose={() => setImageEnlarged(false)}>
