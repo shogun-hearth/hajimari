@@ -19,6 +19,9 @@ export * from './CardHeader/CardHeader';
 export { default as ConfirmationModal } from './ConfirmationModal';
 export * from './ConfirmationModal/ConfirmationModal';
 
+export { default as DataGrid } from './DataGrid';
+export * from './DataGrid/DataGrid';
+
 export { default as DatePickerField } from './Field/DatePickerField';
 export * from './Field/DatePickerField/DatePickerField';
 

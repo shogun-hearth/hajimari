@@ -20,6 +20,7 @@ export interface Props extends DataGridProps {
   rows: GridRowsProp;
   pageSize?: number;
   height: string;
+  toolbar: React.JSXElementConstructor<any>;
 }
 
 interface ToolbarProps {
@@ -63,6 +64,7 @@ const Datagrid = ({
   pageSize,
   rows,
   height = '500px',
+  toolbar,
   ...otherProps
 }: Props): JSX.Element => (
   <Box sx={{ height: height, width: '100%' }}>
@@ -75,7 +77,7 @@ const Datagrid = ({
       hideFooterSelectedRowCount
       showColumnRightBorder={false}
       disableSelectionOnClick
-      components={{ Toolbar: CustomToolbar }}
+      components={{ Toolbar: toolbar }}
       componentsProps={{
         toolbar: {
           quickFilterProps: {
