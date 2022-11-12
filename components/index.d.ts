@@ -192,9 +192,8 @@ interface Props extends DataGridProps {
     rows: GridRowsProp;
     pageSize?: number;
     height: string;
-    toolbar: React$1.JSXElementConstructor<any>;
 }
-declare const Datagrid: ({ columns, pageSize, rows, height, toolbar, ...otherProps }: Props) => JSX.Element;
+declare const Datagrid: ({ columns, pageSize, rows, height, ...otherProps }: Props) => JSX.Element;
 
 interface DatePickerProps {
     name: string;
