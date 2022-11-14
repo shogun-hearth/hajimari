@@ -7,12 +7,17 @@ import Typography from '../Typography';
 
 export const argTypes = {
   pageSize: {
-    default: 10,
+    defaultValue: 10,
     control: { type: 'number' },
+    table: {
+      type: {
+        summary: 'a number that defines how many rows appear in one page',
+      },
+    },
   },
   height: {
-    default: '500px',
-    control: { type: 'string' },
+    defaultValue: '500px',
+    control: { type: 'text' },
     table: {
       type: { summary: 'a height in px passed in as a string' },
     },
@@ -33,12 +38,86 @@ export const argTypes = {
 />
 
 export const DataGridTemplate = (args) => <DataGrid {...args} />;
+const columns = [
+  {
+    field: 'name',
+    headerName: 'Name',
+    width: 200,
+  },
+  {
+    field: 'address',
+    headerName: 'Address',
+    width: 200,
+  },
+];
+const rows = [
+  {
+    id: 1,
+    name: 'Jean Ralphio',
+    address: '2200 tree, indiana',
+  },
+  {
+    id: 2,
+    name: 'Leslie Knope',
+    address: '200 gryzzl ave, indiana',
+  },
+  {
+    id: 3,
+    name: 'Jean Ralphio',
+    address: '2200 tree, indiana',
+  },
+  {
+    id: 4,
+    name: 'Leslie Knope',
+    address: '200 gryzzl ave, indiana',
+  },
+  {
+    id: 5,
+    name: 'Jean Ralphio',
+    address: '2200 tree, indiana',
+  },
+  {
+    id: 6,
+    name: 'Leslie Knope',
+    address: '200 gryzzl ave, indiana',
+  },
+  {
+    id: 7,
+    name: 'Jean Ralphio',
+    address: '2200 tree, indiana',
+  },
+  {
+    id: 8,
+    name: 'Leslie Knope',
+    address: '200 gryzzl ave, indiana',
+  },
+  {
+    id: 9,
+    name: 'Leslie Knope',
+    address: '200 gryzzl ave, indiana',
+  },
+  {
+    id: 10,
+    name: 'Jean Ralphio',
+    address: '2200 tree, indiana',
+  },
+  {
+    id: 11,
+    name: 'Leslie Knope',
+    address: '200 gryzzl ave, indiana',
+  },
+];
 
 # DataGrid
 
-**DATE ADDED**: 11/08/22 | **PROJECT**: [Leads/RFQ](https://www.notion.so/gethearth/Leads-Request-a-Quote-RFQ-185a5e3b927846e5860eb07ab874cb3c)
+**DATE ADDED**: 11/14/22 | **PROJECT**: [Leads/RFQ](https://www.notion.so/gethearth/Leads-Request-a-Quote-RFQ-185a5e3b927846e5860eb07ab874cb3c)
 
-A `DataGrid` displays information in a grid-like format of rows and columns. You define the `column headers` and `rows`
+A `DataGrid` displays information in a grid-like format of rows and columns. You define the `column headers` prop array according
+to Mui's [GridColDef](https://mui.com/x/api/data-grid/grid-col-def/) interface and the `rows` prop, which represents the table's data.
+
+Additionally, `DataGrid` accepts two props. The requisite `height` prop, which should be defined as a _string_ with a specified unit (ie: '1000px'), has
+a default value of `500px`. The `pageSize` number prop sets the number of rows in one page. If some of the rows have children, this number represents the
+amount of top level rows wanted on each page. The default value for `pageSize` is `10`.
 
 <br />
 
@@ -53,75 +132,8 @@ A `DataGrid` displays information in a grid-like format of rows and columns. You
     name='Basic'
     component={DataGrid}
     args={{
-      columns: [
-        {
-          field: 'name',
-          headerName: 'Name',
-          width: 200,
-        },
-        {
-          field: 'address',
-          headerName: 'Address',
-          width: 200,
-        },
-      ],
-      rows: [
-        {
-          id: 1,
-          name: 'Jean Ralphio',
-          address: '2200 tree, indiana',
-        },
-        {
-          id: 2,
-          name: 'Leslie Knope',
-          address: '200 gryzzl ave, indiana',
-        },
-        {
-          id: 3,
-          name: 'Jean Ralphio',
-          address: '2200 tree, indiana',
-        },
-        {
-          id: 4,
-          name: 'Leslie Knope',
-          address: '200 gryzzl ave, indiana',
-        },
-        {
-          id: 5,
-          name: 'Jean Ralphio',
-          address: '2200 tree, indiana',
-        },
-        {
-          id: 6,
-          name: 'Leslie Knope',
-          address: '200 gryzzl ave, indiana',
-        },
-        {
-          id: 7,
-          name: 'Jean Ralphio',
-          address: '2200 tree, indiana',
-        },
-        {
-          id: 8,
-          name: 'Leslie Knope',
-          address: '200 gryzzl ave, indiana',
-        },
-        {
-          id: 9,
-          name: 'Leslie Knope',
-          address: '200 gryzzl ave, indiana',
-        },
-        {
-          id: 10,
-          name: 'Jean Ralphio',
-          address: '2200 tree, indiana',
-        },
-        {
-          id: 11,
-          name: 'Leslie Knope',
-          address: '200 gryzzl ave, indiana',
-        },
-      ],
+      columns,
+      rows,
       pageSize: 10,
       height: '600px',
     }}
@@ -129,3 +141,22 @@ A `DataGrid` displays information in a grid-like format of rows and columns. You
     {DataGridTemplate.bind()}
   </Story>
 </Canvas>
+
+### Sandbox
+
+<Canvas>
+  <Story
+    name='Sandbox'
+    component={DataGrid}
+    args={{
+      columns,
+      rows,
+      pageSize: 10,
+      height: '600px',
+    }}
+  >
+    {DataGridTemplate.bind()}
+  </Story>
+</Canvas>
+
+<ArgsTable of={DataGrid} story='Sandbox' />

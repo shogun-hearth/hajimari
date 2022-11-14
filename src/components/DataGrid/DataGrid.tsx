@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 
 const Datagrid = ({
   columns,
-  pageSize,
+  pageSize = 10,
   rows,
   height = '500px',
   ...otherProps
