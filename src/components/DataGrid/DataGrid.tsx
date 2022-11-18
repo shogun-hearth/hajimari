@@ -1,12 +1,13 @@
 import React from 'react';
-import { DataGrid as MuiDataGrid, DataGridProps } from '@mui/x-data-grid';
+import {
+  DataGrid as MuiDataGrid,
+  DataGridProps as MuiDataGridProps,
+} from '@mui/x-data-grid';
 
 import theme from '../../theme';
-import { makeStyles } from '../../theme';
 import Box from '../Box';
 import styled from '../../theme/styled';
-
-export interface Props extends DataGridProps {
+export interface DataGridProps extends MuiDataGridProps {
   /**
    * the number of rows dsiplayed per page
    *
@@ -40,7 +41,7 @@ const Datagrid = ({
   rows,
   height = '500px',
   ...otherProps
-}: Props): JSX.Element => (
+}: DataGridProps): JSX.Element => (
   <Box sx={{ height: height, width: '100%' }}>
     <DataGridRoot
       rows={rows}
