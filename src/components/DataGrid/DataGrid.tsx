@@ -7,6 +7,7 @@ import {
 import theme from '../../theme';
 import Box from '../Box';
 import styled from '../../theme/styled';
+
 export interface DataGridProps extends MuiDataGridProps {
   /**
    * the number of rows dsiplayed per page
