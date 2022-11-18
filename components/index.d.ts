@@ -188,7 +188,18 @@ interface ConfirmationModalProps extends Omit<DialogProps$1, 'title'> {
 declare const ConfirmationModal: ({ variant, open, onClose, onOpen, title, body, primaryAction, primaryActionCopy, secondaryActionCopy, linkBackAction, linkBackCopy, ...otherProps }: ConfirmationModalProps) => JSX.Element;
 
 interface Props extends DataGridProps {
+    /**
+     * the number of rows dsiplayed per page
+     *
+     * @optional
+     * @default 10
+     * */
     pageSize?: number;
+    /**
+     * sets the height of the table. Mui seems to accept units like px and vh but not %
+     *
+     * @default "500px"
+     * */
     height: string;
 }
 declare const Datagrid: ({ columns, pageSize, rows, height, ...otherProps }: Props) => JSX.Element;
