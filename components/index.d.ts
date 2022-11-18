@@ -7,7 +7,7 @@ import { CardProps as CardProps$1 } from '@mui/material/Card';
 import { CardContentProps as CardContentProps$1 } from '@mui/material/CardContent';
 import { CardHeaderProps as CardHeaderProps$1 } from '@mui/material/CardHeader';
 import { DialogProps as DialogProps$1, DialogActionsProps, ListProps as ListProps$1, ListItemProps as ListItemProps$1, MenuProps as MenuProps$1 } from '@mui/material';
-import { DataGridProps, GridColDef, GridRowsProp } from '@mui/x-data-grid';
+import { DataGridProps } from '@mui/x-data-grid';
 import { TextFieldProps as TextFieldProps$1 } from '@mui/material/TextField';
 import { DialogProps as DialogProps$2 } from '@mui/material/Dialog';
 import { DialogContentProps as DialogContentProps$1 } from '@mui/material/DialogContent';
@@ -188,8 +188,6 @@ interface ConfirmationModalProps extends Omit<DialogProps$1, 'title'> {
 declare const ConfirmationModal: ({ variant, open, onClose, onOpen, title, body, primaryAction, primaryActionCopy, secondaryActionCopy, linkBackAction, linkBackCopy, ...otherProps }: ConfirmationModalProps) => JSX.Element;
 
 interface Props extends DataGridProps {
-    columns: GridColDef[];
-    rows: GridRowsProp;
     pageSize?: number;
     height: string;
 }

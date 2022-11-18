@@ -1,32 +1,35 @@
 import React from 'react';
-import {
-  DataGrid as MuiDataGrid,
-  DataGridProps,
-  GridColDef,
-  GridRowsProp,
-} from '@mui/x-data-grid';
+import { DataGrid as MuiDataGrid, DataGridProps } from '@mui/x-data-grid';
 
 import theme from '../../theme';
 import { makeStyles } from '../../theme';
 import Box from '../Box';
+import styled from '../../theme/styled';
 
 export interface Props extends DataGridProps {
-  columns: GridColDef[];
-  rows: GridRowsProp;
+  /**
+   * the number of rows dsiplayed per page
+   *
+   * @optional
+   * @default 10
+   * */
   pageSize?: number;
+  /**
+   * sets the height of the table. Mui seems to accept units like px and vh but not %
+   *
+   * @default "500px"
+   * */
   height: string;
 }
 
-const useStyles = makeStyles({
-  root: {
-    '&.MuiDataGrid-root .MuiDataGrid-cell:focus': {
-      outline: 'none',
-    },
-    '&.MuiDataGrid-root .MuiDataGrid-columnHeader:focus': {
-      outline: 'none',
-    },
+const DataGridRoot = styled(MuiDataGrid)(() => ({
+  '&.MuiDataGrid-root .MuiDataGrid-cell:focus': {
+    outline: 'none',
   },
-});
+  '&.MuiDataGrid-root .MuiDataGrid-columnHeader:focus': {
+    outline: 'none',
+  },
+}));
 
 const Datagrid = ({
   columns,
@@ -34,29 +37,24 @@ const Datagrid = ({
   rows,
   height = '500px',
   ...otherProps
-}: Props): JSX.Element => {
-  const classes = useStyles();
-
-  return (
-    <Box sx={{ height: height, width: '100%' }}>
-      <MuiDataGrid
-        className={classes.root}
-        rows={rows}
-        columns={columns}
-        pageSize={pageSize}
-        disableColumnSelector
-        disableDensitySelector
-        hideFooterSelectedRowCount
-        showColumnRightBorder={false}
-        rowHeight={65}
-        sx={{
-          backgroundColor: theme.palette.greyscale[100],
-          border: 'none',
-        }}
-        {...otherProps}
-      />
-    </Box>
-  );
-};
+}: Props): JSX.Element => (
+  <Box sx={{ height: height, width: '100%' }}>
+    <DataGridRoot
+      rows={rows}
+      columns={columns}
+      pageSize={pageSize}
+      disableColumnSelector
+      disableDensitySelector
+      hideFooterSelectedRowCount
+      showColumnRightBorder={false}
+      rowHeight={65}
+      sx={{
+        backgroundColor: theme.palette.greyscale[100],
+        border: 'none',
+      }}
+      {...otherProps}
+    />
+  </Box>
+);
 
 export default Datagrid;
