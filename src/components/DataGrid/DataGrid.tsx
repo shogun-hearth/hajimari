@@ -22,12 +22,15 @@ export interface Props extends DataGridProps {
   height: string;
 }
 
-const DataGridRoot = styled(MuiDataGrid)(() => ({
+const DataGridRoot = styled(MuiDataGrid)(({ theme }) => ({
   '&.MuiDataGrid-root .MuiDataGrid-cell:focus': {
     outline: 'none',
   },
   '&.MuiDataGrid-root .MuiDataGrid-columnHeader:focus': {
     outline: 'none',
+  },
+  '&.MuiDataGrid-root .MuiDataGrid-columnHeaders': {
+    borderBottom: `1px solid ${theme.palette.greyscale[700]}`,
   },
 }));
 
