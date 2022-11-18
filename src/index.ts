@@ -27,6 +27,7 @@ import {
   ConfirmationModal,
   ActionButtonGroup,
   BulletedList,
+  DataGrid,
 } from './components';
 
 import {
@@ -96,5 +97,5 @@ export {
   SuggestedActionProps,
   SuggestedActionAccordion,
   ActionButtonGroup,
+  DataGrid,
 };
-

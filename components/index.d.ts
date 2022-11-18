@@ -7,6 +7,7 @@ import { CardProps as CardProps$1 } from '@mui/material/Card';
 import { CardContentProps as CardContentProps$1 } from '@mui/material/CardContent';
 import { CardHeaderProps as CardHeaderProps$1 } from '@mui/material/CardHeader';
 import { DialogProps as DialogProps$1, DialogActionsProps, ListProps as ListProps$1, ListItemProps as ListItemProps$1, MenuProps as MenuProps$1 } from '@mui/material';
+import { DataGridProps as DataGridProps$1 } from '@mui/x-data-grid';
 import { TextFieldProps as TextFieldProps$1 } from '@mui/material/TextField';
 import { DialogProps as DialogProps$2 } from '@mui/material/Dialog';
 import { DialogContentProps as DialogContentProps$1 } from '@mui/material/DialogContent';
@@ -185,6 +186,23 @@ interface ConfirmationModalProps extends Omit<DialogProps$1, 'title'> {
     linkBackCopy?: React$1.ReactNode;
 }
 declare const ConfirmationModal: ({ variant, open, onClose, onOpen, title, body, primaryAction, primaryActionCopy, secondaryActionCopy, linkBackAction, linkBackCopy, ...otherProps }: ConfirmationModalProps) => JSX.Element;
+
+interface DataGridProps extends DataGridProps$1 {
+    /**
+     * the number of rows dsiplayed per page
+     *
+     * @optional
+     * @default 10
+     * */
+    pageSize?: number;
+    /**
+     * sets the height of the table. Mui seems to accept units like px and vh but not %
+     *
+     * @default "500px"
+     * */
+    height: string;
+}
+declare const Datagrid: ({ columns, pageSize, rows, height, ...otherProps }: DataGridProps) => JSX.Element;
 
 interface DatePickerProps {
     name: string;
@@ -452,4 +470,4 @@ interface BulletedListProps extends Omit<TypographyProps, 'variant'> {
 }
 declare const BulletedList: ({ variant, bulletedListItems, icon, fontVariant, ...otherProps }: BulletedListProps) => JSX.Element;
 
-export { ActionButtonGroup, Banner, BannerProps, Box, BoxProps, BulletedList, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, Menu, MenuProps, MenuTopContent, MenuTopContentProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
+export { ActionButtonGroup, Banner, BannerProps, Box, BoxProps, BulletedList, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, Datagrid as DataGrid, DataGridProps, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, Menu, MenuProps, MenuTopContent, MenuTopContentProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
