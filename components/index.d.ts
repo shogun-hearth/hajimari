@@ -17,6 +17,7 @@ import { ImageListProps } from '@mui/material/ImageList';
 import { ImageListItemProps } from '@mui/material/ImageListItem';
 import { AccordionProps } from '@mui/material/Accordion';
 import { TypographyProps as TypographyProps$1 } from '@mui/material/Typography';
+import { ChipProps } from '@mui/material/Chip';
 
 interface BoxProps extends BoxProps$1 {
 }
@@ -470,4 +471,19 @@ interface BulletedListProps extends Omit<TypographyProps, 'variant'> {
 }
 declare const BulletedList: ({ variant, bulletedListItems, icon, fontVariant, ...otherProps }: BulletedListProps) => JSX.Element;
 
-export { ActionButtonGroup, Banner, BannerProps, Box, BoxProps, BulletedList, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, Datagrid as DataGrid, DataGridProps, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, Menu, MenuProps, MenuTopContent, MenuTopContentProps, NotificationVariant, StatefulTextField, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
+interface StatusPillProps {
+    /**
+ * The content of the component.
+ */
+    label: ChipProps['label'];
+    /**
+     * This is one of: `info`, `primary`, `warning`, `success`, or `error`.
+     * Each value corresponds to a representative color scheme for the pill.
+     *
+     * @default 'info'
+     */
+    variant: ChipProps['color'];
+}
+declare const StatusPill: ({ label, variant, ...otherProps }: StatusPillProps) => JSX.Element;
+
+export { ActionButtonGroup, Banner, BannerProps, Box, BoxProps, BulletedList, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, Datagrid as DataGrid, DataGridProps, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, Menu, MenuProps, MenuTopContent, MenuTopContentProps, NotificationVariant, StatefulTextField, StatusPill, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
