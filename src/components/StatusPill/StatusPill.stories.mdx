@@ -1,0 +1,83 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+import StatusPill, { Status } from "./StatusPill";
+
+export const argTypes = {
+  label: {
+    defaultValue: "Status Pill",
+    control: { type: "text" },
+  },
+  variant: {
+    defaultValue: "info",
+    control: { type: "radio" },
+    options: ["info", "success", "primary", "warning", "error"],
+  },
+};
+
+<Meta
+  title="Molecules/StatusPill"
+  component={StatusPill}
+  argTypes={argTypes}
+  parameters={{
+    layout: "padded",
+  }}
+/>
+
+export const StatusPillTemplate = (args) => <StatusPill {...args} />;
+
+# StatusPill
+
+**DATE ADDED**: 11/22 | **PROJECT**: [Leads / RFQ](https://www.notion.so/gethearth/RFC-Leads-Request-a-Quote-85b916762ec841a9b126baef53366c0e)
+
+`StatusPill` uses the `Chip` [MUI Component](https://mui.com/material-ui/react-chip/) under the hood.
+Unlike most other components, we do not extend the base `ChipProps` to (a) apply a very specfic set of styles
+for each "variant" of the `StatusPill`, and consequently (b) avoid prop-naming collision.
+
+<Canvas>
+  <Story name="Basic">
+    <StatusPill label="Status Pill" variant="info" />
+  </Story>
+</Canvas>
+
+<br />
+
+## Usage
+
+Only two props exist on `StatusPill`, both of which are required: a `label` and `variant`. A `label`
+is usually some string value that will be the text contained within the pill. The `variant` can be
+one of: `info`, `warning`, `error`, `success`, or `primary`. These values correspond to
+different color schemes that we can use according to the context in which a `StatusPill` is used.
+
+<Canvas>
+  <Story name="Info variant">
+    <StatusPill label="New" variant="info" />
+  </Story>
+  <Story name="Warning variant">
+    <StatusPill label="In Progress" variant="warning" />
+  </Story>
+  <Story name="Error variant">
+    <StatusPill label="Lost" variant="error" />
+  </Story>
+  <Story name="Success variant">
+    <StatusPill label="Won" variant="success" />
+  </Story>
+</Canvas>
+
+<br />
+<br />
+<br />
+
+---
+
+## Sandbox
+
+<Canvas>
+  <Story
+    name="Sandbox"
+    parameters={{ layout: "centered" }}
+    args={{ label: "Status Pill", variant: "success" }}
+  >
+    {StatusPillTemplate.bind()}
+  </Story>
+</Canvas>
+
+<ArgsTable of={StatusPill} story="Sandbox" />

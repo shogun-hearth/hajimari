@@ -90,3 +90,6 @@ export * from './ActionButtonGroup';
 
 export { default as BulletedList } from './BulletedList';
 export * from './BulletedList';
+
+export { default as StatusPill } from './StatusPill';
+export * from './StatusPill';
