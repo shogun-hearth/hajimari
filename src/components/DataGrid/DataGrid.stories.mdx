@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { withDesign } from 'storybook-addon-designs';
 import dedent from 'ts-dedent';
@@ -24,6 +25,10 @@ export const argTypes = {
       type: { summary: 'a height with units passed in as a string' },
     },
   },
+  toolbar: {
+    defaultValue: false,
+    control: { type: 'boolean' },
+  },
 };
 
 <Meta
@@ -38,6 +43,31 @@ export const argTypes = {
     },
   }}
 />
+
+export const DataGridToolbarTemplate = (args) => {
+  const [sortByValue, setSortByValue] = useState('');
+  const [sortModel, setSortModel] = useState([
+    {
+      field: 'name',
+      sort: 'asc',
+    },
+  ]);
+  return (
+    <DataGrid
+      sortModel={sortModel}
+      handleSort={(event) => {
+        setSortByValue(event.target.value);
+        setSortModel([
+          {
+            field: sortByValue,
+            sort: 'asc',
+          },
+        ]);
+      }}
+      {...args}
+    />
+  );
+};
 
 export const DataGridTemplate = (args) => <DataGrid {...args} />;
 const columns = [
@@ -231,6 +261,37 @@ amount of top level rows wanted on each page. The default value for `pageSize` i
     }}
   >
     {DataGridTemplate.bind()}
+  </Story>
+</Canvas>
+
+### Toolbar:
+
+> `DataGrid` has toolbar add on that is rendered by the `toolbar` prop. If it is set to true, a search bar should appear.
+
+<br />
+
+> Additionally, if the set of sorting props (`sortOptions`, `handleSort`, & `sortModel`) are provided, a sorting select field should also appear.
+> For `sortOptions`, see `SelectField`. The options should be formatted in the same manner as `SelectField`'s `options` prop. The `sortModel` should adhere to `DataGrid`'s
+> [definition](https://mui.com/x/api/data-grid/data-grid/#:~:text=the%20sorting%20sequence.-,sortModel,-Array%3C%7B%20field%3A%20string) of an array with specified `field` & `sort` values.
+> Finally, `handleSort` should be a callback tha defines the action taken when a `sortOption` is selected.
+
+<Canvas>
+  <Story
+    name='Toolbar'
+    component={DataGrid}
+    args={{
+      columns,
+      rows,
+      pageSize: 5,
+      height: '600px',
+      toolbar: true,
+      sortOptions: [
+        { label: 'Name', value: 'name' },
+        { label: 'Address', value: 'address' },
+      ],
+    }}
+  >
+    {DataGridToolbarTemplate.bind()}
   </Story>
 </Canvas>
 
