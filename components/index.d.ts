@@ -7,7 +7,7 @@ import { CardProps as CardProps$1 } from '@mui/material/Card';
 import { CardContentProps as CardContentProps$1 } from '@mui/material/CardContent';
 import { CardHeaderProps as CardHeaderProps$1 } from '@mui/material/CardHeader';
 import { DialogProps as DialogProps$1, DialogActionsProps, ListProps as ListProps$1, ListItemProps as ListItemProps$1, MenuProps as MenuProps$1 } from '@mui/material';
-import { DataGridProps as DataGridProps$1 } from '@mui/x-data-grid';
+import { DataGridProps as DataGridProps$1, GridSortModel } from '@mui/x-data-grid';
 import { TextFieldProps as TextFieldProps$1 } from '@mui/material/TextField';
 import { DialogProps as DialogProps$2 } from '@mui/material/Dialog';
 import { DialogContentProps as DialogContentProps$1 } from '@mui/material/DialogContent';
@@ -187,6 +187,21 @@ interface ConfirmationModalProps extends Omit<DialogProps$1, 'title'> {
 }
 declare const ConfirmationModal: ({ variant, open, onClose, onOpen, title, body, primaryAction, primaryActionCopy, secondaryActionCopy, linkBackAction, linkBackCopy, ...otherProps }: ConfirmationModalProps) => JSX.Element;
 
+declare type Mask = 'money' | 'moneyWithCents' | 'ssn' | 'lastFourSsn' | 'bankNumber' | 'phone' | 'percent' | 'taxId' | 'year' | 'default' | 'search' | 'date';
+
+declare type TextFieldProps = {
+    mask?: Mask;
+    value?: string;
+} & TextFieldProps$1;
+declare const TextField: ({ mask, value, onChange, ...otherProps }: TextFieldProps) => JSX.Element;
+
+declare const StatefulTextField: (props: TextFieldProps) => JSX.Element;
+
+declare type SelectFieldOptions = {
+    value: string;
+    label: string;
+};
+
 interface DataGridProps extends DataGridProps$1 {
     /**
      * the number of rows dsiplayed per page
@@ -201,8 +216,12 @@ interface DataGridProps extends DataGridProps$1 {
      * @default "500px"
      * */
     height: string;
+    toolbar?: boolean;
+    sortOptions?: SelectFieldOptions[];
+    handleSort?: (event: any) => void;
+    sortModel?: GridSortModel;
 }
-declare const Datagrid: ({ columns, pageSize, rows, height, ...otherProps }: DataGridProps) => JSX.Element;
+declare const Datagrid: ({ columns, pageSize, rows, height, toolbar, sortOptions, handleSort, sortModel, ...otherProps }: DataGridProps) => JSX.Element;
 
 interface DatePickerProps {
     name: string;
@@ -392,16 +411,6 @@ interface SuggestedActionAccordionProps extends Omit<AccordionProps, 'variant'> 
     highlightNumber?: boolean;
 }
 declare const SuggestedActionAccordion: ({ variant, groupTitle, numItems, highlightNumber, children, ...otherProps }: SuggestedActionAccordionProps) => JSX.Element;
-
-declare type Mask = 'money' | 'moneyWithCents' | 'ssn' | 'lastFourSsn' | 'bankNumber' | 'phone' | 'percent' | 'taxId' | 'year' | 'default' | 'search' | 'date';
-
-declare type TextFieldProps = {
-    mask?: Mask;
-    value?: string;
-} & TextFieldProps$1;
-declare const TextField: ({ mask, value, onChange, ...otherProps }: TextFieldProps) => JSX.Element;
-
-declare const StatefulTextField: (props: TextFieldProps) => JSX.Element;
 
 declare type FontWeightVariant = 'regular' | 'medium' | 'semibold';
 declare type FontWeightValue = 400 | 500 | 600;

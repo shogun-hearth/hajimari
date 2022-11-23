@@ -3,7 +3,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 import TextField, { TextFieldProps } from '../TextField';
 
-type SelectFieldOptions = {
+export type SelectFieldOptions = {
   value: string;
   label: string;
 };
@@ -28,9 +28,9 @@ const SelectField = ({
 
   return (
     <TextField
-      variant="outlined"
+      variant='outlined'
       select
-      id="select"
+      id='select'
       value={value}
       onChange={handleChange}
       sx={{ minWidth: '100px' }}
