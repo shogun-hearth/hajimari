@@ -19,6 +19,9 @@ export * from './CardHeader/CardHeader';
 export { default as ConfirmationModal } from './ConfirmationModal';
 export * from './ConfirmationModal/ConfirmationModal';
 
+export { default as DataGrid } from './DataGrid';
+export * from './DataGrid/DataGrid';
+
 export { default as DatePickerField } from './Field/DatePickerField';
 export * from './Field/DatePickerField/DatePickerField';
 
@@ -73,6 +76,9 @@ export * from './SuggestedActionAccordion/SuggestedActionAccordion';
 export { default as TextField } from './Field/TextField';
 export * from './Field/TextField/TextField';
 
+export { default as SelectField } from './Field/SelectField';
+export * from './Field/SelectField';
+
 export { default as Typography } from './Typography';
 export * from './Typography/Typography';
 
@@ -87,3 +93,6 @@ export * from './ActionButtonGroup';
 
 export { default as BulletedList } from './BulletedList';
 export * from './BulletedList';
+
+export { default as StatusPill } from './StatusPill';
+export * from './StatusPill';
