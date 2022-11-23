@@ -404,6 +404,15 @@ declare const TextField: ({ mask, value, onChange, ...otherProps }: TextFieldPro
 
 declare const StatefulTextField: (props: TextFieldProps) => JSX.Element;
 
+declare type SelectFieldOptions = {
+    value: string;
+    label: string;
+};
+declare type SelectFieldProps = {
+    options: SelectFieldOptions[];
+} & TextFieldProps;
+declare const SelectField: ({ options, onChange, value, ...otherProps }: SelectFieldProps) => JSX.Element;
+
 declare type FontWeightVariant = 'regular' | 'medium' | 'semibold';
 declare type FontWeightValue = 400 | 500 | 600;
 declare type FontWeight = {
@@ -486,4 +495,4 @@ interface StatusPillProps {
 }
 declare const StatusPill: ({ label, variant, ...otherProps }: StatusPillProps) => JSX.Element;
 
-export { ActionButtonGroup, Banner, BannerProps, Box, BoxProps, BulletedList, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, Datagrid as DataGrid, DataGridProps, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, Menu, MenuProps, MenuTopContent, MenuTopContentProps, NotificationVariant, StatefulTextField, StatusPill, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };
+export { ActionButtonGroup, Banner, BannerProps, Box, BoxProps, BulletedList, Button, ButtonProps, Card, CardColorProperty, CardContent, CardContentProps, CardHeader, CardHeaderProps, CardProps, ConfirmationModal, ConfirmationModalProps, ConfirmationModalVariant, Datagrid as DataGrid, DataGridProps, DatePickerField, DatePickerProps, Dialog, DialogActionProps, DialogActions, DialogContentProps, DialogContent as DialogContentText, DialogHeader, DialogHeaderProps, DialogProps, DialogTopContent, DialogTopContentProps, FontWeightValue, FontWeightVariant, IconButton, IconButtonProps, ImageGrid, ImageGridItem, ImageGridItemProps, ImageGridProps, ImageItem, InformationCard, InformationCardProps, InlineNotification, InlineNotificationProps, LineItem, LineItemProps, List, ListItem, ListItemProps, ListProps, Menu, MenuProps, MenuTopContent, MenuTopContentProps, NotificationVariant, SelectField, StatefulTextField, StatusPill, SuggestedAction, SuggestedActionAccordion, SuggestedActionAccordionProps, SuggestedActionProps, TextField, TextFieldProps, Typography, TypographyProps, fontWeights };

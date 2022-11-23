@@ -123,13 +123,6 @@ declare module '@mui/material/Typography' {
         inherit: false;
     }
 }
-declare module '@mui/material/Chip' {
-    interface ChipPropsColorOverrides {
-        secondary: false;
-        inherit: false;
-        default: false;
-    }
-}
 declare module '@mui/material/IconButton' {
     interface IconButtonPropsColorOverrides extends CustomColorOptions {
         info: false;

@@ -76,6 +76,9 @@ export * from './SuggestedActionAccordion/SuggestedActionAccordion';
 export { default as TextField } from './Field/TextField';
 export * from './Field/TextField/TextField';
 
+export { default as SelectField } from './Field/SelectField';
+export * from './Field/SelectField';
+
 export { default as Typography } from './Typography';
 export * from './Typography/Typography';
 
