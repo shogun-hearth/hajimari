@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import MuiDialogTopContent, {
   DialogTitleProps as MuiDialogTopContentProps,
-} from "@mui/material/DialogTitle";
-import { IconButton } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import CloseIcon from "@mui/icons-material/Close";
+} from '@mui/material/DialogTitle';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CloseIcon from '@mui/icons-material/Close';
 
 import styled from '../../theme/styled';
-import Button from "../Button";
+import Button from '../Button';
+import IconButton from '../IconButton';
 
 export interface DialogTopContentProps extends MuiDialogTopContentProps {
   showCloseButton: boolean;
@@ -33,14 +33,7 @@ const DialogTopContent = ({
 }: DialogTopContentProps): JSX.Element => (
   <DialogTopContentRoot {...props}>
     {backlink && (
-      <Button
-        variant="text"
-        sx={{
-          maxWidth: "10%",
-          m: 0,
-        }}
-        onClick={backlinkAction}
-      >
+      <Button variant="text" sx={{ m: 0 }} onClick={backlinkAction}>
         <ArrowBackIcon sx={{ mr: 2 }} />
         {backlink}
       </Button>

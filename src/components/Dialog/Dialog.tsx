@@ -1,23 +1,13 @@
-import React from 'react';
-import MuiDialog, { DialogProps as MuiDialogProps } from '@mui/material/Dialog';
-
-import styled from '../../theme/styled';
+import React from "react";
+import MuiDialog, { DialogProps as MuiDialogProps } from "@mui/material/Dialog";
 
 export interface DialogProps extends MuiDialogProps { }
 
-const DialogRoot = styled(MuiDialog)(() => ({
-  border: 'inherit',
-  borderRadius: '16px',
-}));
-
 const Dialog = ({
+  fullWidth,
+  maxWidth,
   children,
-  sx,
   ...props
-}: DialogProps): JSX.Element => (
-  <DialogRoot {...props}>
-    {children}
-  </DialogRoot>
-);
+}: DialogProps): JSX.Element => <MuiDialog {...props}>{children}</MuiDialog>;
 
 export default Dialog;
