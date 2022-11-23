@@ -221,7 +221,7 @@ interface DataGridProps extends DataGridProps$1 {
     handleSort?: (event: any) => void;
     sortModel?: GridSortModel;
 }
-declare const Datagrid: ({ columns, pageSize, rows, height, toolbar, sortOptions, handleSort, sortModel, ...otherProps }: DataGridProps) => JSX.Element;
+declare const Datagrid: ({ columns, pageSize, rows, height, toolbar, sortOptions, sortModel, handleSort, ...otherProps }: DataGridProps) => JSX.Element;
 
 interface DatePickerProps {
     name: string;
