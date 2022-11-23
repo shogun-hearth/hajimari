@@ -222,11 +222,25 @@ declare const DatePickerField: ({ name, label, helperText, textFieldProps, onCha
 
 interface DialogProps extends DialogProps$2 {
 }
-declare const Dialog: ({ children, sx, ...props }: DialogProps) => JSX.Element;
+declare const Dialog: ({ fullWidth, maxWidth, children, ...props }: DialogProps) => JSX.Element;
 
 interface DialogActionProps extends DialogActionsProps {
+    /**
+     * callback for the primary action that is hooked up to a `Button`
+     * with `primary` variant and `blue` color.
+     */
+    primaryAction?: (arg?: any) => void;
+    /** label/CTA for the `Button` that calls `primaryAction` */
+    primaryCta?: React$1.ReactNode;
+    /**
+     * callback for the primary action that is hooked up to a `Button`
+     * with `text` variant and `blue` color.
+     */
+    secondaryAction?: (arg?: any) => void;
+    /** label/CTA for the `Button` that calls `secondaryAction` */
+    secondaryCta?: React$1.ReactNode;
 }
-declare const DialogActions: ({ children, sx, ...otherProps }: DialogActionProps) => JSX.Element;
+declare const DialogActions: ({ primaryAction, primaryCta, secondaryAction, secondaryCta, children, ...otherProps }: DialogActionProps) => JSX.Element;
 
 interface DialogContentProps extends DialogContentProps$1 {
 }
