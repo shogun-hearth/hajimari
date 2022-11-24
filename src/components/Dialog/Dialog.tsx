@@ -1,5 +1,5 @@
-import React from "react";
-import MuiDialog, { DialogProps as MuiDialogProps } from "@mui/material/Dialog";
+import React from 'react';
+import MuiDialog, { DialogProps as MuiDialogProps } from '@mui/material/Dialog';
 
 export interface DialogProps extends MuiDialogProps { }
 

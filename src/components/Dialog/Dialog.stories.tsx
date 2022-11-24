@@ -136,7 +136,7 @@ const DialogTemplate = ({
           backlink={backlink}
           showCloseButton={showCloseButton}
         />
-        {header && <DialogHeader>{header}</DialogHeader>}
+        {header && <DialogHeader divider>{header}</DialogHeader>}
         {content && <DialogContent>{content}</DialogContent>}
         <DialogActions
           primaryAction={() => {}}

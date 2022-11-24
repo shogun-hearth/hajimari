@@ -48,7 +48,7 @@ const DialogActions = ({
   children,
   ...otherProps
 }: DialogActionProps): JSX.Element => {
-  const isMobile = useMediaQuery((t: Theme) => t.breakpoints.down('md'));
+  const isMobile = useMediaQuery((t: Theme) => t.breakpoints.down('sm'));
 
   return (
     <DialogActionsRoot {...otherProps}>
