@@ -247,8 +247,9 @@ interface DialogContentProps extends DialogContentProps$1 {
 declare const DialogContent: ({ children, ...otherProps }: DialogContentProps) => JSX.Element;
 
 interface DialogHeaderProps extends DialogTitleProps {
+    divider?: boolean;
 }
-declare const DialogHeader: ({ children, ...props }: DialogHeaderProps) => JSX.Element;
+declare const DialogHeader: ({ children, divider, ...props }: DialogHeaderProps) => JSX.Element;
 
 interface DialogTopContentProps extends DialogTitleProps {
     showCloseButton: boolean;
