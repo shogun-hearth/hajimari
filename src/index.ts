@@ -28,6 +28,7 @@ import {
   ActionButtonGroup,
   BulletedList,
   DataGrid,
+  StatusPill,
 } from './components';
 
 import {
@@ -98,4 +99,5 @@ export {
   SuggestedActionAccordion,
   ActionButtonGroup,
   DataGrid,
+  StatusPill,
 };
