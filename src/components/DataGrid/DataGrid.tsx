@@ -28,9 +28,26 @@ export interface DataGridProps extends MuiDataGridProps {
    * @default "500px"
    * */
   height: string;
+  /**
+   * determines if the toolbar add-on will be displayed
+   *
+   * @default false
+   * */
   toolbar?: boolean;
+  /**
+   * modeled after SelectField's options prop, this prop provides the listed options shown in the Sort By field
+   *
+   * */
   sortOptions?: SelectFieldOptions[];
+  /**
+   * callback that runs when user selects a Sort By option
+   *
+   * */
   handleSort?: (event: any) => void;
+  /**
+   * sortModel stores the state of the sorted data model
+   *
+   * */
   sortModel?: GridSortModel;
 }
 
