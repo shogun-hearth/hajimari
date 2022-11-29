@@ -540,6 +540,325 @@ declare const ConfirmationModal: ({
   ...otherProps
 }: ConfirmationModalProps) => JSX.Element;
 
+interface DataGridProps extends DataGridProps$1 {
+  /**
+   * the number of rows dsiplayed per page
+   *
+   * @optional
+   * @default 10
+   * */
+  pageSize?: number;
+  /**
+   * sets the height of the table. Mui seems to accept units like px and vh but not %
+   *
+   * @default "500px"
+   * */
+  height: string;
+}
+declare const Datagrid: ({
+  columns,
+  pageSize,
+  rows,
+  height,
+  ...otherProps
+}: DataGridProps) => JSX.Element;
+
+interface DatePickerProps {
+  name: string;
+  label?: string;
+  helperText?: string;
+  textFieldProps?: Partial<TextFieldProps$1>;
+  error?: string;
+  onChangeCallback?: (
+    date: any,
+    keyboardInputValue?: string | undefined
+  ) => void;
+  onBlurCallback?: () => void;
+  minDate?: Date | string;
+  maxDate?: Date | string;
+  disabled?: boolean;
+  value?: string | Date | null;
+}
+declare const DatePickerField: ({
+  name,
+  label,
+  helperText,
+  textFieldProps,
+  onChangeCallback,
+  onBlurCallback,
+  error,
+  value: initialValue,
+  ...otherProps
+}: DatePickerProps) => JSX.Element;
+
+interface DialogProps extends DialogProps$2 {}
+declare const Dialog: ({
+  fullWidth,
+  maxWidth,
+  children,
+  ...props
+}: DialogProps) => JSX.Element;
+
+interface DialogActionProps extends DialogActionsProps {
+  /**
+   * callback for the primary action that is hooked up to a `Button`
+   * with `primary` variant and `blue` color.
+   */
+  primaryAction?: (arg?: any) => void;
+  /** label/CTA for the `Button` that calls `primaryAction` */
+  primaryCta?: React$1.ReactNode;
+  /**
+   * callback for the primary action that is hooked up to a `Button`
+   * with `text` variant and `blue` color.
+   */
+  secondaryAction?: (arg?: any) => void;
+  /** label/CTA for the `Button` that calls `secondaryAction` */
+  secondaryCta?: React$1.ReactNode;
+}
+declare const DialogActions: ({
+  primaryAction,
+  primaryCta,
+  secondaryAction,
+  secondaryCta,
+  children,
+  ...otherProps
+}: DialogActionProps) => JSX.Element;
+
+interface DialogContentProps extends DialogContentProps$1 {}
+declare const DialogContent: ({
+  children,
+  ...otherProps
+}: DialogContentProps) => JSX.Element;
+
+interface DialogHeaderProps extends DialogTitleProps {
+  divider?: boolean;
+}
+declare const DialogHeader: ({
+  children,
+  divider,
+  ...props
+}: DialogHeaderProps) => JSX.Element;
+
+interface DialogTopContentProps extends DialogTitleProps {
+  showCloseButton: boolean;
+  backlink?: string;
+  backlinkAction?: () => void;
+  onClose?: () => void;
+}
+declare const DialogTopContent: ({
+  children,
+  showCloseButton,
+  onClose,
+  backlink,
+  backlinkAction,
+  ...props
+}: DialogTopContentProps) => JSX.Element;
+
+declare type IconButtonProps = {
+  /**
+   * The background type that this IconButton is appearing on. Since we don't
+   * currently support light vs dark mode on web as a theme variant, we can
+   * use this prop to determine relevant styles.
+   *
+   * @default 'light'
+   */
+  bg?: BackgroundMode;
+} & IconButtonProps$1;
+declare const IconButton: (props: IconButtonProps) => JSX.Element;
+
+interface ImageGridProps extends ImageListProps {}
+declare const ImageGrid: ({
+  children,
+  ...props
+}: ImageGridProps) => JSX.Element;
+
+interface ImageItem {
+  /**
+   * The source string of an image, accepts the same values as the src prop
+   * of a the standard HTML img element
+   */
+  src: string;
+  /**
+   * A useful description of the image
+   */
+  alt: string;
+}
+interface ImageGridItemProps extends ImageListItemProps {
+  src: ImageItem['src'];
+  alt: ImageItem['alt'];
+  action?: React.ReactNode;
+}
+declare const ImageGridItem: ({
+  src,
+  alt,
+  action,
+  ...props
+}: ImageGridItemProps) => JSX.Element;
+
+interface InformationCardProps {
+  title: string;
+  children: React.ReactNode;
+}
+declare const InformationCard: ({
+  title,
+  children,
+}: InformationCardProps) => JSX.Element;
+
+declare enum NotificationVariant {
+  info = 'info',
+  warning = 'warning',
+  success = 'success',
+  error = 'error',
+}
+interface InlineNotificationProps extends BoxProps {
+  /**
+   * Inline notifications are constrained to `info`, `warning`, `success`, or `error`.
+   * Since the default value is `info`, the default component will have styles
+   * related to that variant.
+   * @default `info`
+   */
+  variant?: NotificationVariant;
+  onClose?: (args?: any) => void;
+  /**
+   *
+   * @default false
+   */
+  showStartIcon?: boolean;
+  /**
+   * @optional function to do some kind of action
+   */
+  action?: (args?: any) => void;
+  /**
+   * the text of the actual button. If an `action` is provided without an `actionLabel`,
+   * a standalone arrow icon will appear as the CTA
+   *
+   * @default undefined
+   *  */
+  actionLabel?: string;
+}
+declare const InlineNotification: ({
+  children,
+  variant,
+  onClose,
+  showStartIcon,
+  action,
+  actionLabel,
+  ...props
+}: InlineNotificationProps) => JSX.Element;
+
+interface LineItemProps {
+  leftContent: React$1.ReactNode;
+  rightContent: React$1.ReactNode;
+  width?: number | string;
+}
+declare const LineItem: ({
+  leftContent,
+  rightContent,
+  width,
+}: LineItemProps) => JSX.Element;
+
+interface ListProps extends ListProps$1 {
+  /**
+   * pass in list items as children
+   * @default undefined
+   */
+  children: React$1.ReactNode;
+  /**
+   * if a hajimari color is specified, the list will have a border
+   * @default undefined
+   */
+  border?: HajimariColor;
+}
+declare const List: ({ children, border }: ListProps) => JSX.Element;
+
+interface ListItemProps extends ListItemProps$1 {
+  /**
+   * The main text of list item row
+   * @default undefined
+   * @optional
+   */
+  headerText?: string;
+  /**
+   * a sorta subheader or more text to supplement main header
+   * @optional
+   */
+  description?: string;
+  /**
+   * primary actions are passed in as children. current use cases include button, toggle, and expand.
+   * if no children is passed in, list item will display text row.
+   * @optional
+   */
+  children?: React$1.ReactNode;
+  /**
+   * if true, headerText will be bolded
+   * @optional
+   * @default false
+   */
+  isHeader?: boolean;
+}
+declare const ListItem: ({
+  headerText,
+  description,
+  children,
+  divider,
+  isHeader,
+}: ListItemProps) => JSX.Element;
+
+declare type SuggestedActionVariant = 'green' | 'yellow' | 'red' | 'greyscale';
+interface SuggestedActionProps {
+  variant: SuggestedActionVariant;
+  description: React$1.ReactNode;
+  dueDate?: string;
+  cta: string;
+  ctaAction: () => void;
+  secondaryCta?: string;
+  secondaryCtaAction?: () => void;
+  hideCtas?: boolean;
+  children?: React$1.ReactNode;
+  workflow?: string;
+  dismissAction?: () => void;
+  viewWorkflow?: () => void;
+  disableAction?: () => void;
+  viewMenuCallback?: () => void;
+}
+declare const SuggestedAction: ({
+  variant,
+  description,
+  dueDate,
+  cta,
+  ctaAction,
+  secondaryCta,
+  secondaryCtaAction,
+  hideCtas,
+  children,
+  workflow,
+  viewWorkflow,
+  disableAction,
+  dismissAction,
+  viewMenuCallback,
+}: SuggestedActionProps) => JSX.Element;
+
+declare type SuggestedActionAccordionVariant =
+  | 'green'
+  | 'yellow'
+  | 'red'
+  | 'greyscale';
+interface SuggestedActionAccordionProps
+  extends Omit<AccordionProps, 'variant'> {
+  variant: SuggestedActionAccordionVariant;
+  groupTitle: string;
+  numItems: number;
+  highlightNumber?: boolean;
+}
+declare const SuggestedActionAccordion: ({
+  variant,
+  groupTitle,
+  numItems,
+  highlightNumber,
+  children,
+  ...otherProps
+}: SuggestedActionAccordionProps) => JSX.Element;
+
 declare type Mask =
   | 'money'
   | 'moneyWithCents'
