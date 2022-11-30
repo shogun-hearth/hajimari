@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import { ComponentMeta, Story } from '@storybook/react';
-import { withDesign } from 'storybook-addon-designs';
-import { ArgType } from '@storybook/components';
+import React, { useState } from "react";
+import { ComponentMeta, Story } from "@storybook/react";
+import { withDesign } from "storybook-addon-designs";
+import { ArgType } from "@storybook/components";
 
-import Button from '../Button';
-import Dialog, { DialogProps } from './Dialog';
-import DialogContent from '../DialogContentText';
-import DialogHeader from '../DialogHeader';
-import DialogTopContent from '../DialogTopContent';
-import DialogActions from '../DialogActions';
-import ConfirmationModal from '../ConfirmationModal/ConfirmationModal';
+import Button from "../Button";
+import Dialog, { DialogProps } from "./Dialog";
+import DialogContent from "../DialogContentText";
+import DialogHeader from "../DialogHeader";
+import DialogTopContent from "../DialogTopContent";
+import DialogActions from "../DialogActions";
 
 export const argTypes = {
   open: {
@@ -92,7 +91,9 @@ type TemplateArgs = {
   header?: ArgType;
   content?: ArgType;
   maxWidth?: ArgType;
-  showCloseButton?: ArgType;
+  showCloseButton?: boolean;
+  actions: ArgType;
+  title?: ArgType;
 } & DialogProps;
 
 export default {
@@ -113,7 +114,7 @@ const DialogTemplate = ({
   backlink,
   maxWidth,
   actions,
-  showCloseButton,
+  showCloseButton = false,
   ...args
 }: TemplateArgs): JSX.Element => {
   const [showDialog, setShowDialog] = useState(false);
@@ -123,7 +124,7 @@ const DialogTemplate = ({
 
   return (
     <>
-      <Button onClick={() => setShowDialog(true)} variant='outlined'>
+      <Button onClick={() => setShowDialog(true)} variant="outlined">
         Open Dialog
       </Button>
       <Dialog
@@ -135,9 +136,14 @@ const DialogTemplate = ({
           backlink={backlink}
           showCloseButton={showCloseButton}
         />
-        {header && <DialogHeader>{header}</DialogHeader>}
+        {header && <DialogHeader divider>{header}</DialogHeader>}
         {content && <DialogContent>{content}</DialogContent>}
-        {actions && <DialogActions>{actions}</DialogActions>}
+        <DialogActions
+          primaryAction={() => {}}
+          primaryCta="Delete"
+          secondaryAction={() => {}}
+          secondaryCta="Cancel"
+        />
       </Dialog>
     </>
   );

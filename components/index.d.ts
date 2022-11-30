@@ -7,7 +7,7 @@ import { CardProps as CardProps$1 } from '@mui/material/Card';
 import { CardContentProps as CardContentProps$1 } from '@mui/material/CardContent';
 import { CardHeaderProps as CardHeaderProps$1 } from '@mui/material/CardHeader';
 import { DialogProps as DialogProps$1, DialogActionsProps, ListProps as ListProps$1, ListItemProps as ListItemProps$1, MenuProps as MenuProps$1 } from '@mui/material';
-import { DataGridProps as DataGridProps$1 } from '@mui/x-data-grid';
+import { DataGridProps as DataGridProps$1, GridSortModel } from '@mui/x-data-grid';
 import { TextFieldProps as TextFieldProps$1 } from '@mui/material/TextField';
 import { DialogProps as DialogProps$2 } from '@mui/material/Dialog';
 import { DialogContentProps as DialogContentProps$1 } from '@mui/material/DialogContent';
@@ -188,6 +188,25 @@ interface ConfirmationModalProps extends Omit<DialogProps$1, 'title'> {
 }
 declare const ConfirmationModal: ({ variant, open, onClose, onOpen, title, body, primaryAction, primaryActionCopy, secondaryActionCopy, linkBackAction, linkBackCopy, ...otherProps }: ConfirmationModalProps) => JSX.Element;
 
+declare type Mask = 'money' | 'moneyWithCents' | 'ssn' | 'lastFourSsn' | 'bankNumber' | 'phone' | 'percent' | 'taxId' | 'year' | 'default' | 'search' | 'date';
+
+declare type TextFieldProps = {
+    mask?: Mask;
+    value?: string;
+} & TextFieldProps$1;
+declare const TextField: ({ mask, value, onChange, ...otherProps }: TextFieldProps) => JSX.Element;
+
+declare const StatefulTextField: (props: TextFieldProps) => JSX.Element;
+
+declare type SelectFieldOptions = {
+    value: string;
+    label: string;
+};
+declare type SelectFieldProps = {
+    options: SelectFieldOptions[];
+} & TextFieldProps;
+declare const SelectField: ({ options, onChange, value, ...otherProps }: SelectFieldProps) => JSX.Element;
+
 interface DataGridProps extends DataGridProps$1 {
     /**
      * the number of rows dsiplayed per page
@@ -202,8 +221,29 @@ interface DataGridProps extends DataGridProps$1 {
      * @default "500px"
      * */
     height: string;
+    /**
+     * determines if the toolbar add-on will be displayed
+     *
+     * @default false
+     * */
+    toolbar?: boolean;
+    /**
+     * modeled after SelectField's options prop, this prop provides the listed options shown in the Sort By field
+     *
+     * */
+    sortOptions?: SelectFieldOptions[];
+    /**
+     * callback that runs when user selects a Sort By option
+     *
+     * */
+    handleSort?: (event: any) => void;
+    /**
+     * sortModel stores the state of the sorted data model
+     *
+     * */
+    sortModel?: GridSortModel;
 }
-declare const Datagrid: ({ columns, pageSize, rows, height, ...otherProps }: DataGridProps) => JSX.Element;
+declare const Datagrid: ({ columns, pageSize, rows, height, toolbar, sortOptions, sortModel, handleSort, ...otherProps }: DataGridProps) => JSX.Element;
 
 interface DatePickerProps {
     name: string;
@@ -222,19 +262,34 @@ declare const DatePickerField: ({ name, label, helperText, textFieldProps, onCha
 
 interface DialogProps extends DialogProps$2 {
 }
-declare const Dialog: ({ children, sx, ...props }: DialogProps) => JSX.Element;
+declare const Dialog: ({ fullWidth, maxWidth, children, ...props }: DialogProps) => JSX.Element;
 
 interface DialogActionProps extends DialogActionsProps {
+    /**
+     * callback for the primary action that is hooked up to a `Button`
+     * with `primary` variant and `blue` color.
+     */
+    primaryAction?: (arg?: any) => void;
+    /** label/CTA for the `Button` that calls `primaryAction` */
+    primaryCta?: React$1.ReactNode;
+    /**
+     * callback for the primary action that is hooked up to a `Button`
+     * with `text` variant and `blue` color.
+     */
+    secondaryAction?: (arg?: any) => void;
+    /** label/CTA for the `Button` that calls `secondaryAction` */
+    secondaryCta?: React$1.ReactNode;
 }
-declare const DialogActions: ({ children, sx, ...otherProps }: DialogActionProps) => JSX.Element;
+declare const DialogActions: ({ primaryAction, primaryCta, secondaryAction, secondaryCta, children, ...otherProps }: DialogActionProps) => JSX.Element;
 
 interface DialogContentProps extends DialogContentProps$1 {
 }
 declare const DialogContent: ({ children, ...otherProps }: DialogContentProps) => JSX.Element;
 
 interface DialogHeaderProps extends DialogTitleProps {
+    divider?: boolean;
 }
-declare const DialogHeader: ({ children, ...props }: DialogHeaderProps) => JSX.Element;
+declare const DialogHeader: ({ children, divider, ...props }: DialogHeaderProps) => JSX.Element;
 
 interface DialogTopContentProps extends DialogTitleProps {
     showCloseButton: boolean;
@@ -393,25 +448,6 @@ interface SuggestedActionAccordionProps extends Omit<AccordionProps, 'variant'> 
     highlightNumber?: boolean;
 }
 declare const SuggestedActionAccordion: ({ variant, groupTitle, numItems, highlightNumber, children, ...otherProps }: SuggestedActionAccordionProps) => JSX.Element;
-
-declare type Mask = 'money' | 'moneyWithCents' | 'ssn' | 'lastFourSsn' | 'bankNumber' | 'phone' | 'percent' | 'taxId' | 'year' | 'default' | 'search' | 'date';
-
-declare type TextFieldProps = {
-    mask?: Mask;
-    value?: string;
-} & TextFieldProps$1;
-declare const TextField: ({ mask, value, onChange, ...otherProps }: TextFieldProps) => JSX.Element;
-
-declare const StatefulTextField: (props: TextFieldProps) => JSX.Element;
-
-declare type SelectFieldOptions = {
-    value: string;
-    label: string;
-};
-declare type SelectFieldProps = {
-    options: SelectFieldOptions[];
-} & TextFieldProps;
-declare const SelectField: ({ options, onChange, value, ...otherProps }: SelectFieldProps) => JSX.Element;
 
 declare type FontWeightVariant = 'regular' | 'medium' | 'semibold';
 declare type FontWeightValue = 400 | 500 | 600;

@@ -302,6 +302,19 @@ export const componentOverrides: ThemeOptions['components'] = {
       },
     },
   },
+  MuiDialog: {
+    styleOverrides: {
+      root: { padding: '24px' },
+      paper: {
+        borderRadius: 8,
+        boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.08);',
+        minWidth: '280px',
+        minHeight: '180px',
+        maxWidth: '680px',
+        width: '100%',
+      },
+    },
+  },
   MuiDivider: {
     styleOverrides: {
       root: {
