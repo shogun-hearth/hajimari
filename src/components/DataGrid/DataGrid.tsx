@@ -61,6 +61,14 @@ const DataGridRoot = styled(MuiDataGrid)(({ theme }) => ({
   '&.MuiDataGrid-root .MuiDataGrid-columnHeaders': {
     borderBottom: `1px solid ${theme.palette.greyscale[700]}`,
   },
+  '&.MuiDataGrid-root .MuiDataGrid-row:hover': {
+    cursor: 'pointer',
+    backgroundColor: theme.palette.blue[100],
+  },
+  '&.MuiDataGrid-root .MuiDataGrid-cell .MuiButton-root:hover': {
+    backgroundColor: theme.palette.blue[500],
+    color: theme.palette.greyscale[100],
+  },
 }));
 
 interface ToolbarProps {
