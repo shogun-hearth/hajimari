@@ -1,10 +1,10 @@
 import { Theme, SimplePaletteColorOptions, ThemeOptions, PaletteOptions } from '@mui/material/styles';
 export { StyledEngineProvider, Theme, ThemeProvider, useTheme } from '@mui/material/styles';
-import * as _mui_system from '@mui/system';
-export { SxProps, SystemProps, experimental_sx as sx } from '@mui/system';
+import * as _mui_system_createStyled from '@mui/system/createStyled';
 import * as _mui_material_styles_createTheme from '@mui/material/styles/createTheme';
 import { Styles, WithStylesOptions, ClassNameMap } from '@mui/styles';
 import React from 'react';
+export { SxProps, SystemProps, experimental_sx as sx } from '@mui/system';
 
 declare const hexValue: (color: HajimariColor) => never;
 declare const emphasize: (color: HajimariColor, coefficient?: number) => string;
@@ -12,7 +12,7 @@ declare const lighten: (color: HajimariColor, coefficient?: number) => string;
 declare const darken: (color: HajimariColor, coefficient?: number) => string;
 declare const alpha: (color: HajimariColor, coefficient?: number) => string;
 
-declare const styled: _mui_system.CreateMUIStyled<_mui_material_styles_createTheme.Theme>;
+declare const styled: _mui_system_createStyled.CreateMUIStyled<_mui_material_styles_createTheme.Theme>;
 
 /**
  * @DEPRECATED
