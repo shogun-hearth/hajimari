@@ -2,8 +2,7 @@ import React from 'react';
 import CircleIcon from '@mui/icons-material/Circle';
 import MuiChip, { ChipProps as MuiChipProps } from '@mui/material/Chip';
 
-import styled, { rootShouldForwardProp } from '@mui/material/styles/styled';
-
+import styled, { rootShouldForwardProp } from '../../theme/styled';
 import Typography from '../Typography';
 
 export interface StatusPillProps {

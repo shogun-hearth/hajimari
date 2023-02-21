@@ -1,6 +1,7 @@
 import React from 'react';
-import styled, { rootShouldForwardProp } from '@mui/material/styles/styled';
 import MuiIconButton, { IconButtonProps as MuiIconButtonProps } from '@mui/material/IconButton';
+
+import styled, { rootShouldForwardProp } from '../../theme/styled';
 
 export type IconButtonProps = {
   /** 
