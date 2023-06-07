@@ -5,6 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ListItem from './ListItem';
 import Button from '../Button';
 import Box from '../Box';
+import Typography from '../Typography';
 
 export const argTypes = {
   headerText: {
@@ -88,6 +89,33 @@ the list item is separated if it is followed by a sibling element.
 
 <Canvas>
   <Story name='Sandbox' args={{ headerText: 'some text!' }}>
+    {ListItemTemplate.bind({})}
+  </Story>
+</Canvas>
+
+#### With Links:
+
+<Canvas>
+  <Story
+    name='With Links'
+    args={{
+      headerText: (
+        <Typography>
+          <a href={'/?path=/docs/organism-list-listitem--sandbox#list-item'}>
+            An example link
+          </a>
+        </Typography>
+      ),
+      description: (
+        <Typography>
+          we might want to add text{' '}
+          <a href={'/?path=/docs/organism-list-listitem--sandbox#list-item'}>
+            with a link
+          </a>
+        </Typography>
+      ),
+    }}
+  >
     {ListItemTemplate.bind({})}
   </Story>
 </Canvas>

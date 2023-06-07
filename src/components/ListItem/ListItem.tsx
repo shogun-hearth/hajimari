@@ -13,12 +13,12 @@ export interface ListItemProps extends MuiListItemProps {
    * @default undefined
    * @optional
    */
-  headerText?: string;
+  headerText?: React.ReactNode;
   /**
    * a sorta subheader or more text to supplement main header
    * @optional
    */
-  description?: string;
+  description?: React.ReactNode;
   /**
    * primary actions are passed in as children. current use cases include button, toggle, and expand.
    * if no children is passed in, list item will display text row.
